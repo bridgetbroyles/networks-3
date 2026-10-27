@@ -1,46 +1,108 @@
-# What to submit for Assignment 3
+# A3 submission guide
 
-## Important limitation
+This is the short, repository-specific checklist. `SUBMITTING.md` is the
+official source if anything here ever differs.
 
-The repository's `SUBMITTING.md` still says that the real server instructions, hidden topology, and log caps will be published later. Follow the updated course version when it appears; it overrides this guide.
+## Files already prepared
 
-## Truth run
+| Purpose | File to use | Canvas upload name |
+|---|---|---|
+| Practice claim validation | `submission/a3_practice_switch.wasm` | any local name |
+| Practice truth validation | `submission/a3_practice_truth_switch.wasm` | any local name |
+| Truth run | `submission/truth/switch.wasm` | `switch.wasm` |
+| Claim observer template | `submission/claim/switch.wasm` | `switch.wasm` |
+| Practice egg 21 | `submission/detect_broken_link.wasm` | `detect.wasm` |
+| Practice egg 22 | `submission/detect_long_pause.wasm` | `detect.wasm` |
+| Practice egg 23 | `submission/detect_scanner.wasm` | `detect.wasm` |
 
-Submit the broad observer:
+The three supplied detectors prove the instrumentation on practice eggs;
+they are not expected to win hidden eggs. Do not upload a practice
+detector as a graded claim without a specific truth-log hypothesis.
 
-```text
-submission/a3_truth_switch.wasm
-```
+The graded observer builds use switch 7 as logger because it is the
+center of the published 3x5 hidden grid. The practice build uses switch
+0 because the six-switch practice network has no switch 7.
 
-Before spending a truth attempt, inspect the published hidden map. If switch 0 is a poor logging location, change `LOGGER` in `a3_switch/src/lib.rs`, rebuild with `--features truth`, and replace the stable copy.
+## Before every truth run
 
-Keep every returned team log and `customers.txt`. Run:
+1. Test `a3_practice_truth_switch.wasm` on all three practice truth worlds:
+   `run-a` at load 1.0, `run-b` at 1.25, and `run-c` at 1.5.
+2. Confirm `submission/truth/switch.wasm` loads as a Wasm switch program.
+3. Upload only that file to **A3 — Truth run**, with the upload name
+   exactly `switch.wasm`.
+4. Wait for the Canvas comment before uploading anything else.
+5. Save both returned files without editing them. Give them run-specific
+   local names such as `truth-1.team.log` and `truth-1-customers.txt`.
+6. Decode the log with:
+
+   ```sh
+   scripts/decode-team-log.py truth-1.team.log
+   ```
+
+There are only three truth runs. A successful returned log consumes one.
+An install failure does not. The first two runtime-error truth jobs are
+free, but that protection is not a reason to submit an untested build.
+
+## Before every claim
+
+1. Start from evidence in a returned truth log and state one precise egg
+   hypothesis, including likely false and near-miss cases.
+2. Narrow the observer if the egg needs different evidence. Keep the log
+   below the 24,576-byte claim cap.
+3. Write one narrow detector for that hypothesis and test true, false,
+   boundary, and near-miss cases locally.
+4. Put the final pair in a fresh directory with exactly these names:
+
+   ```text
+   switch.wasm
+   detect.wasm
+   ```
+
+5. Upload both together to **A3 — Claim** and wait for its comment.
+6. Record the pair's hashes, hypothesis, result, and claim number. Never
+   resend the exact same pair: the server ignores it rather than spending
+   another claim.
+
+There are 30 claims. Each claim can win at most one egg, and an egg is
+won only if the detector answers all ten fixed runs correctly. Claims
+can take minutes; a job that exceeds one hour loses and still consumes
+the claim.
+
+## Important caps and filenames
+
+- Truth log: 65,536 bytes.
+- Claim log: 24,576 bytes.
+- Local practice claim log: 16,384 bytes.
+- Truth upload: one file named `switch.wasm`.
+- Claim upload: two files named `switch.wasm` and `detect.wasm`.
+- One teammate uploads for the team.
+- Send one upload at a time; a newer pending upload replaces the older.
+- Deadline: end of Tuesday, November 3, Central time.
+
+## Rebuilding
+
+The environment may need the Rust toolchain library directory in
+`DYLD_LIBRARY_PATH`, as recorded in `A3_IMPLEMENTATION_LOG.md`.
 
 ```sh
-scripts/decode-team-log.py YOUR_RETURNED_LOG.team
+# Practice claim build: compact records, logger 0
+(cd a3_switch && cargo build --release --target wasm32-unknown-unknown)
+
+# Practice truth build: broad records, logger 0
+(cd a3_switch && cargo build --release --target wasm32-unknown-unknown --features truth)
+
+# Hidden claim build: compact records, logger 7
+(cd a3_switch && cargo build --release --target wasm32-unknown-unknown --features hidden)
+
+# Hidden truth build: broad records, logger 7
+(cd a3_switch && cargo build --release --target wasm32-unknown-unknown --features "hidden truth")
 ```
 
-## Practice claims
-
-These pairs pass all disclosed practice runs:
-
-| Practice egg | Switch file | Detector file |
-|---|---|---|
-| 21, broken link | `submission/a3_claim_switch.wasm` | `submission/detect_broken_link.wasm` |
-| 22, long pause | `submission/a3_claim_switch.wasm` | `submission/detect_long_pause.wasm` |
-| 23, scanner | `submission/a3_claim_switch.wasm` | `submission/detect_scanner.wasm` |
-
-Practice eggs earn no points, so these pairs are for validation and quiz preparation, not useful graded claims.
-
-## Graded hidden claim
-
-A graded claim needs exactly:
-
-1. A compact switch program, normally based on `submission/a3_claim_switch.wasm` but narrowed or adjusted for the hidden egg.
-2. One `detect.wasm` designed for that single hidden egg.
-
-Do not submit one of the three practice detectors expecting hidden credit. The server tests a claim against every unwon hidden egg, but a detector wins only an egg whose ten true, false, and near-miss runs it answers perfectly.
+Copy the hidden truth build to `submission/truth/switch.wasm` and the
+hidden compact build to `submission/claim/switch.wasm`. Do not overwrite
+one with the other when switching features.
 
 ## Design card
 
-`design-card.txt` explains the implemented observation design. Convert it to PDF only if the separate Canvas design-card assignment requires `design-card.pdf`; the A3 handout itself describes the switch and detector upload process rather than a design-card upload.
+The design card is `design-card.txt`. Convert it to PDF only if the
+separate Canvas assignment specifically requires `design-card.pdf`.

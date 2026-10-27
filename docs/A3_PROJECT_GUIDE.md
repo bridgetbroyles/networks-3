@@ -88,7 +88,10 @@ A link is called silent after ten keepalive periods. In the practice worlds, kee
 
 ## 5. Reporting design
 
-Switch 0 requests the logger role on its first timer. This constant should be reconsidered after the hidden topology map is published: a central, well-connected switch is a better choice if switch 0 is peripheral.
+The practice build requests the logger role on switch 0. Graded builds
+enable the `hidden` feature and use switch 7, the center of the published
+3x5 grading grid. From switch 7 every switch is at most three links away;
+using the center reduces typical report delay and exposure to queue loss.
 
 Every non-logger report has:
 
@@ -151,13 +154,18 @@ Normal commands are:
 cd a3_switch
 cargo build --release --target wasm32-unknown-unknown
 
-cargo build --release --target wasm32-unknown-unknown --features truth
+cargo build --release --target wasm32-unknown-unknown --features hidden
+
+cargo build --release --target wasm32-unknown-unknown --features "hidden truth"
 ```
 
-The truth build overwrites the same Cargo target name, so stable copies are kept in `submission/`:
+Each feature combination overwrites the same Cargo target name, so stable
+copies are kept in `submission/`:
 
-- `a3_claim_switch.wasm`
-- `a3_truth_switch.wasm`
+- `a3_practice_switch.wasm` (logger 0; local validation)
+- `a3_practice_truth_switch.wasm` (logger 0; local truth validation)
+- `claim/switch.wasm` (logger 7; graded claim observer template)
+- `truth/switch.wasm` (logger 7; truth observer)
 - `detect_broken_link.wasm`
 - `detect_long_pause.wasm`
 - `detect_scanner.wasm`
@@ -169,19 +177,28 @@ The truth build overwrites the same Cargo target name, so stable copies are kept
 - Scanner practice checker: 10/10.
 - Compact log with all three practice eggs: 5,864 bytes.
 - Truth log with all three practice eggs: 41,655 bytes of the 65,536-byte practice cap.
+- The three required practice truth checks produced 41,655 bytes at 1.0x,
+  43,726 bytes at 1.25x, and 45,797 bytes at 1.5x.
 - All three detectors return true on the practice truth log.
 - `cargo test --workspace`: all simulator, SDK, integration, and document tests pass.
 - Program-specific unit tests pass for the switch and all three detectors.
 
 ## 10. Known limits and next competitive steps
 
-The current work is complete for the disclosed practice tasks, but hidden claims require evidence that the repository cannot provide:
+The current work is complete for the disclosed practice tasks. The
+published submission rules fix the hidden network as a 15-switch grid,
+set the truth cap to 65,536 bytes and claim cap to 24,576 bytes, and give
+three truth runs and 30 claims. Hidden egg definitions still require
+truth-run evidence:
 
-1. Obtain the updated `SUBMITTING.md`, especially the hidden topology, true truth-log cap, claim-log cap, and upload procedure.
-2. Choose the logging switch from the hidden map, then rebuild the truth switch if a switch other than 0 is better.
-3. Submit the truth build and preserve the returned `.team` log and `customers.txt` from each attempt.
-4. Decode each log and compare all three loads. Look for persistent link silence, unusual delay or gaps, customer pauses, rate shifts, many destinations, unexpected packet sizes, or drops.
-5. Form one precise egg hypothesis at a time, including likely near misses.
-6. Make a claim-specific switch that logs only the necessary tags and a detector that rejects those near misses.
+1. Submit `submission/truth/switch.wasm` and preserve the returned
+   `team.log` and `customers.txt` from each attempt.
+2. Decode each log and compare all three loads. Look for persistent link
+   silence, unusual delay or gaps, customer pauses, rate shifts, many
+   destinations, unexpected packet sizes, or drops.
+3. Form one precise egg hypothesis at a time, including likely near misses.
+4. Make a claim-specific switch that logs only the necessary tags and a
+   detector that rejects those near misses.
+5. Upload exactly `switch.wasm` and `detect.wasm`, one claim at a time.
 
 The biggest current uncertainty is not an implementation bug; it is the intentionally hidden definition of the twenty graded eggs. The truth workflow is the mechanism the assignment provides to resolve it.

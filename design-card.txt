@@ -28,9 +28,9 @@ For truth runs, we additionally sample one out of every 64 ordinary source packe
 
 **Reporting and logging**
 
-Switches batch observations into compact, length-prefixed binary records every 500 ms. Switch 0 is the logging switch. Other switches flood batches over the known switch links with an origin and sequence number; duplicate suppression ensures the logger writes each report once. Flooding is intentionally used instead of relying on a single reporting path, because an egg may break that path. Fanout is bounded so one controller callback remains below the action-output limit.
+Switches batch observations into compact, length-prefixed binary records every 500 ms. The graded build logs at switch 7, the center of the published 3x5 grid; the local practice build uses switch 0 because practice has only switches 0-5. Other switches flood batches over known switch links with an origin and sequence number; duplicate suppression ensures the logger writes each report once. Flooding is intentionally used instead of relying on a single reporting path, because an egg may break that path. Fanout is bounded so one controller callback remains below the action-output limit.
 
-The compact practice log was 5,864 bytes when all three practice eggs occurred together, below the 16 KB claim cap. The richer truth log was 41,655 bytes, below the practice truth cap of 64 KB.
+The compact practice log was 5,864 bytes when all three practice eggs occurred together. That fits the stricter 16 KB local practice cap and leaves 18,712 bytes under the published 24 KB claim cap. The richer truth log was 41,655 bytes, below the 64 KB truth cap.
 
 **Tradeoffs**
 

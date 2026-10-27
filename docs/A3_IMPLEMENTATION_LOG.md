@@ -39,7 +39,8 @@ Created:
 - Small data packets are recorded exactly for scanner detection.
 - Truth mode samples one ordinary packet in 64 and records link quality and drops.
 - Reports use compact length-prefixed records, batching, flooding, and `(origin,sequence)` duplicate suppression.
-- Switch 0 is the provisional logger pending the hidden topology map.
+- The local practice build logs at switch 0. Graded builds use switch 7,
+  the center of the published 3x5 hidden grid.
 
 ## Failures and fixes
 
@@ -83,15 +84,32 @@ This includes every disclosed positive, off, and near-miss run.
 
 - Compact switch with all three practice eggs: 5,864 bytes.
 - Truth switch with all three practice eggs: 41,655 bytes, below the 65,536-byte practice truth cap.
+- Required truth-world checks after publication: 41,655 bytes (`run-a`,
+  1.0x), 43,726 bytes (`run-b`, 1.25x), and 45,797 bytes (`run-c`,
+  1.5x), all below 65,536 bytes.
 - Measured failure at 17.2 s: both 1-2 directions logged silent around 18.5 s.
 - Measured Spotify source: median 1.68 Mb/s, 1000-byte packets, about 11.6 s missing between active windows.
 - Measured scanner: 50 small packets to 50 distinct destinations inside five seconds.
 - All three detectors returned true on the final truth log.
 
+## Submission rules update
+
+The published `SUBMITTING.md` resolved the earlier unknowns:
+
+- Truth uploads are one file named `switch.wasm`, with a 65,536-byte log.
+- Claim uploads are exactly `switch.wasm` and `detect.wasm`, with a
+  24,576-byte log and 30 claims per team.
+- The hidden topology is a fixed 3x5, 15-switch grid.
+
+Added an `a3_switch` feature named `hidden`. It changes only the logger
+from practice switch 0 to hidden-grid center switch 7. The stable graded
+truth and claim observer artifacts are built with that feature. Keeping
+the choice build-time avoids a nonexistent switch-7 logger on practice.
+Both hidden artifacts were also loaded successfully by the simulator;
+the practice claim observer still passed eggs 21, 22, and 23 at 10/10.
+
 ## Remaining work that requires external evidence
 
-- Obtain the real `SUBMITTING.md` and hidden network map.
-- Reconsider logger placement.
 - Spend truth attempts carefully and analyze the returned logs.
 - Infer hidden eggs and their near misses.
 - Build one compact switch/detector pair per claim hypothesis.

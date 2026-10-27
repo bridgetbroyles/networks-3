@@ -2,7 +2,7 @@
 
 ## Evidence first
 
-A3 questions are about what our submitted observer and detector literally do. Separate: the real network event, what the data plane counted, which packets were punted, which controller events survived the 80-event/s budget, which reports survived export and queueing, what reached switch 0, what fit in the log, and what the detector inferred. An event can happen without appearing in the log. The detector cannot use the topology, customer names, full simulator trace, or facts we forgot to encode.
+A3 questions are about what our submitted observer and detector literally do. Separate: the real network event, what the data plane counted, which packets were punted, which controller events survived the 80-event/s budget, which reports survived export and queueing, what reached the logger, what fit in the log, and what the detector inferred. An event can happen without appearing in the log. The detector cannot use the topology, customer names, full simulator trace, or facts we forgot to encode.
 
 For a shown moment, use only records already written. `arrived_ns` is when an observed packet reached a switch; `now_ns` may be later because the controller event waited. Reports then need controller action delay, link queueing, propagation, another punt, and possibly several hops before the logger writes them.
 
@@ -18,7 +18,7 @@ The harness forwards customer traffic; our routes and queues do not control it. 
 
 Counting only at customer ingress avoids counting one packet at every hop. Before keepalives teach switch ports, transit traffic could look local, so our controller ignores customer statistics before one second. There are 16 counter slots: slot 0 is unclassified and customer IDs use 1–15.
 
-Every 500 ms the controller reads cumulative counters and reports deltas. Switch 0 becomes logger. Other switches batch observations into at most 800-byte report payloads and flood them over known switch links. Reports carry `(origin,sequence)`; every switch forwards each pair once, so flooding does not create duplicate log records. Flood fanout is bounded to respect the 4,096-byte action-output ceiling.
+Every 500 ms the controller reads cumulative counters and reports deltas. The local practice build uses switch 0 as logger. Both graded builds enable the `hidden` feature and use switch 7, the center of the 3x5 hidden grid. Other switches batch observations into at most 800-byte report payloads and flood them over known switch links. Reports carry `(origin,sequence)`; every switch forwards each pair once, so flooding does not create duplicate log records. Flood fanout is bounded to respect the 4,096-byte action-output ceiling.
 
 Every stored record is `[tag u8][length u8][body]`. Tags identify header, customer statistic, small packet, link silent, link heard, link summary, ordinary packet sample, or drops. Claim mode logs the first five. Truth mode logs all eight.
 
@@ -89,7 +89,7 @@ Reports use the low-priority report queue and never delay customer data. On a bu
 
 ## Log-budget calculations
 
-The practice claim cap is 16,384 bytes and truth cap is 65,536 bytes. A write that would cross the cap is lost entirely; earlier bytes remain. Our compact all-eggs practice log measured 5,864 bytes, leaving 10,520 bytes. The truth log measured 41,655 bytes, leaving 23,881 bytes.
+The local practice claim cap is 16,384 bytes, the graded claim cap is 24,576 bytes, and the truth cap is 65,536 bytes. A write that would cross the cap is lost entirely; earlier bytes remain. Our compact all-eggs practice log measured 5,864 bytes: 10,520 bytes remain under the practice cap and 18,712 under the graded claim cap. The truth log measured 41,655 bytes, leaving 23,881 bytes.
 
 For fixed record size `R` and cap `C`, maximum complete records is `floor(C/R)`, but include the two-byte tag/length header and initial customer header. Do not assume a truncated final record: writes are atomic, so an oversized write is absent.
 
@@ -103,7 +103,7 @@ Truth mode is not itself a universal hidden-egg detector. It gathers broad evide
 
 ## Likely “what if” questions
 
-If the timer changes from 500 to 100 ms, pause timing is more precise but there are five times as many reports and records. If the silence threshold changes from ten to three periods, failure detection is about 700 ms faster but congestion causes more false positives. If switch 0 is peripheral, reports cross more low-priority links and arrive later; choose a central logger after seeing the hidden map. If the log cap halves, truth mode may overflow but claim mode still fits the measured practice case. If the report path breaks, flooding may use another path; if the logger itself is isolated, remote evidence cannot arrive. If packet sampling changes from 1/64 to 1/16, visibility improves fourfold but so do punt, export, and log pressure.
+If the timer changes from 500 to 100 ms, pause timing is more precise but there are five times as many reports and records. If the silence threshold changes from ten to three periods, failure detection is about 700 ms faster but congestion causes more false positives. If the hidden logger were switch 0 instead of central switch 7, reports would travel farther on average and face more low-priority queues. If the log cap halves, truth mode may overflow but claim mode still fits the measured practice case. If the report path breaks, flooding may use another path; if the logger itself is isolated, remote evidence cannot arrive. If packet sampling changes from 1/64 to 1/16, visibility improves fourfold but so do punt, export, and log pressure.
 
 ## Final answer checklist
 
