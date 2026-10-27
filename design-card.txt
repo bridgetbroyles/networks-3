@@ -1,0 +1,41 @@
+A3 Design Card
+
+**Overview**
+
+Assignment 3 is different from the first two assignments because our program does not control forwarding. The harness moves customer packets; our job is to decide what the switches should observe, how they should summarize it, and what evidence should reach one small log. A separate detector then turns that evidence into a true-or-false answer.
+
+Our design uses two related builds. The compact claim build records only the evidence needed for a specific detector and is designed to stay comfortably inside the smaller claim log. The truth build adds general packet samples, link-quality summaries, and drop information so the three truth attempts can reveal possible hidden eggs. Both builds use the same record format and reporting system.
+
+**Customer activity**
+
+We count customer bytes and packets directly in the switch data plane. This is more reliable than punting every packet to the controller because counters see every packet and do not consume the limited event budget.
+
+To avoid counting the same packet once at every hop, switches learn which ports connect to other switches from harness keepalives. Traffic is counted only when it enters from a customer-facing port. Every half second, the source switch reports compact byte and packet totals for each active customer. Packet counts and byte counts together reveal both the sending rate and the average packet size, which helps distinguish customers after their address ranges are shuffled.
+
+This is how the long-pause detector identifies Spotify. It looks for a normally steady, full-sized, finite-rate stream and then checks for a gap of at least about ten seconds with traffic before and after it. It rejects small-packet customers, the much faster unlimited Steam flow, Amazon’s repeated eight-second off periods, and the two-second Spotify near miss.
+
+**Links and failures**
+
+Harness keepalives identify neighboring switches and provide sequence numbers and send times. Each switch records when a known neighbor has been silent for ten keepalive periods and records a recovery if the neighbor speaks again. The broken-link detector requires both directions of link 1-2 to end in the silent state. This rejects another failed link and a temporary 1-2 outage that later recovers.
+
+The truth build also summarizes received keepalives, sequence gaps, average delay, and maximum delay once per second. This gives evidence for less obvious hidden problems such as a link that remains up but becomes slow or lossy.
+
+**Traffic behavior**
+
+Small data packets are punted only at the switch where they enter the network. The scanner detector groups them by source and asks whether one source contacted at least 50 distinct destinations within a five-second window. Counting distinct destinations rejects the “many packets to only a few addresses” near miss, while the time window rejects a scan spread across the whole run.
+
+For truth runs, we additionally sample one out of every 64 ordinary source packets. This preserves examples of who communicated with whom without overwhelming the controller or log.
+
+**Reporting and logging**
+
+Switches batch observations into compact, length-prefixed binary records every 500 ms. Switch 0 is the logging switch. Other switches flood batches over the known switch links with an origin and sequence number; duplicate suppression ensures the logger writes each report once. Flooding is intentionally used instead of relying on a single reporting path, because an egg may break that path. Fanout is bounded so one controller callback remains below the action-output limit.
+
+The compact practice log was 5,864 bytes when all three practice eggs occurred together, below the 16 KB claim cap. The richer truth log was 41,655 bytes, below the practice truth cap of 64 KB.
+
+**Tradeoffs**
+
+The main tradeoff is completeness versus budget. Counters are used for high-volume behavior, while punts are reserved for events where individual source and destination addresses matter. The claim build is conservative with bytes; the truth build spends more log space to discover unknown behavior.
+
+The current detectors intentionally solve the three disclosed practice eggs, which earn no graded points. Hidden-egg detectors cannot be chosen correctly until the returned truth logs show what happened. After a hidden egg is identified, the intended process is to keep the same observation framework, remove unrelated records, and build one narrow detector that distinguishes the egg from its likely near misses.
+
+All three practice detectors pass all ten of their positive, negative, and near-miss runs.

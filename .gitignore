@@ -1,0 +1,5 @@
+target/
+**/target/
+*.team
+*.simlog
+.DS_Store
