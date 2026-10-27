@@ -23,6 +23,8 @@ sent while the first is still waiting takes its place.
 
 ## The two log caps
 
+The handout promised two numbers. Here they are:
+
 | Your log in a... | Handout name | Cap |
 |---|---|---|
 | **truth run** | *T* | **64 KB** (65,536 bytes) |
@@ -38,31 +40,62 @@ Upload your switch program to **A3 — Truth run**. Every egg is present
 in all three runs. Each run has its own seed, and each is busier than
 the one before.
 
-The reply attaches:
+The reply attaches two files:
 
 - `team.log`: what your logging switch wrote, up to 64 KB;
-- `customers.txt`: which address range belongs to which named customer.
+- `customers.txt`: which address range belongs to which named customer,
+  one per line.
 
-A run is used when you get a log back. An install failure does not use a
-run. The team's first two installed runs that crash, loop, or time out
-are free; from the third such error onward, each error uses a truth run
-and returns whatever partial output is available.
+That is all you ever get back. You never see the full log, or where any
+egg is.
 
-Before each upload, run the switch on all three practice truth worlds:
-`run-a.toml` at load 1.0, `run-b.toml` at 1.25, and `run-c.toml` at 1.5.
+**What uses up a run.** A run is used when you get a log back. If your
+program does not install, the reply tells you why, and the run is not
+used.
+
+Sometimes a program installs but the run does not finish: it crashes or
+loops forever on some switch, or the run takes too long. The reply tells
+you when this happens. **Your team's first two runs that end in an error
+like this are free**: they do not use a truth run, and nothing comes
+back. From the third error run on, each one uses one of your 3, and the
+reply attaches whatever it can: what your switch wrote before it stopped,
+or nothing if the run took too long or used too much memory.
+
+So before each upload, run your switch on all three practice truth
+worlds: `worlds/practice/truth/run-a.toml`, `run-b.toml` and `run-c.toml`,
+at loads 1.0, 1.25 and 1.5, as the practice README shows. The real
+network is bigger than the practice one, so passing there makes a crash
+unlikely but cannot rule it out.
 
 ## Claims: 30 per team
 
-Upload exactly two files to **A3 — Claim**: `switch.wasm` and
-`detect.wasm`. The server tries the pair against every egg not yet won.
-Each egg has ten fixed runs, and the detector must be correct on all ten.
-A claim wins at most one egg, so use a separate, narrow detector for each
-egg hypothesis. Claim logs are capped at 24 KB.
+Upload two files to **A3 — Claim**: your switch program, named
+`switch.wasm`, and your detector, named `detect.wasm`. You don't say
+which egg the claim is for. The server tries it on every egg you have
+not won yet.
 
-Wrong files, an install failure, or resubmitting the exact same pair do
-not consume a claim. A claim running longer than one hour is stopped,
-wins nothing, and does consume a claim. Wait for the reply before making
-another upload.
+Each egg has 10 fixed runs. If your detector is right on all 10, you win
+that egg, and once won, it stays won. **A claim wins one egg at most**,
+so send a separate claim for each egg. A detector that combines several
+eggs' rules still wins only one. On these runs your switch's log is
+capped at 24 KB.
+
+The reply lists the eggs you have won, by number, category and name,
+with your points. It never says which egg your claim was tried on, how
+far it got, or why it missed.
+
+**What does not use a claim:** the wrong files, a program that does not
+install, and the same two files as a claim you already sent.
+
+**One hour at most.** A claim that is still running after an hour on the
+server is stopped. It wins nothing, and it does use a claim. A claim
+whose detector is right only on its own egg finishes well within the
+hour. Only a very slow switch, with a detector that fits several eggs,
+can run that long.
+
+Most claims take a couple of minutes, some up to about ten. All claims
+from the whole class wait in one queue, so don't leave yours for the
+last few hours.
 
 ## Points
 
@@ -72,12 +105,17 @@ another upload.
 | medium | 9 | 8 |
 | hard | 7 | 16 |
 
-There are 200 possible points. 150 earns 100%; points above 150 count
-toward A4 bonus levels.
+That makes 200 points in all, and 150 is 100%. Canvas shows your points
+out of 150 as you win eggs. Points above 150 count toward A4's bonus
+levels (100, 150 and 200), and the reply shows your full total.
 
-## Hidden map used by every truth run and claim
+## The map
 
-```text
+Every truth run and every claim runs on this network: switches 0 to 14
+and the links between them. It is the same in every run. Link speeds and
+delays are not given.
+
+```
  0 ---- 1 ---- 2 ---- 3 ---- 4
  |      |      |      |      |
  5 ---- 6 ---- 7 ---- 8 ---- 9
@@ -85,16 +123,22 @@ toward A4 bonus levels.
 10 ---- 11 --- 12 --- 13 --- 14
 ```
 
-Links: 0-1, 0-5, 1-2, 1-6, 2-3, 2-7, 3-4, 3-8, 4-9, 5-6, 5-10,
-6-7, 6-11, 7-8, 7-12, 8-9, 8-13, 9-14, 10-11, 11-12, 12-13,
-13-14.
+Links: 0-1, 0-5, 1-2, 1-6, 2-3, 2-7, 3-4, 3-8, 4-9, 5-6, 5-10, 6-7, 6-11,
+7-8, 7-12, 8-9, 8-13, 9-14, 10-11, 11-12, 12-13, 13-14.
 
-## A2 hidden practice
+## A2 hidden practice: 10 extra attempts on the hidden A2 worlds
 
-Each team has ten ungraded A2 practice attempts. A3 jobs have priority,
-so replies may be slow. This does not change the final A2 grade.
+Your A2 grade is final, but you can keep improving your A2 switch
+program. Upload it to **A2 — Hidden practice** as one `.wasm` file, built the
+same way as in A2. Each team gets **10 practice attempts**. They are
+**ungraded**, so your A2 grade does not change.
 
-## Deadline
+A3 comes first. The server runs a practice attempt only when no truth
+run or claim is waiting, and only one at a time, so when A3 is busy a
+reply can take a while. You can send practice attempts until A3 closes.
 
-Truth runs and claims are accepted through the end of Tuesday,
-November 3 (Central time). Questions go to Ritul at ritul@utexas.edu.
+## Deadline and questions
+
+Truth runs and claims are taken until the end of Tuesday, November 3
+(Central time). If you have any questions, email Ritul
+(ritul@utexas.edu).

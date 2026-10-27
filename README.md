@@ -84,4 +84,4 @@ Open <http://localhost:8080> and drag `run.simlog` onto the page.
 | `docs/LIMITS.md` | Fuel, output size, buffer, queues, control time. |
 | `docs/tinyvm.md` | The data-plane instruction set. |
 | `docs/sim_log.md` | The `.simlog` format and the viewer. |
-| `SUBMITTING.md` | Official Canvas filenames, limits, hidden map, attempts, and deadline. |
+| `SUBMITTING.md` | How to submit: published when the submission server opens. |
