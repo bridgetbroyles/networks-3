@@ -12,7 +12,7 @@ It already has the required upload filename and uses hidden-grid center
 switch 7 as logger. SHA-256:
 
 ```text
-9950f67c431e2d482ea4f90890cf95ec9b8f52e84767997fceb5258551444154
+51b88ca03331a8e499baff983cae05bf2adae95fdd17047f6bff7418b2f888a4
 ```
 
 ## Claim
@@ -29,7 +29,7 @@ detect.wasm
 Current compact observer SHA-256:
 
 ```text
-bdbb4724fa9a43e34c55603645a3741fde415220dc84b211180553c056d10f98
+5e1fa3ad3fa8b35dd315644987c989051e5d42bcd5f1443e5257f3d29e5d26c3
 ```
 
 Do not submit one of the practice detectors merely because it is already
@@ -47,3 +47,7 @@ claims.
 The duplicate top-level `a3_claim_switch.wasm` and
 `a3_truth_switch.wasm` are retained for compatibility with earlier docs.
 Use the exact-name files in `claim/` and `truth/` for Canvas preparation.
+
+`truth-run1/switch.wasm` preserves the exact first truth-run observer.
+It is evidence for reproducibility, not the observer recommended for the
+second truth attempt.

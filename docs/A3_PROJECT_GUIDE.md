@@ -20,14 +20,15 @@ There are two kinds of server attempt. A truth run accepts a switch program and 
 
 Both modes record:
 
-- one header mapping internal customer numbers to the shuffled source prefixes;
+- segmented headers mapping up to 63 internal customer numbers to shuffled prefixes;
 - per-customer bytes and packets every 500 ms;
 - small source packets with source, destination, size, switch, and time;
 - link-silent and link-heard transitions.
 
 Truth mode additionally records:
 
-- one out of every 64 ordinary source packets;
+- per-customer destination byte and packet totals;
+- the first two packets of a flow and one out of every 1,024 later packets;
 - per-direction keepalive count, sequence gaps, mean delay, and peak delay;
 - port drop totals.
 
@@ -59,13 +60,16 @@ scripts/decode-team-log.py run-a.team
 
 ## 3. Data-plane observation pipeline
 
-The five-stage TinyVM program does not forward packets. The harness ignores our forwarding result and uses its own routes.
+The eight-stage TinyVM program does not forward packets. The harness ignores our forwarding result and uses its own routes.
 
 1. An exact table marks ports that have produced switch keepalives.
 2. Packets arriving on unmarked, customer-facing ports are classified by source prefix.
-3. The packet size is added to a byte counter indexed by customer.
-4. One is added to a packet counter indexed by customer.
-5. Keepalives, reports, and qualifying packet samples are punted.
+3. Its destination prefix is classified separately.
+4. Source bytes are counted.
+5. Source packets are counted.
+6. Destination bytes are counted.
+7. Destination packets are counted.
+8. Keepalives, reports, and qualifying packet samples are punted.
 
 This division is deliberate. Counters observe all customer packets without spending controller events. Punts are used only when the controller needs details that a counter cannot preserve, such as a packet’s source and destination.
 
@@ -82,7 +86,7 @@ Each switch keeps:
 - pending log records;
 - report sequence numbers and duplicate-suppression state.
 
-The timer runs every 500 ms. It computes counter deltas, checks link silence, creates truth summaries when enabled, flushes at most one report batch, and schedules the next timer.
+The timer runs every 500 ms. Compact builds report source deltas on that cadence. Truth builds report source and destination deltas every second and link summaries every two seconds, check link silence, flush at most one report batch, and schedule the next timer.
 
 A link is called silent after ten keepalive periods. In the practice worlds, keepalives are 100 ms apart, so the nominal quiet threshold is one second. The visible log time also includes timer alignment, controller/action delay, queuing, propagation, and report forwarding. In the measured truth replay, a failure at 17.2 s produced both silent records at about 18.5 s.
 
@@ -99,11 +103,11 @@ Every non-logger report has:
 [origin u32][sequence u32][one or more framed records]
 ```
 
-Reports are flooded over known switch ports. A switch accepts an `(origin, sequence)` only once, preventing loops and duplicate writes. The logger strips the report header and writes the framed records.
+Practice builds flood reports over known switch ports and suppress duplicates by `(origin, sequence)`. Hidden-grid builds send one copy along a decreasing Manhattan-distance path toward switch 7. They exclude locally silent links and alternate equal-cost parents using the report sequence. This avoids flooding duplicate report punts into the logger while retaining local failure recovery.
 
 The fanout is bounded according to payload size so a dense switch does not exceed the 4,096-byte returned-action limit. Sparse topologies still use every neighbor. The batch is at most 800 bytes, and only one new batch originates per timer; excess truth records remain queued for a later timer.
 
-Flooding costs more than a single routing tree, but it is robust when an egg breaks one possible report path. This is a reasonable correctness-first choice for the small networks and low summarized report rate.
+The hidden build's single-copy routing is less redundant than flooding, but it leaves room in the logger's 80-event/s budget for keepalives and observations. Sequence-based path variation and silent-link avoidance reduce dependence on one path.
 
 ## 6. Log format
 
@@ -123,6 +127,7 @@ Every stored record is self-delimiting:
 | 6 | Link summary | Truth-only keepalive count, gaps, mean and max delay |
 | 7 | Packet sample | Truth-only sampled source/destination/size/sequence |
 | 8 | Port drops | Truth-only switch, time, port, drop count |
+| 9 | Destination statistic | Truth-only destination bytes and packets |
 
 Length-prefixing lets a detector skip records it does not understand and lets later claim-specific builds reuse the format while deleting unrelated tags.
 
@@ -175,11 +180,9 @@ copies are kept in `submission/`:
 - Broken-link practice checker: 10/10.
 - Long-pause practice checker: 10/10.
 - Scanner practice checker: 10/10.
-- Compact log with all three practice eggs: 5,864 bytes.
-- Truth log with all three practice eggs: 41,655 bytes of the 65,536-byte practice cap.
-- The three required practice truth checks produced 41,655 bytes at 1.0x,
-  43,726 bytes at 1.25x, and 45,797 bytes at 1.5x.
-- All three detectors return true on the practice truth log.
+- Revised practice truth logs are 11,961 bytes at 1.0x, 12,113 bytes
+  at 1.25x, and 12,246 bytes at 1.5x.
+- Compact mode still passes all three practice detectors at 10/10.
 - `cargo test --workspace`: all simulator, SDK, integration, and document tests pass.
 - Program-specific unit tests pass for the switch and all three detectors.
 

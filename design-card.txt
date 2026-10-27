@@ -8,7 +8,7 @@ Our design uses two related builds. The compact claim build records only the evi
 
 **Customer activity**
 
-We count customer bytes and packets directly in the switch data plane. This is more reliable than punting every packet to the controller because counters see every packet and do not consume the limited event budget.
+We count source and destination bytes and packets directly in the switch data plane. This is more reliable than punting every packet to the controller because counters see every packet and do not consume the limited event budget. The truth build supports up to 63 shuffled customer ranges.
 
 To avoid counting the same packet once at every hop, switches learn which ports connect to other switches from harness keepalives. Traffic is counted only when it enters from a customer-facing port. Every half second, the source switch reports compact byte and packet totals for each active customer. Packet counts and byte counts together reveal both the sending rate and the average packet size, which helps distinguish customers after their address ranges are shuffled.
 
@@ -18,19 +18,19 @@ This is how the long-pause detector identifies Spotify. It looks for a normally 
 
 Harness keepalives identify neighboring switches and provide sequence numbers and send times. Each switch records when a known neighbor has been silent for ten keepalive periods and records a recovery if the neighbor speaks again. The broken-link detector requires both directions of link 1-2 to end in the silent state. This rejects another failed link and a temporary 1-2 outage that later recovers.
 
-The truth build also summarizes received keepalives, sequence gaps, average delay, and maximum delay once per second. This gives evidence for less obvious hidden problems such as a link that remains up but becomes slow or lossy.
+The truth build also summarizes received keepalives, sequence gaps, average delay, and maximum delay every two seconds. This gives evidence for less obvious hidden problems such as a link that remains up but becomes slow or lossy.
 
 **Traffic behavior**
 
 Small data packets are punted only at the switch where they enter the network. The scanner detector groups them by source and asks whether one source contacted at least 50 distinct destinations within a five-second window. Counting distinct destinations rejects the “many packets to only a few addresses” near miss, while the time window rejects a scan spread across the whole run.
 
-For truth runs, we additionally sample one out of every 64 ordinary source packets. This preserves examples of who communicated with whom without overwhelming the controller or log.
+For truth runs, we additionally sample the first two packets of a flow and then one out of every 1,024 ordinary source packets. This preserves examples of who communicated with whom while leaving controller capacity for keepalives and reports.
 
 **Reporting and logging**
 
-Switches batch observations into compact, length-prefixed binary records every 500 ms. The graded build logs at switch 7, the center of the published 3x5 grid; the local practice build uses switch 0 because practice has only switches 0-5. Other switches flood batches over known switch links with an origin and sequence number; duplicate suppression ensures the logger writes each report once. Flooding is intentionally used instead of relying on a single reporting path, because an egg may break that path. Fanout is bounded so one controller callback remains below the action-output limit.
+Switches batch observations into compact, length-prefixed binary records. The graded build logs at switch 7, the center of the published 3x5 grid; the local practice build uses switch 0 because practice has only switches 0-5. On the hidden grid, each report takes one shortest next hop toward switch 7. Equal-cost choices vary by report sequence, and a locally silent link is avoided. This prevents duplicate floods from consuming the logger's limited event budget. Practice builds retain duplicate-suppressed flooding because their topology is different.
 
-The compact practice log was 5,864 bytes when all three practice eggs occurred together. That fits the stricter 16 KB local practice cap and leaves 18,712 bytes under the published 24 KB claim cap. The richer truth log was 41,655 bytes, below the 64 KB truth cap.
+The revised truth build produced 11,961-12,246 bytes on the three practice truth worlds, well below the 64 KB truth cap. Compact mode still passes all three disclosed practice eggs at 10/10 and stays below the stricter 16 KB local practice cap.
 
 **Tradeoffs**
 

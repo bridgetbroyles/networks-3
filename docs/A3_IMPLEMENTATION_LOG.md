@@ -34,11 +34,15 @@ Created:
 
 - Customer bytes and packets are counted in data-plane arrays.
 - Keepalives teach switch-facing ports; customer traffic is counted only at source ingress.
-- Statistics are reported every 500 ms.
+- Compact statistics are reported every 500 ms; truth source and
+  destination statistics are reported every second.
 - Ten missing keepalive periods trigger a silent record; recovery triggers a heard record.
 - Small data packets are recorded exactly for scanner detection.
-- Truth mode samples one ordinary packet in 64 and records link quality and drops.
-- Reports use compact length-prefixed records, batching, flooding, and `(origin,sequence)` duplicate suppression.
+- Truth mode samples the first two packets plus one in 1,024 and records
+  link quality, destination activity, and drops.
+- Reports use compact length-prefixed records and batching. Practice uses
+  duplicate-suppressed flooding; the fixed hidden grid uses one
+  decreasing-distance path toward switch 7.
 - The local practice build logs at switch 0. Graded builds use switch 7,
   the center of the published 3x5 hidden grid.
 
@@ -107,6 +111,36 @@ truth and claim observer artifacts are built with that feature. Keeping
 the choice build-time avoids a nonexistent switch-7 logger on practice.
 Both hidden artifacts were also loaded successfully by the simulator;
 the practice claim observer still passed eggs 21, 22, and 23 at 10/10.
+
+## Truth run 1 and observer revision
+
+Truth run 1 returned 57,417 bytes and 3,076 records. Analysis found that
+the original observer covered only 15 of the 54 returned customer ranges.
+It also sampled 2,637 ordinary packets locally at switch 7, exhausting
+the logger's 80-event/s controller budget and starving keepalives and
+incoming reports. Several apparent silent links are therefore observer
+artifacts, not trustworthy network events.
+
+The exact run-1 observer is preserved in
+`submission/truth-run1/switch.wasm`. The revised truth observer:
+
+- supports 63 source and destination prefixes;
+- uses four 64-slot data-plane counters, which keep timer input below the
+  4,096-byte Wasm input buffer;
+- uses segmented version-2 headers;
+- samples first packets plus one in 1,024;
+- reports customer totals every second and links every two seconds;
+- routes one report toward switch 7 instead of flooding duplicates.
+
+An attempted 64x64 source-destination matrix was rejected during local
+testing because two 4,096-slot arrays made each timer event exceed the
+4,096-byte Wasm input buffer. It was replaced with separate 64-slot
+source and destination counters. This preserves complete rate and packet
+size data while sparse packet samples retain source-to-destination pairs.
+
+The revised observer produces 11,961, 12,113, and 12,246 bytes on the
+three practice truth loads. Compact mode was rerun on all 30 disclosed
+claim cases and still passes each practice egg at 10/10.
 
 ## Remaining work that requires external evidence
 

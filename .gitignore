@@ -3,3 +3,4 @@ target/
 *.team
 *.simlog
 .DS_Store
+truthrun*/
