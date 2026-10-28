@@ -34,12 +34,17 @@ Created:
 
 - Customer bytes and packets are counted in data-plane arrays.
 - Keepalives teach switch-facing ports; customer traffic is counted only at source ingress.
-- Compact statistics are reported every 500 ms; truth source and
-  destination statistics are reported every second.
-- Ten missing keepalive periods trigger a silent record; recovery triggers a heard record.
-- Small data packets are recorded exactly for scanner detection.
-- Truth mode samples the first two packets plus one in 1,024 and records
-  link quality, destination activity, and drops.
+- Compact statistics are reported every 500 ms. Truth mode reports source
+  totals every 1.5 seconds and destination totals every two seconds so all
+  54 observed customers fit with useful log headroom.
+- Twenty missing keepalive periods trigger a silent record; recovery
+  triggers a heard record. With 100 ms keepalives this is a two-second
+  threshold, chosen to reject congestion-induced false failures.
+- Compact claim mode records small packets exactly for scanner detection.
+  Truth mode samples every eighth small-packet sequence number and suppresses
+  repeat source/destination pairs for five seconds.
+- Truth mode samples the first two ordinary packets plus one in 1,024 and
+  records link quality, destination activity, and drops.
 - Reports use compact length-prefixed records and batching. Practice uses
   duplicate-suppressed flooding; the fixed hidden grid uses one
   decreasing-distance path toward switch 7.
@@ -68,7 +73,7 @@ Customer prefixes, contract order, law, and demand cannot name Spotify in A3. Th
 
 ### Unit and repository tests
 
-- Switch unit tests: 2 passed.
+- Switch unit tests: 4 passed.
 - Broken-link detector: 1 passed.
 - Long-pause detector: 2 passed.
 - Scanner detector: 1 passed.
@@ -87,10 +92,10 @@ This includes every disclosed positive, off, and near-miss run.
 ### Log sizes and measured evidence
 
 - Compact switch with all three practice eggs: 5,864 bytes.
-- Truth switch with all three practice eggs: 41,655 bytes, below the 65,536-byte practice truth cap.
-- Required truth-world checks after publication: 41,655 bytes (`run-a`,
-  1.0x), 43,726 bytes (`run-b`, 1.25x), and 45,797 bytes (`run-c`,
-  1.5x), all below 65,536 bytes.
+- Final revised truth switch with all three practice eggs: 9,945 bytes.
+- Final practice truth checks: 9,945 bytes (`run-a`, 1.0x), 10,097 bytes
+  (`run-b`, 1.25x), and 10,230 bytes (`run-c`, 1.5x), all well below
+  65,536 bytes.
 - Measured failure at 17.2 s: both 1-2 directions logged silent around 18.5 s.
 - Measured Spotify source: median 1.68 Mb/s, 1000-byte packets, about 11.6 s missing between active windows.
 - Measured scanner: 50 small packets to 50 distinct destinations inside five seconds.
@@ -128,8 +133,10 @@ The exact run-1 observer is preserved in
 - uses four 64-slot data-plane counters, which keep timer input below the
   4,096-byte Wasm input buffer;
 - uses segmented version-2 headers;
-- samples first packets plus one in 1,024;
-- reports customer totals every second and links every two seconds;
+- samples the first two ordinary packets plus one in 1,024, and takes a
+  bounded one-in-eight sample of short small-packet sequences;
+- reports source totals every 1.5 seconds, destination totals and links every
+  two seconds, and de-duplicates repeated small source/destination pairs;
 - routes one report toward switch 7 instead of flooding duplicates.
 
 An attempted 64x64 source-destination matrix was rejected during local
@@ -138,9 +145,38 @@ testing because two 4,096-slot arrays made each timer event exceed the
 source and destination counters. This preserves complete rate and packet
 size data while sparse packet samples retain source-to-destination pairs.
 
-The revised observer produces 11,961, 12,113, and 12,246 bytes on the
-three practice truth loads. Compact mode was rerun on all 30 disclosed
-claim cases and still passes each practice egg at 10/10.
+The final observer produces 9,945, 10,097, and 10,230 bytes on the three
+practice truth loads. Compact mode was rerun on all 30 disclosed claim cases
+and still passes each practice egg at 10/10.
+
+## Full-grid Truth Run 2 readiness validation
+
+Added `scripts/a3-grid-validation.py`, which recreates the published
+15-switch 3x5 topology with 54 shuffled sending customers. It checks that
+records arrive from all switches, all 44 directed link views appear, and the
+65,536-byte truth cap retains a safety margin.
+
+The first full-grid test found two real defects before submission: a normal
+run used 65,480 bytes, and sustained 64-byte traffic filled the log while
+creating false silent-link events. The fixes were to stagger source and
+destination counter snapshots, bound small-packet sequence sampling,
+de-duplicate repeated small pairs, and use a two-second quiet threshold.
+
+The exact final `submission/truth/switch.wasm` was tested at load 1.5:
+
+- baseline: 46,160 bytes, all 15 switches, all 44 link directions;
+- three overlapping logger-adjacent failures: 40,292 bytes, all six SILENT
+  and all six HEARD transitions, all switches and directions retained;
+- sustained small-packet stress: 47,214 bytes, no false link transitions;
+- high-rate load stress: 49,238 bytes, no false link transitions;
+- simultaneous delay, loss, capacity, pause, scan, and side-flow plants:
+  49,525 bytes, with the planted delay, loss, pause, scan diversity, and
+  side flow visible in the decoded evidence.
+
+The worst measured case used 75.6% of the log cap, leaving 16,011 bytes.
+All repository tests passed (114 simulator unit tests plus integration, SDK,
+Wasm, detector, and doctest groups). The final truth artifact SHA-256 is
+`9cb5ea50346bae90feb8db6eeab88b26ab268ccd1d812d02017970097fd019b0`.
 
 ## Remaining work that requires external evidence
 

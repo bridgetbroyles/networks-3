@@ -28,10 +28,14 @@ const M_DEST_CUSTOMER: u32 = 22;
 const TICK_NS: u64 = 500_000_000;
 const SMALL_PACKET_BYTES: u64 = 128;
 const REPORT_CHUNK_BYTES: usize = 800;
-const QUIET_PERIODS: u64 = 10;
+const QUIET_PERIODS: u64 = 20;
 const MAX_CUSTOMERS: usize = 63;
 const CUSTOMER_SLOTS: usize = 64;
 const TRUTH_SAMPLE_MASK: u64 = 1023;
+const SMALL_SAMPLE_MASK: u64 = 7;
+const SOURCE_SNAPSHOT_NS: u64 = 1_500_000_000;
+const DEST_SNAPSHOT_NS: u64 = 2_000_000_000;
+const SMALL_PAIR_SAMPLE_NS: u64 = 5_000_000_000;
 
 pub const TAG_HEADER: u8 = 1;
 pub const TAG_STAT: u8 = 2;
@@ -108,12 +112,14 @@ pub struct A3Observer {
     seen_reports: HashSet<(u32, u32)>,
     links: BTreeMap<u16, LinkState>,
     installed_switch_ports: BTreeSet<u16>,
+    last_small_pair_sample: BTreeMap<(u32, u32), u64>,
     pending: Vec<Vec<u8>>,
     last_bytes: Vec<u64>,
     last_packets: Vec<u64>,
     last_dest_bytes: Vec<u64>,
     last_dest_packets: Vec<u64>,
     last_counter_snapshot_ns: u64,
+    last_dest_snapshot_ns: u64,
     last_link_summary_ns: u64,
 }
 
@@ -269,13 +275,7 @@ impl A3Observer {
             .collect()
     }
 
-    fn stat_record(
-        &self,
-        customer: usize,
-        at: u16,
-        bytes: u64,
-        packets: u64,
-    ) -> Vec<u8> {
+    fn stat_record(&self, customer: usize, at: u16, bytes: u64, packets: u64) -> Vec<u8> {
         let mut body = vec![self.me as u8, customer as u8];
         push_u16(&mut body, at);
         push_u32(&mut body, bytes.min(u32::MAX as u64) as u32);
@@ -283,13 +283,7 @@ impl A3Observer {
         framed(TAG_STAT, body)
     }
 
-    fn dest_stat_record(
-        &self,
-        destination: usize,
-        at: u16,
-        bytes: u64,
-        packets: u64,
-    ) -> Vec<u8> {
+    fn dest_stat_record(&self, destination: usize, at: u16, bytes: u64, packets: u64) -> Vec<u8> {
         let mut body = vec![self.me as u8, destination as u8];
         push_u16(&mut body, at);
         push_u32(&mut body, bytes.min(u32::MAX as u64) as u32);
@@ -342,37 +336,45 @@ impl A3Observer {
             self.last_counter_snapshot_ns = ev.now_ns;
             return;
         }
-        if cfg!(feature = "truth")
-            && ev
-                .now_ns
-                .saturating_sub(self.last_counter_snapshot_ns)
-                < 1_000_000_000
-        {
+        let emit_source = !cfg!(feature = "truth")
+            || ev.now_ns.saturating_sub(self.last_counter_snapshot_ns) >= SOURCE_SNAPSHOT_NS;
+        let emit_destination = cfg!(feature = "truth")
+            && ev.now_ns.saturating_sub(self.last_dest_snapshot_ns) >= DEST_SNAPSHOT_NS;
+        if !emit_source && !emit_destination {
             return;
         }
-        self.last_counter_snapshot_ns = ev.now_ns;
+        if emit_source {
+            self.last_counter_snapshot_ns = ev.now_ns;
+        }
+        if emit_destination {
+            self.last_dest_snapshot_ns = ev.now_ns;
+        }
 
         let at = at_100ms(ev.now_ns);
         let customer_count = self.customers.len().min(MAX_CUSTOMERS);
         for customer in 1..=customer_count {
-            let now_b = bytes.get(customer).copied().unwrap_or(0);
-            let now_p = packets.get(customer).copied().unwrap_or(0);
-            let delta_b = now_b.saturating_sub(self.last_bytes[customer]);
-            let delta_p = now_p.saturating_sub(self.last_packets[customer]);
-            self.last_bytes[customer] = now_b;
-            self.last_packets[customer] = now_p;
-            if delta_b > 0 || delta_p > 0 {
-                self.append(self.stat_record(customer, at, delta_b, delta_p));
+            if emit_source {
+                let now_b = bytes.get(customer).copied().unwrap_or(0);
+                let now_p = packets.get(customer).copied().unwrap_or(0);
+                let delta_b = now_b.saturating_sub(self.last_bytes[customer]);
+                let delta_p = now_p.saturating_sub(self.last_packets[customer]);
+                self.last_bytes[customer] = now_b;
+                self.last_packets[customer] = now_p;
+                if delta_b > 0 || delta_p > 0 {
+                    self.append(self.stat_record(customer, at, delta_b, delta_p));
+                }
             }
 
-            let now_db = dest_bytes.get(customer).copied().unwrap_or(0);
-            let now_dp = dest_packets.get(customer).copied().unwrap_or(0);
-            let delta_db = now_db.saturating_sub(self.last_dest_bytes[customer]);
-            let delta_dp = now_dp.saturating_sub(self.last_dest_packets[customer]);
-            self.last_dest_bytes[customer] = now_db;
-            self.last_dest_packets[customer] = now_dp;
-            if cfg!(feature = "truth") && (delta_db > 0 || delta_dp > 0) {
-                self.append(self.dest_stat_record(customer, at, delta_db, delta_dp));
+            if emit_destination {
+                let now_db = dest_bytes.get(customer).copied().unwrap_or(0);
+                let now_dp = dest_packets.get(customer).copied().unwrap_or(0);
+                let delta_db = now_db.saturating_sub(self.last_dest_bytes[customer]);
+                let delta_dp = now_dp.saturating_sub(self.last_dest_packets[customer]);
+                self.last_dest_bytes[customer] = now_db;
+                self.last_dest_packets[customer] = now_dp;
+                if delta_db > 0 || delta_dp > 0 {
+                    self.append(self.dest_stat_record(customer, at, delta_db, delta_dp));
+                }
             }
         }
     }
@@ -488,41 +490,48 @@ impl SwitchProgram for A3Observer {
         let final_stage = if cfg!(feature = "truth") {
             format!(
                 "
-                stage alu=24 mem=0
+                stage alu=32 mem=0
                     load r0, ip_proto
                     const r1, {report}
                     eq r2, r0, r1
-                    bif r2 -> 36
+                    bif r2 -> 43
                     load r0, kind
                     const r1, {keepalive}
                     eq r2, r0, r1
-                    bif r2 -> 37
+                    bif r2 -> 44
                     const r3, 1
                     loadm r0, m{switch_meta}
                     const r1, 0
                     eq r2, r0, r1
                     bif r2 -> 14
-                    bif r3 -> 38
+                    bif r3 -> 45
                     load r0, kind
                     const r1, 0
                     eq r2, r0, r1
                     bif r2 -> 19
-                    bif r3 -> 38
+                    bif r3 -> 45
                     load r0, size
                     const r1, {small}
                     lt r2, r0, r1
-                    bif r2 -> 35
+                    bif r2 -> 24
+                    bif r3 -> 30
+                    load r0, seq
+                    const r1, {small_sample_mask}
+                    and r2, r0, r1
+                    const r1, 0
+                    eq r2, r2, r1
+                    bif r2 -> 42
                     load r0, seq
                     const r1, 2
                     lt r2, r0, r1
-                    bif r2 -> 35
+                    bif r2 -> 42
                     load r0, seq
                     const r1, {sample_mask}
                     and r2, r0, r1
                     const r1, 0
                     eq r2, r2, r1
-                    bif r2 -> 35
-                    bif r3 -> 38
+                    bif r2 -> 42
+                    bif r3 -> 45
                     noop
                     punt 3
                     punt 2
@@ -532,7 +541,12 @@ impl SwitchProgram for A3Observer {
                 report = PROTO_REPORT,
                 keepalive = KIND_KEEPALIVE,
                 switch_meta = M_SWITCH_PORT,
+                // Small flows are sampled every eighth sequence number, plus
+                // the first two.  That retains address-diversity evidence
+                // from short scans without letting an ordinary high-rate
+                // small-packet customer starve keepalives and reports.
                 small = SMALL_PACKET_BYTES,
+                small_sample_mask = SMALL_SAMPLE_MASK,
                 sample_mask = TRUTH_SAMPLE_MASK,
             )
         } else {
@@ -642,12 +656,14 @@ impl SwitchProgram for A3Observer {
             seen_reports: HashSet::new(),
             links: BTreeMap::new(),
             installed_switch_ports: BTreeSet::new(),
+            last_small_pair_sample: BTreeMap::new(),
             pending: Vec::new(),
             last_bytes: vec![0; CUSTOMER_SLOTS],
             last_packets: vec![0; CUSTOMER_SLOTS],
             last_dest_bytes: vec![0; CUSTOMER_SLOTS],
             last_dest_packets: vec![0; CUSTOMER_SLOTS],
             last_counter_snapshot_ns: 0,
+            last_dest_snapshot_ns: 0,
             last_link_summary_ns: 0,
         };
         (me, setup)
@@ -688,9 +704,9 @@ impl SwitchProgram for A3Observer {
                         recovered = Some(link.neighbour);
                     }
                     if keepalive.seq > link.last_seq + 1 {
-                        link.gaps = link
-                            .gaps
-                            .saturating_add((keepalive.seq - link.last_seq - 1).min(u16::MAX as u64) as u16);
+                        link.gaps = link.gaps.saturating_add(
+                            (keepalive.seq - link.last_seq - 1).min(u16::MAX as u64) as u16,
+                        );
                     }
                     link.neighbour = keepalive.switch;
                     link.last_arrived_ns = ev.arrived_ns;
@@ -723,7 +739,19 @@ impl SwitchProgram for A3Observer {
             } else {
                 TAG_PACKET_SAMPLE
             };
-            if tag == TAG_SMALL_PACKET || cfg!(feature = "truth") {
+            let keep_small = if tag == TAG_SMALL_PACKET && cfg!(feature = "truth") {
+                let key = (ev.ip_src, ev.ip_dst);
+                let last = self.last_small_pair_sample.entry(key).or_insert(0);
+                if ev.arrived_ns.saturating_sub(*last) >= SMALL_PAIR_SAMPLE_NS {
+                    *last = ev.arrived_ns;
+                    true
+                } else {
+                    false
+                }
+            } else {
+                tag == TAG_SMALL_PACKET
+            };
+            if keep_small || cfg!(feature = "truth") && tag == TAG_PACKET_SAMPLE {
                 self.append(self.packet_record(tag, &ev));
             }
         }
@@ -822,7 +850,11 @@ mod tests {
         assert_eq!(wire.tables[1].initial_entries.len(), 54);
         assert_eq!(wire.tables[2].initial_entries.len(), 54);
         assert!(wire.counters.iter().all(|counter| counter.size == 64));
-        assert!(encoded.len() < 4096, "init output is {} bytes", encoded.len());
+        assert!(
+            encoded.len() < 4096,
+            "init output is {} bytes",
+            encoded.len()
+        );
         assert!(
             encoded_timer.len() < 4096,
             "timer input is {} bytes",

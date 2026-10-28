@@ -94,19 +94,22 @@ attempt on the same blind spots:
 - supports up to 63 shuffled customer ranges rather than 15;
 - logs segmented headers, so all 54 current names can be matched;
 - counts both source and destination bytes/packets in the data plane;
-- reports truth counters once per second;
-- samples the first two packets plus one in 1,024, rather than one in 64;
+- reports truth source counters every 1.5 seconds and destination counters
+  every two seconds;
+- samples the first two ordinary packets plus one in 1,024, and every eighth
+  small-packet sequence number;
 - summarizes links every two seconds;
 - routes one report copy toward central switch 7 on the published grid,
   rather than flooding duplicates into the logger;
 - excludes locally silent links from report routing and varies equal-cost
   parents by report sequence.
 
-On all three local truth worlds the revised observer produced only
-11,961-12,246 bytes while retaining complete link summaries, source and
-destination rates, packet examples, small-packet details, and drops. It
-also still passes every disclosed practice claim at 10/10 in compact
-mode.
+On all three local truth worlds the final observer produced only
+9,945-10,230 bytes while retaining complete link summaries, source and
+destination rates, packet examples, small-packet details, and drops. A
+15-switch 1.5x-load validation suite peaked at 49,525 of 65,536 bytes and
+retained all switches and directed links. It also still passes every
+disclosed practice claim at 10/10 in compact mode.
 
 The exact run-1 Wasm is preserved at
 `submission/truth-run1/switch.wasm`. The improved run-2 file is
@@ -117,7 +120,7 @@ The exact run-1 Wasm is preserved at
 Submit the improved truth observer for truth run 2. Do not spend truth
 run 3 immediately. After run 2 returns:
 
-1. verify that all customer ranges and all 46 directed grid links appear;
+1. verify that all customer ranges and all 44 directed grid links appear;
 2. compare named-customer rates, packet sizes, start/stop times, fanout,
    and reverse traffic with run 1;
 3. confirm the two large one-way link delays and identify any gaps,

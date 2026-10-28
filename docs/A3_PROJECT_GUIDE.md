@@ -21,14 +21,18 @@ There are two kinds of server attempt. A truth run accepts a switch program and 
 Both modes record:
 
 - segmented headers mapping up to 63 internal customer numbers to shuffled prefixes;
-- per-customer bytes and packets every 500 ms;
+- per-customer bytes and packets (500 ms in compact claim mode; 1.5-second
+  source and two-second destination windows in truth mode);
 - small source packets with source, destination, size, switch, and time;
 - link-silent and link-heard transitions.
 
 Truth mode additionally records:
 
 - per-customer destination byte and packet totals;
-- the first two packets of a flow and one out of every 1,024 later packets;
+- the first two ordinary packets of a flow and one out of every 1,024 later
+  packets;
+- every eighth sequence number for small packets, with repeated
+  source/destination pairs logged at most once per five seconds;
 - per-direction keepalive count, sequence gaps, mean delay, and peak delay;
 - port drop totals.
 
@@ -86,9 +90,17 @@ Each switch keeps:
 - pending log records;
 - report sequence numbers and duplicate-suppression state.
 
-The timer runs every 500 ms. Compact builds report source deltas on that cadence. Truth builds report source and destination deltas every second and link summaries every two seconds, check link silence, flush at most one report batch, and schedule the next timer.
+The timer runs every 500 ms. Compact builds report source deltas on that
+cadence. Truth builds report source deltas every 1.5 seconds, destination
+deltas and link summaries every two seconds, check link silence, flush at
+most one report batch, and schedule the next timer.
 
-A link is called silent after ten keepalive periods. In the practice worlds, keepalives are 100 ms apart, so the nominal quiet threshold is one second. The visible log time also includes timer alignment, controller/action delay, queuing, propagation, and report forwarding. In the measured truth replay, a failure at 17.2 s produced both silent records at about 18.5 s.
+A link is called silent after twenty keepalive periods. In the practice
+worlds, keepalives are 100 ms apart, so the nominal quiet threshold is two
+seconds. This longer threshold was selected after a 1.5x-load grid stress
+test showed that a one-second threshold could briefly mistake controller
+contention for a failed link. Link summaries still expose shorter keepalive
+gaps.
 
 ## 5. Reporting design
 
@@ -180,8 +192,12 @@ copies are kept in `submission/`:
 - Broken-link practice checker: 10/10.
 - Long-pause practice checker: 10/10.
 - Scanner practice checker: 10/10.
-- Revised practice truth logs are 11,961 bytes at 1.0x, 12,113 bytes
-  at 1.25x, and 12,246 bytes at 1.5x.
+- Revised practice truth logs are 9,945 bytes at 1.0x, 10,097 bytes at
+  1.25x, and 10,230 bytes at 1.5x.
+- A local replica of the published 15-switch grid passed baseline, overlapping
+  link-failure, sustained small-packet, high-rate, and mixed-plant tests at
+  1.5x load. Every case retained records from all 15 switches and all 44
+  directed link views. The largest log was 49,525 of 65,536 bytes.
 - Compact mode still passes all three practice detectors at 10/10.
 - `cargo test --workspace`: all simulator, SDK, integration, and document tests pass.
 - Program-specific unit tests pass for the switch and all three detectors.
@@ -204,4 +220,7 @@ truth-run evidence:
    detector that rejects those near misses.
 5. Upload exactly `switch.wasm` and `detect.wasm`, one claim at a time.
 
-The biggest current uncertainty is not an implementation bug; it is the intentionally hidden definition of the twenty graded eggs. The truth workflow is the mechanism the assignment provides to resolve it.
+The remaining uncertainty is the intentionally hidden definition and
+near-miss boundary of each graded egg. Local testing can establish that the
+evidence arrives intact, but only returned truth logs can reveal which exact
+claim detectors to build.

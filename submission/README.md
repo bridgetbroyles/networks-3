@@ -12,7 +12,7 @@ It already has the required upload filename and uses hidden-grid center
 switch 7 as logger. SHA-256:
 
 ```text
-51b88ca03331a8e499baff983cae05bf2adae95fdd17047f6bff7418b2f888a4
+9cb5ea50346bae90feb8db6eeab88b26ab268ccd1d812d02017970097fd019b0
 ```
 
 ## Claim
@@ -29,7 +29,7 @@ detect.wasm
 Current compact observer SHA-256:
 
 ```text
-5e1fa3ad3fa8b35dd315644987c989051e5d42bcd5f1443e5257f3d29e5d26c3
+2c89e1ec9127ee94163bbbe98bb74fed3a14fa925115147e8ac955583545de17
 ```
 
 Do not submit one of the practice detectors merely because it is already

@@ -10,13 +10,13 @@ Our design uses two related builds. The compact claim build records only the evi
 
 We count source and destination bytes and packets directly in the switch data plane. This is more reliable than punting every packet to the controller because counters see every packet and do not consume the limited event budget. The truth build supports up to 63 shuffled customer ranges.
 
-To avoid counting the same packet once at every hop, switches learn which ports connect to other switches from harness keepalives. Traffic is counted only when it enters from a customer-facing port. Every half second, the source switch reports compact byte and packet totals for each active customer. Packet counts and byte counts together reveal both the sending rate and the average packet size, which helps distinguish customers after their address ranges are shuffled.
+To avoid counting the same packet once at every hop, switches learn which ports connect to other switches from harness keepalives. Traffic is counted only when it enters from a customer-facing port. The claim build reports compact totals every half second. The broader truth build uses 1.5-second source windows and two-second destination windows so it can cover all 54 observed customers without filling the larger truth log. Packet counts and byte counts together reveal both the sending rate and the average packet size, which helps distinguish customers after their address ranges are shuffled.
 
 This is how the long-pause detector identifies Spotify. It looks for a normally steady, full-sized, finite-rate stream and then checks for a gap of at least about ten seconds with traffic before and after it. It rejects small-packet customers, the much faster unlimited Steam flow, Amazon’s repeated eight-second off periods, and the two-second Spotify near miss.
 
 **Links and failures**
 
-Harness keepalives identify neighboring switches and provide sequence numbers and send times. Each switch records when a known neighbor has been silent for ten keepalive periods and records a recovery if the neighbor speaks again. The broken-link detector requires both directions of link 1-2 to end in the silent state. This rejects another failed link and a temporary 1-2 outage that later recovers.
+Harness keepalives identify neighboring switches and provide sequence numbers and send times. Each switch records when a known neighbor has been silent for twenty keepalive periods and records a recovery if the neighbor speaks again. The two-second threshold avoided false failures during our high-load tests. The broken-link detector requires both directions of link 1-2 to end in the silent state. This rejects another failed link and a temporary 1-2 outage that later recovers.
 
 The truth build also summarizes received keepalives, sequence gaps, average delay, and maximum delay every two seconds. This gives evidence for less obvious hidden problems such as a link that remains up but becomes slow or lossy.
 
@@ -24,13 +24,13 @@ The truth build also summarizes received keepalives, sequence gaps, average dela
 
 Small data packets are punted only at the switch where they enter the network. The scanner detector groups them by source and asks whether one source contacted at least 50 distinct destinations within a five-second window. Counting distinct destinations rejects the “many packets to only a few addresses” near miss, while the time window rejects a scan spread across the whole run.
 
-For truth runs, we additionally sample the first two packets of a flow and then one out of every 1,024 ordinary source packets. This preserves examples of who communicated with whom while leaving controller capacity for keepalives and reports.
+For truth runs, we additionally sample the first two packets of an ordinary flow and then one out of every 1,024 packets. Small packets are sampled more often—every eighth sequence number—so a short address scan still shows several distinct targets. Repeated copies of the same small source/destination pair are written at most once per five seconds. This keeps identity and scan evidence while leaving controller and log capacity for keepalives and reports.
 
 **Reporting and logging**
 
 Switches batch observations into compact, length-prefixed binary records. The graded build logs at switch 7, the center of the published 3x5 grid; the local practice build uses switch 0 because practice has only switches 0-5. On the hidden grid, each report takes one shortest next hop toward switch 7. Equal-cost choices vary by report sequence, and a locally silent link is avoided. This prevents duplicate floods from consuming the logger's limited event budget. Practice builds retain duplicate-suppressed flooding because their topology is different.
 
-The revised truth build produced 11,961-12,246 bytes on the three practice truth worlds, well below the 64 KB truth cap. Compact mode still passes all three disclosed practice eggs at 10/10 and stays below the stricter 16 KB local practice cap.
+The final truth build produced 9,945-10,230 bytes on the three practice truth worlds. On a local replica of the published 15-switch grid, its largest 1.5x-load stress log was 49,525 of 65,536 bytes, with records from every switch and every directed link. Compact mode still passes all three disclosed practice eggs at 10/10 and stays below the stricter 16 KB local practice cap.
 
 **Tradeoffs**
 

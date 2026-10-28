@@ -25,15 +25,21 @@ center of the published 3x5 hidden grid. The practice build uses switch
 
 ## Before every truth run
 
-1. Test `a3_practice_truth_switch.wasm` on all three practice truth worlds:
+1. Run the published-grid validation against the exact upload:
+
+   ```sh
+   scripts/a3-grid-validation.py --switch submission/truth/switch.wasm --load-scale 1.5
+   ```
+
+2. Test `a3_practice_truth_switch.wasm` on all three practice truth worlds:
    `run-a` at load 1.0, `run-b` at 1.25, and `run-c` at 1.5.
-2. Confirm `submission/truth/switch.wasm` loads as a Wasm switch program.
-3. Upload only that file to **A3 — Truth run**, with the upload name
+3. Confirm `submission/truth/switch.wasm` loads as a Wasm switch program.
+4. Upload only that file to **A3 — Truth run**, with the upload name
    exactly `switch.wasm`.
-4. Wait for the Canvas comment before uploading anything else.
-5. Save both returned files without editing them. Give them run-specific
+5. Wait for the Canvas comment before uploading anything else.
+6. Save both returned files without editing them. Give them run-specific
    local names such as `truth-1.team.log` and `truth-1-customers.txt`.
-6. Decode the log with:
+7. Decode the log with:
 
    ```sh
    scripts/decode-team-log.py truth-1.team.log
@@ -42,6 +48,11 @@ center of the published 3x5 hidden grid. The practice build uses switch
 There are only three truth runs. A successful returned log consumes one.
 An install failure does not. The first two runtime-error truth jobs are
 free, but that protection is not a reason to submit an untested build.
+
+The current `submission/truth/switch.wasm` is the verified Truth Run 2
+artifact. Its SHA-256 is
+`9cb5ea50346bae90feb8db6eeab88b26ab268ccd1d812d02017970097fd019b0`.
+See `A3_TRUTH_RUN_2_READINESS.md` for the measured full-grid results.
 
 ## Before every claim
 

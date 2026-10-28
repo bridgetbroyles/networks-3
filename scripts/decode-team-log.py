@@ -124,19 +124,23 @@ def main() -> None:
             print(f"  C{customer}: {prefix}" + (f"  {name}" if name else ""))
 
     if stats:
-        print("\ncustomer activity (500 ms records)")
+        print("\ncustomer activity (counter records)")
         for customer, windows in sorted(stats.items()):
             values = list(windows.values())
             total_b = sum(v[0] for v in values)
             total_p = sum(v[1] for v in values)
-            rates = [v[0] * 16 / 1_000_000 for v in values]
             times = sorted(windows)
-            gap_ms = max((b - a) * 100 - 500 for a, b in zip(times, times[1:])) if len(times) > 1 else 0
+            steps = [b - a for a, b in zip(times, times[1:])]
+            nominal_ticks = statistics.median(steps) if steps else 5
+            interval_s = nominal_ticks / 10
+            rates = [v[0] * 8 / interval_s / 1_000_000 for v in values]
+            gap_ms = max((step - nominal_ticks) * 100 for step in steps) if steps else 0
             avg_size = total_b / total_p if total_p else 0
             print(
                 f"  C{customer:<2} {prefixes.get(customer, '?'):<18} "
                 f"{names_by_prefix.get(prefixes.get(customer, ''), ''):<24} "
-                f"active={len(values):>2} median={statistics.median(rates):5.2f} Mb/s "
+                f"active={len(values):>2} interval~{interval_s:3.1f}s "
+                f"median={statistics.median(rates):5.2f} Mb/s "
                 f"avg-packet={avg_size:6.1f} B longest-gap~{max(gap_ms, 0):>5} ms"
             )
 
