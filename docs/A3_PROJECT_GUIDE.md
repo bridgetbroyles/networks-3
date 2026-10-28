@@ -92,7 +92,7 @@ Each switch keeps:
 
 The timer runs every 500 ms. Compact builds report source deltas on that
 cadence. Truth builds report source deltas every 1.5 seconds, destination
-deltas and link summaries every two seconds, check link silence, flush at
+byte deltas every four seconds, and link summaries every two seconds; check link silence; flush at
 most one report batch, and schedule the next timer.
 
 A link is called silent after twenty keepalive periods. In the practice
@@ -104,10 +104,10 @@ gaps.
 
 ## 5. Reporting design
 
-The practice build requests the logger role on switch 0. Graded builds
-enable the `hidden` feature and use switch 7, the center of the published
-3x5 grading grid. From switch 7 every switch is at most three links away;
-using the center reduces typical report delay and exposure to queue loss.
+The practice build requests the logger role on switch 0. The final hidden
+build uses switch 2. It remains near the center of the 3x5 grid but, unlike
+switch 7, was not the attachment point of the high-rate customer that
+overloaded the first two truth observers.
 
 Every non-logger report has:
 
@@ -115,11 +115,11 @@ Every non-logger report has:
 [origin u32][sequence u32][one or more framed records]
 ```
 
-Practice builds flood reports over known switch ports and suppress duplicates by `(origin, sequence)`. Hidden-grid builds send one copy along a decreasing Manhattan-distance path toward switch 7. They exclude locally silent links and alternate equal-cost parents using the report sequence. This avoids flooding duplicate report punts into the logger while retaining local failure recovery.
+Practice builds flood reports over known switch ports and suppress duplicates by `(origin, sequence)`. Hidden-grid builds normally send one copy along a decreasing grid-distance path toward switch 2. They exclude locally silent links and alternate equal-cost parents using the report sequence. Reports containing a silent-link record are the exception: that state is repeated while silent and duplicate-suppressed flooded, because the failed link may also have broken the ordinary report path.
 
 The fanout is bounded according to payload size so a dense switch does not exceed the 4,096-byte returned-action limit. Sparse topologies still use every neighbor. The batch is at most 800 bytes, and only one new batch originates per timer; excess truth records remain queued for a later timer.
 
-The hidden build's single-copy routing is less redundant than flooding, but it leaves room in the logger's 80-event/s budget for keepalives and observations. Sequence-based path variation and silent-link avoidance reduce dependence on one path.
+Routine single-copy routing leaves room in the logger's 80-event/s budget for keepalives and observations. Selective redundancy gives rare failure evidence alternate paths without imposing flood overhead on normal counter and link-summary traffic.
 
 ## 6. Log format
 
@@ -184,8 +184,9 @@ copies are kept in `submission/`:
 
 - `a3_practice_switch.wasm` (logger 0; local validation)
 - `a3_practice_truth_switch.wasm` (logger 0; local truth validation)
-- `claim/switch.wasm` (logger 7; graded claim observer template)
-- `truth/switch.wasm` (logger 7; truth observer)
+- `claim/switch.wasm` (preserved claim observer template; rebuild from current
+  source before a new claim)
+- `truth/switch.wasm` (logger 2; final truth observer)
 - `detect_broken_link.wasm`
 - `detect_long_pause.wasm`
 - `detect_scanner.wasm`
@@ -200,7 +201,8 @@ copies are kept in `submission/`:
 - A local replica of the published 15-switch grid passed baseline, overlapping
   link-failure, sustained small-packet, high-rate, and mixed-plant tests at
   1.5x load. Every case retained records from all 15 switches and all 44
-  directed link views. The largest log was 49,525 of 65,536 bytes.
+  directed link views. The largest final-candidate log was 47,618 of 65,536
+  bytes.
 - Compact mode still passes all three practice detectors at 10/10.
 - `cargo test --workspace`: all simulator, SDK, integration, and document tests pass.
 - Program-specific unit tests pass for the switch and all three detectors.
@@ -209,8 +211,9 @@ copies are kept in `submission/`:
 
 Truth Run 2 showed that staying under the byte-log cap is not sufficient:
 one-in-1,024 sampling of the high-rate Cloudflare flow consumed most of S7's
-80-event/s controller budget. The final focused truth build uses one-in-8,192
-ongoing sampling and prioritizes complete counter and link records. See
+80-event/s controller budget. The final focused truth build samples large
+packets one-in-65,536 and small packets every eighth sequence, and prioritizes
+complete counter and link records. See
 `A3_TRUTH_RUN_2_ANALYSIS.md` for the measured evidence.
 
 The current work is complete for the disclosed practice tasks. The

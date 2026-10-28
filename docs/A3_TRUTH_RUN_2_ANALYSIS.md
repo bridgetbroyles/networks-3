@@ -70,28 +70,44 @@ without the opposite direction or recovery is not enough for a claim.
 
 ## Final truth-run correction
 
-The new `focused` observer keeps the same complete source counters,
-destination counters, link summaries, drop records, and report routing. It
-changes only packet sampling: keep the first two packets of a flow, then one
-packet in 8,192. On the observed Cloudflare rate this reduces ordinary punt
-pressure by about eight times.
+The final `focused` observer keeps source and destination byte counters, source
+packet counters, two-second link summaries, drop records, and packet examples.
+Source deltas are emitted every 1.5 seconds and destination-byte deltas every
+four seconds.
+It now logs at S2 rather than S7. S2 remains near the grid center but avoids the
+measured high-rate Cloudflare attachment that exhausted S7 in Run 2.
 
-Local validation now checks all 836 expected two-second link summaries, not
-merely whether each direction appeared once. It also includes a high-rate
-source attached directly to S7, reproducing the Run 2 controller-pressure
-pattern. The final candidate retained:
+Large packets are sampled once per 65,536 sequence numbers. Small packets are
+sampled every eighth sequence, plus the first two, because the simulator gives
+planted scan packets observable sequence values even though the plant itself is
+unacknowledged. This retains eight targets from a 50-address scan without
+allowing large high-rate traffic to consume the event budget.
 
-- records from all 15 switches;
-- all 44 directed link views and all 836 expected summaries;
-- no false SILENT/HEARD transitions;
-- complete source and destination counter windows;
-- a 47,631-byte log (72.7% of the truth cap) in the final 1.5x high-rate S7 test.
+Routine reports use one decreasing-distance path toward S2. A silent-link
+record is repeated every timer tick while the link remains silent and is sent
+with duplicate-suppressed flooding. That special treatment is necessary because
+a failed link can also destroy the normal path carrying the single failure
+report. It costs nothing in a healthy run and recovered all directions during
+overlapping local failure tests.
+
+Final full-grid validation retained:
+
+- records from all 15 switches and all 44 directed link views;
+- all 836 expected summaries in every healthy stress scenario;
+- all six failed directions and all six recoveries across three overlapping
+  bidirectional failures;
+- eight distinct targets from a 50-address scan under a simultaneous 4.8
+  Gbit/s high-rate source;
+- wire-loss gaps, a 30,051-microsecond delay peak, capacity/drop evidence, and
+  ordinary side-flow packet evidence in the combined-plant scenario;
+- no false SILENT/HEARD transitions in healthy scenarios;
+- a largest observed log of 47,618 bytes (72.7% of the 65,536-byte cap).
 
 The exact candidate for Truth Run 3 is `submission/truth/switch.wasm`,
 SHA-256:
 
 ```text
-e76e922fcdaebb42e9279b99d98851ce094432dfeb828ce26645c8d7c4e2cbf1
+7eccce78569356d1ffe2a5a738958aac968de0f309e1851becadd9a951796321
 ```
 
 ## What to do next

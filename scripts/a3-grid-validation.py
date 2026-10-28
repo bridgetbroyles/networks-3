@@ -113,8 +113,8 @@ def world_text(scenario: str) -> str:
         # when S7 has only its southern link.  Every outage later recovers so
         # HEARD records and route restoration are tested too.
         for a, b, at, duration in [
-            (2, 7, 10_000, 18_000),
-            (6, 7, 14_000, 12_000),
+            (1, 2, 10_000, 18_000),
+            (2, 3, 14_000, 12_000),
             (7, 8, 18_000, 8_000),
         ]:
             lines += [
@@ -126,6 +126,30 @@ def world_text(scenario: str) -> str:
                 f"for_ms = {duration}",
                 "",
             ]
+    elif scenario == "load-stress":
+        # Keep the measured high-rate numbered source at S7. Put an additional
+        # open-loop side flow and scan at final logger S2 to test its budget.
+        lines += [
+            "[[plant]]",
+            'kind = "side_flow"',
+            "app = 102",
+            "to = 117",
+            "rate_pps = 500.0",
+            "size_bytes = 500",
+            "start_ms = 5000",
+            "stop_ms = 35000",
+            'proto = "udp"',
+            "",
+            "[[plant]]",
+            'kind = "scan"',
+            "app = 102",
+            "to = 117",
+            "start_ms = 15000",
+            "for_ms = 4000",
+            "addresses = 50",
+            "size_bytes = 60",
+            "",
+        ]
     elif scenario == "mixed-plants":
         # One example of every non-failure hidden plant family.  These are
         # deliberately simultaneous: a truth run has every egg present.
@@ -176,6 +200,16 @@ def world_text(scenario: str) -> str:
             "stop_ms = 35000",
             'proto = "udp"',
             "",
+            "[[plant]]",
+            'kind = "side_flow"',
+            "app = 105",
+            "to = 106",
+            "rate_pps = 30.0",
+            "size_bytes = 500",
+            "start_ms = 7000",
+            "stop_ms = 12000",
+            'proto = "tcp"',
+            "",
         ]
     return "\n".join(lines)
 
@@ -210,7 +244,7 @@ def summarize(data: bytes) -> tuple[dict[str, object], list[str]]:
             summaries[(body[0], body[1])] += 1
             link_gaps += int.from_bytes(body[8:10], "little")
             peak_delay_us = max(peak_delay_us, int.from_bytes(body[14:18], "little"))
-        elif tag == 3 and len(body) == 13:
+        elif tag == 3 and len(body) in (13, 19):
             small_targets[int.from_bytes(body[3:7], "little")].add(
                 int.from_bytes(body[7:11], "little")
             )
@@ -295,15 +329,23 @@ def main() -> int:
             ]
             subprocess.run(command, cwd=ROOT, check=True, stdout=subprocess.DEVNULL)
             result, problems = summarize(log.read_bytes())
-            if scenario in {"baseline", "small-stress", "load-stress", "mixed-plants"}:
+            if scenario in {"baseline", "small-stress", "load-stress"}:
                 if result["silent"] or result["heard"]:
                     problems.append("unexpected silent/heard transition")
                 if result["tag_counts"].get(6, 0) != 44 * 19:
                     problems.append("did not retain all 836 periodic directed-link summaries")
+            if scenario == "load-stress" and result["max_small_targets"] < 8:
+                problems.append("logger-local scan retained too little destination evidence under high-rate load")
             if scenario == "failures":
-                if len(result["silent"]) != 6 or len(result["heard"]) != 6:
+                if len(set(result["silent"])) != 6 or len(set(result["heard"])) != 6:
                     problems.append("did not retain all 6 failure and 6 recovery directions")
             if scenario == "mixed-plants":
+                # The planted wire loss also applies to controller reports, so
+                # demanding every periodic summary here would reject correct
+                # observation of the impairment itself.  Require complete
+                # directional coverage and the impairment signatures instead.
+                if result["link_directions"] != 44:
+                    problems.append("mixed plants lost one or more directed-link views")
                 if result["link_gaps"] == 0:
                     problems.append("wire-loss plant produced no recorded keepalive gaps")
                 if result["peak_delay_us"] < 25_000:
@@ -311,6 +353,8 @@ def main() -> int:
                 required_targets = 2 if args.focused else 6
                 if result["max_small_targets"] < required_targets:
                     problems.append("50-address scan retained too little destination diversity")
+                if result["tag_counts"].get(7, 0) == 0:
+                    problems.append("ordinary-size unnumbered side flow produced no packet evidence")
             print(f"{scenario}: {result}")
             for problem in problems:
                 print(f"  FAIL: {problem}")

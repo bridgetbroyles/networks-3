@@ -21,20 +21,20 @@ The harness forwards customer traffic; our routes and queues do not control it. 
 4. count source bytes;
 5. count source packets;
 6. count destination bytes;
-7. count destination packets;
-8. punt keepalives and reports. Compact mode punts every packet smaller than
-   128 bytes. Truth mode samples every eighth small-packet sequence number,
-   the first two ordinary packets, and one later packet in 1,024.
+7. punt keepalives and reports. Compact mode punts every packet smaller than
+   128 bytes. The final focused truth mode samples every eighth small-packet
+   sequence number, the first two packets, and one large packet in 65,536.
 
 Counting only at customer ingress avoids counting one packet at every hop. Before keepalives teach switch ports, transit traffic could look local, so our controller ignores customer statistics before one second. Each counter has 64 slots: slot 0 is unclassified and customer IDs use 1–63.
 
 Every 500 ms the controller reads cumulative counters. Compact mode reports
 source deltas every 500 ms; truth mode reports source deltas every 1.5 seconds
-and destination deltas every two seconds. The local practice build uses switch
-0 as logger. Graded builds use switch 7, the center of the 3x5 grid. On that
-grid, each report follows one decreasing-distance next hop. Sequence numbers
-spread reports across equal shortest parents, and locally silent links are
-avoided. Practice mode still uses duplicate-suppressed flooding.
+and destination byte deltas every four seconds. The local practice build uses switch
+0 as logger. The final truth build uses switch 2, near the center of the 3x5 grid but away from the measured high-rate customer. On that
+grid, each routine report follows one decreasing-distance next hop. Sequence
+numbers spread reports across equal shortest parents, and locally silent links
+are avoided. Repeated silent-link reports use duplicate-suppressed flooding so
+the failure cannot erase its only evidence. Practice mode floods all reports.
 
 Every stored record is `[tag u8][length u8][body]`. Tags identify segmented headers, source statistics, small packets, link silent/heard, link summaries, ordinary packet samples, drops, and destination statistics.
 
@@ -116,7 +116,7 @@ but may be late or dropped, especially near the run’s end.
 
 ## Log-budget calculations
 
-The local practice claim cap is 16,384 bytes, the graded claim cap is 24,576 bytes, and the truth cap is 65,536 bytes. A write that would cross the cap is lost entirely; earlier bytes remain. Final practice truth logs measure 9,945-10,230 bytes. The largest measured 15-switch 1.5x stress log was 49,525 bytes, leaving 16,011 bytes.
+The local practice claim cap is 16,384 bytes, the graded claim cap is 24,576 bytes, and the truth cap is 65,536 bytes. A write that would cross the cap is lost entirely; earlier bytes remain. The exact final hidden artifact produced 5,623-byte logs on each practice truth world. Its largest measured 15-switch stress log was 47,618 bytes, leaving 17,918 bytes.
 
 For fixed record size `R` and cap `C`, maximum complete records is `floor(C/R)`, but include the two-byte tag/length header and initial customer header. Do not assume a truncated final record: writes are atomic, so an oversized write is absent.
 
@@ -133,7 +133,7 @@ detector. Always-true loses every false run.
 
 ## Likely “what if” questions
 
-If the timer changes from 500 to 100 ms, pause timing is more precise but there are five times as many reports and records. If the silence threshold changes from twenty to ten periods, failure detection is about one second faster but stress testing showed congestion can create false failures. If the hidden logger were switch 0 instead of central switch 7, reports would travel farther. If a selected report link dies, the sender excludes it after silence detection and selects another decreasing-distance parent when one exists. If the logger is isolated, remote evidence cannot arrive. Sampling more frequently improves packet detail but can consume the 80-event/s budget and fill the log; both truth run 1 and the first full-grid stress test demonstrated that failure directly.
+If the timer changes from 500 to 100 ms, pause timing is more precise but there are five times as many reports and records. If the silence threshold changes from twenty to ten periods, failure detection is about one second faster but stress testing showed congestion can create false failures. If the hidden logger were switch 0 instead of near-central switch 2, reports would travel farther. If a selected report link dies, routine reports avoid it after silence detection; repeated failure records are flooded over the remaining links. If the logger is isolated, remote evidence cannot arrive. Sampling more frequently improves packet detail but can consume the 80-event/s budget and fill the log; both truth run 1 and the first full-grid stress test demonstrated that failure directly.
 
 ## Final answer checklist
 

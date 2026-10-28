@@ -8,11 +8,12 @@ Upload this single file to **A3 — Truth run**:
 truth/switch.wasm
 ```
 
-It already has the required upload filename and uses hidden-grid center
-switch 7 as logger. SHA-256:
+It already has the required upload filename and uses switch 2 as logger. This
+keeps the logger near the center while avoiding the high-rate customer observed
+at switch 7 in the first two truth runs. SHA-256:
 
 ```text
-e76e922fcdaebb42e9279b99d98851ce094432dfeb828ce26645c8d7c4e2cbf1
+7eccce78569356d1ffe2a5a738958aac968de0f309e1851becadd9a951796321
 ```
 
 ## Claim
@@ -54,4 +55,7 @@ second truth attempt.
 
 `truth-run2/switch.wasm` preserves the exact second truth-run observer. Its
 1/1024 sampling overloaded S7's event budget. The current `truth/switch.wasm`
-uses the focused 1/8192 sampling build prepared for the final truth attempt.
+uses the final focused build: small packets are sampled every eighth sequence,
+while large packets are sampled once per 65,536 sequence numbers. Link-silence
+evidence is repeated and sent by duplicate-suppressed flooding so failures do
+not erase their own reports.

@@ -217,3 +217,39 @@ Truth Run 3 candidate SHA-256:
 ```text
 e76e922fcdaebb42e9279b99d98851ce094432dfeb828ce26645c8d7c4e2cbf1
 ```
+
+## Final truth-run audit after Run 2
+
+Run 2 established that S7, not the 64 KB byte cap, was the bottleneck: its
+high-rate Cloudflare flow consumed most of the 80-event/s controller budget.
+The final candidate therefore moves the truth logger to S2 and samples large
+packets once per 65,536 sequence numbers.
+
+An audit of the simulator revealed an important detail: planted scan packets
+are described as unnumbered at the application level, but the observation copy
+receives a sequence derived from the planted packet ID. An attempted
+`seq == 0` sampler therefore retained only the first scan target. The fix uses
+the existing bounded small-packet rule (every eighth sequence plus the first
+two), which retained eight distinct targets under stress.
+
+The overlapping-failure test then revealed that a one-time silence record can
+lose the same route whose failure it reports. Silence records are now repeated
+while the link remains silent and their report chunks use duplicate-suppressed
+flooding; routine reports still use one low-overhead path. The corrected test
+retained all six failed directions and all six recoveries.
+
+Final checks performed on the exact artifact:
+
+- all `a3_switch` feature tests passed and the pipeline uses seven stages,
+  three 64-entry counters, and no registers;
+- all 158 workspace tests passed, plus all four `a3_switch` tests;
+- the exact hidden Wasm installed and completed all three practice truth
+  worlds;
+- the five full-grid scenarios passed, including a 4.8 Gbit/s stress flow and
+  the simultaneous seven-family plant scenario;
+- largest log: 47,618 / 65,536 bytes; healthy link summaries: 836 / 836;
+- final SHA-256:
+
+```text
+7eccce78569356d1ffe2a5a738958aac968de0f309e1851becadd9a951796321
+```

@@ -73,7 +73,7 @@ def main() -> None:
     stats: dict[int, dict[int, tuple[int, int]]] = collections.defaultdict(dict)
     dest_stats: dict[int, dict[int, tuple[int, int]]] = collections.defaultdict(dict)
     small: dict[int, list[tuple[int, int]]] = collections.defaultdict(list)
-    samples: dict[tuple[str, str], list[tuple[int, int]]] = collections.defaultdict(list)
+    samples: dict[tuple[str, str], list[tuple[int, int, int, int, int]]] = collections.defaultdict(list)
     link_events: list[str] = []
     link_quality: dict[tuple[int, int], list[tuple[int, int, int, int, int]]] = collections.defaultdict(list)
     drops = collections.Counter()
@@ -95,10 +95,15 @@ def main() -> None:
             customer, at = body[1], u16(body, 2)
             old_b, old_p = stats[customer].get(at, (0, 0))
             stats[customer][at] = (old_b + u32(body, 4), old_p + u16(body, 8))
-        elif tag == 3 and len(body) == 13:
+        elif tag == 3 and len(body) in (13, 19):
             at, src, dst = u16(body, 1), u32(body, 3), u32(body, 7)
             small[src].append((at, dst))
-            samples[(address_name(src), address_name(dst))].append((at, u16(body, 11)))
+            seq = u32(body, 13) if len(body) >= 17 else 0
+            proto = body[17] if len(body) >= 19 else -1
+            ttl = body[18] if len(body) >= 19 else -1
+            samples[(address_name(src), address_name(dst))].append(
+                (at, u16(body, 11), seq, proto, ttl)
+            )
         elif tag in (4, 5) and len(body) == 6:
             state = "SILENT" if tag == 4 else "HEARD"
             link_events.append(f"{u16(body, 4) / 10:6.1f}s  S{body[0]}->S{body[1]} {state}")
@@ -113,9 +118,13 @@ def main() -> None:
             byte_count, packet_count = u32(body, 4), u16(body, 8)
             old_b, old_p = dest_stats[destination].get(at, (0, 0))
             dest_stats[destination][at] = (old_b + byte_count, old_p + packet_count)
-        elif tag == 7 and len(body) == 17:
+        elif tag == 7 and len(body) in (17, 19):
             at, src, dst = u16(body, 1), u32(body, 3), u32(body, 7)
-            samples[(address_name(src), address_name(dst))].append((at, u16(body, 11)))
+            proto = body[17] if len(body) >= 19 else -1
+            ttl = body[18] if len(body) >= 19 else -1
+            samples[(address_name(src), address_name(dst))].append(
+                (at, u16(body, 11), u32(body, 13), proto, ttl)
+            )
 
     if prefixes:
         print("\ncustomer ranges")
@@ -189,9 +198,17 @@ def main() -> None:
         for (source, destination), events in sorted(samples.items(), key=lambda item: -len(item[1])):
             times = [event[0] for event in events]
             sizes = [event[1] for event in events]
+            protocols = sorted({event[3] for event in events if event[3] >= 0})
+            ttls = sorted({event[4] for event in events if event[4] >= 0})
+            detail = ""
+            if protocols:
+                detail += f", proto={protocols}"
+            if ttls:
+                detail += f", ttl={min(ttls)}-{max(ttls)}"
             print(
                 f"  {source} -> {destination}: samples={len(events)}, "
-                f"time={min(times)/10:.1f}-{max(times)/10:.1f}s, size={min(sizes)}-{max(sizes)} B"
+                f"time={min(times)/10:.1f}-{max(times)/10:.1f}s, "
+                f"size={min(sizes)}-{max(sizes)} B{detail}"
             )
 
     if drops:

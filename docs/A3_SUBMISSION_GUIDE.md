@@ -19,9 +19,9 @@ The three supplied detectors prove the instrumentation on practice eggs;
 they are not expected to win hidden eggs. Do not upload a practice
 detector as a graded claim without a specific truth-log hypothesis.
 
-The graded observer builds use switch 7 as logger because it is the
-center of the published 3x5 hidden grid. The practice build uses switch
-0 because the six-switch practice network has no switch 7.
+The final graded source uses switch 2 as logger. It is near the center of the
+published grid but avoids the high-rate customer observed at switch 7 in both
+completed truth runs. The practice build uses switch 0.
 
 ## Before every truth run
 
@@ -51,7 +51,7 @@ free, but that protection is not a reason to submit an untested build.
 
 The current `submission/truth/switch.wasm` is the verified focused Truth Run
 3 candidate. Its SHA-256 is
-`e76e922fcdaebb42e9279b99d98851ce094432dfeb828ce26645c8d7c4e2cbf1`.
+`7eccce78569356d1ffe2a5a738958aac968de0f309e1851becadd9a951796321`.
 See `A3_TRUTH_RUN_2_ANALYSIS.md` for the evidence that motivated it. The exact
 Truth Run 2 artifact is preserved in `submission/truth-run2/`.
 
@@ -103,13 +103,13 @@ The environment may need the Rust toolchain library directory in
 # Practice truth build: broad records, logger 0
 (cd a3_switch && cargo build --release --target wasm32-unknown-unknown --features truth)
 
-# Hidden claim build: compact records, logger 7
+# Hidden claim build: compact records, logger 2
 (cd a3_switch && cargo build --release --target wasm32-unknown-unknown --features hidden)
 
-# Hidden truth build: broad records, logger 7
+# Hidden truth build: broad records, logger 2
 (cd a3_switch && cargo build --release --target wasm32-unknown-unknown --features "hidden truth")
 
-# Final focused truth build: logger 7, counters/links prioritized
+# Final focused truth build: logger 2, counters/links prioritized
 (cd a3_switch && cargo build --release --target wasm32-unknown-unknown --features "hidden truth focused")
 ```
 
