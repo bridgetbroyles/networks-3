@@ -33,6 +33,11 @@ const MAX_CUSTOMERS: usize = 63;
 const CUSTOMER_SLOTS: usize = 64;
 const TRUTH_SAMPLE_MASK: u64 = 1023;
 const SMALL_SAMPLE_MASK: u64 = 7;
+// The final truth-run observer keeps the first two packets of every flow and
+// then only one packet in 8192.  Truth Run 2 proved that 1/1024 sampling of a
+// roughly 60 kpacket/s customer could consume most of S7's 80-event/s punt
+// budget even though the byte log itself remained comfortably below its cap.
+const FOCUSED_SAMPLE_MASK: u64 = 8191;
 const SOURCE_SNAPSHOT_NS: u64 = 1_500_000_000;
 const DEST_SNAPSHOT_NS: u64 = 2_000_000_000;
 const SMALL_PAIR_SAMPLE_NS: u64 = 5_000_000_000;
@@ -487,7 +492,52 @@ impl SwitchProgram for A3Observer {
             );
         }
 
-        let final_stage = if cfg!(feature = "truth") {
+        let final_stage = if cfg!(feature = "focused") {
+            format!(
+                "
+                stage alu=24 mem=0
+                    load r0, ip_proto
+                    const r1, {report}
+                    eq r2, r0, r1
+                    bif r2 -> 32
+                    load r0, kind
+                    const r1, {keepalive}
+                    eq r2, r0, r1
+                    bif r2 -> 33
+                    const r3, 1
+                    loadm r0, m{switch_meta}
+                    const r1, 0
+                    eq r2, r0, r1
+                    bif r2 -> 14
+                    bif r3 -> 34
+                    load r0, kind
+                    const r1, 0
+                    eq r2, r0, r1
+                    bif r2 -> 19
+                    bif r3 -> 34
+                    load r0, seq
+                    const r1, 2
+                    lt r2, r0, r1
+                    bif r2 -> 31
+                    load r0, seq
+                    const r1, {sample_mask}
+                    and r2, r0, r1
+                    const r1, 0
+                    eq r2, r2, r1
+                    bif r2 -> 31
+                    bif r3 -> 34
+                    noop
+                    punt 3
+                    punt 2
+                    punt 1
+                    noop
+                ",
+                report = PROTO_REPORT,
+                keepalive = KIND_KEEPALIVE,
+                switch_meta = M_SWITCH_PORT,
+                sample_mask = FOCUSED_SAMPLE_MASK,
+            )
+        } else if cfg!(feature = "truth") {
             format!(
                 "
                 stage alu=32 mem=0
@@ -733,6 +783,9 @@ impl SwitchProgram for A3Observer {
             return out;
         }
 
+        // Ignore startup-only samples. The supplied truth workload begins at
+        // one second; keeping earlier synthetic warm-up traffic can create a
+        // burst large enough to delay the link reports we care about most.
         if ev.arrived_ns >= 1_000_000_000 {
             let tag = if ev.packet_size < SMALL_PACKET_BYTES {
                 TAG_SMALL_PACKET

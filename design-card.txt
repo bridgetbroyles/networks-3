@@ -24,13 +24,13 @@ The truth build also summarizes received keepalives, sequence gaps, average dela
 
 Small data packets are punted only at the switch where they enter the network. The scanner detector groups them by source and asks whether one source contacted at least 50 distinct destinations within a five-second window. Counting distinct destinations rejects the “many packets to only a few addresses” near miss, while the time window rejects a scan spread across the whole run.
 
-For truth runs, we additionally sample the first two packets of an ordinary flow and then one out of every 1,024 packets. Small packets are sampled more often—every eighth sequence number—so a short address scan still shows several distinct targets. Repeated copies of the same small source/destination pair are written at most once per five seconds. This keeps identity and scan evidence while leaving controller and log capacity for keepalives and reports.
+For truth runs, we keep the first packets that identify a flow and then sample long flows sparsely. Our second truth run showed why this matters: the log itself had room left, but sampling a very high-rate Cloudflare flow used most of switch 7's controller budget and delayed reports from other switches. The final truth observer samples only one in 8,192 later packets. We already learned the main traffic pairs in the first two runs, so complete link and counter evidence is now more valuable than thousands of copies of the same flow.
 
 **Reporting and logging**
 
 Switches batch observations into compact, length-prefixed binary records. The graded build logs at switch 7, the center of the published 3x5 grid; the local practice build uses switch 0 because practice has only switches 0-5. On the hidden grid, each report takes one shortest next hop toward switch 7. Equal-cost choices vary by report sequence, and a locally silent link is avoided. This prevents duplicate floods from consuming the logger's limited event budget. Practice builds retain duplicate-suppressed flooding because their topology is different.
 
-The final truth build produced 9,945-10,230 bytes on the three practice truth worlds. On a local replica of the published 15-switch grid, its largest 1.5x-load stress log was 49,525 of 65,536 bytes, with records from every switch and every directed link. Compact mode still passes all three disclosed practice eggs at 10/10 and stays below the stricter 16 KB local practice cap.
+The final truth build was tested on a replica of the published 15-switch grid, including failures, delay, loss, traffic plants, and a high-rate source attached directly to the logger. It retained all 15 switches, all 44 directed link views, and all 836 expected periodic link summaries without false failures. The final 1.5x high-rate test used 47,631 of 65,536 log bytes. Compact mode still passes all three disclosed practice eggs at 10/10.
 
 **Tradeoffs**
 

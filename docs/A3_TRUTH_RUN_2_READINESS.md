@@ -1,5 +1,11 @@
 # Truth Run 2 readiness
 
+> Historical pre-submission record: Truth Run 2 has now returned. Its packet
+> sampling overloaded S7's event budget and suppressed most remote summaries.
+> The exact artifact is preserved in `submission/truth-run2/`. See
+> `A3_TRUTH_RUN_2_ANALYSIS.md` for the measured result and the corrected Truth
+> Run 3 observer. Do not use the upload recommendation or SHA below now.
+
 ## Decision
 
 `submission/truth/switch.wasm` is ready for the second truth-run upload.

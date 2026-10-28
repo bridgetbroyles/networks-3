@@ -185,3 +185,35 @@ Wasm, detector, and doctest groups). The final truth artifact SHA-256 is
 - Build one compact switch/detector pair per claim hypothesis.
 
 Those steps cannot be completed from the starter repository because the handout deliberately withholds the hidden eggs and returns no claim diagnostics.
+
+## Truth Run 2 result and final observer
+
+Truth Run 2 returned a valid 53,574-byte log, but only 91 directed-link
+summaries instead of the roughly 836 expected. The byte cap was not the
+problem. A Cloudflare-to-Cloudflare-users flow generated 2,337 one-in-1,024
+samples at S7, about 62 punt events per second. With S7's four local
+keepalive streams and incoming reports, that exceeded the 80-event/s
+controller limit and starved remote telemetry.
+
+The returned customer map exactly matches Truth Run 1. Useful repeated
+evidence includes the 25,051-us S13-to-S14 direction, but the incomplete
+network-wide series is not enough to finalize all hidden claims. Full details
+are in `A3_TRUTH_RUN_2_ANALYSIS.md`.
+
+The exact Run 2 Wasm was preserved in `submission/truth-run2/`. A new
+`focused` feature keeps the first two packets and reduces ongoing ordinary
+sampling from one in 1,024 to one in 8,192. Counters, link summaries, port
+drops, report routing, and the two-second silence rule are unchanged.
+
+The grid validator now requires all 836 periodic summaries in healthy
+40-second cases and includes a high-rate customer local to S7. The final
+candidate retained all 836 summaries, all 15 switches, all 44 directions,
+complete source/destination counters, and no false link transitions. Its
+1.5x high-rate log used 47,631 of 65,536 bytes. All four switch tests and the full
+workspace suite (114 simulator tests plus all integration groups) pass.
+
+Truth Run 3 candidate SHA-256:
+
+```text
+e76e922fcdaebb42e9279b99d98851ce094432dfeb828ce26645c8d7c4e2cbf1
+```

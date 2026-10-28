@@ -174,6 +174,9 @@ cargo build --release --target wasm32-unknown-unknown
 cargo build --release --target wasm32-unknown-unknown --features hidden
 
 cargo build --release --target wasm32-unknown-unknown --features "hidden truth"
+
+# Final truth-run build after measured S7 controller overload
+cargo build --release --target wasm32-unknown-unknown --features "hidden truth focused"
 ```
 
 Each feature combination overwrites the same Cargo target name, so stable
@@ -203,6 +206,12 @@ copies are kept in `submission/`:
 - Program-specific unit tests pass for the switch and all three detectors.
 
 ## 10. Known limits and next competitive steps
+
+Truth Run 2 showed that staying under the byte-log cap is not sufficient:
+one-in-1,024 sampling of the high-rate Cloudflare flow consumed most of S7's
+80-event/s controller budget. The final focused truth build uses one-in-8,192
+ongoing sampling and prioritizes complete counter and link records. See
+`A3_TRUTH_RUN_2_ANALYSIS.md` for the measured evidence.
 
 The current work is complete for the disclosed practice tasks. The
 published submission rules fix the hidden network as a 15-switch grid,

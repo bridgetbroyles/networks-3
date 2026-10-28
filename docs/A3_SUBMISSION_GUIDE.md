@@ -28,7 +28,7 @@ center of the published 3x5 hidden grid. The practice build uses switch
 1. Run the published-grid validation against the exact upload:
 
    ```sh
-   scripts/a3-grid-validation.py --switch submission/truth/switch.wasm --load-scale 1.5
+   scripts/a3-grid-validation.py --switch submission/truth/switch.wasm --load-scale 1.5 --focused
    ```
 
 2. Test `a3_practice_truth_switch.wasm` on all three practice truth worlds:
@@ -49,10 +49,11 @@ There are only three truth runs. A successful returned log consumes one.
 An install failure does not. The first two runtime-error truth jobs are
 free, but that protection is not a reason to submit an untested build.
 
-The current `submission/truth/switch.wasm` is the verified Truth Run 2
-artifact. Its SHA-256 is
-`9cb5ea50346bae90feb8db6eeab88b26ab268ccd1d812d02017970097fd019b0`.
-See `A3_TRUTH_RUN_2_READINESS.md` for the measured full-grid results.
+The current `submission/truth/switch.wasm` is the verified focused Truth Run
+3 candidate. Its SHA-256 is
+`e76e922fcdaebb42e9279b99d98851ce094432dfeb828ce26645c8d7c4e2cbf1`.
+See `A3_TRUTH_RUN_2_ANALYSIS.md` for the evidence that motivated it. The exact
+Truth Run 2 artifact is preserved in `submission/truth-run2/`.
 
 ## Before every claim
 
@@ -107,6 +108,9 @@ The environment may need the Rust toolchain library directory in
 
 # Hidden truth build: broad records, logger 7
 (cd a3_switch && cargo build --release --target wasm32-unknown-unknown --features "hidden truth")
+
+# Final focused truth build: logger 7, counters/links prioritized
+(cd a3_switch && cargo build --release --target wasm32-unknown-unknown --features "hidden truth focused")
 ```
 
 Copy the hidden truth build to `submission/truth/switch.wasm` and the

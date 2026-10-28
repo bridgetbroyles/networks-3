@@ -12,7 +12,7 @@ It already has the required upload filename and uses hidden-grid center
 switch 7 as logger. SHA-256:
 
 ```text
-9cb5ea50346bae90feb8db6eeab88b26ab268ccd1d812d02017970097fd019b0
+e76e922fcdaebb42e9279b99d98851ce094432dfeb828ce26645c8d7c4e2cbf1
 ```
 
 ## Claim
@@ -51,3 +51,7 @@ Use the exact-name files in `claim/` and `truth/` for Canvas preparation.
 `truth-run1/switch.wasm` preserves the exact first truth-run observer.
 It is evidence for reproducibility, not the observer recommended for the
 second truth attempt.
+
+`truth-run2/switch.wasm` preserves the exact second truth-run observer. Its
+1/1024 sampling overloaded S7's event budget. The current `truth/switch.wasm`
+uses the focused 1/8192 sampling build prepared for the final truth attempt.

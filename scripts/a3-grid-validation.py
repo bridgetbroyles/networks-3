@@ -73,6 +73,10 @@ def world_text(scenario: str) -> str:
     # Fifty-four sending customers reproduce the first truth run's customer
     # count.  Pair i with i+27 so most traffic crosses several grid hops.
     for i in range(54):
+        # Truth Run 2 exposed a roughly 60 kpacket/s, 1000-byte source local
+        # to logger S7. Reproduce that specific controller-pressure case.
+        app_rate = 4_800.0 if scenario == "load-stress" and i == 7 else rate
+        peer = 122 if scenario == "load-stress" and i == 7 else 100 + ((i + 27) % 54)
         lines += [
             "[[app]]",
             f"id = {100 + i}",
@@ -80,8 +84,8 @@ def world_text(scenario: str) -> str:
             f'prefix = "10.{i + 1}.0.0/24"',
             f'name = "Grid customer {i + 1}"',
             'preset = "fortnite"',
-            f"rate_mbps = {rate:.2f}",
-            f"peer = {100 + ((i + 27) % 54)}",
+            f"rate_mbps = {app_rate:.2f}",
+            f"peer = {peer}",
             f"size_bytes = {size}",
             "hosts = [1]",
             "",
@@ -252,6 +256,11 @@ def main() -> int:
         help="scenario to run (repeatable; default: all)",
     )
     parser.add_argument("--load-scale", type=float, default=1.0)
+    parser.add_argument(
+        "--focused",
+        action="store_true",
+        help="validate the low-rate final truth observer (scan diversity was already learned)",
+    )
     parser.add_argument("--keep", type=Path, help="copy generated logs/worlds here")
     args = parser.parse_args()
     scenarios = args.scenario or [
@@ -289,6 +298,8 @@ def main() -> int:
             if scenario in {"baseline", "small-stress", "load-stress", "mixed-plants"}:
                 if result["silent"] or result["heard"]:
                     problems.append("unexpected silent/heard transition")
+                if result["tag_counts"].get(6, 0) != 44 * 19:
+                    problems.append("did not retain all 836 periodic directed-link summaries")
             if scenario == "failures":
                 if len(result["silent"]) != 6 or len(result["heard"]) != 6:
                     problems.append("did not retain all 6 failure and 6 recovery directions")
@@ -297,7 +308,8 @@ def main() -> int:
                     problems.append("wire-loss plant produced no recorded keepalive gaps")
                 if result["peak_delay_us"] < 25_000:
                     problems.append("30 ms link-delay plant was not visible")
-                if result["max_small_targets"] < 6:
+                required_targets = 2 if args.focused else 6
+                if result["max_small_targets"] < required_targets:
                     problems.append("50-address scan retained too little destination diversity")
             print(f"{scenario}: {result}")
             for problem in problems:

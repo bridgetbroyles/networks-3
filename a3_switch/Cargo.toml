@@ -12,6 +12,7 @@ crate-type = ["cdylib", "rlib"]
 default = []
 hidden = []
 truth = []
+focused = []
 
 [dependencies]
 switch_program_sdk = { path = "../switch_program_sdk" }
