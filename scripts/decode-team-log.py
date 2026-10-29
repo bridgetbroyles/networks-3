@@ -91,10 +91,11 @@ def main() -> None:
                 if base + 5 <= len(body):
                     addr, plen = u32(body, base), body[base + 4]
                     prefixes[start + i] = str(ipaddress.ip_network((addr, plen), strict=False))
-        elif tag == 2 and len(body) == 10:
+        elif tag == 2 and len(body) in (10, 12):
             customer, at = body[1], u16(body, 2)
             old_b, old_p = stats[customer].get(at, (0, 0))
-            stats[customer][at] = (old_b + u32(body, 4), old_p + u16(body, 8))
+            packet_count = u32(body, 8) if len(body) == 12 else u16(body, 8)
+            stats[customer][at] = (old_b + u32(body, 4), old_p + packet_count)
         elif tag == 3 and len(body) in (13, 19):
             at, src, dst = u16(body, 1), u32(body, 3), u32(body, 7)
             small[src].append((at, dst))
@@ -113,9 +114,10 @@ def main() -> None:
             )
         elif tag == 8 and len(body) == 9:
             drops[(body[0], u16(body, 3))] += u32(body, 5)
-        elif tag == 9 and len(body) == 10:
+        elif tag == 9 and len(body) in (10, 12):
             destination, at = body[1], u16(body, 2)
-            byte_count, packet_count = u32(body, 4), u16(body, 8)
+            byte_count = u32(body, 4)
+            packet_count = u32(body, 8) if len(body) == 12 else u16(body, 8)
             old_b, old_p = dest_stats[destination].get(at, (0, 0))
             dest_stats[destination][at] = (old_b + byte_count, old_p + packet_count)
         elif tag == 7 and len(body) in (17, 19):

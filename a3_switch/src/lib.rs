@@ -21,6 +21,8 @@ const T_DEST_PREFIX: u32 = 3;
 const C_BYTES: u32 = 1;
 const C_PACKETS: u32 = 2;
 const C_DEST_BYTES: u32 = 3;
+const C_DEST_PACKETS: u32 = 4;
+const R_MEDIUM_SAMPLES: u32 = 1;
 const M_SWITCH_PORT: u32 = 20;
 const M_CUSTOMER: u32 = 21;
 const M_DEST_CUSTOMER: u32 = 22;
@@ -32,11 +34,18 @@ const MAX_CUSTOMERS: usize = 63;
 const CUSTOMER_SLOTS: usize = 64;
 const TRUTH_SAMPLE_MASK: u64 = 1023;
 const SMALL_SAMPLE_MASK: u64 = 7;
-// The final truth observer samples small packets every eighth sequence, keeps
-// the first two medium-packet examples, and never punts 800-byte-or-larger
-// customer packets. Truth Run 2 proved that sampling the 1000-byte hotspot can
-// consume most of a switch's 80-event/s controller budget.
-const IDENTIFY_MAX_BYTES: u64 = 800;
+const MEDIUM_SAMPLE_MASK: u64 = 1023;
+const LARGE_SAMPLE_MASK: u64 = 65_535;
+const MEDIUM_HASH_MASK: u64 = 4095;
+const MEDIUM_REGISTER_SLOTS: u32 = 4096;
+// The final truth observer samples small packets every eighth sequence. For
+// medium open-loop traffic, whose packet sequence field is always zero, a
+// register indexed by a source/destination/size/protocol signature keeps the
+// first two packets and then one in every 1,024. Large packets use the same
+// first-two rule but only one in every 65,536 afterward. Truth Run 2 proved
+// that sampling the 1000-byte hotspot more often can consume most of a
+// switch's 80-event/s controller budget.
+const LARGE_PACKET_BYTES: u64 = 800;
 const SOURCE_SNAPSHOT_NS: u64 = 1_500_000_000;
 const DEST_SNAPSHOT_NS: u64 = 4_000_000_000;
 const SMALL_PAIR_SAMPLE_NS: u64 = 5_000_000_000;
@@ -138,6 +147,7 @@ pub struct A3Observer {
     last_bytes: Vec<u64>,
     last_packets: Vec<u64>,
     last_dest_bytes: Vec<u64>,
+    last_dest_packets: Vec<u64>,
     last_counter_snapshot_ns: u64,
     last_dest_snapshot_ns: u64,
     last_link_summary_ns: u64,
@@ -325,7 +335,7 @@ impl A3Observer {
         let mut body = vec![self.me as u8, customer as u8];
         push_u16(&mut body, at);
         push_u32(&mut body, bytes.min(u32::MAX as u64) as u32);
-        push_u16(&mut body, packets.min(u16::MAX as u64) as u16);
+        push_u32(&mut body, packets.min(u32::MAX as u64) as u32);
         framed(TAG_STAT, body)
     }
 
@@ -333,7 +343,7 @@ impl A3Observer {
         let mut body = vec![self.me as u8, destination as u8];
         push_u16(&mut body, at);
         push_u32(&mut body, bytes.min(u32::MAX as u64) as u32);
-        push_u16(&mut body, packets.min(u16::MAX as u64) as u16);
+        push_u32(&mut body, packets.min(u32::MAX as u64) as u32);
         framed(TAG_DEST_STAT, body)
     }
 
@@ -363,9 +373,12 @@ impl A3Observer {
                 .find(|c| c.id.0 == id)
                 .map(|c| c.values.as_slice())
         };
-        let (Some(bytes), Some(packets), Some(dest_bytes)) =
-            (counter(C_BYTES), counter(C_PACKETS), counter(C_DEST_BYTES))
-        else {
+        let (Some(bytes), Some(packets), Some(dest_bytes), Some(dest_packets)) = (
+            counter(C_BYTES),
+            counter(C_PACKETS),
+            counter(C_DEST_BYTES),
+            counter(C_DEST_PACKETS),
+        ) else {
             return;
         };
 
@@ -374,6 +387,7 @@ impl A3Observer {
                 self.last_bytes[index] = bytes.get(index).copied().unwrap_or(0);
                 self.last_packets[index] = packets.get(index).copied().unwrap_or(0);
                 self.last_dest_bytes[index] = dest_bytes.get(index).copied().unwrap_or(0);
+                self.last_dest_packets[index] = dest_packets.get(index).copied().unwrap_or(0);
             }
             self.last_counter_snapshot_ns = ev.now_ns;
             return;
@@ -409,10 +423,13 @@ impl A3Observer {
 
             if emit_destination {
                 let now_db = dest_bytes.get(customer).copied().unwrap_or(0);
+                let now_dp = dest_packets.get(customer).copied().unwrap_or(0);
                 let delta_db = now_db.saturating_sub(self.last_dest_bytes[customer]);
+                let delta_dp = now_dp.saturating_sub(self.last_dest_packets[customer]);
                 self.last_dest_bytes[customer] = now_db;
-                if delta_db > 0 {
-                    self.append(self.dest_stat_record(customer, at, delta_db, 0));
+                self.last_dest_packets[customer] = now_dp;
+                if delta_db > 0 || delta_dp > 0 {
+                    self.append(self.dest_stat_record(customer, at, delta_db, delta_dp));
                 }
             }
         }
@@ -499,6 +516,8 @@ impl SwitchProgram for A3Observer {
         setup.declare_counter_array(C_BYTES, CUSTOMER_SLOTS as u32);
         setup.declare_counter_array(C_PACKETS, CUSTOMER_SLOTS as u32);
         setup.declare_counter_array(C_DEST_BYTES, CUSTOMER_SLOTS as u32);
+        setup.declare_counter_array(C_DEST_PACKETS, CUSTOMER_SLOTS as u32);
+        setup.declare_register_array(R_MEDIUM_SAMPLES, MEDIUM_REGISTER_SLOTS);
 
         for (index, customer) in input.customers.iter().take(MAX_CUSTOMERS).enumerate() {
             setup.add_entry(
@@ -534,26 +553,26 @@ impl SwitchProgram for A3Observer {
         let final_stage = if cfg!(feature = "focused") {
             format!(
                 "
-                stage alu=32 mem=0
+                stage alu=40 mem=2
                     load r0, ip_proto
                     const r1, {report}
                     eq r2, r0, r1
-                    bif r2 -> 43
+                    bif r2 -> 60
                     load r0, kind
                     const r1, {keepalive}
                     eq r2, r0, r1
-                    bif r2 -> 44
+                    bif r2 -> 61
                     const r3, 1
                     loadm r0, m{switch_meta}
                     const r1, 0
                     eq r2, r0, r1
                     bif r2 -> 14
-                    bif r3 -> 45
+                    bif r3 -> 62
                     load r0, kind
                     const r1, 0
                     eq r2, r0, r1
                     bif r2 -> 19
-                    bif r3 -> 45
+                    bif r3 -> 62
                     load r0, size
                     const r1, {small}
                     lt r2, r0, r1
@@ -564,19 +583,36 @@ impl SwitchProgram for A3Observer {
                     and r2, r0, r1
                     const r1, 0
                     eq r2, r2, r1
-                    bif r2 -> 42
+                    bif r2 -> 59
                     load r0, size
-                    const r1, {identify_max}
+                    const r1, {large}
                     lt r2, r0, r1
-                    bif r2 -> 35
-                    bif r3 -> 45
-                    load r0, seq
-                    const r1, 2
-                    lt r2, r0, r1
-                    bif r2 -> 42
-                    bif r3 -> 45
+                    bif r2 -> 36
+                    const r4, {large_sample_mask}
+                    bif r3 -> 38
+                    const r4, {medium_sample_mask}
                     noop
-                    noop
+                    load r0, ip_src
+                    load r1, ip_dst
+                    xor r0, r0, r1
+                    load r1, size
+                    xor r0, r0, r1
+                    load r1, ip_proto
+                    xor r0, r0, r1
+                    const r1, {medium_hash_mask}
+                    and r0, r0, r1
+                    rread a{medium_register}[r0] -> r1
+                    const r2, 1
+                    add r1, r1, r2
+                    rwrite a{medium_register}[r0], r1
+                    const r2, 3
+                    lt r2, r1, r2
+                    bif r2 -> 59
+                    and r2, r1, r4
+                    const r1, 0
+                    eq r2, r2, r1
+                    bif r2 -> 59
+                    bif r3 -> 62
                     punt 3
                     punt 2
                     punt 1
@@ -587,7 +623,11 @@ impl SwitchProgram for A3Observer {
                 switch_meta = M_SWITCH_PORT,
                 small = SMALL_PACKET_BYTES,
                 small_sample_mask = SMALL_SAMPLE_MASK,
-                identify_max = IDENTIFY_MAX_BYTES,
+                large = LARGE_PACKET_BYTES,
+                medium_register = R_MEDIUM_SAMPLES,
+                medium_sample_mask = MEDIUM_SAMPLE_MASK,
+                large_sample_mask = LARGE_SAMPLE_MASK,
+                medium_hash_mask = MEDIUM_HASH_MASK,
             )
         } else if cfg!(feature = "truth") {
             format!(
@@ -726,6 +766,10 @@ impl SwitchProgram for A3Observer {
                 loadm r0, m{dest_customer_meta}
                 load r1, size
                 counter c{dest_bytes_counter}[r0], r1
+            stage alu=3 mem=1
+                loadm r0, m{dest_customer_meta}
+                const r1, 1
+                counter c{dest_packets_counter}[r0], r1
             {sampling_stage}
             {final_stage}
             ",
@@ -738,6 +782,7 @@ impl SwitchProgram for A3Observer {
             bytes_counter = C_BYTES,
             packet_counter = C_PACKETS,
             dest_bytes_counter = C_DEST_BYTES,
+            dest_packets_counter = C_DEST_PACKETS,
             sampling_stage = sampling_stage,
         );
         setup.set_program(text::parse_tiny_program(&program).expect("static A3 observer pipeline"));
@@ -760,6 +805,7 @@ impl SwitchProgram for A3Observer {
             last_bytes: vec![0; CUSTOMER_SLOTS],
             last_packets: vec![0; CUSTOMER_SLOTS],
             last_dest_bytes: vec![0; CUSTOMER_SLOTS],
+            last_dest_packets: vec![0; CUSTOMER_SLOTS],
             last_counter_snapshot_ns: 0,
             last_dest_snapshot_ns: 0,
             last_link_summary_ns: 0,
@@ -909,9 +955,9 @@ mod tests {
         let (_, setup) = A3Observer::init_with(input());
         let wire = setup.into_wire();
         assert_eq!(wire.tables.len(), 3);
-        assert_eq!(wire.counters.len(), 3);
-        assert_eq!(wire.registers.len(), 0);
-        assert_eq!(wire.program.stages.len(), 7);
+        assert_eq!(wire.counters.len(), 4);
+        assert_eq!(wire.registers.len(), 1);
+        assert_eq!(wire.program.stages.len(), 8);
     }
 
     #[test]
@@ -940,7 +986,7 @@ mod tests {
         let timer = wire::TimerEventW {
             now_ns: u64::MAX,
             port_drops: Vec::new(),
-            counters: (1..=3)
+            counters: (1..=4)
                 .map(|id| wire::CounterSnapshotW {
                     id: wire::CounterArrayIdW(id),
                     values: vec![u64::MAX; CUSTOMER_SLOTS],
@@ -952,6 +998,7 @@ mod tests {
         assert_eq!(wire.tables[1].initial_entries.len(), 54);
         assert_eq!(wire.tables[2].initial_entries.len(), 54);
         assert!(wire.counters.iter().all(|counter| counter.size == 64));
+        assert_eq!(wire.registers[0].size, MEDIUM_REGISTER_SLOTS);
         assert!(
             encoded.len() < 4096,
             "init output is {} bytes",

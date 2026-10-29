@@ -46,6 +46,7 @@ def world_text(scenario: str) -> str:
         "permanent-failures",
         "scan-multiplicity",
         "mixed-plants",
+        "capacity-bottleneck",
     }:
         raise ValueError(scenario)
 
@@ -276,6 +277,28 @@ def world_text(scenario: str) -> str:
             'proto = "tcp"',
             "",
         ]
+    elif scenario == "capacity-bottleneck":
+        # A 4 Mbps direct flow fits while the link is at 10 Mbps, but not
+        # while the planted step lowers it to 1 Mbps. This gives the observer
+        # an unambiguous interval of port-drop evidence for a capacity egg.
+        lines += [
+            "[[plant]]",
+            'kind = "link_capacity"',
+            "a = 11",
+            "b = 12",
+            "steps = [[0, 10], [10000, 1], [25000, 10]]",
+            "",
+            "[[plant]]",
+            'kind = "side_flow"',
+            "app = 111",
+            "to = 112",
+            "rate_pps = 500.0",
+            "size_bytes = 1000",
+            "start_ms = 5000",
+            "stop_ms = 35000",
+            'proto = "udp"',
+            "",
+        ]
     return "\n".join(lines)
 
 
@@ -299,6 +322,10 @@ def summarize(data: bytes) -> tuple[dict[str, object], list[str]]:
     link_gaps = 0
     peak_delay_us = 0
     small_targets: dict[int, set[int]] = collections.defaultdict(set)
+    packet_sizes: collections.Counter[int] = collections.Counter()
+    destination_bytes = 0
+    destination_packets = 0
+    dropped_packets = 0
     silent: list[tuple[int, int]] = []
     heard: list[tuple[int, int]] = []
     for tag, body in records(data):
@@ -313,6 +340,13 @@ def summarize(data: bytes) -> tuple[dict[str, object], list[str]]:
             small_targets[int.from_bytes(body[3:7], "little")].add(
                 int.from_bytes(body[7:11], "little")
             )
+        elif tag == 7 and len(body) == 19:
+            packet_sizes[int.from_bytes(body[11:13], "little")] += 1
+        elif tag == 8 and len(body) == 9:
+            dropped_packets += int.from_bytes(body[5:9], "little")
+        elif tag == 9 and len(body) in (10, 12):
+            destination_bytes += int.from_bytes(body[4:8], "little")
+            destination_packets += int.from_bytes(body[8:], "little")
         elif tag == 4 and len(body) == 6:
             silent.append((body[0], body[1]))
         elif tag == 5 and len(body) == 6:
@@ -330,6 +364,10 @@ def summarize(data: bytes) -> tuple[dict[str, object], list[str]]:
         "link_gaps": link_gaps,
         "peak_delay_us": peak_delay_us,
         "max_small_targets": max(map(len, small_targets.values()), default=0),
+        "packet_sizes": dict(sorted(packet_sizes.items())),
+        "destination_bytes": destination_bytes,
+        "destination_packets": destination_packets,
+        "dropped_packets": dropped_packets,
         "silent": silent,
         "heard": heard,
     }
@@ -361,6 +399,7 @@ def main() -> int:
             "permanent-failures",
             "scan-multiplicity",
             "mixed-plants",
+            "capacity-bottleneck",
         ],
         help="scenario to run (repeatable; default: all)",
     )
@@ -382,6 +421,7 @@ def main() -> int:
         "permanent-failures",
         "scan-multiplicity",
         "mixed-plants",
+        "capacity-bottleneck",
     ]
     if not SIM.exists():
         raise SystemExit(f"missing simulator: build it first ({SIM})")
@@ -440,8 +480,17 @@ def main() -> int:
                 required_targets = 2 if args.focused else 6
                 if result["max_small_targets"] < required_targets:
                     problems.append("50-address scan retained too little destination diversity")
-                if result["tag_counts"].get(7, 0) == 0:
+                if result["packet_sizes"].get(500, 0) == 0:
                     problems.append("ordinary-size unnumbered side flow produced no packet evidence")
+            if result["tag_counts"].get(9, 0) and result["destination_packets"] == 0:
+                problems.append("destination records contain bytes but no packet counts")
+            if scenario == "capacity-bottleneck":
+                if result["link_directions"] != 44:
+                    problems.append("capacity test lost one or more directed-link views")
+                if result["dropped_packets"] == 0:
+                    problems.append("capacity bottleneck produced no port-drop evidence")
+                if result["packet_sizes"].get(1000, 0) < 2:
+                    problems.append("large unnumbered side flow produced too little endpoint evidence")
             print(f"{scenario}: {result}")
             for problem in problems:
                 print(f"  FAIL: {problem}")

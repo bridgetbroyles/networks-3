@@ -22,17 +22,18 @@ Both modes record:
 
 - segmented headers mapping up to 63 internal customer numbers to shuffled prefixes;
 - per-customer bytes and packets (500 ms in compact claim mode; 1.5-second
-  source and two-second destination windows in truth mode);
+  source and four-second destination windows in truth mode);
 - small source packets with source, destination, size, switch, and time;
 - link-silent and link-heard transitions.
 
 Truth mode additionally records:
 
 - per-customer destination byte and packet totals;
-- the first two ordinary packets of a flow and one out of every 1,024 later
-  packets;
+- the first two ordinary packets of a hashed flow signature, then one out of
+  every 1,024 medium packets or 65,536 large packets;
 - every eighth sequence number for small packets, with repeated
-  source/destination pairs logged at most once per five seconds;
+  source/destination pairs logged at most once per five seconds (open-loop
+  scans expose sequence zero, so the pair rule retains one record per target);
 - per-direction keepalive count, sequence gaps, mean delay, and peak delay;
 - port drop totals.
 
@@ -64,7 +65,7 @@ scripts/decode-team-log.py run-a.team
 
 ## 3. Data-plane observation pipeline
 
-The seven-stage TinyVM program does not forward packets. The harness ignores our forwarding result and uses its own routes.
+The eight-stage TinyVM program does not forward packets. The harness ignores our forwarding result and uses its own routes.
 
 1. An exact table marks ports that have produced switch keepalives.
 2. Packets arriving on unmarked, customer-facing ports are classified by source prefix.
@@ -198,12 +199,13 @@ copies are kept in `submission/`:
 - Scanner practice checker: 10/10.
 - Revised practice truth logs are 9,945 bytes at 1.0x, 10,097 bytes at
   1.25x, and 10,230 bytes at 1.5x.
-- A local replica of the published 15-switch grid passed nine scenarios at
+- A local replica of the published 15-switch grid passed ten scenarios at
   1.5x load: baseline, overlapping and permanent failures, sustained
   small-packet traffic, high-rate traffic, a logger-local hotspot, simultaneous
-  lossy links, scan multiplicity, and mixed plants. Every case retained records
+  lossy links, scan multiplicity, mixed plants, and a dedicated capacity
+  bottleneck. Every case retained records
   from all 15 switches and all 44 directed link views. The largest
-  final-candidate log was 47,618 of 65,536 bytes.
+  final-candidate log was 51,398 of 65,536 bytes.
 - Compact mode still passes all three practice detectors at 10/10.
 - `cargo test --workspace`: all simulator, SDK, integration, and document tests pass.
 - Program-specific unit tests pass for the switch and all three detectors.
@@ -212,10 +214,9 @@ copies are kept in `submission/`:
 
 Truth Run 2 showed that staying under the byte-log cap is not sufficient:
 one-in-1,024 sampling of the high-rate Cloudflare flow consumed most of S7's
-80-event/s controller budget. The final focused truth build samples small
-packets every eighth sequence, keeps the first two medium-packet examples, and
-does not punt packets of 800 bytes or more. Counters still measure those large
-packets exactly. See
+80-event/s controller budget. The final focused truth build keeps the first two
+packets of each hashed flow signature, samples medium flows at 1/1,024 and
+large flows at only 1/65,536, and measures every packet in counters. See
 `A3_TRUTH_RUN_2_ANALYSIS.md` for the measured evidence.
 
 The current work is complete for the disclosed practice tasks. The

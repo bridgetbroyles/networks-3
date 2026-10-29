@@ -277,3 +277,59 @@ Final checks performed on the exact artifact:
 ```text
 cdd754ec8f588d9cf723c84e3313744f35108bb20c47dc962bb0661778574a67
 ```
+
+## Final coverage correction: open-loop sampling and packet counts
+
+The earlier focused candidate still used the packet sequence field to decide
+whether to keep medium packets. The simulator represents an unnumbered planted
+packet as sequence zero, so every medium open-loop packet passed the supposed
+“first two” test. In local mixed tests the controller retained only two useful
+medium examples after overload, which was both expensive and fragile.
+
+The final sampler now hashes source address, destination address, packet size,
+and protocol into a 4,096-entry data-plane register. Each signature retains its
+first two packets. It then samples 128–799-byte traffic at 1/1,024 and traffic
+of at least 800 bytes at 1/65,536. The sparse large-flow rule closes the endpoint
+visibility gap without repeating the Run 2 hotspot failure. A dedicated
+1,000-byte side-flow test retained exactly two identifying samples.
+
+A fourth counter records destination packet totals. Source and destination
+packet fields were widened from 16 to 32 bits so the known high-rate customer
+cannot saturate a reporting window. The decoder remains backward-compatible
+with the older 16-bit records from Truth Runs 1 and 2.
+
+The pipeline now intentionally uses the full eight-stage limit, four 64-entry
+counter arrays, and one 4,096-entry register array. All four switch unit tests
+pass, including the 4,096-byte init/timer serialization checks.
+
+The grid validator gained a dedicated capacity-bottleneck case and now checks
+destination packet counts, sample sizes, drop totals, and exact evidence for
+both 500-byte and 1,000-byte planted side flows. The complete ten-scenario
+suite passed at 1.5× load against the final source:
+
+- all 15 switches and all 44 directed link views were retained;
+- healthy cases retained 836/836 periodic link summaries;
+- overlapping recovered failures retained 6/6 SILENT and 6/6 HEARD
+  directions;
+- permanent failures retained 6/6 SILENT and zero false HEARD directions;
+- the mixed case retained 50/50 scan targets, two 500-byte side-flow samples,
+  67 loss gaps, and a 30,199-us delay peak;
+- the capacity case retained two 1,000-byte side-flow samples and 10,818 port
+  drops;
+- the largest 1.5× log was 51,398/65,536 bytes;
+- a separate 3× logger-hotspot run retained 836/836 summaries and 50/50 scan
+  targets in 54,373 bytes.
+- all 158 root-workspace tests and all four `a3_switch` tests passed;
+- the exact hidden upload completed all three official practice truth worlds,
+  producing a valid 6,889-byte log on each.
+
+Final Truth Run 3 artifact:
+
+```text
+submission/truth/switch.wasm
+SHA-256: deed7bef8ddb8b772620a11fbfea6c979510135acd415cc8edb789f2d60d506d
+```
+
+This section supersedes the older resource counts, sampling description, log
+maximum, and candidate hash recorded above; the older entries are retained as
+history of the tested iterations.

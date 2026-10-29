@@ -70,20 +70,21 @@ without the opposite direction or recovery is not enough for a claim.
 
 ## Final truth-run correction
 
-The final `focused` observer keeps source and destination byte counters, source
-packet counters, two-second link summaries, drop records, and packet examples.
-Source deltas are emitted every 1.5 seconds and destination-byte deltas every
-four seconds.
+The final `focused` observer keeps source and destination byte and packet
+counters, two-second link summaries, drop records, and packet examples. Source
+deltas are emitted every 1.5 seconds and destination deltas every four seconds.
+Packet fields are now 32-bit so the high-rate customer cannot saturate a
+reporting window.
 It now logs at S2 rather than S7. S2 remains near the grid center but avoids the
 measured high-rate Cloudflare attachment that exhausted S7 in Run 2.
 
-Small packets are sampled every eighth sequence, plus the first two, because
-the simulator gives planted scan packets observable sequence values even though
-the plant itself is unacknowledged. Medium packets below 800 bytes keep their
-first two identifying examples. Packets of 800 bytes or more are counted by the
-data-plane counters but are not punted in the final focused build. This removes
-the event-budget risk from the known 1,000-byte hotspot while preserving its
-complete byte and packet totals.
+Open-loop planted packets expose sequence zero, so a sequence-only first-two
+test would punt every packet. The final build hashes source, destination, size,
+and protocol into a data-plane register. It keeps the first two packets for a
+new flow signature, then samples medium packets at 1/1,024 and large packets at
+only 1/65,536. Small source/destination pairs are retained at most once per five
+seconds. This identifies new planted flows without recreating the event-budget
+failure from the known 1,000-byte hotspot.
 
 Routine reports use one decreasing-distance path toward S2. A silent-link
 record is repeated every timer tick while the link remains silent. Both SILENT
@@ -93,30 +94,31 @@ path, and the recovering adjacency may not immediately restore that path. It
 costs nothing in a healthy run and retained every transition during overlapping
 failure tests.
 
-Final nine-scenario, 1.5x-load full-grid validation retained:
+Final ten-scenario, 1.5x-load full-grid validation retained:
 
 - records from all 15 switches and all 44 directed link views;
 - all 836 expected summaries in every healthy stress scenario;
 - all six failed directions and all six recoveries across three overlapping
   bidirectional failures;
-- eight distinct targets from a 50-address scan under a simultaneous 4.8
-  Gbit/s high-rate source;
+- all 50 targets from a 50-address scan under a simultaneous high-rate source;
 - wire-loss gaps, a 30,051-microsecond delay peak, capacity/drop evidence, and
   ordinary side-flow packet evidence in the combined-plant scenario;
 - no false SILENT/HEARD transitions in healthy scenarios;
-- a largest observed log of 47,618 bytes (72.7% of the 65,536-byte cap).
+- a largest observed log of 51,398 bytes (78.4% of the 65,536-byte cap).
 
 The added adversarial cases cover an extreme source directly on logger S2,
-three simultaneous lossy links, three permanent failures, and a scan that sends
-four packets per target. The permanent-failure case produced all six SILENT
-directions and no false HEARD record; the recovery case produced all six of
-each. The scan-multiplicity case retained 25 distinct targets.
+three simultaneous lossy links, three permanent failures, a scan that sends
+four packets per target, and a dedicated capacity bottleneck. The capacity case
+recorded 10,818 drops plus two exact 1,000-byte side-flow samples. The
+permanent-failure case produced all six SILENT directions and no false HEARD
+record; the recovery case produced all six of each. The scan-multiplicity case
+retained all 50 distinct targets.
 
 The exact candidate for Truth Run 3 is `submission/truth/switch.wasm`,
 SHA-256:
 
 ```text
-cdd754ec8f588d9cf723c84e3313744f35108bb20c47dc962bb0661778574a67
+deed7bef8ddb8b772620a11fbfea6c979510135acd415cc8edb789f2d60d506d
 ```
 
 ## What to do next

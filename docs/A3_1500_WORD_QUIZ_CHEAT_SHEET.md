@@ -13,7 +13,7 @@ the logger writes them.
 
 ## Actual architecture
 
-The harness forwards customer traffic; our routes and queues do not control it. Our seven-stage data plane does observation:
+The harness forwards customer traffic; our routes and queues do not control it. Our eight-stage data plane does observation:
 
 1. classify ingress as switch-facing if that port has produced a keepalive;
 2. on customer-facing ingress, map source prefix to internal customer ID;
@@ -21,10 +21,11 @@ The harness forwards customer traffic; our routes and queues do not control it. 
 4. count source bytes;
 5. count source packets;
 6. count destination bytes;
-7. punt keepalives and reports. Compact mode punts every packet smaller than
-   128 bytes. The final focused truth mode samples every eighth small-packet
-   sequence number, keeps the first two examples below 800 bytes, and does not
-   punt packets of 800 bytes or more. Large traffic is still fully counted.
+7. count destination packets;
+8. punt keepalives, reports, and selected packet examples. Compact mode punts
+   every packet smaller than 128 bytes. The final truth mode retains small
+   source/destination pairs, keeps the first two examples of a hashed ordinary
+   flow, then samples medium flows at 1/1,024 and large flows at 1/65,536.
 
 Counting only at customer ingress avoids counting one packet at every hop. Before keepalives teach switch ports, transit traffic could look local, so our controller ignores customer statistics before one second. Each counter has 64 slots: slot 0 is unclassified and customer IDs use 1–63.
 
@@ -82,9 +83,11 @@ time need not equal the planted duration exactly.
 The scanner packets are 60-byte data, below our 128-byte threshold. Compact
 claim mode punts them only at source ingress, preventing per-hop duplicates. A
 record stores source, destination, time in 100 ms units, and size. Truth mode
-retains every eighth sequence number and writes the same source/destination
-pair at most once per five seconds; a 50-address synthetic scan retained eight
-different targets.
+checks every eighth sequence number and writes the same source/destination pair
+at most once per five seconds. Open-loop scan packets expose sequence zero, so
+they all pass the data-plane test; the controller's pair de-duplication keeps
+one useful record per target. A 50-address synthetic scan retained all 50
+targets even under the hotspot stress test.
 
 The detector groups records by source and slides a five-second window. It counts distinct destinations, not packets. It returns true at 50 distinct destinations.
 
@@ -118,7 +121,7 @@ but may be late or dropped, especially near the run’s end.
 
 ## Log-budget calculations
 
-The local practice claim cap is 16,384 bytes, the graded claim cap is 24,576 bytes, and the truth cap is 65,536 bytes. A write that would cross the cap is lost entirely; earlier bytes remain. The exact final hidden artifact produced 5,623-byte logs on each practice truth world. Its largest measured 15-switch stress log was 47,618 bytes, leaving 17,918 bytes.
+The local practice claim cap is 16,384 bytes, the graded claim cap is 24,576 bytes, and the truth cap is 65,536 bytes. A write that would cross the cap is lost entirely; earlier bytes remain. The final observer's largest measured 1.5x 15-switch stress log was 51,398 bytes, leaving 14,138 bytes. A separate 3x hotspot test used 54,373 bytes.
 
 For fixed record size `R` and cap `C`, maximum complete records is `floor(C/R)`, but include the two-byte tag/length header and initial customer header. Do not assume a truncated final record: writes are atomic, so an oversized write is absent.
 
