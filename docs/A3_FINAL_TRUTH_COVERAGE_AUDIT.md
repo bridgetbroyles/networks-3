@@ -58,12 +58,12 @@ The final source uses eight TinyVM stages, four 64-entry counter arrays, and
 one 4,096-entry register array. Unit tests confirm that the setup and timer
 payload fit the 4,096-byte ABI limit.
 
-The full eleven-scenario 15-switch grid suite passed at 1.5× load against the
+The full twelve-scenario 15-switch grid suite passed at 1.5× load against the
 final source. It covered baseline traffic, overlapping recovered failures,
 small traffic, the known high-rate source, a hotspot directly on the logger,
 three lossy links, permanent failures, scan multiplicity, all plant families
-together, a dedicated capacity bottleneck, and the exact 127/128/799/800-byte
-sampling boundaries.
+together, a dedicated capacity bottleneck, the exact 127/128/799/800-byte
+sampling boundaries, and twenty simultaneous plants.
 
 Key results:
 
@@ -84,6 +84,13 @@ Key results:
   failure.
 - short 127-, 128-, 799-, and 800-byte planted flows were all retained on the
   correct side of both sampling boundaries at 0.25×, 1.5×, and 4× load;
+- the twenty-plant run retained all 15 switches and 44 directions, all six
+  failure and recovery directions, 398 loss gaps, a 321,842 µs peak delay,
+  all three 50-target scans, both side-flow sizes, 7,345 drops, and a
+  12-second source-stat gap in 48,929 bytes;
+- an exhaustive sweep failed and recovered each of the grid's 22 physical
+  links separately; all 22 cases retained both expected SILENT/HEARD
+  directions, all 44 directed-link views, and records from all 15 switches;
 - the exact upload loaded and completed all three official practice truth
   worlds, producing a valid 6,889-byte log in each.
 

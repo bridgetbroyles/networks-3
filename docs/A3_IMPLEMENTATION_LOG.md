@@ -304,7 +304,7 @@ pass, including the 4,096-byte init/timer serialization checks.
 
 The grid validator gained a dedicated capacity-bottleneck case and now checks
 destination packet counts, sample sizes, drop totals, and exact evidence for
-both 500-byte and 1,000-byte planted side flows. The complete eleven-scenario
+both 500-byte and 1,000-byte planted side flows. The complete twelve-scenario
 suite passed at 1.5× load against the final source:
 
 - all 15 switches and all 44 directed link views were retained;
@@ -321,6 +321,11 @@ suite passed at 1.5× load against the final source:
   at 0.25×, 1.5×, and 4× load;
 - a separate 4× logger-hotspot run retained 836/836 summaries and 50/50 scan
   targets in 57,261 bytes.
+- a twenty-plant run retained three failures/recoveries, three lossy links,
+  three delays, three capacity changes, three pauses, three scans, and two side
+  flows in 48,929 bytes;
+- an exhaustive 22-edge failure/recovery sweep retained the expected two
+  directions, all 44 directed-link views, and all 15 switches for every edge.
 - all 158 root-workspace tests and all four `a3_switch` tests passed;
 - the exact hidden upload completed all three official practice truth worlds,
   producing a valid 6,889-byte log on each.

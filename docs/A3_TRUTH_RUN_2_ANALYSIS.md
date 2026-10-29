@@ -94,7 +94,7 @@ path, and the recovering adjacency may not immediately restore that path. It
 costs nothing in a healthy run and retained every transition during overlapping
 failure tests.
 
-Final eleven-scenario, 1.5x-load full-grid validation retained:
+Final twelve-scenario, 1.5x-load full-grid validation retained:
 
 - records from all 15 switches and all 44 directed link views;
 - all 836 expected summaries in every healthy stress scenario;

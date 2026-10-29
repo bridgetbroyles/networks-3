@@ -48,6 +48,7 @@ def world_text(scenario: str) -> str:
         "mixed-plants",
         "capacity-bottleneck",
         "sampling-boundaries",
+        "twenty-plants",
     }:
         raise ValueError(scenario)
 
@@ -322,6 +323,94 @@ def world_text(scenario: str) -> str:
                 'proto = "udp"',
                 "",
             ]
+    elif scenario == "twenty-plants":
+        # Match the graded truth run's broad pressure: twenty simultaneous
+        # anomalies spanning every implemented plant family.
+        for a, b, ab_us, ba_us in [
+            (5, 6, 25000, 500),
+            (8, 9, 500, 30000),
+            (13, 14, 15000, 500),
+        ]:
+            lines += [
+                "[[plant]]",
+                'kind = "link_delay"',
+                f"a = {a}",
+                f"b = {b}",
+                f"a_to_b_us = {ab_us}",
+                f"b_to_a_us = {ba_us}",
+                "",
+            ]
+        for a, b, loss in [(3, 4, 10), (6, 7, 20), (12, 13, 30)]:
+            lines += [
+                "[[plant]]",
+                'kind = "wire_loss"',
+                f"a = {a}",
+                f"b = {b}",
+                f"loss_pct = {loss}.0",
+                "start_ms = 5000",
+                "stop_ms = 35000",
+                "",
+            ]
+        for a, b in [(1, 6), (7, 12), (9, 14)]:
+            lines += [
+                "[[plant]]",
+                'kind = "link_capacity"',
+                f"a = {a}",
+                f"b = {b}",
+                "steps = [[0, 10], [10000, 1], [25000, 10]]",
+                "",
+            ]
+        for a, b, at, duration in [
+            (0, 1, 8000, 10000),
+            (4, 9, 12000, 10000),
+            (10, 11, 16000, 10000),
+        ]:
+            lines += [
+                "[[plant]]",
+                'kind = "fail"',
+                f"a = {a}",
+                f"b = {b}",
+                f"at_ms = {at}",
+                f"for_ms = {duration}",
+                "",
+            ]
+        for app, at, duration in [(100, 14000, 6000), (110, 16000, 8000), (120, 18000, 10000)]:
+            lines += [
+                "[[plant]]",
+                'kind = "pause"',
+                f"app = {app}",
+                f"at_ms = {at}",
+                f"for_ms = {duration}",
+                "",
+            ]
+        for app, target, start in [(101, 102, 9000), (111, 112, 14000), (121, 122, 19000)]:
+            lines += [
+                "[[plant]]",
+                'kind = "scan"',
+                f"app = {app}",
+                f"to = {target}",
+                f"start_ms = {start}",
+                "for_ms = 4000",
+                "addresses = 50",
+                "size_bytes = 60",
+                "",
+            ]
+        for app, target, size, start, stop in [
+            (103, 104, 500, 6000, 34000),
+            (105, 106, 1000, 7000, 33000),
+        ]:
+            lines += [
+                "[[plant]]",
+                'kind = "side_flow"',
+                f"app = {app}",
+                f"to = {target}",
+                "rate_pps = 30.0",
+                f"size_bytes = {size}",
+                f"start_ms = {start}",
+                f"stop_ms = {stop}",
+                'proto = "udp"',
+                "",
+            ]
     return "\n".join(lines)
 
 
@@ -350,13 +439,16 @@ def summarize(data: bytes) -> tuple[dict[str, object], list[str]]:
     destination_bytes = 0
     destination_packets = 0
     dropped_packets = 0
+    source_times: dict[tuple[int, int], list[int]] = collections.defaultdict(list)
     silent: list[tuple[int, int]] = []
     heard: list[tuple[int, int]] = []
     for tag, body in records(data):
         counts[tag] += 1
         if tag != 1 and body:
             switches.add(body[0])
-        if tag == 6 and len(body) == 18:
+        if tag == 2 and len(body) in (10, 12):
+            source_times[(body[0], body[1])].append(int.from_bytes(body[2:4], "little"))
+        elif tag == 6 and len(body) == 18:
             summaries[(body[0], body[1])] += 1
             link_gaps += int.from_bytes(body[8:10], "little")
             peak_delay_us = max(peak_delay_us, int.from_bytes(body[14:18], "little"))
@@ -379,6 +471,10 @@ def summarize(data: bytes) -> tuple[dict[str, object], list[str]]:
 
     expected_directions = {(a, b) for a, b in grid_edges() for a, b in ((a, b), (b, a))}
     missing_directions = sorted(expected_directions - set(summaries))
+    source_gaps = {
+        key: max((b - a for a, b in zip(sorted(times), sorted(times)[1:])), default=0)
+        for key, times in source_times.items()
+    }
     result: dict[str, object] = {
         "bytes": len(data),
         "utilization_pct": round(len(data) * 100 / LOG_CAP, 1),
@@ -394,6 +490,7 @@ def summarize(data: bytes) -> tuple[dict[str, object], list[str]]:
         "destination_bytes": destination_bytes,
         "destination_packets": destination_packets,
         "dropped_packets": dropped_packets,
+        "max_source_gap_s": max(source_gaps.values(), default=0) / 10,
         "silent": silent,
         "heard": heard,
     }
@@ -427,6 +524,7 @@ def main() -> int:
             "mixed-plants",
             "capacity-bottleneck",
             "sampling-boundaries",
+            "twenty-plants",
         ],
         help="scenario to run (repeatable; default: all)",
     )
@@ -450,6 +548,7 @@ def main() -> int:
         "mixed-plants",
         "capacity-bottleneck",
         "sampling-boundaries",
+        "twenty-plants",
     ]
     if not SIM.exists():
         raise SystemExit(f"missing simulator: build it first ({SIM})")
@@ -510,6 +609,8 @@ def main() -> int:
                     problems.append("50-address scan retained too little destination diversity")
                 if result["packet_sizes"].get(500, 0) == 0:
                     problems.append("ordinary-size unnumbered side flow produced no packet evidence")
+                if result["max_source_gap_s"] < 6.0:
+                    problems.append("eight-second customer pause produced no visible source-stat gap")
             if result["tag_counts"].get(9, 0) and result["destination_packets"] == 0:
                 problems.append("destination records contain bytes but no packet counts")
             if scenario == "capacity-bottleneck":
@@ -525,6 +626,19 @@ def main() -> int:
                 for size in (128, 799, 800):
                     if result["packet_sizes"].get(size, 0) < 2:
                         problems.append(f"{size}-byte short flow did not retain its first two packets")
+            if scenario == "twenty-plants":
+                if result["link_directions"] != 44:
+                    problems.append("twenty-plant stress lost one or more directed-link views")
+                if len(set(result["silent"])) != 6 or len(set(result["heard"])) != 6:
+                    problems.append("twenty-plant stress lost a failure or recovery direction")
+                if result["link_gaps"] == 0 or result["peak_delay_us"] < 20_000:
+                    problems.append("twenty-plant stress lost link loss or delay evidence")
+                if result["max_small_targets"] < 50:
+                    problems.append("twenty-plant stress lost scan diversity")
+                if result["packet_sizes"].get(500, 0) < 2 or result["packet_sizes"].get(1000, 0) < 2:
+                    problems.append("twenty-plant stress lost a side-flow signature")
+                if result["max_source_gap_s"] < 6.0:
+                    problems.append("twenty-plant stress lost pause evidence")
             print(f"{scenario}: {result}")
             for problem in problems:
                 print(f"  FAIL: {problem}")
