@@ -32,12 +32,11 @@ const MAX_CUSTOMERS: usize = 63;
 const CUSTOMER_SLOTS: usize = 64;
 const TRUTH_SAMPLE_MASK: u64 = 1023;
 const SMALL_SAMPLE_MASK: u64 = 7;
-// The final truth-run observer samples small packets every eighth sequence
-// (enough to expose a short address scan) and large packets only once per
-// 65536 sequence numbers. Truth Run 2 proved that 1/1024 sampling of a roughly
-// 60 kpacket/s customer could consume most of S7's 80-event/s punt budget even
-// though the byte log itself remained comfortably below its cap.
-const FOCUSED_SAMPLE_MASK: u64 = 65535;
+// The final truth observer samples small packets every eighth sequence, keeps
+// the first two medium-packet examples, and never punts 800-byte-or-larger
+// customer packets. Truth Run 2 proved that sampling the 1000-byte hotspot can
+// consume most of a switch's 80-event/s controller budget.
+const IDENTIFY_MAX_BYTES: u64 = 800;
 const SOURCE_SNAPSHOT_NS: u64 = 1_500_000_000;
 const DEST_SNAPSHOT_NS: u64 = 4_000_000_000;
 const SMALL_PAIR_SAMPLE_NS: u64 = 5_000_000_000;
@@ -86,6 +85,10 @@ fn contains_record(records: &[u8], wanted: u8) -> bool {
         at = at.saturating_add(2 + size);
     }
     false
+}
+
+fn contains_link_transition(records: &[u8]) -> bool {
+    contains_record(records, TAG_LINK_SILENT) || contains_record(records, TAG_LINK_HEARD)
 }
 
 fn hidden_distance(switch: u32) -> u8 {
@@ -272,7 +275,7 @@ impl A3Observer {
         payload.extend_from_slice(&self.report_seq.to_le_bytes());
         payload.extend_from_slice(&records);
         self.seen_reports.insert((self.me, self.report_seq));
-        if cfg!(feature = "hidden") && contains_record(&records, TAG_LINK_SILENT) {
+        if cfg!(feature = "hidden") && contains_link_transition(&records) {
             self.flood_urgent(&payload, None, out);
         } else {
             self.flood(&payload, None, out);
@@ -290,7 +293,7 @@ impl A3Observer {
         }
         if self.me == LOGGER {
             out.push(actions::log_write(payload[8..].to_vec()));
-        } else if cfg!(feature = "hidden") && contains_record(&payload[8..], TAG_LINK_SILENT) {
+        } else if cfg!(feature = "hidden") && contains_link_transition(&payload[8..]) {
             self.flood_urgent(payload, Some(ingress), out);
         } else {
             self.flood(payload, Some(ingress), out);
@@ -562,17 +565,17 @@ impl SwitchProgram for A3Observer {
                     const r1, 0
                     eq r2, r2, r1
                     bif r2 -> 42
+                    load r0, size
+                    const r1, {identify_max}
+                    lt r2, r0, r1
+                    bif r2 -> 35
+                    bif r3 -> 45
                     load r0, seq
                     const r1, 2
                     lt r2, r0, r1
                     bif r2 -> 42
-                    load r0, seq
-                    const r1, {sample_mask}
-                    and r2, r0, r1
-                    const r1, 0
-                    eq r2, r2, r1
-                    bif r2 -> 42
                     bif r3 -> 45
+                    noop
                     noop
                     punt 3
                     punt 2
@@ -584,7 +587,7 @@ impl SwitchProgram for A3Observer {
                 switch_meta = M_SWITCH_PORT,
                 small = SMALL_PACKET_BYTES,
                 small_sample_mask = SMALL_SAMPLE_MASK,
-                sample_mask = FOCUSED_SAMPLE_MASK,
+                identify_max = IDENTIFY_MAX_BYTES,
             )
         } else if cfg!(feature = "truth") {
             format!(

@@ -77,20 +77,23 @@ four seconds.
 It now logs at S2 rather than S7. S2 remains near the grid center but avoids the
 measured high-rate Cloudflare attachment that exhausted S7 in Run 2.
 
-Large packets are sampled once per 65,536 sequence numbers. Small packets are
-sampled every eighth sequence, plus the first two, because the simulator gives
-planted scan packets observable sequence values even though the plant itself is
-unacknowledged. This retains eight targets from a 50-address scan without
-allowing large high-rate traffic to consume the event budget.
+Small packets are sampled every eighth sequence, plus the first two, because
+the simulator gives planted scan packets observable sequence values even though
+the plant itself is unacknowledged. Medium packets below 800 bytes keep their
+first two identifying examples. Packets of 800 bytes or more are counted by the
+data-plane counters but are not punted in the final focused build. This removes
+the event-budget risk from the known 1,000-byte hotspot while preserving its
+complete byte and packet totals.
 
 Routine reports use one decreasing-distance path toward S2. A silent-link
-record is repeated every timer tick while the link remains silent and is sent
-with duplicate-suppressed flooding. That special treatment is necessary because
-a failed link can also destroy the normal path carrying the single failure
-report. It costs nothing in a healthy run and recovered all directions during
-overlapping local failure tests.
+record is repeated every timer tick while the link remains silent. Both SILENT
+and HEARD transition chunks use duplicate-suppressed flooding. That special
+treatment is necessary because a failed link can destroy the normal reporting
+path, and the recovering adjacency may not immediately restore that path. It
+costs nothing in a healthy run and retained every transition during overlapping
+failure tests.
 
-Final full-grid validation retained:
+Final nine-scenario, 1.5x-load full-grid validation retained:
 
 - records from all 15 switches and all 44 directed link views;
 - all 836 expected summaries in every healthy stress scenario;
@@ -103,11 +106,17 @@ Final full-grid validation retained:
 - no false SILENT/HEARD transitions in healthy scenarios;
 - a largest observed log of 47,618 bytes (72.7% of the 65,536-byte cap).
 
+The added adversarial cases cover an extreme source directly on logger S2,
+three simultaneous lossy links, three permanent failures, and a scan that sends
+four packets per target. The permanent-failure case produced all six SILENT
+directions and no false HEARD record; the recovery case produced all six of
+each. The scan-multiplicity case retained 25 distinct targets.
+
 The exact candidate for Truth Run 3 is `submission/truth/switch.wasm`,
 SHA-256:
 
 ```text
-7eccce78569356d1ffe2a5a738958aac968de0f309e1851becadd9a951796321
+cdd754ec8f588d9cf723c84e3313744f35108bb20c47dc962bb0661778574a67
 ```
 
 ## What to do next

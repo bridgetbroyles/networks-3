@@ -51,7 +51,7 @@ free, but that protection is not a reason to submit an untested build.
 
 The current `submission/truth/switch.wasm` is the verified focused Truth Run
 3 candidate. Its SHA-256 is
-`7eccce78569356d1ffe2a5a738958aac968de0f309e1851becadd9a951796321`.
+`cdd754ec8f588d9cf723c84e3313744f35108bb20c47dc962bb0661778574a67`.
 See `A3_TRUTH_RUN_2_ANALYSIS.md` for the evidence that motivated it. The exact
 Truth Run 2 artifact is preserved in `submission/truth-run2/`.
 

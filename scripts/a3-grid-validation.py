@@ -41,12 +41,16 @@ def world_text(scenario: str) -> str:
         "failures",
         "small-stress",
         "load-stress",
+        "logger-hotspot",
+        "loss-storm",
+        "permanent-failures",
+        "scan-multiplicity",
         "mixed-plants",
     }:
         raise ValueError(scenario)
 
     size = 64 if scenario == "small-stress" else 200
-    rate = 0.02 if scenario in {"baseline", "failures", "small-stress"} else 0.10
+    rate = 0.02 if scenario in {"baseline", "failures", "permanent-failures", "small-stress"} else 0.10
     lines = [
         "[world]",
         f'name = "a3-grid-{scenario}"',
@@ -75,8 +79,10 @@ def world_text(scenario: str) -> str:
     for i in range(54):
         # Truth Run 2 exposed a roughly 60 kpacket/s, 1000-byte source local
         # to logger S7. Reproduce that specific controller-pressure case.
-        app_rate = 4_800.0 if scenario == "load-stress" and i == 7 else rate
-        peer = 122 if scenario == "load-stress" and i == 7 else 100 + ((i + 27) % 54)
+        stressed_switch = 7 if scenario == "load-stress" else 2
+        stress_here = scenario in {"load-stress", "logger-hotspot", "scan-multiplicity"} and i == stressed_switch
+        app_rate = 4_800.0 if stress_here else rate
+        peer = 100 + stressed_switch + 15 if stress_here else 100 + ((i + 27) % 54)
         lines += [
             "[[app]]",
             f"id = {100 + i}",
@@ -86,7 +92,7 @@ def world_text(scenario: str) -> str:
             'preset = "fortnite"',
             f"rate_mbps = {app_rate:.2f}",
             f"peer = {peer}",
-            f"size_bytes = {size}",
+            f"size_bytes = {1000 if stress_here else size}",
             "hosts = [1]",
             "",
         ]
@@ -132,8 +138,8 @@ def world_text(scenario: str) -> str:
         lines += [
             "[[plant]]",
             'kind = "side_flow"',
-            "app = 102",
-            "to = 117",
+            "app = 132",
+            "to = 147",
             "rate_pps = 500.0",
             "size_bytes = 500",
             "start_ms = 5000",
@@ -142,11 +148,70 @@ def world_text(scenario: str) -> str:
             "",
             "[[plant]]",
             'kind = "scan"',
-            "app = 102",
-            "to = 117",
+            "app = 132",
+            "to = 147",
             "start_ms = 15000",
             "for_ms = 4000",
             "addresses = 50",
+            "size_bytes = 60",
+            "",
+        ]
+    elif scenario == "logger-hotspot":
+        # Put the same extreme numbered source directly on final logger S2,
+        # then overlap an ordinary open-loop flow and a scan there.
+        lines += [
+            "[[plant]]",
+            'kind = "side_flow"',
+            "app = 132",
+            "to = 147",
+            "rate_pps = 500.0",
+            "size_bytes = 500",
+            "start_ms = 5000",
+            "stop_ms = 35000",
+            'proto = "udp"',
+            "",
+            "[[plant]]",
+            'kind = "scan"',
+            "app = 132",
+            "to = 147",
+            "start_ms = 15000",
+            "for_ms = 4000",
+            "addresses = 50",
+            "size_bytes = 60",
+            "",
+        ]
+    elif scenario == "loss-storm":
+        for a, b in [(0, 1), (6, 7), (12, 13)]:
+            lines += [
+                "[[plant]]",
+                'kind = "wire_loss"',
+                f"a = {a}",
+                f"b = {b}",
+                "loss_pct = 35.0",
+                "start_ms = 5000",
+                "stop_ms = 35000",
+                "",
+            ]
+    elif scenario == "permanent-failures":
+        for a, b, at in [(1, 2, 8000), (7, 8, 12000), (11, 12, 16000)]:
+            lines += [
+                "[[plant]]",
+                'kind = "fail"',
+                f"a = {a}",
+                f"b = {b}",
+                f"at_ms = {at}",
+                "",
+            ]
+    elif scenario == "scan-multiplicity":
+        lines += [
+            "[[plant]]",
+            'kind = "scan"',
+            "app = 132",
+            "to = 147",
+            "start_ms = 12000",
+            "for_ms = 5000",
+            "addresses = 50",
+            "each = 4",
             "size_bytes = 60",
             "",
         ]
@@ -286,7 +351,17 @@ def main() -> int:
     parser.add_argument(
         "--scenario",
         action="append",
-        choices=["baseline", "failures", "small-stress", "load-stress", "mixed-plants"],
+        choices=[
+            "baseline",
+            "failures",
+            "small-stress",
+            "load-stress",
+            "logger-hotspot",
+            "loss-storm",
+            "permanent-failures",
+            "scan-multiplicity",
+            "mixed-plants",
+        ],
         help="scenario to run (repeatable; default: all)",
     )
     parser.add_argument("--load-scale", type=float, default=1.0)
@@ -302,6 +377,10 @@ def main() -> int:
         "failures",
         "small-stress",
         "load-stress",
+        "logger-hotspot",
+        "loss-storm",
+        "permanent-failures",
+        "scan-multiplicity",
         "mixed-plants",
     ]
     if not SIM.exists():
@@ -329,16 +408,24 @@ def main() -> int:
             ]
             subprocess.run(command, cwd=ROOT, check=True, stdout=subprocess.DEVNULL)
             result, problems = summarize(log.read_bytes())
-            if scenario in {"baseline", "small-stress", "load-stress"}:
+            if scenario in {"baseline", "small-stress", "load-stress", "logger-hotspot", "scan-multiplicity"}:
                 if result["silent"] or result["heard"]:
                     problems.append("unexpected silent/heard transition")
                 if result["tag_counts"].get(6, 0) != 44 * 19:
                     problems.append("did not retain all 836 periodic directed-link summaries")
-            if scenario == "load-stress" and result["max_small_targets"] < 8:
+            if scenario in {"load-stress", "logger-hotspot"} and result["max_small_targets"] < 8:
                 problems.append("logger-local scan retained too little destination evidence under high-rate load")
+            if scenario == "scan-multiplicity" and result["max_small_targets"] < 20:
+                problems.append("multi-packet-per-address scan retained too little destination evidence")
             if scenario == "failures":
                 if len(set(result["silent"])) != 6 or len(set(result["heard"])) != 6:
                     problems.append("did not retain all 6 failure and 6 recovery directions")
+            if scenario == "permanent-failures":
+                if len(set(result["silent"])) != 6 or result["heard"]:
+                    problems.append("did not retain all permanent-failure directions without false recovery")
+            if scenario == "loss-storm":
+                if result["link_directions"] != 44 or result["link_gaps"] == 0:
+                    problems.append("multi-link wire loss did not retain complete directional loss evidence")
             if scenario == "mixed-plants":
                 # The planted wire loss also applies to controller reports, so
                 # demanding every periodic summary here would reject correct

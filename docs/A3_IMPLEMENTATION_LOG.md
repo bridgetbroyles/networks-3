@@ -35,7 +35,7 @@ Created:
 - Customer bytes and packets are counted in data-plane arrays.
 - Keepalives teach switch-facing ports; customer traffic is counted only at source ingress.
 - Compact statistics are reported every 500 ms. Truth mode reports source
-  totals every 1.5 seconds and destination totals every two seconds so all
+  totals every 1.5 seconds and destination totals every four seconds so all
   54 observed customers fit with useful log headroom.
 - Twenty missing keepalive periods trigger a silent record; recovery
   triggers a heard record. With 100 ms keepalives this is a two-second
@@ -43,13 +43,16 @@ Created:
 - Compact claim mode records small packets exactly for scanner detection.
   Truth mode samples every eighth small-packet sequence number and suppresses
   repeat source/destination pairs for five seconds.
-- Truth mode samples the first two ordinary packets plus one in 1,024 and
-  records link quality, destination activity, and drops.
+- General truth mode samples the first two ordinary packets plus one in 1,024.
+  The final focused build instead omits packets of 800 bytes or more from punts
+  while retaining their counter evidence. Both record link quality,
+  destination activity, and drops.
 - Reports use compact length-prefixed records and batching. Practice uses
   duplicate-suppressed flooding; the fixed hidden grid uses one
   decreasing-distance path toward switch 7.
-- The local practice build logs at switch 0. Graded builds use switch 7,
-  the center of the published 3x5 hidden grid.
+- The local practice build logs at switch 0. The final graded build uses switch
+  2, which is near the center of the published grid but avoids the observed
+  switch-7 hotspot.
 
 ## Failures and fixes
 
@@ -222,8 +225,10 @@ e76e922fcdaebb42e9279b99d98851ce094432dfeb828ce26645c8d7c4e2cbf1
 
 Run 2 established that S7, not the 64 KB byte cap, was the bottleneck: its
 high-rate Cloudflare flow consumed most of the 80-event/s controller budget.
-The final candidate therefore moves the truth logger to S2 and samples large
-packets once per 65,536 sequence numbers.
+The final candidate therefore moves the truth logger to S2. It samples small
+packets every eighth sequence, retains the first two identifying examples of
+medium packets below 800 bytes, and does not punt larger packets. Data-plane
+counters still measure every large packet.
 
 An audit of the simulator revealed an important detail: planted scan packets
 are described as unnumbered at the application level, but the observation copy
@@ -234,9 +239,22 @@ two), which retained eight distinct targets under stress.
 
 The overlapping-failure test then revealed that a one-time silence record can
 lose the same route whose failure it reports. Silence records are now repeated
-while the link remains silent and their report chunks use duplicate-suppressed
-flooding; routine reports still use one low-overhead path. The corrected test
-retained all six failed directions and all six recoveries.
+while the link remains silent. Both SILENT and HEARD transition chunks use
+duplicate-suppressed flooding; routine reports still use one low-overhead path.
+The corrected test retained all six failed directions and all six recoveries.
+
+Two candidate changes were rejected after testing. Keeping the first 64 small
+packets created a startup burst, seven false link transitions, and 259 false
+sequence gaps in the healthy small-packet stress case. Moving the logger to the
+corner switch S0 reduced local work but lost one recovery direction during an
+overlapping-failure run. The final build therefore keeps bounded one-in-eight
+small sampling and central logger S2.
+
+The stress generator itself was also audited. Its intended hotspot now uses
+actual 1,000-byte packets and a local peer, so the test stresses observation
+rather than physically saturating a network link. Scanner traffic uses a
+separate customer port on S2 so the extreme source cannot make the scan vanish
+before it reaches the switch.
 
 Final checks performed on the exact artifact:
 
@@ -245,11 +263,17 @@ Final checks performed on the exact artifact:
 - all 158 workspace tests passed, plus all four `a3_switch` tests;
 - the exact hidden Wasm installed and completed all three practice truth
   worlds;
-- the five full-grid scenarios passed, including a 4.8 Gbit/s stress flow and
-  the simultaneous seven-family plant scenario;
+- all nine full-grid scenarios passed at 1.5x load: baseline, overlapping
+  failures, small stress, load stress, a logger-local hotspot, three lossy
+  links, three permanent failures, scan multiplicity, and the simultaneous
+  seven-family plant scenario;
 - largest log: 47,618 / 65,536 bytes; healthy link summaries: 836 / 836;
+- permanent failures retained 6/6 SILENT and 0 false HEARD records; recovering
+  failures retained 6/6 SILENT and 6/6 HEARD records;
+- the exact upload produced 5,623-byte logs in each official practice truth
+  world;
 - final SHA-256:
 
 ```text
-7eccce78569356d1ffe2a5a738958aac968de0f309e1851becadd9a951796321
+cdd754ec8f588d9cf723c84e3313744f35108bb20c47dc962bb0661778574a67
 ```

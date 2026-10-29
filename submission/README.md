@@ -13,7 +13,7 @@ keeps the logger near the center while avoiding the high-rate customer observed
 at switch 7 in the first two truth runs. SHA-256:
 
 ```text
-7eccce78569356d1ffe2a5a738958aac968de0f309e1851becadd9a951796321
+cdd754ec8f588d9cf723c84e3313744f35108bb20c47dc962bb0661778574a67
 ```
 
 ## Claim
@@ -56,6 +56,7 @@ second truth attempt.
 `truth-run2/switch.wasm` preserves the exact second truth-run observer. Its
 1/1024 sampling overloaded S7's event budget. The current `truth/switch.wasm`
 uses the final focused build: small packets are sampled every eighth sequence,
-while large packets are sampled once per 65,536 sequence numbers. Link-silence
-evidence is repeated and sent by duplicate-suppressed flooding so failures do
-not erase their own reports.
+medium packets below 800 bytes retain their first two identifying examples, and
+packets of 800 bytes or more are counted but not punted. Link-silence evidence
+is repeated, and both SILENT and HEARD transition chunks use
+duplicate-suppressed flooding so failures do not erase their own reports.

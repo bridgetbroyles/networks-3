@@ -13,7 +13,7 @@ the logger writes them.
 
 ## Actual architecture
 
-The harness forwards customer traffic; our routes and queues do not control it. Our eight-stage data plane does observation:
+The harness forwards customer traffic; our routes and queues do not control it. Our seven-stage data plane does observation:
 
 1. classify ingress as switch-facing if that port has produced a keepalive;
 2. on customer-facing ingress, map source prefix to internal customer ID;
@@ -23,7 +23,8 @@ The harness forwards customer traffic; our routes and queues do not control it. 
 6. count destination bytes;
 7. punt keepalives and reports. Compact mode punts every packet smaller than
    128 bytes. The final focused truth mode samples every eighth small-packet
-   sequence number, the first two packets, and one large packet in 65,536.
+   sequence number, keeps the first two examples below 800 bytes, and does not
+   punt packets of 800 bytes or more. Large traffic is still fully counted.
 
 Counting only at customer ingress avoids counting one packet at every hop. Before keepalives teach switch ports, transit traffic could look local, so our controller ignores customer statistics before one second. Each counter has 64 slots: slot 0 is unclassified and customer IDs use 1–63.
 
@@ -33,8 +34,9 @@ and destination byte deltas every four seconds. The local practice build uses sw
 0 as logger. The final truth build uses switch 2, near the center of the 3x5 grid but away from the measured high-rate customer. On that
 grid, each routine report follows one decreasing-distance next hop. Sequence
 numbers spread reports across equal shortest parents, and locally silent links
-are avoided. Repeated silent-link reports use duplicate-suppressed flooding so
-the failure cannot erase its only evidence. Practice mode floods all reports.
+are avoided. Repeated silent-link reports and one-time recovery reports use
+duplicate-suppressed flooding so a changed link cannot erase its transition
+evidence. Practice mode floods all reports.
 
 Every stored record is `[tag u8][length u8][body]`. Tags identify segmented headers, source statistics, small packets, link silent/heard, link summaries, ordinary packet samples, drops, and destination statistics.
 
