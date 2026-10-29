@@ -58,11 +58,12 @@ The final source uses eight TinyVM stages, four 64-entry counter arrays, and
 one 4,096-entry register array. Unit tests confirm that the setup and timer
 payload fit the 4,096-byte ABI limit.
 
-The full ten-scenario 15-switch grid suite passed at 1.5× load against the
+The full eleven-scenario 15-switch grid suite passed at 1.5× load against the
 final source. It covered baseline traffic, overlapping recovered failures,
 small traffic, the known high-rate source, a hotspot directly on the logger,
 three lossy links, permanent failures, scan multiplicity, all plant families
-together, and a dedicated capacity bottleneck.
+together, a dedicated capacity bottleneck, and the exact 127/128/799/800-byte
+sampling boundaries.
 
 Key results:
 
@@ -78,9 +79,11 @@ Key results:
 - the capacity test recorded 10,818 drops and two exact 1,000-byte side-flow
   samples;
 - the largest 1.5× log was 51,398/65,536 bytes (78.4%);
-- a separate 3× logger-hotspot test used 54,373 bytes (83.0%), retained all
+- a separate 4× logger-hotspot test used 57,261 bytes (87.4%), retained all
   836 link summaries and all 50 scan destinations, and produced no false link
   failure.
+- short 127-, 128-, 799-, and 800-byte planted flows were all retained on the
+  correct side of both sampling boundaries at 0.25×, 1.5×, and 4× load;
 - the exact upload loaded and completed all three official practice truth
   worlds, producing a valid 6,889-byte log in each.
 

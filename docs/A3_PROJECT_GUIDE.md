@@ -199,11 +199,11 @@ copies are kept in `submission/`:
 - Scanner practice checker: 10/10.
 - Revised practice truth logs are 9,945 bytes at 1.0x, 10,097 bytes at
   1.25x, and 10,230 bytes at 1.5x.
-- A local replica of the published 15-switch grid passed ten scenarios at
+- A local replica of the published 15-switch grid passed eleven scenarios at
   1.5x load: baseline, overlapping and permanent failures, sustained
   small-packet traffic, high-rate traffic, a logger-local hotspot, simultaneous
   lossy links, scan multiplicity, mixed plants, and a dedicated capacity
-  bottleneck. Every case retained records
+  bottleneck, and the exact packet-sampling boundaries. Every case retained records
   from all 15 switches and all 44 directed link views. The largest
   final-candidate log was 51,398 of 65,536 bytes.
 - Compact mode still passes all three practice detectors at 10/10.

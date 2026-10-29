@@ -121,7 +121,7 @@ but may be late or dropped, especially near the run’s end.
 
 ## Log-budget calculations
 
-The local practice claim cap is 16,384 bytes, the graded claim cap is 24,576 bytes, and the truth cap is 65,536 bytes. A write that would cross the cap is lost entirely; earlier bytes remain. The final observer's largest measured 1.5x 15-switch stress log was 51,398 bytes, leaving 14,138 bytes. A separate 3x hotspot test used 54,373 bytes.
+The local practice claim cap is 16,384 bytes, the graded claim cap is 24,576 bytes, and the truth cap is 65,536 bytes. A write that would cross the cap is lost entirely; earlier bytes remain. The final observer's largest measured 1.5x 15-switch stress log was 51,398 bytes, leaving 14,138 bytes. A separate 4x hotspot test used 57,261 bytes.
 
 For fixed record size `R` and cap `C`, maximum complete records is `floor(C/R)`, but include the two-byte tag/length header and initial customer header. Do not assume a truncated final record: writes are atomic, so an oversized write is absent.
 

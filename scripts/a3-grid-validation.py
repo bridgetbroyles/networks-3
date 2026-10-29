@@ -47,6 +47,7 @@ def world_text(scenario: str) -> str:
         "scan-multiplicity",
         "mixed-plants",
         "capacity-bottleneck",
+        "sampling-boundaries",
     }:
         raise ValueError(scenario)
 
@@ -299,6 +300,28 @@ def world_text(scenario: str) -> str:
             'proto = "udp"',
             "",
         ]
+    elif scenario == "sampling-boundaries":
+        # Exercise both sides of the small/medium and medium/large cutoffs.
+        # These flows are deliberately short and slow: their evidence must
+        # come from the first-packets rule, not periodic sampling.
+        for app, target, size, start in [
+            (103, 104, 127, 5000),
+            (105, 106, 128, 8000),
+            (107, 108, 799, 11000),
+            (109, 110, 800, 14000),
+        ]:
+            lines += [
+                "[[plant]]",
+                'kind = "side_flow"',
+                f"app = {app}",
+                f"to = {target}",
+                "rate_pps = 8.0",
+                f"size_bytes = {size}",
+                f"start_ms = {start}",
+                f"stop_ms = {start + 2000}",
+                'proto = "udp"',
+                "",
+            ]
     return "\n".join(lines)
 
 
@@ -323,6 +346,7 @@ def summarize(data: bytes) -> tuple[dict[str, object], list[str]]:
     peak_delay_us = 0
     small_targets: dict[int, set[int]] = collections.defaultdict(set)
     packet_sizes: collections.Counter[int] = collections.Counter()
+    small_packet_sizes: collections.Counter[int] = collections.Counter()
     destination_bytes = 0
     destination_packets = 0
     dropped_packets = 0
@@ -340,6 +364,7 @@ def summarize(data: bytes) -> tuple[dict[str, object], list[str]]:
             small_targets[int.from_bytes(body[3:7], "little")].add(
                 int.from_bytes(body[7:11], "little")
             )
+            small_packet_sizes[int.from_bytes(body[11:13], "little")] += 1
         elif tag == 7 and len(body) == 19:
             packet_sizes[int.from_bytes(body[11:13], "little")] += 1
         elif tag == 8 and len(body) == 9:
@@ -365,6 +390,7 @@ def summarize(data: bytes) -> tuple[dict[str, object], list[str]]:
         "peak_delay_us": peak_delay_us,
         "max_small_targets": max(map(len, small_targets.values()), default=0),
         "packet_sizes": dict(sorted(packet_sizes.items())),
+        "small_packet_sizes": dict(sorted(small_packet_sizes.items())),
         "destination_bytes": destination_bytes,
         "destination_packets": destination_packets,
         "dropped_packets": dropped_packets,
@@ -400,6 +426,7 @@ def main() -> int:
             "scan-multiplicity",
             "mixed-plants",
             "capacity-bottleneck",
+            "sampling-boundaries",
         ],
         help="scenario to run (repeatable; default: all)",
     )
@@ -422,6 +449,7 @@ def main() -> int:
         "scan-multiplicity",
         "mixed-plants",
         "capacity-bottleneck",
+        "sampling-boundaries",
     ]
     if not SIM.exists():
         raise SystemExit(f"missing simulator: build it first ({SIM})")
@@ -491,6 +519,12 @@ def main() -> int:
                     problems.append("capacity bottleneck produced no port-drop evidence")
                 if result["packet_sizes"].get(1000, 0) < 2:
                     problems.append("large unnumbered side flow produced too little endpoint evidence")
+            if scenario == "sampling-boundaries":
+                if result["small_packet_sizes"].get(127, 0) == 0:
+                    problems.append("127-byte short flow was not retained")
+                for size in (128, 799, 800):
+                    if result["packet_sizes"].get(size, 0) < 2:
+                        problems.append(f"{size}-byte short flow did not retain its first two packets")
             print(f"{scenario}: {result}")
             for problem in problems:
                 print(f"  FAIL: {problem}")
