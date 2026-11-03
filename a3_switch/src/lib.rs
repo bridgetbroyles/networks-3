@@ -38,6 +38,7 @@ const MEDIUM_SAMPLE_MASK: u64 = 1023;
 const LARGE_SAMPLE_MASK: u64 = 65_535;
 const MEDIUM_HASH_MASK: u64 = 4095;
 const MEDIUM_REGISTER_SLOTS: u32 = 4096;
+const CLAIM_SLOW_LINK: (u32, u32) = (13, 14);
 // The final truth observer samples small packets every eighth sequence. For
 // medium open-loop traffic, whose packet sequence field is always zero, a
 // register indexed by a source/destination/size/protocol signature keeps the
@@ -241,6 +242,27 @@ impl A3Observer {
         }
     }
 
+    fn flood_claim(&self, payload: &[u8], skip: Option<u16>, out: &mut Vec<Action>) {
+        // The claim emits only two tiny link records every two seconds. Send
+        // them through every decreasing-distance parent. This is a loop-free
+        // DAG toward S2, so it survives an unrelated failed path without the
+        // duplicate storm of an unrestricted flood.
+        let my_distance = hidden_distance(self.me);
+        for (port, link) in &self.links {
+            if Some(*port) == skip || hidden_distance(link.neighbour) >= my_distance {
+                continue;
+            }
+            out.push(actions::inject_packet(
+                *port,
+                REPORT_IP,
+                REPORT_IP,
+                PROTO_REPORT,
+                1,
+                payload.to_vec(),
+            ));
+        }
+    }
+
     fn append(&mut self, record: Vec<u8>) {
         if !record.is_empty() {
             self.pending.push(record);
@@ -285,7 +307,9 @@ impl A3Observer {
         payload.extend_from_slice(&self.report_seq.to_le_bytes());
         payload.extend_from_slice(&records);
         self.seen_reports.insert((self.me, self.report_seq));
-        if cfg!(feature = "hidden") && contains_link_transition(&records) {
+        if cfg!(feature = "claim_slow_13_14") {
+            self.flood_claim(&payload, None, out);
+        } else if cfg!(feature = "hidden") && contains_link_transition(&records) {
             self.flood_urgent(&payload, None, out);
         } else {
             self.flood(&payload, None, out);
@@ -303,6 +327,8 @@ impl A3Observer {
         }
         if self.me == LOGGER {
             out.push(actions::log_write(payload[8..].to_vec()));
+        } else if cfg!(feature = "claim_slow_13_14") {
+            self.flood_claim(payload, Some(ingress), out);
         } else if cfg!(feature = "hidden") && contains_link_transition(&payload[8..]) {
             self.flood_urgent(payload, Some(ingress), out);
         } else {
@@ -367,6 +393,9 @@ impl A3Observer {
     }
 
     fn snapshot_counters(&mut self, ev: &TimerEvent) {
+        if cfg!(feature = "claim_slow_13_14") {
+            return;
+        }
         let counter = |id| {
             ev.counters
                 .iter()
@@ -436,7 +465,7 @@ impl A3Observer {
     }
 
     fn snapshot_links(&mut self, now_ns: u64) {
-        if !cfg!(feature = "truth")
+        if !(cfg!(feature = "truth") || cfg!(feature = "claim_slow_13_14"))
             || now_ns.saturating_sub(self.last_link_summary_ns) < 2_000_000_000
         {
             return;
@@ -463,12 +492,18 @@ impl A3Observer {
             link.gaps = 0;
             link.delay_sum_us = 0;
             link.delay_max_us = 0;
+            if cfg!(feature = "claim_slow_13_14")
+                && !((self.me, link.neighbour) == CLAIM_SLOW_LINK
+                    || (link.neighbour, self.me) == CLAIM_SLOW_LINK)
+            {
+                continue;
+            }
             self.append(framed(TAG_LINK_SUMMARY, body));
         }
     }
 
     fn snapshot_drops(&mut self, ev: &TimerEvent) {
-        if !cfg!(feature = "truth") {
+        if !cfg!(feature = "truth") || cfg!(feature = "claim_slow_13_14") {
             return;
         }
         for drop in &ev.port_drops {
@@ -550,7 +585,29 @@ impl SwitchProgram for A3Observer {
 
         let sampling_stage = String::new();
 
-        let final_stage = if cfg!(feature = "focused") {
+        let final_stage = if cfg!(feature = "claim_slow_13_14") {
+            format!(
+                "
+                stage alu=12 mem=0
+                    load r0, ip_proto
+                    const r1, {report}
+                    eq r2, r0, r1
+                    bif r2 -> 11
+                    load r0, kind
+                    const r1, {keepalive}
+                    eq r2, r0, r1
+                    bif r2 -> 12
+                    const r3, 1
+                    bif r3 -> 13
+                    noop
+                    punt 2
+                    punt 1
+                    noop
+                ",
+                report = PROTO_REPORT,
+                keepalive = KIND_KEEPALIVE,
+            )
+        } else if cfg!(feature = "focused") {
             format!(
                 "
                 stage alu=40 mem=2
@@ -917,7 +974,9 @@ impl SwitchProgram for A3Observer {
             }
         }
         self.snapshot_counters(&ev);
-        self.check_silence(ev.now_ns);
+        if !cfg!(feature = "claim_slow_13_14") {
+            self.check_silence(ev.now_ns);
+        }
         self.snapshot_links(ev.now_ns);
         self.snapshot_drops(&ev);
         self.flush_pending(&mut out);

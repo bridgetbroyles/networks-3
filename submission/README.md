@@ -1,5 +1,17 @@
 # Prepared A3 artifacts
 
+## Final graded Claim 1 pair
+
+Upload these two files together to **A3 - Claim**:
+
+```text
+claims/claim-01-slow-13-14/switch.wasm
+claims/claim-01-slow-13-14/detect.wasm
+```
+
+This pair tests sustained bidirectional high delay on hidden-grid link 13-14.
+See `docs/A3_CLAIM_01_SUBMISSION.md` for hashes and validation.
+
 ## Truth run
 
 Upload this single file to **A3 — Truth run**:

@@ -13,6 +13,7 @@ default = []
 hidden = []
 truth = []
 focused = []
+claim_slow_13_14 = []
 
 [dependencies]
 switch_program_sdk = { path = "../switch_program_sdk" }
