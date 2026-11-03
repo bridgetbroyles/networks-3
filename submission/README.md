@@ -12,4 +12,11 @@ Last confirmed result: **24 points**, six attempts used, **24 remaining**. Eggs 
 | templates/observer/ | Observer template; not a complete claim pair. |
 | [history](history/README.md) | Failed-claim history, current status and retired artifact hashes. |
 
-The next pair passed 137 synthetic network cases and 11 detector checks. Its source and reproducible validation scripts live in [experiments/wire-loss](../experiments/wire-loss/README.md). No unsubmitted candidate has a confirmed hidden win. Wait for the next result before submitting further claims.
+The next pair passed 137 synthetic network cases and 11 detector checks. The
+exact packaged files were rerun after the Claim 6 result; all checks passed
+again and the largest log was 2,730/24,576 bytes. Its source and reproducible
+validation scripts live in [experiments/wire-loss](../experiments/wire-loss/README.md),
+and the exact upload procedure is in
+[A3_CLAIM_07_SUBMISSION.md](../docs/A3_CLAIM_07_SUBMISSION.md). No unsubmitted
+candidate has a confirmed hidden win. Wait for the next result before
+submitting further claims.
