@@ -1,0 +1,214 @@
+{
+  "files": {
+    "switch.wasm": {
+      "bytes": 121509,
+      "sha256": "3aa689d58d014597cfa2e1383b61442173ed6dabdb2c7479dbfcfc203d8f2792"
+    },
+    "detect.wasm": {
+      "bytes": 39649,
+      "sha256": "528f4ee5dfff29327aa15c153b4c0585c14f682fa81da91fd776f3106cdc455b"
+    }
+  },
+  "runs": [
+    {
+      "case": "combined-False-1.0",
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "passed": true
+    },
+    {
+      "case": "combined-False-1.5",
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "passed": true
+    },
+    {
+      "case": "combined-True-1.0",
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "passed": true
+    },
+    {
+      "case": "combined-True-1.5",
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "passed": true
+    },
+    {
+      "case": "54-sender-header",
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "passed": true
+    },
+    {
+      "case": "combined-seed-3501-False",
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "passed": true
+    },
+    {
+      "case": "combined-seed-3501-True",
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "passed": true
+    },
+    {
+      "case": "combined-seed-3502-False",
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "passed": true
+    },
+    {
+      "case": "combined-seed-3502-True",
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "passed": true
+    },
+    {
+      "case": "combined-seed-3503-False",
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "passed": true
+    },
+    {
+      "case": "combined-seed-3503-True",
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "passed": true
+    },
+    {
+      "case": "combined-seed-3504-False",
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "passed": true
+    },
+    {
+      "case": "combined-seed-3504-True",
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "passed": true
+    },
+    {
+      "case": "combined-seed-3505-False",
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "passed": true
+    },
+    {
+      "case": "combined-seed-3505-True",
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "passed": true
+    },
+    {
+      "case": "combined-seed-3506-False",
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "passed": true
+    },
+    {
+      "case": "combined-seed-3506-True",
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "passed": true
+    },
+    {
+      "case": "combined-seed-3507-False",
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "passed": true
+    },
+    {
+      "case": "combined-seed-3507-True",
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "passed": true
+    },
+    {
+      "case": "combined-seed-3508-False",
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "passed": true
+    },
+    {
+      "case": "combined-seed-3508-True",
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "passed": true
+    },
+    {
+      "case": "combined-seed-3509-False",
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "passed": true
+    },
+    {
+      "case": "combined-seed-3509-True",
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "passed": true
+    },
+    {
+      "case": "combined-seed-3510-False",
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "passed": true
+    },
+    {
+      "case": "combined-seed-3510-True",
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "passed": true
+    }
+  ]
+}

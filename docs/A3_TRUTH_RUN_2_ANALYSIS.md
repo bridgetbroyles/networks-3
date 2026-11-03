@@ -8,7 +8,7 @@ it did **not** provide complete network-wide evidence. The log stayed below the
 80-event/s controller budget.
 
 The exact submitted observer is preserved at
-`submission/truth-run2/switch.wasm` with SHA-256:
+`submission/evidence/truth-run2/switch.wasm` with SHA-256:
 
 ```text
 9cb5ea50346bae90feb8db6eeab88b26ab268ccd1d812d02017970097fd019b0

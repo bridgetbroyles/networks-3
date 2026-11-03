@@ -4,3 +4,11 @@ target/
 *.simlog
 .DS_Store
 truthrun*/
+
+# Reproducible Python and claim-validation outputs
+__pycache__/
+*.py[cod]
+experiments/wire-loss/audit-worlds/
+experiments/wire-loss/combined-worlds/
+experiments/wire-loss/record-tests/
+experiments/wire-loss/generated/

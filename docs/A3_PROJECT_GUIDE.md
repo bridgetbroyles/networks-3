@@ -183,14 +183,14 @@ cargo build --release --target wasm32-unknown-unknown --features "hidden truth f
 Each feature combination overwrites the same Cargo target name, so stable
 copies are kept in `submission/`:
 
-- `a3_practice_switch.wasm` (logger 0; local validation)
-- `a3_practice_truth_switch.wasm` (logger 0; local truth validation)
-- `claim/switch.wasm` (preserved claim observer template; rebuild from current
+- `practice/a3_practice_switch.wasm` (logger 0; local validation)
+- `practice/a3_practice_truth_switch.wasm` (logger 0; local truth validation)
+- `templates/observer/switch.wasm` (preserved claim observer template; rebuild from current
   source before a new claim)
 - `truth/switch.wasm` (logger 2; final truth observer)
-- `detect_broken_link.wasm`
-- `detect_long_pause.wasm`
-- `detect_scanner.wasm`
+- `practice/detect_broken_link.wasm`
+- `practice/detect_long_pause.wasm`
+- `practice/detect_scanner.wasm`
 
 ## 9. Verified results
 

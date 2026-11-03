@@ -1,0 +1,62 @@
+[
+  {
+    "case": "full-run",
+    "known_world_loss_pct": 7.0,
+    "interval_ms": [
+      4000,
+      39000
+    ],
+    "old_answer": true,
+    "desired_for_a_time_local_loss_rule": true
+  },
+  {
+    "case": "ten-seconds",
+    "known_world_loss_pct": 7.0,
+    "interval_ms": [
+      12000,
+      22000
+    ],
+    "old_answer": false,
+    "desired_for_a_time_local_loss_rule": true
+  },
+  {
+    "case": "early",
+    "known_world_loss_pct": 7.0,
+    "interval_ms": [
+      1500,
+      11500
+    ],
+    "old_answer": false,
+    "desired_for_a_time_local_loss_rule": true
+  },
+  {
+    "case": "late",
+    "known_world_loss_pct": 7.0,
+    "interval_ms": [
+      29000,
+      39500
+    ],
+    "old_answer": false,
+    "desired_for_a_time_local_loss_rule": true
+  },
+  {
+    "case": "near-one-percent",
+    "known_world_loss_pct": 1.0,
+    "interval_ms": [
+      4000,
+      39000
+    ],
+    "old_answer": false,
+    "desired_for_a_time_local_loss_rule": false
+  },
+  {
+    "case": "off",
+    "known_world_loss_pct": 0.0,
+    "interval_ms": [
+      4000,
+      39000
+    ],
+    "old_answer": false,
+    "desired_for_a_time_local_loss_rule": false
+  }
+]

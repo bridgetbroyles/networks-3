@@ -1,0 +1,22 @@
+{
+  "network_cases": 137,
+  "detector_checks": 11,
+  "all_passed": true,
+  "hidden_points_verified": false,
+  "files": {
+    "switch.wasm": {
+      "bytes": 121509,
+      "sha256": "3aa689d58d014597cfa2e1383b61442173ed6dabdb2c7479dbfcfc203d8f2792"
+    },
+    "detect.wasm": {
+      "bytes": 39649,
+      "sha256": "528f4ee5dfff29327aa15c153b4c0585c14f682fa81da91fd776f3106cdc455b"
+    }
+  },
+  "counts": {
+    "audit-results.json": 64,
+    "boundary-results.json": 48,
+    "combined-results.json": 25,
+    "record-results.json": 11
+  }
+}

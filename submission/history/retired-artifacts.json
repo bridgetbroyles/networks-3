@@ -1,0 +1,402 @@
+[
+  {
+    "former_path": "submission/remaining-28-claims/claim-03-recovered-link-0-1/detect.wasm",
+    "bytes": 56204,
+    "sha256": "e0af8e889f5a7e996927180b4ddcf9a06207ce8ed3d334391ffe8a2b1327adad"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-03-recovered-link-0-1/switch.wasm",
+    "bytes": 126976,
+    "sha256": "c4efda7788540137987c58383dcd0ac9bf97526f0e3496fb3099800ac8a2edf6"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-04-recovered-link-10-11/detect.wasm",
+    "bytes": 56207,
+    "sha256": "bd349a46b42459be049ef163988ee260bccf8ea886a8ba5efdb7a05c06eda7c5"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-04-recovered-link-10-11/switch.wasm",
+    "bytes": 127007,
+    "sha256": "8f4d3f52dfac578a4747e3433de9d45c5f28a72419618d021e2536b29b29b2db"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-05-coordinated-silence-around-5/detect.wasm",
+    "bytes": 56737,
+    "sha256": "b80894c7191cdd9bda10a999979d9414f7b7ad9ccc8835422068223256cde730"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-05-coordinated-silence-around-5/switch.wasm",
+    "bytes": 126921,
+    "sha256": "fcca5a8d99b77c6023c7ba0518c0c915a17f5a47b7b594a4d677f02d3153412b"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-06-bottleneck-12-13/detect.wasm",
+    "bytes": 55427,
+    "sha256": "83f7944f6b1c93d92d06d35818aa49778ec3286060bd9c32ab16e3ae51bd564b"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-06-bottleneck-12-13/switch.wasm",
+    "bytes": 127007,
+    "sha256": "c08422faecc71c5c9e96388ccda84aeefb2eb856eb96bd47c1cfe93bb828dc00"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-07-bottleneck-6-7/detect.wasm",
+    "bytes": 55427,
+    "sha256": "48a92653fb53d391c0aaa732e2d24f59d9f0b908f1025606ed8e95ab1ddbbed3"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-07-bottleneck-6-7/switch.wasm",
+    "bytes": 127007,
+    "sha256": "d7431ee455567ccedcb2c45347ff4d4ba995109f3dbc353e3a9372cef506f0b7"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-08-loss-on-11-12/detect.wasm",
+    "bytes": 50105,
+    "sha256": "f51fe97a0d0058c405e9a3b6c7e082a5a90209d4b2b6a6d5b67046be3205e239"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-08-loss-on-11-12/switch.wasm",
+    "bytes": 127007,
+    "sha256": "064dd945c4810b7404ac7067b7749740b7a5b6bb22d9fa8e7c6052d997190049"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-09-home-users-small-udp-incast/detect.wasm",
+    "bytes": 58660,
+    "sha256": "bfb2df0253d135c7b98deb856c91f36d4e97c328047c94935a6c591b85350c65"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-09-home-users-small-udp-incast/switch.wasm",
+    "bytes": 128152,
+    "sha256": "64e03cde9896ace027adfa8be97de906a4947923563846f392d8f6b3e406329b"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-10-akamai-users-299-byte-tcp/detect.wasm",
+    "bytes": 56457,
+    "sha256": "e3e4b7a3243bc8ee67e7543c0710e942a3d74d90b0223ca71b0d786eec91f6dd"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-10-akamai-users-299-byte-tcp/switch.wasm",
+    "bytes": 128152,
+    "sha256": "6eb6fa9e52861ced20f21b85d16cc45e77cd731392d7c882298c88ff126bb638"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-11-mapper-low-ttl/detect.wasm",
+    "bytes": 52296,
+    "sha256": "8c893620ec566d1d0f471da58fddf31bab61ea8a23066db8b78783a89efb0a73"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-11-mapper-low-ttl/switch.wasm",
+    "bytes": 128466,
+    "sha256": "14f2c6583d557c6569cbc3d9f8b02dc5b3afcb2bee66027fb140300ddec04563"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-12-camera-synchronized-bursts/detect.wasm",
+    "bytes": 58302,
+    "sha256": "a5d62e4aafacc05ed310fa3c99bd11c95f6be4dd4c71d4d8b4fd3d520bca8e43"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-12-camera-synchronized-bursts/switch.wasm",
+    "bytes": 125498,
+    "sha256": "2ec831740c9fb9e5075f4c2872cb482aa7d3ca1633931047fc2ce598bd37774c"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-13-steam-temporary-rate-surge/detect.wasm",
+    "bytes": 61428,
+    "sha256": "e6c4a6d0e03573cc18ffc02d60f6d7f460cef94c83a49ba1e77667e0eefef8eb"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-13-steam-temporary-rate-surge/switch.wasm",
+    "bytes": 125498,
+    "sha256": "41aea7fcad656c95b6ba6067cfe6e47b35e5c4b7a869b27f6a12152acd66f5e2"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-14-netflix-live-dip-and-recovery/detect.wasm",
+    "bytes": 62179,
+    "sha256": "357a8a24b421835743904a202aeab67549dae4023576092529857e9f62726c3c"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-14-netflix-live-dip-and-recovery/switch.wasm",
+    "bytes": 125502,
+    "sha256": "5ebfaee978e4fbe8ab439fddd1167bb6e97857b3b9f803eb52644e2904758b6b"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-15-dropbox-correlated-rate-changes/detect.wasm",
+    "bytes": 58302,
+    "sha256": "6b765e2a3f657028e90b7e7694cc7fed2eec8e46b2dd4afaa51d28c0d93945ae"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-15-dropbox-correlated-rate-changes/switch.wasm",
+    "bytes": 125498,
+    "sha256": "c25a005c933681bec4e8fae393a0403cc8cbbe980916c523f23669d405190793"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-16-dropbox-2-quiet-and-resume/detect.wasm",
+    "bytes": 62284,
+    "sha256": "b0fa4116ae8b4d3268ecf6961da3934f6533895d1a90ec0e1348d8855029d425"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-16-dropbox-2-quiet-and-resume/switch.wasm",
+    "bytes": 125498,
+    "sha256": "28db52156d2e48e5c86af5ef9fe27e77bded81f6d0f86bafaa26b6bcb093de05"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-17-backup-large-rate-changes/detect.wasm",
+    "bytes": 61479,
+    "sha256": "81e86dc5b8e4f206dedbfa576f62c78ef473e71a8a8aed11cdaa8decdf462565"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-17-backup-large-rate-changes/switch.wasm",
+    "bytes": 125498,
+    "sha256": "28db52156d2e48e5c86af5ef9fe27e77bded81f6d0f86bafaa26b6bcb093de05"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-18-ledger-long-pause/detect.wasm",
+    "bytes": 62285,
+    "sha256": "67061188a502b17b085af68e7f049ed75ae819b6f81e00d13e04b5be6646a38d"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-18-ledger-long-pause/switch.wasm",
+    "bytes": 125498,
+    "sha256": "aebb84e91e788f39a62de2c2bdcdd7251cba7e4f8c3ec4d89de9dd81135ac48d"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-19-coordinated-two-link-outage/detect.wasm",
+    "bytes": 57133,
+    "sha256": "1c9eb3dcd5692da84961ee953e4c98b97c9a79c526c430f84fef7ffb4d32a890"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-19-coordinated-two-link-outage/switch.wasm",
+    "bytes": 127152,
+    "sha256": "5271e0f3dd377726f34ac07ebd80148348c235d496c39e79a90c72988c6c7490"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-20-zoom-pair-simultaneous-pause/detect.wasm",
+    "bytes": 58686,
+    "sha256": "2d10995f63ba834a45518d9642ddf69739033ba762697f00af46e538a155bf92"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-20-zoom-pair-simultaneous-pause/switch.wasm",
+    "bytes": 125533,
+    "sha256": "5dfee80406a937c4e3a704b816f6f2cf322a30ae170c9a3b068e0dc7de744984"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-21-vault-500-byte-tcp/detect.wasm",
+    "bytes": 56460,
+    "sha256": "86224824b2bef91f2e116affd4eefb881d8edd87b9248e6913fa26d9b3ce39c4"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-21-vault-500-byte-tcp/switch.wasm",
+    "bytes": 128152,
+    "sha256": "a1ab82a6c490cd4b3b57987c01f9c7e1c3364dae3b7c5efd3ba72117d7264ca4"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-22-login-small-tcp-fanout/detect.wasm",
+    "bytes": 58347,
+    "sha256": "9ca5cd6992d93e658998f609175b8e1b34d0ec9639cd3955914c9101e39e5793"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-22-login-small-tcp-fanout/switch.wasm",
+    "bytes": 128156,
+    "sha256": "78026abe3e092a4732272b6d9b8fa08aad0f847354eabaee395e9d6310cbce82"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-23-prime-member-selective-pause/detect.wasm",
+    "bytes": 62179,
+    "sha256": "bf0526cf60f9c12d18bd4b5953c44d5245f05101a81d51b84ed2cbb3b01a7240"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-23-prime-member-selective-pause/switch.wasm",
+    "bytes": 125498,
+    "sha256": "41aea7fcad656c95b6ba6067cfe6e47b35e5c4b7a869b27f6a12152acd66f5e2"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-24-fortnite-player-selective-pause/detect.wasm",
+    "bytes": 62179,
+    "sha256": "f9f2ea47bdac16a5f288a8bb04543eb09a09e7adbf95a5000b85105490854e54"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-24-fortnite-player-selective-pause/switch.wasm",
+    "bytes": 125502,
+    "sha256": "2d2c8aa0a50906d71ffa7651b3f82bff20ef48706ba42276db00f89fa4845aa2"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-25-ping-one-sided-activity-gap/detect.wasm",
+    "bytes": 57900,
+    "sha256": "59060754164a125ad5b24645791e5a8b222b3098f5d00fdc94911b8b53513cb1"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-25-ping-one-sided-activity-gap/switch.wasm",
+    "bytes": 125542,
+    "sha256": "65109a5d55a5e8ffbe74a07a8ac94110d90fc2308acb4faf529fcc7caae4bfc8"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-26-cloudflare-reverse-small-tcp/detect.wasm",
+    "bytes": 65472,
+    "sha256": "85577d62ca702a0722dc414feaa18062299d1e43cce38292926662f00a9495ce"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-26-cloudflare-reverse-small-tcp/switch.wasm",
+    "bytes": 128152,
+    "sha256": "c60053846f9ea2e0987d72151a6ecb1f97a1ba68e00cca840efcd134547ed0bd"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-27-recovered-0-1-duration-fallback/detect.wasm",
+    "bytes": 56204,
+    "sha256": "13dd855c3e533844bd3f5f9b3f3f392e0dd5e5bdad4d59a1f3c55bf84308966e"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-27-recovered-0-1-duration-fallback/switch.wasm",
+    "bytes": 126976,
+    "sha256": "c4efda7788540137987c58383dcd0ac9bf97526f0e3496fb3099800ac8a2edf6"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-28-recovered-10-11-duration-fallback/detect.wasm",
+    "bytes": 56207,
+    "sha256": "ccf4446e582aa527a397fe84582e9459cdbb3ec4423e931b0f37d6fbb13d6ed8"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-28-recovered-10-11-duration-fallback/switch.wasm",
+    "bytes": 127007,
+    "sha256": "8f4d3f52dfac578a4747e3433de9d45c5f28a72419618d021e2536b29b29b2db"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-29-12-13-delay-regime-fallback/detect.wasm",
+    "bytes": 50296,
+    "sha256": "ccc140d94cf761b93fc66ed2efcc2583ce3b974a05e7a1924b4c8dc642ade71b"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-29-12-13-delay-regime-fallback/switch.wasm",
+    "bytes": 127007,
+    "sha256": "c08422faecc71c5c9e96388ccda84aeefb2eb856eb96bd47c1cfe93bb828dc00"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-30-6-7-repeated-delay-pulses-fallback/detect.wasm",
+    "bytes": 45294,
+    "sha256": "4588af7d424b3c0c48321ab903f3a804ce1c040b06df71c9c134bda107da6514"
+  },
+  {
+    "former_path": "submission/remaining-28-claims/claim-30-6-7-repeated-delay-pulses-fallback/switch.wasm",
+    "bytes": 127007,
+    "sha256": "d7431ee455567ccedcb2c45347ff4d4ba995109f3dbc353e3a9372cef506f0b7"
+  },
+  {
+    "former_path": "submission/revised-to-150/NEXT-06-capacity-12-13/detect.wasm",
+    "bytes": 46351,
+    "sha256": "7dd86998782cc9729b8734f9c5a8ce744f3613676f5630c70d57fb81513bcf67"
+  },
+  {
+    "former_path": "submission/revised-to-150/NEXT-06-capacity-12-13/switch.wasm",
+    "bytes": 142654,
+    "sha256": "7d3ed5809c9ecd1b8b6a6f118b1462917e180be12bc4752da79b290953288bbb"
+  },
+  {
+    "former_path": "submission/revised-to-150/NEXT-07-wire-loss-11-12/detect.wasm",
+    "bytes": 61708,
+    "sha256": "7409babd34c5b0aeb3a49ebc2527a4c05b07384fa5a365b00bfea0da94c5da41"
+  },
+  {
+    "former_path": "submission/revised-to-150/NEXT-07-wire-loss-11-12/switch.wasm",
+    "bytes": 142272,
+    "sha256": "ba731c9e6f1e3f6406fa8a309ea3c160566b7fa1c802c54afaece04dc61d095c"
+  },
+  {
+    "former_path": "submission/revised-to-150/attempt-04-capacity-change-12-13/detect.wasm",
+    "bytes": 46351,
+    "sha256": "7dd86998782cc9729b8734f9c5a8ce744f3613676f5630c70d57fb81513bcf67"
+  },
+  {
+    "former_path": "submission/revised-to-150/attempt-04-capacity-change-12-13/switch.wasm",
+    "bytes": 142654,
+    "sha256": "7d3ed5809c9ecd1b8b6a6f118b1462917e180be12bc4752da79b290953288bbb"
+  },
+  {
+    "former_path": "submission/revised-to-150/attempt-05-wire-loss-11-12/detect.wasm",
+    "bytes": 61708,
+    "sha256": "7409babd34c5b0aeb3a49ebc2527a4c05b07384fa5a365b00bfea0da94c5da41"
+  },
+  {
+    "former_path": "submission/revised-to-150/attempt-05-wire-loss-11-12/switch.wasm",
+    "bytes": 142272,
+    "sha256": "ba731c9e6f1e3f6406fa8a309ea3c160566b7fa1c802c54afaece04dc61d095c"
+  },
+  {
+    "former_path": "submission/revised-to-150/attempt-06-vault-immediate-duplicates/detect.wasm",
+    "bytes": 60259,
+    "sha256": "4d66d05f9102e008765d89755e413141ec679430f379b60502e5ee139525a972"
+  },
+  {
+    "former_path": "submission/revised-to-150/attempt-06-vault-immediate-duplicates/switch.wasm",
+    "bytes": 131574,
+    "sha256": "6d97c08c237a4b96a16d7eb092b278e6e3562290949975ad95eeff6f1c718438"
+  },
+  {
+    "former_path": "submission/revised-to-150/attempt-07-home-users-high-volume-incast/detect.wasm",
+    "bytes": 75592,
+    "sha256": "1d3053af3a50301c8669a0b7f66646e8ebda3e436557a43c258078597e36dcfe"
+  },
+  {
+    "former_path": "submission/revised-to-150/attempt-07-home-users-high-volume-incast/switch.wasm",
+    "bytes": 131891,
+    "sha256": "462fd4d1a88aec73d897a0e869b336d9adc70006a024f63fc0a911bf3a1aaf89"
+  },
+  {
+    "former_path": "submission/revised-to-150/conditional/attempt-08-switch-5-physical-interruption/detect.wasm",
+    "bytes": 63651,
+    "sha256": "09e660da8ef96de726f3f188fb5eca52b57abc83a1a83f059b7223f066d9fdd1"
+  },
+  {
+    "former_path": "submission/revised-to-150/conditional/attempt-08-switch-5-physical-interruption/switch.wasm",
+    "bytes": 142151,
+    "sha256": "5f668fdac781322bcfdf6d16bd2624ad60f3c155451594b06093681055c43918"
+  },
+  {
+    "former_path": "submission/revised-to-150/conditional/attempt-09-6-7-delay-pulses/detect.wasm",
+    "bytes": 45871,
+    "sha256": "df22c935de2d02830810f4ffa2bd5ab3cdd8b14b58a6015ad86ce2f3facd3da3"
+  },
+  {
+    "former_path": "submission/revised-to-150/conditional/attempt-09-6-7-delay-pulses/switch.wasm",
+    "bytes": 134769,
+    "sha256": "0f350a9eb79a136048e59ccd273e13a28510d5c5d798e130640427a5f4f79070"
+  },
+  {
+    "former_path": "submission/revised-to-150/conditional/attempt-10-0-1-keepalive-only-interruption/detect.wasm",
+    "bytes": 57690,
+    "sha256": "263a1dedd4abf7e09fde61d8c553f24ee285c7cd58676ad24808d36a87cbbf8d"
+  },
+  {
+    "former_path": "submission/revised-to-150/conditional/attempt-10-0-1-keepalive-only-interruption/switch.wasm",
+    "bytes": 142227,
+    "sha256": "143168720a0126fe3f36a88fb9d4674aeac8921a3f0c1b068496234662ba184e"
+  },
+  {
+    "former_path": "submission/revised-to-150/conditional/attempt-11-mapper-ttl-ladder/detect.wasm",
+    "bytes": 55642,
+    "sha256": "c8ed99bf9c73de7f23f6905d9d59ae9683ce2aa196070675bfeb0c7db8ade212"
+  },
+  {
+    "former_path": "submission/revised-to-150/conditional/attempt-11-mapper-ttl-ladder/switch.wasm",
+    "bytes": 135462,
+    "sha256": "ef36436fd25c8b966e78ea041f68760fead1521a42edd217cbe9b6e615959f61"
+  },
+  {
+    "former_path": "submission/revised-to-150/conditional/attempt-12-coordinated-physical-outages/detect.wasm",
+    "bytes": 64119,
+    "sha256": "6c0687c037fe2d9bef5938aec4a3de4a7d1e4023c8bde779d9ec3a8d62a50f02"
+  },
+  {
+    "former_path": "submission/revised-to-150/conditional/attempt-12-coordinated-physical-outages/switch.wasm",
+    "bytes": 142541,
+    "sha256": "19c741f23c2db323e07fb2a2027305b283bc3d6d4924af554eb62718d9afc77f"
+  },
+  {
+    "former_path": "submission/revised-to-150/conditional/attempt-13-10-11-physical-outage/detect.wasm",
+    "bytes": 64115,
+    "sha256": "6e484538b95fc9f0b8f6377ad8d46d0d616e357f04e386524f16f312d4df4374"
+  },
+  {
+    "former_path": "submission/revised-to-150/conditional/attempt-13-10-11-physical-outage/switch.wasm",
+    "bytes": 142272,
+    "sha256": "932070d5bc421c54c8b19740390c284691fac45577b8724a964743391e50864a"
+  }
+]

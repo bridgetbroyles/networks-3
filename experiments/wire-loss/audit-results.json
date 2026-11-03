@@ -1,0 +1,590 @@
+{
+  "files": {
+    "switch.wasm": {
+      "bytes": 121509,
+      "sha256": "3aa689d58d014597cfa2e1383b61442173ed6dabdb2c7479dbfcfc203d8f2792"
+    },
+    "detect.wasm": {
+      "bytes": 39649,
+      "sha256": "528f4ee5dfff29327aa15c153b4c0585c14f682fa81da91fd776f3106cdc455b"
+    }
+  },
+  "runs": [
+    {
+      "case": "full-run",
+      "seed": 3341,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "full-run",
+      "seed": 3341,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "full-run",
+      "seed": 3349,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "full-run",
+      "seed": 3349,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds",
+      "seed": 3341,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds",
+      "seed": 3341,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds",
+      "seed": 3349,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds",
+      "seed": 3349,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "early",
+      "seed": 3341,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "early",
+      "seed": 3341,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "early",
+      "seed": 3349,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "early",
+      "seed": 3349,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "late",
+      "seed": 3341,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "late",
+      "seed": 3341,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "late",
+      "seed": 3349,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "late",
+      "seed": 3349,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "full-five-percent",
+      "seed": 3341,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "full-five-percent",
+      "seed": 3341,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "full-five-percent",
+      "seed": 3349,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "full-five-percent",
+      "seed": 3349,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds-five-percent",
+      "seed": 3341,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds-five-percent",
+      "seed": 3341,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds-five-percent",
+      "seed": 3349,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds-five-percent",
+      "seed": 3349,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "near-one-percent",
+      "seed": 3341,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "near-one-percent",
+      "seed": 3341,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "near-one-percent",
+      "seed": 3349,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "near-one-percent",
+      "seed": 3349,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "near-two-percent",
+      "seed": 3341,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "near-two-percent",
+      "seed": 3341,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "near-two-percent",
+      "seed": 3349,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "near-two-percent",
+      "seed": 3349,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "boundary-2.5-percent",
+      "seed": 3341,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "boundary-2.5-percent",
+      "seed": 3341,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "boundary-2.5-percent",
+      "seed": 3349,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "boundary-2.5-percent",
+      "seed": 3349,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 3341,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 3341,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 3349,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 3349,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "loss-plus-later-congestion",
+      "seed": 3341,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "loss-plus-later-congestion",
+      "seed": 3341,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "loss-plus-later-congestion",
+      "seed": 3349,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "loss-plus-later-congestion",
+      "seed": 3349,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 3341,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 3341,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 3349,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 3349,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "high-load-no-loss",
+      "seed": 3341,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "high-load-no-loss",
+      "seed": 3341,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "high-load-no-loss",
+      "seed": 3349,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "high-load-no-loss",
+      "seed": 3349,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "recovered-outage",
+      "seed": 3341,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "recovered-outage",
+      "seed": 3341,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "recovered-outage",
+      "seed": 3349,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "recovered-outage",
+      "seed": 3349,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "other-edge",
+      "seed": 3341,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "other-edge",
+      "seed": 3341,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "other-edge",
+      "seed": 3349,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "other-edge",
+      "seed": 3349,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "brief-spike",
+      "seed": 3341,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "brief-spike",
+      "seed": 3341,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "brief-spike",
+      "seed": 3349,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "brief-spike",
+      "seed": 3349,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    }
+  ]
+}

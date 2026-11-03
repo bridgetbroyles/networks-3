@@ -1,0 +1,446 @@
+{
+  "files": {
+    "switch.wasm": {
+      "bytes": 121509,
+      "sha256": "3aa689d58d014597cfa2e1383b61442173ed6dabdb2c7479dbfcfc203d8f2792"
+    },
+    "detect.wasm": {
+      "bytes": 39649,
+      "sha256": "528f4ee5dfff29327aa15c153b4c0585c14f682fa81da91fd776f3106cdc455b"
+    }
+  },
+  "runs": [
+    {
+      "case": "near-two-percent",
+      "seed": 3401,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "near-two-percent",
+      "seed": 3402,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "near-two-percent",
+      "seed": 3403,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "near-two-percent",
+      "seed": 3404,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "near-two-percent",
+      "seed": 3405,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "near-two-percent",
+      "seed": 3406,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "near-two-percent",
+      "seed": 3407,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "near-two-percent",
+      "seed": 3408,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "near-two-percent",
+      "seed": 3409,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "near-two-percent",
+      "seed": 3410,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "near-two-percent",
+      "seed": 3411,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "near-two-percent",
+      "seed": 3412,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "boundary-2.5-percent",
+      "seed": 3401,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "boundary-2.5-percent",
+      "seed": 3402,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "boundary-2.5-percent",
+      "seed": 3403,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "boundary-2.5-percent",
+      "seed": 3404,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "boundary-2.5-percent",
+      "seed": 3405,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "boundary-2.5-percent",
+      "seed": 3406,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "boundary-2.5-percent",
+      "seed": 3407,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "boundary-2.5-percent",
+      "seed": 3408,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "boundary-2.5-percent",
+      "seed": 3409,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "boundary-2.5-percent",
+      "seed": 3410,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "boundary-2.5-percent",
+      "seed": 3411,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "boundary-2.5-percent",
+      "seed": 3412,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds-five-percent",
+      "seed": 3401,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds-five-percent",
+      "seed": 3402,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds-five-percent",
+      "seed": 3403,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds-five-percent",
+      "seed": 3404,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds-five-percent",
+      "seed": 3405,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds-five-percent",
+      "seed": 3406,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds-five-percent",
+      "seed": 3407,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds-five-percent",
+      "seed": 3408,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds-five-percent",
+      "seed": 3409,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds-five-percent",
+      "seed": 3410,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds-five-percent",
+      "seed": 3411,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds-five-percent",
+      "seed": 3412,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds",
+      "seed": 3401,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds",
+      "seed": 3402,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds",
+      "seed": 3403,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds",
+      "seed": 3404,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds",
+      "seed": 3405,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds",
+      "seed": 3406,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds",
+      "seed": 3407,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds",
+      "seed": 3408,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds",
+      "seed": 3409,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds",
+      "seed": 3410,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds",
+      "seed": 3411,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    },
+    {
+      "case": "ten-seconds",
+      "seed": 3412,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 2730,
+      "pass": true
+    }
+  ]
+}

@@ -10,8 +10,8 @@ resubmit this pair; identical claims are ignored and the egg remains won.
 Upload both files together to the Canvas assignment **A3 - Claim**:
 
 ```text
-submission/claims/claim-01-slow-13-14/switch.wasm
-submission/claims/claim-01-slow-13-14/detect.wasm
+submission/completed/claim-01-slow-13-14/switch.wasm
+submission/completed/claim-01-slow-13-14/detect.wasm
 ```
 
 Their upload names are already exactly `switch.wasm` and `detect.wasm`. Do not

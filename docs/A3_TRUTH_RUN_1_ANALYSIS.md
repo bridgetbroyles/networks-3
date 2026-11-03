@@ -112,7 +112,7 @@ retained all switches and directed links. It also still passes every
 disclosed practice claim at 10/10 in compact mode.
 
 The exact run-1 Wasm is preserved at
-`submission/truth-run1/switch.wasm`. The improved run-2 file is
+`submission/evidence/truth-run1/switch.wasm`. The improved run-2 file is
 `submission/truth/switch.wasm`.
 
 ## Next decision

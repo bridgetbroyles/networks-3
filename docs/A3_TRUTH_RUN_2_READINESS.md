@@ -2,7 +2,7 @@
 
 > Historical pre-submission record: Truth Run 2 has now returned. Its packet
 > sampling overloaded S7's event budget and suppressed most remote summaries.
-> The exact artifact is preserved in `submission/truth-run2/`. See
+> The exact artifact is preserved in `submission/evidence/truth-run2/`. See
 > `A3_TRUTH_RUN_2_ANALYSIS.md` for the measured result and the corrected Truth
 > Run 3 observer. Do not use the upload recommendation or SHA below now.
 
@@ -33,8 +33,8 @@ Canvas requires the uploaded filename to be `switch.wasm`. SHA-256:
 9cb5ea50346bae90feb8db6eeab88b26ab268ccd1d812d02017970097fd019b0
 ```
 
-Do not upload `submission/truth-run1/switch.wasm`; that is the preserved old
-observer. Do not upload `submission/claim/switch.wasm` to a truth run.
+Do not upload `submission/evidence/truth-run1/switch.wasm`; that is the preserved old
+observer. Do not upload `submission/templates/observer/switch.wasm` to a truth run.
 
 ## What the validation reproduced
 

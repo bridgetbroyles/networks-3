@@ -5,8 +5,8 @@
 Upload both files together to **A3 - Claim**:
 
 ```text
-submission/claims/claim-02-asymmetric-1-2/switch.wasm
-submission/claims/claim-02-asymmetric-1-2/detect.wasm
+submission/completed/claim-02-asymmetric-1-2/switch.wasm
+submission/completed/claim-02-asymmetric-1-2/detect.wasm
 ```
 
 Their upload names are already exactly `switch.wasm` and `detect.wasm`. Do not

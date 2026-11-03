@@ -1,0 +1,80 @@
+{
+  "files": {
+    "switch.wasm": {
+      "bytes": 121509,
+      "sha256": "3aa689d58d014597cfa2e1383b61442173ed6dabdb2c7479dbfcfc203d8f2792"
+    },
+    "detect.wasm": {
+      "bytes": 39649,
+      "sha256": "528f4ee5dfff29327aa15c153b4c0585c14f682fa81da91fd776f3106cdc455b"
+    }
+  },
+  "checks": [
+    {
+      "case": "positive",
+      "expected": true,
+      "actual": true,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "case": "two-percent",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "case": "one-way",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "case": "disjoint",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "case": "big-gap",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "case": "queue-drop",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "case": "counter-reset",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "case": "bad-sent-accounting",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "case": "empty",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    },
+    {
+      "case": "malformed",
+      "expected": false,
+      "actual": false,
+      "pass": true
+    }
+  ]
+}

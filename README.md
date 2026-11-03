@@ -10,6 +10,10 @@ The assignment text, the eggs and the grading rules are in the handout.
 They are not in this kit. `docs/a3-logging.md` is the API for the chain
 from a packet to a true or false.
 
+## Current submission status
+
+Start at [submission/README.md](submission/README.md): 24 confirmed points, 24 attempts remaining, one next candidate. Its source and validation live in [experiments/wire-loss](experiments/wire-loss/README.md). Failed and speculative queues have been retired; [submission/history](submission/history/README.md) records the history. Earlier analysis documents remain historical evidence, not current submission instructions.
+
 ## Layout
 
 ```
@@ -21,6 +25,8 @@ examples/broken_link/        the solved practice egg: notices a quiet link, repo
 examples/broken_link_detect/ its detector: both ends of link 1-2 silent for good
 worlds/practice/             the practice network, three practice eggs x 10 runs, their answers
 scripts/practice-check.py    scores your two programs on the practice runs as the server would
+submission/                  one next candidate, completed pairs, truth/practice files and history
+experiments/wire-loss/       next candidate source and reproducible validation
 viewer/                      browser replay of a full log
 docs/                        simulator reference, and the logging guide
 ```

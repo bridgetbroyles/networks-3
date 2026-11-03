@@ -1,0 +1,38 @@
+{
+  "files": {
+    "switch.wasm": {
+      "bytes": 121501,
+      "sha256": "4370b90d12fd093387973d8ed00c46d345555c8b4d58e0c859468ffc0e1cd662"
+    },
+    "detect.wasm": {
+      "bytes": 39649,
+      "sha256": "528f4ee5dfff29327aa15c153b4c0585c14f682fa81da91fd776f3106cdc455b"
+    }
+  },
+  "checks": [
+    {
+      "case": "full-run",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "case": "off",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "case": "high-load-no-loss",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "case": "recovered-outage",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    }
+  ]
+}

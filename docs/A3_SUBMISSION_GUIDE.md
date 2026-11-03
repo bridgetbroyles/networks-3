@@ -1,3 +1,5 @@
+> Current queue and score: [submission/README.md](../submission/README.md). This guide describes general workflow and earlier artifacts; it is not the current claim queue.
+
 # A3 submission guide
 
 This is the short, repository-specific checklist. `SUBMITTING.md` is the
@@ -7,13 +9,13 @@ official source if anything here ever differs.
 
 | Purpose | File to use | Canvas upload name |
 |---|---|---|
-| Practice claim validation | `submission/a3_practice_switch.wasm` | any local name |
-| Practice truth validation | `submission/a3_practice_truth_switch.wasm` | any local name |
+| Practice claim validation | `submission/practice/a3_practice_switch.wasm` | any local name |
+| Practice truth validation | `submission/practice/a3_practice_truth_switch.wasm` | any local name |
 | Truth run | `submission/truth/switch.wasm` | `switch.wasm` |
-| Claim observer template | `submission/claim/switch.wasm` | `switch.wasm` |
-| Practice egg 21 | `submission/detect_broken_link.wasm` | `detect.wasm` |
-| Practice egg 22 | `submission/detect_long_pause.wasm` | `detect.wasm` |
-| Practice egg 23 | `submission/detect_scanner.wasm` | `detect.wasm` |
+| Claim observer template | `submission/templates/observer/switch.wasm` | `switch.wasm` |
+| Practice egg 21 | `submission/practice/detect_broken_link.wasm` | `detect.wasm` |
+| Practice egg 22 | `submission/practice/detect_long_pause.wasm` | `detect.wasm` |
+| Practice egg 23 | `submission/practice/detect_scanner.wasm` | `detect.wasm` |
 
 The three supplied detectors prove the instrumentation on practice eggs;
 they are not expected to win hidden eggs. Do not upload a practice
@@ -53,7 +55,7 @@ The current `submission/truth/switch.wasm` is the verified focused Truth Run
 3 candidate. Its SHA-256 is
 `deed7bef8ddb8b772620a11fbfea6c979510135acd415cc8edb789f2d60d506d`.
 See `A3_TRUTH_RUN_2_ANALYSIS.md` for the evidence that motivated it. The exact
-Truth Run 2 artifact is preserved in `submission/truth-run2/`.
+Truth Run 2 artifact is preserved in `submission/evidence/truth-run2/`.
 The final coverage matrix, validation results, and remaining uncertainty are in
 `A3_FINAL_TRUTH_COVERAGE_AUDIT.md`.
 
@@ -116,7 +118,7 @@ The environment may need the Rust toolchain library directory in
 ```
 
 Copy the hidden truth build to `submission/truth/switch.wasm` and the
-hidden compact build to `submission/claim/switch.wasm`. Do not overwrite
+hidden compact build to `submission/templates/observer/switch.wasm`. Do not overwrite
 one with the other when switching features.
 
 ## Design card

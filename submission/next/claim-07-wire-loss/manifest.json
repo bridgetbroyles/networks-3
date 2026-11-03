@@ -1,0 +1,32 @@
+[
+  {
+    "id": 7,
+    "slug": "wire-loss-data-plane-v2",
+    "mode": "probe_loss",
+    "sites": [
+      11,
+      12
+    ],
+    "edge": [
+      11,
+      12
+    ],
+    "packet": null,
+    "threshold": 25,
+    "probe_mode": 1,
+    "recommendation": "Revised data-plane measurement; hidden grading unverified",
+    "hidden_score_verified": false,
+    "expected_points": null,
+    "folder": ".",
+    "files": {
+      "switch.wasm": {
+        "bytes": 121509,
+        "sha256": "3aa689d58d014597cfa2e1383b61442173ed6dabdb2c7479dbfcfc203d8f2792"
+      },
+      "detect.wasm": {
+        "bytes": 39649,
+        "sha256": "528f4ee5dfff29327aa15c153b4c0585c14f682fa81da91fd776f3106cdc455b"
+      }
+    }
+  }
+]

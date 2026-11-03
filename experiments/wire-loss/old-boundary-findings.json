@@ -1,0 +1,62 @@
+[
+  {
+    "seed": 3401,
+    "actual_loss_pct": 2.0,
+    "answer": "false"
+  },
+  {
+    "seed": 3402,
+    "actual_loss_pct": 2.0,
+    "answer": "true"
+  },
+  {
+    "seed": 3403,
+    "actual_loss_pct": 2.0,
+    "answer": "false"
+  },
+  {
+    "seed": 3404,
+    "actual_loss_pct": 2.0,
+    "answer": "true"
+  },
+  {
+    "seed": 3405,
+    "actual_loss_pct": 2.0,
+    "answer": "false"
+  },
+  {
+    "seed": 3406,
+    "actual_loss_pct": 2.0,
+    "answer": "false"
+  },
+  {
+    "seed": 3407,
+    "actual_loss_pct": 2.0,
+    "answer": "false"
+  },
+  {
+    "seed": 3408,
+    "actual_loss_pct": 2.0,
+    "answer": "false"
+  },
+  {
+    "seed": 3409,
+    "actual_loss_pct": 2.0,
+    "answer": "false"
+  },
+  {
+    "seed": 3410,
+    "actual_loss_pct": 2.0,
+    "answer": "true"
+  },
+  {
+    "seed": 3411,
+    "actual_loss_pct": 2.0,
+    "answer": "true"
+  },
+  {
+    "seed": 3412,
+    "actual_loss_pct": 2.0,
+    "answer": "false"
+  }
+]

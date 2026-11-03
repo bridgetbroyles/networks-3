@@ -130,7 +130,7 @@ incoming reports. Several apparent silent links are therefore observer
 artifacts, not trustworthy network events.
 
 The exact run-1 observer is preserved in
-`submission/truth-run1/switch.wasm`. The revised truth observer:
+`submission/evidence/truth-run1/switch.wasm`. The revised truth observer:
 
 - supports 63 source and destination prefixes;
 - uses four 64-slot data-plane counters, which keep timer input below the
@@ -203,7 +203,7 @@ evidence includes the 25,051-us S13-to-S14 direction, but the incomplete
 network-wide series is not enough to finalize all hidden claims. Full details
 are in `A3_TRUTH_RUN_2_ANALYSIS.md`.
 
-The exact Run 2 Wasm was preserved in `submission/truth-run2/`. A new
+The exact Run 2 Wasm was preserved in `submission/evidence/truth-run2/`. A new
 `focused` feature keeps the first two packets and reduces ongoing ordinary
 sampling from one in 1,024 to one in 8,192. Counters, link summaries, port
 drops, report routing, and the two-second silence rule are unchanged.

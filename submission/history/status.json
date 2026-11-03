@@ -1,0 +1,78 @@
+{
+  "claims_used": 6,
+  "claims_remaining": 24,
+  "confirmed_points": 24,
+  "won_eggs": [
+    10,
+    14,
+    19
+  ],
+  "failed_submission": {
+    "number": 3,
+    "folder": "claim-03-recovered-link-0-1",
+    "files": {
+      "switch.wasm": {
+        "bytes": 126976,
+        "sha256": "c4efda7788540137987c58383dcd0ac9bf97526f0e3496fb3099800ac8a2edf6"
+      },
+      "detect.wasm": {
+        "bytes": 56204,
+        "sha256": "e0af8e889f5a7e996927180b4ddcf9a06207ce8ed3d334391ffe8a2b1327adad"
+      }
+    },
+    "result": "no new egg won"
+  },
+  "target_points": 150,
+  "minimum_reachable_target_points": 152,
+  "additional_points_needed": 126,
+  "additional_points_in_multiples_of_four": 128,
+  "minimum_additional_wins_under_best_difficulty_mix": 9,
+  "unsubmitted_claims_with_confirmed_hidden_wins": 0,
+  "recent_user_report": {
+    "server_claim": 5,
+    "reported_at": "2026-11-03 14:32 America/Chicago",
+    "result": "no new egg won",
+    "old_folders_submitted": [
+      "claim-04-recovered-link-10-11",
+      "claim-19-coordinated-two-link-outage"
+    ],
+    "old_claim_04_reported_failed": true,
+    "individual_submission_that_added_egg_19": "not established from supplied ordering"
+  },
+  "next_server_submission": 7,
+  "hold_related_outage_variants": true,
+  "confirmed_failed_revised_submissions": [
+    {
+      "server_submission": 6,
+      "folder": "NEXT-06-capacity-12-13",
+      "files": {
+        "switch.wasm": {
+          "bytes": 142654,
+          "sha256": "7d3ed5809c9ecd1b8b6a6f118b1462917e180be12bc4752da79b290953288bbb"
+        },
+        "detect.wasm": {
+          "bytes": 46351,
+          "sha256": "7dd86998782cc9729b8734f9c5a8ce744f3613676f5630c70d57fb81513bcf67"
+        }
+      },
+      "result": "no new egg won"
+    }
+  ],
+  "next_option": "submission/next/claim-07-wire-loss: locally validated; hidden grading unverified.",
+  "next_pair_files": {
+    "switch.wasm": {
+      "bytes": 121509,
+      "sha256": "3aa689d58d014597cfa2e1383b61442173ed6dabdb2c7479dbfcfc203d8f2792"
+    },
+    "detect.wasm": {
+      "bytes": 39649,
+      "sha256": "528f4ee5dfff29327aa15c153b4c0585c14f682fa81da91fd776f3106cdc455b"
+    }
+  },
+  "next_pair_validation": {
+    "network_cases": 137,
+    "detector_checks": 11,
+    "all_passed": true,
+    "hidden_win_verified": false
+  }
+}
