@@ -1,10 +1,11 @@
 {
-  "claims_used": 6,
-  "claims_remaining": 24,
-  "confirmed_points": 24,
+  "claims_used": 7,
+  "claims_remaining": 23,
+  "confirmed_points": 40,
   "won_eggs": [
     10,
     14,
+    16,
     19
   ],
   "failed_submission": {
@@ -24,22 +25,36 @@
   },
   "target_points": 150,
   "minimum_reachable_target_points": 152,
-  "additional_points_needed": 126,
-  "additional_points_in_multiples_of_four": 128,
-  "minimum_additional_wins_under_best_difficulty_mix": 9,
+  "additional_points_needed": 110,
+  "additional_points_in_multiples_of_four": 112,
+  "minimum_additional_wins_under_best_difficulty_mix": 7,
   "unsubmitted_claims_with_confirmed_hidden_wins": 0,
   "recent_user_report": {
-    "server_claim": 5,
-    "reported_at": "2026-11-03 14:32 America/Chicago",
-    "result": "no new egg won",
-    "old_folders_submitted": [
-      "claim-04-recovered-link-10-11",
-      "claim-19-coordinated-two-link-outage"
-    ],
-    "old_claim_04_reported_failed": true,
-    "individual_submission_that_added_egg_19": "not established from supplied ordering"
+    "server_claim": 7,
+    "reported_at": "2026-11-03 America/Chicago",
+    "result": "won Egg 16 - Link - The leaky link",
+    "folder": "submission/next/claim-07-wire-loss",
+    "points_after": 40
   },
-  "next_server_submission": 7,
+  "successful_submission": {
+    "number": 7,
+    "folder": "claim-07-wire-loss",
+    "egg": 16,
+    "category": "Link",
+    "name": "The leaky link",
+    "files": {
+      "switch.wasm": {
+        "bytes": 121509,
+        "sha256": "3aa689d58d014597cfa2e1383b61442173ed6dabdb2c7479dbfcfc203d8f2792"
+      },
+      "detect.wasm": {
+        "bytes": 39649,
+        "sha256": "528f4ee5dfff29327aa15c153b4c0585c14f682fa81da91fd776f3106cdc455b"
+      }
+    },
+    "result": "won Egg 16 - Link - The leaky link"
+  },
+  "next_server_submission": 8,
   "hold_related_outage_variants": true,
   "confirmed_failed_revised_submissions": [
     {
@@ -58,20 +73,20 @@
       "result": "no new egg won"
     }
   ],
-  "next_option": "submission/next/claim-07-wire-loss: locally validated; hidden grading unverified.",
+  "next_option": "submission/next/claim-08-home-users-incast: locally validated; hidden grading unverified.",
   "next_pair_files": {
     "switch.wasm": {
-      "bytes": 121509,
-      "sha256": "3aa689d58d014597cfa2e1383b61442173ed6dabdb2c7479dbfcfc203d8f2792"
+      "bytes": 131891,
+      "sha256": "462fd4d1a88aec73d897a0e869b336d9adc70006a024f63fc0a911bf3a1aaf89"
     },
     "detect.wasm": {
-      "bytes": 39649,
-      "sha256": "528f4ee5dfff29327aa15c153b4c0585c14f682fa81da91fd776f3106cdc455b"
+      "bytes": 75592,
+      "sha256": "1d3053af3a50301c8669a0b7f66646e8ebda3e436557a43c258078597e36dcfe"
     }
   },
   "next_pair_validation": {
-    "network_cases": 137,
-    "detector_checks": 11,
+    "network_cases": 30,
+    "detector_checks": 4,
     "all_passed": true,
     "hidden_win_verified": false
   }

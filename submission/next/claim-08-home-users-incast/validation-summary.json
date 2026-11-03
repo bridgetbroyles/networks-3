@@ -1,0 +1,28 @@
+{
+  "fresh_network_cases": 30,
+  "fresh_cases": [
+    "positive",
+    "off",
+    "nine-sources",
+    "low-volume",
+    "short-burst"
+  ],
+  "seeds": [3341, 3349],
+  "loads": [1.0, 1.25, 1.5],
+  "detector_checks": 4,
+  "largest_fresh_log_bytes": 8204,
+  "largest_combined_stress_log_bytes": 10602,
+  "claim_log_cap_bytes": 24576,
+  "all_local_checks_passed": true,
+  "hidden_points_verified": false,
+  "files": {
+    "switch.wasm": {
+      "bytes": 131891,
+      "sha256": "462fd4d1a88aec73d897a0e869b336d9adc70006a024f63fc0a911bf3a1aaf89"
+    },
+    "detect.wasm": {
+      "bytes": 75592,
+      "sha256": "1d3053af3a50301c8669a0b7f66646e8ebda3e436557a43c258078597e36dcfe"
+    }
+  }
+}

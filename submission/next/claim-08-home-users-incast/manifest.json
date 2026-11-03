@@ -1,0 +1,24 @@
+{
+  "server_claim": 8,
+  "slug": "home-users-high-volume-incast",
+  "mode": "incast_volume",
+  "observation_switch": 2,
+  "minimum_sources": 10,
+  "packet_size_bytes": 64,
+  "protocol": "udp",
+  "minimum_span_seconds": 5,
+  "minimum_high_windows": 3,
+  "minimum_packets_per_high_window": 1000,
+  "minimum_baseline_multiple": 10,
+  "hidden_score_verified": false,
+  "files": {
+    "switch.wasm": {
+      "bytes": 131891,
+      "sha256": "462fd4d1a88aec73d897a0e869b336d9adc70006a024f63fc0a911bf3a1aaf89"
+    },
+    "detect.wasm": {
+      "bytes": 75592,
+      "sha256": "1d3053af3a50301c8669a0b7f66646e8ebda3e436557a43c258078597e36dcfe"
+    }
+  }
+}

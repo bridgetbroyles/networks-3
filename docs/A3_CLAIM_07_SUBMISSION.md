@@ -1,20 +1,18 @@
 # A3 Claim 7 submission: sustained wire loss on 11-12
 
-## Current recommendation
+## Result
 
-This is the only recommended next upload after the reported Claim 6 failure.
-It is not a hidden-grader guarantee, but it is the strongest remaining claim
-supported by the truth evidence and by causal, claim-specific measurement.
+Claim 7 won **Egg 16 - Link - The leaky link**, worth 8 points. The confirmed
+total became 40/200. This pair is complete and must not be resubmitted.
 
-Upload exactly these two files together to **A3 - Claim**:
+The exact successful files are archived at:
 
 ```text
-submission/next/claim-07-wire-loss/switch.wasm
-submission/next/claim-07-wire-loss/detect.wasm
+submission/completed/egg-16-leaky-link/switch.wasm
+submission/completed/egg-16-leaky-link/detect.wasm
 ```
 
-Do not mix either file with an older claim pair. Wait for the server response
-before uploading another claim.
+They are retained for reproducibility only.
 
 ## Why this claim is different from the failed claims
 

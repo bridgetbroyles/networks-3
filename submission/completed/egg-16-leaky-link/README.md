@@ -1,8 +1,15 @@
-# Revised Claim 7: wire loss on 11–12
+# Completed Claim 7: Egg 16, The leaky link
 
-Upload both `switch.wasm` and `detect.wasm` from this folder. These are a newly built pair, replacing the retired wire-loss pair. Do not mix with earlier files.
+## Server result
 
-Status: locally validated; no hidden egg win or points verified. Current confirmed score remains 24, with 24 attempts remaining. This work fixes measured weaknesses; it does not establish that the hidden egg uses this exact definition.
+Claim 7 won **Egg 16 - Link - The leaky link**, worth 8 points. The
+confirmed total after this result is 40/200, with 23 claims remaining. Do not
+resubmit this pair.
+
+These are the exact successful files. They are retained only for the audit
+trail; the current next upload is under `submission/next/`.
+
+Status: hidden win confirmed by the server.
 
 ## Changes that address measured failures
 
