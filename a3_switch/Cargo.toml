@@ -14,6 +14,7 @@ hidden = []
 truth = []
 focused = []
 claim_slow_13_14 = []
+claim_asymmetric_1_2 = []
 
 [dependencies]
 switch_program_sdk = { path = "../switch_program_sdk" }

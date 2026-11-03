@@ -12,6 +12,20 @@ claims/claim-01-slow-13-14/detect.wasm
 This pair tests sustained bidirectional high delay on hidden-grid link 13-14.
 See `docs/A3_CLAIM_01_SUBMISSION.md` for hashes and validation.
 
+Result: won **Egg 10 - Traffic - The shuffle** for 8 points.
+
+## Final graded Claim 2 pair
+
+Upload these two files together to **A3 - Claim** after Claim 1 has completed:
+
+```text
+claims/claim-02-asymmetric-1-2/switch.wasm
+claims/claim-02-asymmetric-1-2/detect.wasm
+```
+
+This pair tests the 30 ms / 2 ms directional signature on hidden-grid link
+1-2. See `docs/A3_CLAIM_02_SUBMISSION.md` for hashes and validation.
+
 ## Truth run
 
 Upload this single file to **A3 — Truth run**:

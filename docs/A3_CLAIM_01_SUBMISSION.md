@@ -1,5 +1,10 @@
 # A3 Claim 1 submission
 
+## Result
+
+Claim 1 won **Egg 10 - Traffic - The shuffle**, worth 8 points. Do not
+resubmit this pair; identical claims are ignored and the egg remains won.
+
 ## Upload exactly these two files
 
 Upload both files together to the Canvas assignment **A3 - Claim**:
