@@ -15,6 +15,10 @@ truth = []
 focused = []
 claim_slow_13_14 = []
 claim_asymmetric_1_2 = []
+claim_fail_0_1 = []
+claim_fail_10_11 = []
+claim_bottleneck_6_7 = []
+claim_bottleneck_12_13 = []
 
 [dependencies]
 switch_program_sdk = { path = "../switch_program_sdk" }

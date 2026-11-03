@@ -38,7 +38,7 @@ const MEDIUM_SAMPLE_MASK: u64 = 1023;
 const LARGE_SAMPLE_MASK: u64 = 65_535;
 const MEDIUM_HASH_MASK: u64 = 4095;
 const MEDIUM_REGISTER_SLOTS: u32 = 4096;
-fn claim_link() -> Option<(u32, u32)> {
+fn timing_claim_link() -> Option<(u32, u32)> {
     if cfg!(feature = "claim_slow_13_14") {
         Some((13, 14))
     } else if cfg!(feature = "claim_asymmetric_1_2") {
@@ -46,6 +46,40 @@ fn claim_link() -> Option<(u32, u32)> {
     } else {
         None
     }
+}
+
+fn failure_claim_link() -> Option<(u32, u32)> {
+    if cfg!(feature = "claim_fail_0_1") {
+        Some((0, 1))
+    } else if cfg!(feature = "claim_fail_10_11") {
+        Some((10, 11))
+    } else {
+        None
+    }
+}
+
+fn bottleneck_claim_link() -> Option<(u32, u32)> {
+    if cfg!(feature = "claim_bottleneck_6_7") {
+        Some((6, 7))
+    } else if cfg!(feature = "claim_bottleneck_12_13") {
+        Some((12, 13))
+    } else {
+        None
+    }
+}
+
+fn summary_claim_link() -> Option<(u32, u32)> {
+    timing_claim_link().or_else(bottleneck_claim_link)
+}
+
+fn any_claim() -> bool {
+    timing_claim_link().is_some()
+        || failure_claim_link().is_some()
+        || bottleneck_claim_link().is_some()
+}
+
+fn matches_link(target: (u32, u32), a: u32, b: u32) -> bool {
+    (a, b) == target || (b, a) == target
 }
 // The final truth observer samples small packets every eighth sequence. For
 // medium open-loop traffic, whose packet sequence field is always zero, a
@@ -315,7 +349,9 @@ impl A3Observer {
         payload.extend_from_slice(&self.report_seq.to_le_bytes());
         payload.extend_from_slice(&records);
         self.seen_reports.insert((self.me, self.report_seq));
-        if claim_link().is_some() {
+        if failure_claim_link().is_some() {
+            self.flood_urgent(&payload, None, out);
+        } else if any_claim() {
             self.flood_claim(&payload, None, out);
         } else if cfg!(feature = "hidden") && contains_link_transition(&records) {
             self.flood_urgent(&payload, None, out);
@@ -335,7 +371,9 @@ impl A3Observer {
         }
         if self.me == LOGGER {
             out.push(actions::log_write(payload[8..].to_vec()));
-        } else if claim_link().is_some() {
+        } else if failure_claim_link().is_some() {
+            self.flood_urgent(payload, Some(ingress), out);
+        } else if any_claim() {
             self.flood_claim(payload, Some(ingress), out);
         } else if cfg!(feature = "hidden") && contains_link_transition(&payload[8..]) {
             self.flood_urgent(payload, Some(ingress), out);
@@ -401,7 +439,7 @@ impl A3Observer {
     }
 
     fn snapshot_counters(&mut self, ev: &TimerEvent) {
-        if claim_link().is_some() {
+        if any_claim() {
             return;
         }
         let counter = |id| {
@@ -473,7 +511,7 @@ impl A3Observer {
     }
 
     fn snapshot_links(&mut self, now_ns: u64) {
-        if !(cfg!(feature = "truth") || claim_link().is_some())
+        if !(cfg!(feature = "truth") || summary_claim_link().is_some())
             || now_ns.saturating_sub(self.last_link_summary_ns) < 2_000_000_000
         {
             return;
@@ -500,8 +538,8 @@ impl A3Observer {
             link.gaps = 0;
             link.delay_sum_us = 0;
             link.delay_max_us = 0;
-            if let Some(target) = claim_link() {
-                if !((self.me, link.neighbour) == target || (link.neighbour, self.me) == target) {
+            if let Some(target) = summary_claim_link() {
+                if !matches_link(target, self.me, link.neighbour) {
                     continue;
                 }
             }
@@ -510,10 +548,20 @@ impl A3Observer {
     }
 
     fn snapshot_drops(&mut self, ev: &TimerEvent) {
-        if !cfg!(feature = "truth") || claim_link().is_some() {
+        if !cfg!(feature = "truth") && bottleneck_claim_link().is_none() {
             return;
         }
         for drop in &ev.port_drops {
+            if let Some(target) = bottleneck_claim_link() {
+                let Some(link) = self.links.get(&drop.port) else {
+                    continue;
+                };
+                if !matches_link(target, self.me, link.neighbour) {
+                    continue;
+                }
+            } else if any_claim() {
+                continue;
+            }
             let mut body = vec![self.me as u8];
             push_u16(&mut body, at_100ms(ev.now_ns));
             push_u16(&mut body, drop.port);
@@ -530,6 +578,11 @@ impl A3Observer {
             let Some(link) = self.links.get_mut(&port) else {
                 continue;
             };
+            if let Some(target) = failure_claim_link() {
+                if !matches_link(target, self.me, link.neighbour) {
+                    continue;
+                }
+            }
             if now_ns.saturating_sub(link.last_arrived_ns) >= quiet_ns {
                 // Repeat the state while it remains silent.  A report about
                 // a failed link may itself have to take an alternate route
@@ -592,7 +645,7 @@ impl SwitchProgram for A3Observer {
 
         let sampling_stage = String::new();
 
-        let final_stage = if claim_link().is_some() {
+        let final_stage = if any_claim() {
             format!(
                 "
                 stage alu=12 mem=0
@@ -981,7 +1034,7 @@ impl SwitchProgram for A3Observer {
             }
         }
         self.snapshot_counters(&ev);
-        if claim_link().is_none() {
+        if timing_claim_link().is_none() && bottleneck_claim_link().is_none() {
             self.check_silence(ev.now_ns);
         }
         self.snapshot_links(ev.now_ns);
