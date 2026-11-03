@@ -16,3 +16,8 @@ experiments/home-incast/generated/
 experiments/hub-outage/audit-worlds/
 experiments/hub-outage/generated/
 experiments/hub-outage/record-tests/
+experiments/capacity-6-7/audit-results.json
+experiments/capacity-6-7/audit-worlds/
+experiments/capacity-6-7/generated/
+experiments/capacity-6-7/practice-runs/
+experiments/capacity-6-7/record-tests/

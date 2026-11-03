@@ -1,0 +1,62 @@
+[
+  {
+    "case": "positive",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "case": "normal",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "near-8mbps",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "constant-slow",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "one-slow-sample",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "wrong-edge",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "missing-pairs",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "empty",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "malformed",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "truncated",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  }
+]

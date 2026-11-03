@@ -1,7 +1,12 @@
-# Claim 9: recovered physical interruption around S5
+# Completed Claim 9: Egg 20, The rebooting switch
 
-Upload `switch.wasm` and `detect.wasm` from this directory together to **A3 -
-Claim**. Do not rename, mix, ZIP, or include files from another folder.
+## Result
+
+Claim 9 won **Egg 20 - Failure - The rebooting switch**, worth 16 points. The
+confirmed total became 56/200. These files are archived for reproducibility;
+do not resubmit them.
+
+The exact successful pair is `switch.wasm` and `detect.wasm` in this folder.
 
 ## Why this is the next claim
 
@@ -57,4 +62,5 @@ detect.wasm
   SHA-256: ae4be04257adcb55e963bded4dee3dd2f9d9f952fc41486d404260d17cdbba92
 ```
 
-Wait for the complete server response before preparing Claim 10.
+The server result confirmed that the simultaneous interruption and recovery
+of all three physical links around S5 was the rebooting-switch mechanism.

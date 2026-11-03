@@ -1,11 +1,11 @@
 # Submissions
 
-Last confirmed result: **40 points**, eight attempts used, **22 remaining**.
-Eggs 10, 14, 16 and 19 are already won.
+Last confirmed result: **56 points**, nine attempts used, **21 remaining**.
+Eggs 10, 14, 16, 19 and 20 are already won.
 
 | Folder | Purpose |
 | --- | --- |
-| [next/claim-09-switch-5-physical-interruption](next/claim-09-switch-5-physical-interruption/README.md) | Current high-confidence Claim 9 pair. Upload its two Wasm files together only. |
+| [next/claim-10-capacity-change-6-7](next/claim-10-capacity-change-6-7/README.md) | Current audited Claim 10 pair. Upload its two Wasm files together only. |
 | completed/ | Already submitted pairs associated with won eggs; do not resubmit. |
 | truth/ | Current truth-run observer. |
 | evidence/ | Exact earlier truth-run observers for reproducibility. |
@@ -20,7 +20,8 @@ that the guessed rule was implemented; they did not prove that the traffic was
 caused by an unwon egg. No next claim is ready until it passes causal,
 ON/OFF, near-miss, simultaneous-egg, log-cap, and exact-artifact checks.
 
-Claim 9's S5 physical-interruption pair has passed that stricter audit: 396
-whole-network cases, nine malformed/incomplete record checks, and all nine
-practice truth load combinations. Its mechanism corresponds directly to the
-three recovered physical-link interruptions visible around S5 in Truth Run 3.
+Claim 9's S5 physical-interruption pair won Egg 20, the rebooting switch, and
+is archived under `completed/`. Claim 10 actively measures serialization on
+S6-S7 to distinguish a capacity transition from delay, wire loss, queueing,
+and an unrelated capacity change. It passed 432 whole-network cases, 10 record
+checks, and all nine practice-truth/load runs.

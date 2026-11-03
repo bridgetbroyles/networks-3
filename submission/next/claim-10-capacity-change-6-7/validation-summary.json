@@ -1,0 +1,16 @@
+{
+  "network_cases": 432,
+  "network_cases_passed": 432,
+  "seeds": 12,
+  "load_levels": [1.0, 1.25, 1.5],
+  "positive_cases": ["1 Mbps transition", "2 Mbps transition", "4 Mbps transition", "5 Mbps transition"],
+  "negative_cases": ["off", "8 Mbps near miss", "constant 4 Mbps", "brief 4 Mbps", "other edge only", "delay only", "wire loss only", "congestion only"],
+  "record_checks": 10,
+  "record_checks_passed": 10,
+  "practice_truth_load_runs": 9,
+  "practice_truth_load_runs_passed": 9,
+  "repository_tests_passed": 158,
+  "largest_claim_log_bytes": 4528,
+  "claim_log_cap_bytes": 24576,
+  "all_passed": true
+}

@@ -1,12 +1,13 @@
 {
-  "claims_used": 8,
-  "claims_remaining": 22,
-  "confirmed_points": 40,
+  "claims_used": 9,
+  "claims_remaining": 21,
+  "confirmed_points": 56,
   "won_eggs": [
     10,
     14,
     16,
-    19
+    19,
+    20
   ],
   "failed_submission": {
     "number": 3,
@@ -25,36 +26,36 @@
   },
   "target_points": 150,
   "minimum_reachable_target_points": 152,
-  "additional_points_needed": 110,
-  "additional_points_in_multiples_of_four": 112,
+  "additional_points_needed": 94,
+  "additional_points_in_multiples_of_four": 96,
   "minimum_additional_wins_under_best_difficulty_mix": 7,
   "unsubmitted_claims_with_confirmed_hidden_wins": 0,
   "recent_user_report": {
-    "server_claim": 8,
+    "server_claim": 9,
     "reported_at": "2026-11-03 America/Chicago",
-    "result": "no new egg won",
-    "folder": "submission/history/failed-claim-08-home-users-incast",
-    "points_after": 40
+    "result": "won Egg 20 - Failure - The rebooting switch",
+    "folder": "submission/completed/egg-20-rebooting-switch",
+    "points_after": 56
   },
   "successful_submission": {
-    "number": 7,
-    "folder": "claim-07-wire-loss",
-    "egg": 16,
-    "category": "Link",
-    "name": "The leaky link",
+    "number": 9,
+    "folder": "submission/completed/egg-20-rebooting-switch",
+    "egg": 20,
+    "category": "Failure",
+    "name": "The rebooting switch",
     "files": {
       "switch.wasm": {
-        "bytes": 121509,
-        "sha256": "3aa689d58d014597cfa2e1383b61442173ed6dabdb2c7479dbfcfc203d8f2792"
+        "bytes": 142167,
+        "sha256": "58893d22da3b31602e38ddcd5b09617a974c95dd3331fc2c20e8042cc800ad3e"
       },
       "detect.wasm": {
-        "bytes": 39649,
-        "sha256": "528f4ee5dfff29327aa15c153b4c0585c14f682fa81da91fd776f3106cdc455b"
+        "bytes": 63651,
+        "sha256": "ae4be04257adcb55e963bded4dee3dd2f9d9f952fc41486d404260d17cdbba92"
       }
     },
-    "result": "won Egg 16 - Link - The leaky link"
+    "result": "won Egg 20 - Failure - The rebooting switch"
   },
-  "next_server_submission": 9,
+  "next_server_submission": 10,
   "hold_related_outage_variants": true,
   "confirmed_failed_revised_submissions": [
     {
@@ -87,23 +88,23 @@
     },
     "result": "no new egg won"
   },
-  "next_option": "submission/next/claim-09-switch-5-physical-interruption",
+  "next_option": "submission/next/claim-10-capacity-change-6-7",
   "next_pair_files": {
     "switch.wasm": {
-      "bytes": 142167,
-      "sha256": "58893d22da3b31602e38ddcd5b09617a974c95dd3331fc2c20e8042cc800ad3e"
+      "bytes": 142670,
+      "sha256": "1cd3ffe08eb46cfe4dc7bfa2ed9fa0e6bb8a06a9b993e324dfff821d38b82bf1"
     },
     "detect.wasm": {
-      "bytes": 63651,
-      "sha256": "ae4be04257adcb55e963bded4dee3dd2f9d9f952fc41486d404260d17cdbba92"
+      "bytes": 46351,
+      "sha256": "eaf3b0c0983b832dba6074230fc851da6813f61a4c8f09bc12eee752066b2d8b"
     }
   },
   "next_pair_validation": {
-    "network_cases": 396,
-    "record_checks": 9,
+    "network_cases": 432,
+    "record_checks": 10,
     "practice_truth_runs": 9,
-    "largest_claim_log_bytes": 11723,
+    "largest_claim_log_bytes": 4528,
     "all_passed": true,
-    "confidence": "high; directly tied to an unwon planted physical-failure mechanism, but hidden grading cannot be proven locally"
+    "confidence": "high; direct serialization measurement isolates a sustained S6-S7 capacity transition, but hidden grading cannot be proven locally"
   }
 }

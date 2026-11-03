@@ -1,0 +1,16 @@
+{
+  "server_claim": 10,
+  "hypothesis": "link 6-7 changes from normal capacity to 6 Mbps or below and back",
+  "normal_capacity_floor_kbps": 8000,
+  "reduced_capacity_ceiling_kbps": 6000,
+  "files": {
+    "switch.wasm": {
+      "bytes": 142670,
+      "sha256": "1cd3ffe08eb46cfe4dc7bfa2ed9fa0e6bb8a06a9b993e324dfff821d38b82bf1"
+    },
+    "detect.wasm": {
+      "bytes": 46351,
+      "sha256": "eaf3b0c0983b832dba6074230fc851da6813f61a4c8f09bc12eee752066b2d8b"
+    }
+  }
+}
