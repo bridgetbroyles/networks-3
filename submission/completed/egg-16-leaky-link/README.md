@@ -2,7 +2,7 @@
 
 ## Server result
 
-Claim 7 won **Egg 16 - Link - The leaky link**, worth 8 points. The
+Claim 7 won **Egg 16 - Link - The leaky link**, worth 16 points. The
 confirmed total after this result is 40/200, with 23 claims remaining. Do not
 resubmit this pair.
 

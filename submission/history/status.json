@@ -1,6 +1,6 @@
 {
-  "claims_used": 7,
-  "claims_remaining": 23,
+  "claims_used": 8,
+  "claims_remaining": 22,
   "confirmed_points": 40,
   "won_eggs": [
     10,
@@ -30,10 +30,10 @@
   "minimum_additional_wins_under_best_difficulty_mix": 7,
   "unsubmitted_claims_with_confirmed_hidden_wins": 0,
   "recent_user_report": {
-    "server_claim": 7,
+    "server_claim": 8,
     "reported_at": "2026-11-03 America/Chicago",
-    "result": "won Egg 16 - Link - The leaky link",
-    "folder": "submission/next/claim-07-wire-loss",
+    "result": "no new egg won",
+    "folder": "submission/history/failed-claim-08-home-users-incast",
     "points_after": 40
   },
   "successful_submission": {
@@ -54,7 +54,7 @@
     },
     "result": "won Egg 16 - Link - The leaky link"
   },
-  "next_server_submission": 8,
+  "next_server_submission": 9,
   "hold_related_outage_variants": true,
   "confirmed_failed_revised_submissions": [
     {
@@ -73,21 +73,37 @@
       "result": "no new egg won"
     }
   ],
-  "next_option": "submission/next/claim-08-home-users-incast: locally validated; hidden grading unverified.",
+  "failed_claim_8": {
+    "folder": "submission/history/failed-claim-08-home-users-incast",
+    "files": {
+      "switch.wasm": {
+        "bytes": 131891,
+        "sha256": "462fd4d1a88aec73d897a0e869b336d9adc70006a024f63fc0a911bf3a1aaf89"
+      },
+      "detect.wasm": {
+        "bytes": 75592,
+        "sha256": "1d3053af3a50301c8669a0b7f66646e8ebda3e436557a43c258078597e36dcfe"
+      }
+    },
+    "result": "no new egg won"
+  },
+  "next_option": "submission/next/claim-09-switch-5-physical-interruption",
   "next_pair_files": {
     "switch.wasm": {
-      "bytes": 131891,
-      "sha256": "462fd4d1a88aec73d897a0e869b336d9adc70006a024f63fc0a911bf3a1aaf89"
+      "bytes": 142167,
+      "sha256": "58893d22da3b31602e38ddcd5b09617a974c95dd3331fc2c20e8042cc800ad3e"
     },
     "detect.wasm": {
-      "bytes": 75592,
-      "sha256": "1d3053af3a50301c8669a0b7f66646e8ebda3e436557a43c258078597e36dcfe"
+      "bytes": 63651,
+      "sha256": "ae4be04257adcb55e963bded4dee3dd2f9d9f952fc41486d404260d17cdbba92"
     }
   },
   "next_pair_validation": {
-    "network_cases": 30,
-    "detector_checks": 4,
+    "network_cases": 396,
+    "record_checks": 9,
+    "practice_truth_runs": 9,
+    "largest_claim_log_bytes": 11723,
     "all_passed": true,
-    "hidden_win_verified": false
+    "confidence": "high; directly tied to an unwon planted physical-failure mechanism, but hidden grading cannot be proven locally"
   }
 }

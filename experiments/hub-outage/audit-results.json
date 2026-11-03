@@ -1,0 +1,3580 @@
+{
+  "cases": 396,
+  "all_passed": true,
+  "max_log_bytes": 11723,
+  "claim_log_cap_bytes": 24576,
+  "switch.wasm": {
+    "bytes": 142167,
+    "sha256": "58893d22da3b31602e38ddcd5b09617a974c95dd3331fc2c20e8042cc800ad3e"
+  },
+  "detect.wasm": {
+    "bytes": 63651,
+    "sha256": "ae4be04257adcb55e963bded4dee3dd2f9d9f952fc41486d404260d17cdbba92"
+  },
+  "results": [
+    {
+      "case": "positive-5s",
+      "seed": 4101,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4101,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4101,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4101,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4101,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4101,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4101,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4101,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4101,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4101,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4101,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4101,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4101,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4101,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4101,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4101,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4101,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4101,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4101,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4101,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4101,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4101,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4101,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4101,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4101,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4101,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4101,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4101,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4101,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4101,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4101,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4101,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4101,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4102,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4102,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4102,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4102,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4102,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4102,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4102,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4102,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4102,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4102,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4102,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4102,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4102,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4102,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4102,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4102,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4102,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4102,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4102,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4102,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4102,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4102,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4102,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4102,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4102,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4102,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4102,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4102,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4102,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4102,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4102,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4102,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4102,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4103,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4103,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4103,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4103,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4103,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4103,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4103,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4103,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4103,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4103,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4103,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4103,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4103,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4103,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4103,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4103,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4103,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4103,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4103,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4103,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4103,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4103,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4103,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4103,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4103,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4103,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4103,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4103,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4103,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4103,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4103,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4103,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4103,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4104,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4104,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4104,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4104,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4104,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4104,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4104,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4104,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4104,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4104,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4104,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4104,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4104,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4104,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4104,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4104,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4104,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4104,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4104,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4104,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4104,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4104,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4104,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4104,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4104,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4104,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4104,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4104,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4104,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4104,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4104,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4104,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4104,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4105,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4105,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4105,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4105,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4105,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4105,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4105,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4105,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4105,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4105,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4105,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4105,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4105,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4105,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4105,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4105,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4105,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4105,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4105,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4105,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4105,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4105,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4105,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4105,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4105,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4105,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4105,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4105,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4105,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4105,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4105,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4105,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4105,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4106,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4106,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4106,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4106,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4106,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4106,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4106,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4106,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4106,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4106,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4106,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4106,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4106,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4106,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4106,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4106,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4106,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4106,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4106,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4106,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4106,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4106,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4106,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4106,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4106,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4106,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4106,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4106,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4106,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4106,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4106,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4106,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4106,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4107,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4107,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4107,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4107,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4107,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4107,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4107,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4107,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4107,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4107,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4107,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4107,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4107,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4107,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4107,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4107,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4107,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4107,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4107,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4107,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4107,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4107,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4107,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4107,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4107,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4107,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4107,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4107,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4107,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4107,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4107,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4107,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4107,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4108,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4108,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4108,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4108,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4108,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4108,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4108,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4108,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4108,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4108,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4108,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4108,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4108,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4108,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4108,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4108,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4108,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4108,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4108,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4108,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4108,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4108,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4108,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4108,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4108,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4108,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4108,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4108,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4108,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4108,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4108,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4108,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4108,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4109,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4109,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4109,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4109,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4109,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4109,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4109,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4109,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4109,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4109,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4109,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4109,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4109,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4109,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4109,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4109,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4109,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4109,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4109,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4109,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4109,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4109,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4109,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4109,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4109,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4109,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4109,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4109,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4109,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4109,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4109,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4109,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4109,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4110,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4110,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4110,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4110,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4110,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4110,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4110,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4110,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4110,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4110,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4110,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4110,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4110,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4110,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4110,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4110,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4110,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4110,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4110,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4110,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4110,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4110,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4110,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4110,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4110,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4110,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4110,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4110,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4110,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4110,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4110,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4110,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4110,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4111,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4111,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4111,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4111,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4111,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4111,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4111,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4111,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4111,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4111,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4111,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4111,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4111,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4111,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4111,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4111,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4111,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4111,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4111,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4111,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4111,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4111,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4111,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4111,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4111,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4111,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4111,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4111,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4111,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4111,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4111,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4111,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4111,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4112,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4112,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4112,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4112,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4112,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4112,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4112,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4112,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4112,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4112,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4112,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4112,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4112,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4112,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4112,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4112,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4112,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4112,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4112,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4112,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4112,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4112,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    },
+    {
+      "case": "positive-5s",
+      "seed": 4112,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10947,
+      "pass": true
+    },
+    {
+      "case": "positive-6s",
+      "seed": 4112,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 10815,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 4112,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "one-edge",
+      "seed": 4112,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11587,
+      "pass": true
+    },
+    {
+      "case": "two-edges",
+      "seed": 4112,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11699,
+      "pass": true
+    },
+    {
+      "case": "short-2s",
+      "seed": 4112,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11175,
+      "pass": true
+    },
+    {
+      "case": "short-3s",
+      "seed": 4112,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11091,
+      "pass": true
+    },
+    {
+      "case": "permanent",
+      "seed": 4112,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 10491,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 4112,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11723,
+      "pass": true
+    },
+    {
+      "case": "wrong-hub",
+      "seed": 4112,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11475,
+      "pass": true
+    },
+    {
+      "case": "keepalive-only",
+      "seed": 4112,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 11079,
+      "pass": true
+    }
+  ]
+}

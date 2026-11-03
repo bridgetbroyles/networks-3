@@ -1,0 +1,56 @@
+[
+  {
+    "case": "positive",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "case": "too-short",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "only-two-links",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "no-recovery",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "live-port-traffic",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "missing-port-observations",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "empty",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "malformed",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "truncated",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  }
+]

@@ -1,4 +1,13 @@
-# Claim 8 candidate: high-volume Home-users UDP incast
+# Failed Claim 8: high-volume Home-users UDP incast
+
+Server result on November 3, 2026: **no new egg won**. The score remained
+40/200. Do not resubmit this pair or a nearby threshold variant.
+
+The traffic signature was real and the implementation passed its synthetic
+tests, but that did not establish causation. The surge was either ordinary
+traffic or an effect of an already-won egg, so it did not change when the
+grader toggled an unwon egg. The text below is retained as the pre-submission
+hypothesis and audit record.
 
 Upload both `switch.wasm` and `detect.wasm` from this directory together. Do
 not mix either file with another claim.

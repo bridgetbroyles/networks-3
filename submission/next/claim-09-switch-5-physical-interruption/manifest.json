@@ -1,0 +1,15 @@
+{
+  "server_claim": 9,
+  "hypothesis": "recovered simultaneous physical interruption of all three S5 links",
+  "minimum_common_missing-probe_interval_ms": 3500,
+  "files": {
+    "switch.wasm": {
+      "bytes": 142167,
+      "sha256": "58893d22da3b31602e38ddcd5b09617a974c95dd3331fc2c20e8042cc800ad3e"
+    },
+    "detect.wasm": {
+      "bytes": 63651,
+      "sha256": "ae4be04257adcb55e963bded4dee3dd2f9d9f952fc41486d404260d17cdbba92"
+    }
+  }
+}

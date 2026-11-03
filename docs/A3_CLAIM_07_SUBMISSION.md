@@ -2,7 +2,7 @@
 
 ## Result
 
-Claim 7 won **Egg 16 - Link - The leaky link**, worth 8 points. The confirmed
+Claim 7 won **Egg 16 - Link - The leaky link**, worth 16 points. The confirmed
 total became 40/200. This pair is complete and must not be resubmitted.
 
 The exact successful files are archived at:

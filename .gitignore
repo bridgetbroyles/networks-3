@@ -13,3 +13,6 @@ experiments/wire-loss/combined-worlds/
 experiments/wire-loss/record-tests/
 experiments/wire-loss/generated/
 experiments/home-incast/generated/
+experiments/hub-outage/audit-worlds/
+experiments/hub-outage/generated/
+experiments/hub-outage/record-tests/
