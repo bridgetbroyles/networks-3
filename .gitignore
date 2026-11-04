@@ -21,3 +21,8 @@ experiments/capacity-6-7/audit-worlds/
 experiments/capacity-6-7/generated/
 experiments/capacity-6-7/practice-runs/
 experiments/capacity-6-7/record-tests/
+experiments/ledger-pause/audit-results.json
+experiments/ledger-pause/audit-worlds/
+experiments/ledger-pause/generated/
+experiments/ledger-pause/practice-runs/
+experiments/ledger-pause/record-tests/

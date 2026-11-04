@@ -1,4 +1,10 @@
-# Claim 10: capacity change on S6-S7
+# Failed Claim 10: capacity change on S6-S7
+
+## Result
+
+Claim 10 won no new egg. The confirmed score remained 56/200. Do not
+resubmit this pair or retry the S6-S7 capacity hypothesis with a different
+threshold.
 
 Upload exactly `switch.wasm` and `detect.wasm` from this directory together to
 **A3 - Claim**. Do not ZIP them, rename them, or mix in a file from another
@@ -42,10 +48,10 @@ permanently slow link and requiring three samples rejects a brief dip.
 - Largest adversarial claim log: 4,528/24,576 bytes.
 - The packaged files match the audited files byte-for-byte.
 
-This is the strongest remaining candidate. The hidden ten-run suite is not
-available locally, so its result cannot be mathematically guaranteed, but the
-pair directly measures the proposed plant rather than using a correlated
-traffic symptom.
+The local tests correctly proved that the pair could measure a capacity
+transition, but the server result disproved the inference that an unwon egg
+caused such a transition on S6-S7. The truth-run queueing peak and drops were a
+correlated symptom, not sufficient evidence of the proposed plant.
 
 ## Exact files
 

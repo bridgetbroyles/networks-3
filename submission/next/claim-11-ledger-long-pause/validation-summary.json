@@ -1,0 +1,18 @@
+{
+  "network_cases": 504,
+  "network_cases_passed": 504,
+  "seeds": 12,
+  "load_levels": [1.0, 1.25, 1.5],
+  "minimum_observed_quiet_ms": 11000,
+  "positive_pause_durations_ms": [14000, 20000, 24000],
+  "negative_pause_durations_ms": [0, 2000, 6000, 10000, 12000],
+  "record_checks": 13,
+  "record_checks_passed": 13,
+  "practice_truth_load_runs": 9,
+  "practice_truth_load_runs_passed": 9,
+  "repository_tests_passed": 158,
+  "phase_sweep": "all <=12 s false; all 14 s and 20 s true",
+  "largest_claim_log_bytes": 1621,
+  "claim_log_cap_bytes": 24576,
+  "all_passed": true
+}

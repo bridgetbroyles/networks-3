@@ -1,6 +1,6 @@
 {
-  "claims_used": 9,
-  "claims_remaining": 21,
+  "claims_used": 10,
+  "claims_remaining": 20,
   "confirmed_points": 56,
   "won_eggs": [
     10,
@@ -31,10 +31,10 @@
   "minimum_additional_wins_under_best_difficulty_mix": 7,
   "unsubmitted_claims_with_confirmed_hidden_wins": 0,
   "recent_user_report": {
-    "server_claim": 9,
+    "server_claim": 10,
     "reported_at": "2026-11-03 America/Chicago",
-    "result": "won Egg 20 - Failure - The rebooting switch",
-    "folder": "submission/completed/egg-20-rebooting-switch",
+    "result": "no new egg won",
+    "folder": "submission/history/failed-claim-10-capacity-change-6-7",
     "points_after": 56
   },
   "successful_submission": {
@@ -55,7 +55,7 @@
     },
     "result": "won Egg 20 - Failure - The rebooting switch"
   },
-  "next_server_submission": 10,
+  "next_server_submission": 11,
   "hold_related_outage_variants": true,
   "confirmed_failed_revised_submissions": [
     {
@@ -88,23 +88,37 @@
     },
     "result": "no new egg won"
   },
-  "next_option": "submission/next/claim-10-capacity-change-6-7",
+  "failed_claim_10": {
+    "folder": "submission/history/failed-claim-10-capacity-change-6-7",
+    "files": {
+      "switch.wasm": {
+        "bytes": 142670,
+        "sha256": "1cd3ffe08eb46cfe4dc7bfa2ed9fa0e6bb8a06a9b993e324dfff821d38b82bf1"
+      },
+      "detect.wasm": {
+        "bytes": 46351,
+        "sha256": "eaf3b0c0983b832dba6074230fc851da6813f61a4c8f09bc12eee752066b2d8b"
+      }
+    },
+    "result": "no new egg won"
+  },
+  "next_option": "submission/next/claim-11-ledger-long-pause",
   "next_pair_files": {
     "switch.wasm": {
-      "bytes": 142670,
-      "sha256": "1cd3ffe08eb46cfe4dc7bfa2ed9fa0e6bb8a06a9b993e324dfff821d38b82bf1"
+      "bytes": 129226,
+      "sha256": "72d4a8295fee435fe13d07b510fd02371db70f84274229cf17db54d2cb5446a1"
     },
     "detect.wasm": {
-      "bytes": 46351,
-      "sha256": "eaf3b0c0983b832dba6074230fc851da6813f61a4c8f09bc12eee752066b2d8b"
+      "bytes": 62858,
+      "sha256": "80f797f52ccddfebf614eb477fd4a6a0a6324cda74beaf7ab8d1f88e36213a9b"
     }
   },
   "next_pair_validation": {
-    "network_cases": 432,
-    "record_checks": 10,
+    "network_cases": 504,
+    "record_checks": 13,
     "practice_truth_runs": 9,
-    "largest_claim_log_bytes": 4528,
+    "largest_claim_log_bytes": 1621,
     "all_passed": true,
-    "confidence": "high; direct serialization measurement isolates a sustained S6-S7 capacity transition, but hidden grading cannot be proven locally"
+    "confidence": "moderate-high; source-specific silence and recovery are supported by truth-run evidence, with local S9 logging eliminating report loss, but the hidden egg definition cannot be proven locally"
   }
 }

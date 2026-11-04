@@ -1,7 +1,7 @@
 # Submission history
 
-Last reported server result: Claim 9 won Egg 20, the rebooting switch.
-Confirmed total: 56 points, with 21 attempts remaining; Eggs 10, 14, 16, 19
+Last reported server result: Claim 10 won no new egg. Confirmed total: 56
+points, with 20 attempts remaining; Eggs 10, 14, 16, 19
 and 20 won.
 
 Known failed submissions: old recovered-link-0-1 (Claim 3), old
@@ -18,9 +18,15 @@ Claim 9's active physical-port probes confirmed that the simultaneous outage
 and recovery around S5 was the rebooting-switch egg. The exact successful pair
 is archived under `submission/completed/egg-20-rebooting-switch/`.
 
+Claim 10 directly measured S6-S7 serialization capacity but won no egg. This
+separates detector correctness from causal correctness: the observer could
+have detected the proposed capacity transition, but the truth-run queueing
+signature was not caused by that unwon mechanism. The pair is archived under
+`submission/history/failed-claim-10-capacity-change-6-7/`.
+
 Retired speculative queues, failed upload copies and duplicate SDK/build material were removed. retired-artifacts.json preserves their former paths and exact hashes, without carrying forward unsupported confidence ratings. A recovery backup of the previous submission tree and retired failure detector crates is stored outside this repository at ../networkarena-a3-retired-2026-11-03.tar.gz (relative to the repository root). The exact successful Claim 7 pair is archived in `submission/completed/egg-16-leaky-link/`.
 
 Completed pair folders preserve artifacts associated with already won eggs.
-The audited Claim 10 S6-S7 capacity-transition pair is the only current item
+The audited Claim 11 S9 Ledger-pause pair is the only current item
 under `submission/next/`. Record the complete server result before preparing
 another attempt.

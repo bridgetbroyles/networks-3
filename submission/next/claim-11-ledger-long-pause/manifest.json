@@ -1,0 +1,14 @@
+{
+  "server_claim": 11,
+  "hypothesis": "the Ledger-like 1000-byte source at S9 pauses for at least 11 observed seconds and resumes",
+  "files": {
+    "switch.wasm": {
+      "bytes": 129226,
+      "sha256": "72d4a8295fee435fe13d07b510fd02371db70f84274229cf17db54d2cb5446a1"
+    },
+    "detect.wasm": {
+      "bytes": 62858,
+      "sha256": "80f797f52ccddfebf614eb477fd4a6a0a6324cda74beaf7ab8d1f88e36213a9b"
+    }
+  }
+}

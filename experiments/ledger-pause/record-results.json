@@ -1,0 +1,80 @@
+[
+  {
+    "case": "positive",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "case": "normal",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "short-pause",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "twelve-second-boundary",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "permanent-silence",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "missing-heartbeats",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "missing-records-not-zero",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "wrong-switch",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "wrong-rate",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "wrong-size",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "empty",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "malformed",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "truncated",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  }
+]
