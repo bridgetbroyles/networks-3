@@ -1,4 +1,17 @@
-# A3 Claim 18 prepared
+# A3 Claim 18 result
+
+## Server result
+
+Claim 18 won **no new egg**. The confirmed total remains **68/200** after
+eighteen claims, leaving twelve attempts. The exact pair is archived under
+`submission/history/failed-claim-18-fastly-destination-fanout/` and must not be
+submitted again.
+
+The result disproves the causal hypothesis, not the packet measurements. The
+S7 sequence-zero fanout is real and the detector implemented its rule
+correctly, but that rule did not classify all ten cases for any unwon egg. It
+may be normal workload behavior, an effect of already-won Egg 10, or a feature
+whose hidden near misses differ from the proposed 50-address/five-second rule.
 
 ## Hypothesis
 
@@ -75,11 +88,11 @@ behavior or belongs to already-won Egg 10. That risk is lower than for Claims
 1,000-byte shuffle much more directly, while this source reaches over half of
 an entire `/24` in seconds.
 
-## Upload files
+## Retired files
 
 ```text
-submission/next/claim-18-fastly-destination-fanout/switch.wasm
-submission/next/claim-18-fastly-destination-fanout/detect.wasm
+submission/history/failed-claim-18-fastly-destination-fanout/switch.wasm
+submission/history/failed-claim-18-fastly-destination-fanout/detect.wasm
 ```
 
 Hashes:

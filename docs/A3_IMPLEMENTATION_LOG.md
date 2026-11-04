@@ -378,3 +378,16 @@ Packaged hashes:
 cf09a35036abe004e8e7c71a9152090b14d34fb4ba022e0b1f78587e157812aa  switch.wasm
 fbce6d0e67bf97e848988473e3bce6dc93996d58feb81a4b34ea1ce0e400a3b7  detect.wasm
 ```
+
+### Claim 18 server result
+
+Claim 18 won no new egg. The confirmed score stayed at 68/200, with twelve
+claims remaining. The pair was moved to
+`submission/history/failed-claim-18-fastly-destination-fanout/`.
+
+The failure does not contradict the three truth logs or the 108 local checks;
+it shows that the measured 50-destination rule was not the private ON/OFF rule
+for an unwon egg across all ten cases. Future work must not weaken or retune
+this same detector without independent causal evidence. In particular, another
+threshold over the Fastly, Akamai, Login, Camera, Sync, or other repeated
+customer patterns would repeat the error made by Claims 14-18.

@@ -1,11 +1,11 @@
 # Submissions
 
-Last confirmed result: **68 points**, seventeen completed attempts, **13 remaining**.
+Last confirmed result: **68 points**, eighteen completed attempts, **12 remaining**.
 Eggs 7, 8, 10, 14, 16, 19 and 20 are already won.
 
 | Folder | Purpose |
 | --- | --- |
-| next/ | Focused, tested Claim 18 pair; submit only the two Wasm files in its folder. |
+| next/ | No Claim 19 pair is ready. Do not submit from this directory. |
 | completed/ | Already submitted pairs associated with won eggs; do not resubmit. |
 | truth/ | Current truth-run observer. |
 | evidence/ | Exact earlier truth-run observers for reproducibility. |
@@ -39,9 +39,8 @@ late activation of the two returned Sync sources also failed and is archived
 under `history/failed-claim-17-sync-late-start/`. These results rule out the
 current family of source-correlation guesses.
 
-Claim 18 is prepared under
-`next/claim-18-fastly-destination-fanout/`. It targets the independently
-retained packet-level signature at S7: one sequence-zero 200-byte TCP source
-reaches at least 50 destinations in one `/24` within five seconds. This is not
-the rejected three-pattern bundle and does not depend on another anomaly being
-present. See `docs/A3_CLAIM_18_PREPARED.md` for evidence and limits.
+Claim 18's S7 sequence-zero destination-fanout detector won no new egg and is
+archived under `history/failed-claim-18-fastly-destination-fanout/`. Its
+96 network cases and 12 record tests proved only that the proposed predicate
+was measured correctly; the server result shows that predicate was not the
+ON/OFF rule for an unwon egg. No Claim 19 pair is ready.

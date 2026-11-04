@@ -1,7 +1,7 @@
 # Submission history
 
-Last reported server result: Claim 17 won no new egg. Confirmed total: 68
-points, with 13 attempts remaining; Eggs 7, 8, 10, 14, 16, 19 and 20 are won.
+Last reported server result: Claim 18 won no new egg. Confirmed total: 68
+points, with 12 attempts remaining; Eggs 7, 8, 10, 14, 16, 19 and 20 are won.
 
 Known failed submissions: old recovered-link-0-1 (Claim 3), old
 recovered-link-10-11, and revised capacity-12-13 (Claim 6). The server gives
@@ -40,7 +40,8 @@ synchronized S6 camera-rate pair also failed and is archived under
 late-start pair failed as well and is archived under
 `failed-claim-17-sync-late-start/`.
 
-The next candidate is Claim 18, the focused S7 sequence-zero destination
-fanout detector. It is kept outside history under
-`submission/next/claim-18-fastly-destination-fanout/`; it has not yet received
-a server result.
+Claim 18's focused S7 sequence-zero destination-fanout detector also won no new
+egg. It is archived under `failed-claim-18-fastly-destination-fanout/`. This is
+strong negative evidence that repeated truth-run packet structure can still be
+ordinary baseline behavior or an already-won egg. There is no current Claim 19
+candidate.
