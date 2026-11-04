@@ -41,3 +41,8 @@ experiments/akamai-299-side-flow/audit-worlds/
 experiments/akamai-299-side-flow/generated/
 experiments/akamai-299-side-flow/practice-runs/
 experiments/akamai-299-side-flow/record-tests/
+experiments/login-three-destination-fanout/audit-results.json
+experiments/login-three-destination-fanout/audit-worlds/
+experiments/login-three-destination-fanout/generated/
+experiments/login-three-destination-fanout/practice-runs/
+experiments/login-three-destination-fanout/record-tests/

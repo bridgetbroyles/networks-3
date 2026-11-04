@@ -1,0 +1,74 @@
+[
+  {
+    "case": "positive",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "case": "boundary-six-seconds",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "case": "spread-over-six-seconds",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "only-two-destinations",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "one-shot-three-destination-scan",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "three-sources-one-destination-each",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "wrong-switch",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "wrong-size",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "wrong-protocol",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "empty",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "malformed",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "truncated",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  }
+]

@@ -6,6 +6,7 @@ Eggs 7, 8, 10, 14, 16, 19 and 20 are already won.
 | Folder | Purpose |
 | --- | --- |
 | [next/claim-14-akamai-299-side-flow](next/claim-14-akamai-299-side-flow/README.md) | Current audited Claim 14 pair. Upload its two Wasm files together only. |
+| [queued/claim-15-login-three-destination-fanout](queued/claim-15-login-three-destination-fanout/README.md) | Fully tested Claim 15 candidate. Do not submit until Claim 14's result is recorded. |
 | completed/ | Already submitted pairs associated with won eggs; do not resubmit. |
 | truth/ | Current truth-run observer. |
 | evidence/ | Exact earlier truth-run observers for reproducibility. |
@@ -30,3 +31,7 @@ Claim 11's source-specific Ledger silence rule won no egg and is archived under
 under `completed/`. Claim 13's Mapper TTL ladder won Egg 7 and is also archived
 under `completed/`. Claim 14 targets the exact 299-byte TCP reverse side flow
 from Akamai users at S2.
+
+Claim 15 is prepared separately under `queued/`. It detects the Login
+one-source/three-destination cycle and does not replace the current Claim 14
+files.

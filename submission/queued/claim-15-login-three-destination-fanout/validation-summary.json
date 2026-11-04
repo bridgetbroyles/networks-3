@@ -1,0 +1,12 @@
+{
+  "network_cases": 528,
+  "record_checks": 12,
+  "practice_truth_load_runs": 9,
+  "practice_note": "all false as expected; disclosed practice topology has no S8, so the 15-switch audit supplies positive coverage",
+  "repository_tests": 158,
+  "largest_claim_log_bytes": 2870,
+  "claim_log_cap_bytes": 24576,
+  "all_passed": true,
+  "causal_mechanism": "multi-host destination cycling from AppSpec.hosts / App.extra_destinations",
+  "confidence": "high candidate; repeated one-source/three-destination behavior appears in two useful truth logs and is absent from normal practice behavior"
+}

@@ -1,0 +1,17 @@
+{
+  "server_claim": 15,
+  "hypothesis": "one Login source at S8 repeatedly cycles over three destinations",
+  "minimum_destinations": 3,
+  "minimum_samples_per_destination": 2,
+  "maximum_window_ms": 6000,
+  "files": {
+    "switch.wasm": {
+      "bytes": 133868,
+      "sha256": "c8111e5eb16df02e6ba286a2748481bb0026972e21eea849008fad151baba0ad"
+    },
+    "detect.wasm": {
+      "bytes": 55183,
+      "sha256": "da1dbaeb3bd1708f5a5b1e05e1c058f38a306af93dc2120b462f9f681bcf882d"
+    }
+  }
+}
