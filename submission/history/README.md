@@ -1,7 +1,7 @@
 # Submission history
 
-Last reported server result: Claim 10 won no new egg. Confirmed total: 56
-points, with 20 attempts remaining; Eggs 10, 14, 16, 19
+Last reported server result: Claim 11 won no new egg. Confirmed total: 56
+points, with 19 attempts remaining; Eggs 10, 14, 16, 19
 and 20 won.
 
 Known failed submissions: old recovered-link-0-1 (Claim 3), old
@@ -27,6 +27,7 @@ signature was not caused by that unwon mechanism. The pair is archived under
 Retired speculative queues, failed upload copies and duplicate SDK/build material were removed. retired-artifacts.json preserves their former paths and exact hashes, without carrying forward unsupported confidence ratings. A recovery backup of the previous submission tree and retired failure detector crates is stored outside this repository at ../networkarena-a3-retired-2026-11-03.tar.gz (relative to the repository root). The exact successful Claim 7 pair is archived in `submission/completed/egg-16-leaky-link/`.
 
 Completed pair folders preserve artifacts associated with already won eggs.
-The audited Claim 11 S9 Ledger-pause pair is the only current item
-under `submission/next/`. Record the complete server result before preparing
-another attempt.
+Claim 11's S9 Ledger-pause pair is archived here because it won no egg. Its
+mechanics passed local tests, but the pause was not proven to be an independently
+toggleable unwon mechanism. The audited Claim 12 Vault-echo pair is the only
+current item under `submission/next/`.

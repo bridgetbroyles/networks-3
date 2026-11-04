@@ -1,5 +1,7 @@
 # A3 Claim 11 submission
 
+> Historical only: the server returned no new egg. Do not resubmit this pair.
+
 Claim 11 tests a long pause and recovery of the Ledger-like 1,000-byte source
 at S9. Truth Run 3 recorded stable traffic through 12.5 seconds and the same
 stable rate again at 38.1 seconds, while S9 continued supplying healthy link

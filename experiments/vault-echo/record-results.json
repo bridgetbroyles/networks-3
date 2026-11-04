@@ -1,0 +1,80 @@
+[
+  {
+    "case": "positive",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "case": "normal-unique",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "one-pair",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "retransmissions",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "boundary-750us",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "case": "boundary-751us",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "wrong-switch",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "wrong-size",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "wrong-protocol",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "different-flows",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "empty",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "malformed",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "truncated",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  }
+]

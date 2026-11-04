@@ -1,0 +1,11 @@
+{
+  "network_cases": 480,
+  "record_checks": 13,
+  "practice_truth_load_runs": 9,
+  "repository_tests": 158,
+  "largest_claim_log_bytes": 8210,
+  "claim_log_cap_bytes": 24576,
+  "all_passed": true,
+  "causal_mechanism": "AppSpec.echo / App.echo",
+  "confidence": "high relative to prior failed claims; exact simulator mechanism and real repeated-tuple evidence, but hidden grader outcomes cannot be guaranteed"
+}

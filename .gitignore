@@ -26,3 +26,8 @@ experiments/ledger-pause/audit-worlds/
 experiments/ledger-pause/generated/
 experiments/ledger-pause/practice-runs/
 experiments/ledger-pause/record-tests/
+experiments/vault-echo/audit-results.json
+experiments/vault-echo/audit-worlds/
+experiments/vault-echo/generated/
+experiments/vault-echo/practice-runs/
+experiments/vault-echo/record-tests/

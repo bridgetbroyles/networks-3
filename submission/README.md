@@ -1,11 +1,11 @@
 # Submissions
 
-Last confirmed result: **56 points**, ten attempts used, **20 remaining**.
+Last confirmed result: **56 points**, eleven attempts used, **19 remaining**.
 Eggs 10, 14, 16, 19 and 20 are already won.
 
 | Folder | Purpose |
 | --- | --- |
-| [next/claim-11-ledger-long-pause](next/claim-11-ledger-long-pause/README.md) | Current audited Claim 11 pair. Upload its two Wasm files together only. |
+| [next/claim-12-vault-echo](next/claim-12-vault-echo/README.md) | Current audited Claim 12 pair. Upload its two Wasm files together only. |
 | completed/ | Already submitted pairs associated with won eggs; do not resubmit. |
 | truth/ | Current truth-run observer. |
 | evidence/ | Exact earlier truth-run observers for reproducibility. |
@@ -25,6 +25,7 @@ is archived under `completed/`. Claim 10's active S6-S7 capacity detector won
 no egg; its local mechanics were correct, but its causal hypothesis was not.
 It is archived under `history/`.
 
-Claim 11 targets the source-specific Ledger silence at S9. It logs locally,
-requires explicit zero counters with heartbeats and later recovery, and passed
-504 whole-network cases plus timer-phase boundary tests.
+Claim 11's source-specific Ledger silence rule won no egg and is archived under
+`history/`. Claim 12 instead targets the simulator's explicit packet-echo
+mechanism at the S3 Vault source. It passed 480 adversarial network cases plus
+record-boundary, practice, resource and repository tests.

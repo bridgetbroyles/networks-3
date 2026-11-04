@@ -1,6 +1,6 @@
 {
-  "claims_used": 10,
-  "claims_remaining": 20,
+  "claims_used": 11,
+  "claims_remaining": 19,
   "confirmed_points": 56,
   "won_eggs": [
     10,
@@ -31,10 +31,10 @@
   "minimum_additional_wins_under_best_difficulty_mix": 7,
   "unsubmitted_claims_with_confirmed_hidden_wins": 0,
   "recent_user_report": {
-    "server_claim": 10,
+    "server_claim": 11,
     "reported_at": "2026-11-03 America/Chicago",
     "result": "no new egg won",
-    "folder": "submission/history/failed-claim-10-capacity-change-6-7",
+    "folder": "submission/history/failed-claim-11-ledger-long-pause",
     "points_after": 56
   },
   "successful_submission": {
@@ -55,7 +55,7 @@
     },
     "result": "won Egg 20 - Failure - The rebooting switch"
   },
-  "next_server_submission": 11,
+  "next_server_submission": 12,
   "hold_related_outage_variants": true,
   "confirmed_failed_revised_submissions": [
     {
@@ -102,23 +102,38 @@
     },
     "result": "no new egg won"
   },
-  "next_option": "submission/next/claim-11-ledger-long-pause",
+  "failed_claim_11": {
+    "folder": "submission/history/failed-claim-11-ledger-long-pause",
+    "files": {
+      "switch.wasm": {
+        "bytes": 129226,
+        "sha256": "72d4a8295fee435fe13d07b510fd02371db70f84274229cf17db54d2cb5446a1"
+      },
+      "detect.wasm": {
+        "bytes": 62858,
+        "sha256": "80f797f52ccddfebf614eb477fd4a6a0a6324cda74beaf7ab8d1f88e36213a9b"
+      }
+    },
+    "result": "no new egg won"
+  },
+  "next_option": "submission/next/claim-12-vault-echo",
   "next_pair_files": {
     "switch.wasm": {
-      "bytes": 129226,
-      "sha256": "72d4a8295fee435fe13d07b510fd02371db70f84274229cf17db54d2cb5446a1"
+      "bytes": 129954,
+      "sha256": "98ffd2dfbd1adb5eb516b2558d0b1f92b132acaf318ea986e2520cf82b0a5793"
     },
     "detect.wasm": {
-      "bytes": 62858,
-      "sha256": "80f797f52ccddfebf614eb477fd4a6a0a6324cda74beaf7ab8d1f88e36213a9b"
+      "bytes": 60259,
+      "sha256": "4d66d05f9102e008765d89755e413141ec679430f379b60502e5ee139525a972"
     }
   },
   "next_pair_validation": {
-    "network_cases": 504,
+    "network_cases": 480,
     "record_checks": 13,
     "practice_truth_runs": 9,
-    "largest_claim_log_bytes": 1621,
+    "repository_tests": 158,
+    "largest_claim_log_bytes": 8210,
     "all_passed": true,
-    "confidence": "moderate-high; source-specific silence and recovery are supported by truth-run evidence, with local S9 logging eliminating report loss, but the hidden egg definition cannot be proven locally"
+    "confidence": "high relative to prior failures: exact AppSpec.echo mechanism, direct same-sequence duplicate signature, and realistic false-side tests; hidden grader outcome still cannot be guaranteed"
   }
 }

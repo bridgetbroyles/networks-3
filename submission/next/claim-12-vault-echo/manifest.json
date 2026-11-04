@@ -1,0 +1,16 @@
+{
+  "server_claim": 12,
+  "hypothesis": "the 500-byte TCP source at S3 immediately echoes numbered packets",
+  "maximum_echo_separation_us": 750,
+  "minimum_distinct_echoed_sequences": 2,
+  "files": {
+    "switch.wasm": {
+      "bytes": 129954,
+      "sha256": "98ffd2dfbd1adb5eb516b2558d0b1f92b132acaf318ea986e2520cf82b0a5793"
+    },
+    "detect.wasm": {
+      "bytes": 60259,
+      "sha256": "4d66d05f9102e008765d89755e413141ec679430f379b60502e5ee139525a972"
+    }
+  }
+}
