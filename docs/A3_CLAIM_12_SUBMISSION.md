@@ -1,5 +1,8 @@
 # A3 Claim 12 submission
 
+> Result: won Egg 8 - Traffic - The echo. This pair is historical; do not
+> resubmit it.
+
 Claim 12 targets the simulator's explicit customer `echo` behavior. The
 500-byte TCP source at S3 is the Vault-like customer. In a retained truth run,
 that flow produced repeated source/destination/size/sequence tuples. The

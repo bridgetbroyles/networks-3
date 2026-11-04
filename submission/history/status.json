@@ -1,8 +1,9 @@
 {
-  "claims_used": 11,
-  "claims_remaining": 19,
-  "confirmed_points": 56,
+  "claims_used": 12,
+  "claims_remaining": 18,
+  "confirmed_points": 64,
   "won_eggs": [
+    8,
     10,
     14,
     16,
@@ -26,36 +27,36 @@
   },
   "target_points": 150,
   "minimum_reachable_target_points": 152,
-  "additional_points_needed": 94,
-  "additional_points_in_multiples_of_four": 96,
-  "minimum_additional_wins_under_best_difficulty_mix": 7,
+  "additional_points_needed": 86,
+  "additional_points_in_multiples_of_four": 88,
+  "minimum_additional_wins_under_best_difficulty_mix": 6,
   "unsubmitted_claims_with_confirmed_hidden_wins": 0,
   "recent_user_report": {
-    "server_claim": 11,
+    "server_claim": 12,
     "reported_at": "2026-11-03 America/Chicago",
-    "result": "no new egg won",
-    "folder": "submission/history/failed-claim-11-ledger-long-pause",
-    "points_after": 56
+    "result": "won Egg 8 - Traffic - The echo",
+    "folder": "submission/completed/egg-08-echo",
+    "points_after": 64
   },
   "successful_submission": {
-    "number": 9,
-    "folder": "submission/completed/egg-20-rebooting-switch",
-    "egg": 20,
-    "category": "Failure",
-    "name": "The rebooting switch",
+    "number": 12,
+    "folder": "submission/completed/egg-08-echo",
+    "egg": 8,
+    "category": "Traffic",
+    "name": "The echo",
     "files": {
       "switch.wasm": {
-        "bytes": 142167,
-        "sha256": "58893d22da3b31602e38ddcd5b09617a974c95dd3331fc2c20e8042cc800ad3e"
+        "bytes": 129954,
+        "sha256": "98ffd2dfbd1adb5eb516b2558d0b1f92b132acaf318ea986e2520cf82b0a5793"
       },
       "detect.wasm": {
-        "bytes": 63651,
-        "sha256": "ae4be04257adcb55e963bded4dee3dd2f9d9f952fc41486d404260d17cdbba92"
+        "bytes": 60259,
+        "sha256": "4d66d05f9102e008765d89755e413141ec679430f379b60502e5ee139525a972"
       }
     },
-    "result": "won Egg 20 - Failure - The rebooting switch"
+    "result": "won Egg 8 - Traffic - The echo"
   },
-  "next_server_submission": 12,
+  "next_server_submission": 13,
   "hold_related_outage_variants": true,
   "confirmed_failed_revised_submissions": [
     {
@@ -116,24 +117,24 @@
     },
     "result": "no new egg won"
   },
-  "next_option": "submission/next/claim-12-vault-echo",
+  "next_option": "submission/next/claim-13-mapper-ttl-ladder",
   "next_pair_files": {
     "switch.wasm": {
-      "bytes": 129954,
-      "sha256": "98ffd2dfbd1adb5eb516b2558d0b1f92b132acaf318ea986e2520cf82b0a5793"
+      "bytes": 134006,
+      "sha256": "5b6a76b461a3e0de9c4cb589f85639aea6d60dca8f19e8087f0ce66c1096ba99"
     },
     "detect.wasm": {
-      "bytes": 60259,
-      "sha256": "4d66d05f9102e008765d89755e413141ec679430f379b60502e5ee139525a972"
+      "bytes": 55271,
+      "sha256": "b6f0f54e5cc3c80d86490620ae019d74c287cb7091f2bfee7f90ea3cc4a94f49"
     }
   },
   "next_pair_validation": {
-    "network_cases": 480,
+    "network_cases": 528,
     "record_checks": 13,
     "practice_truth_runs": 9,
     "repository_tests": 158,
-    "largest_claim_log_bytes": 8210,
+    "largest_claim_log_bytes": 7435,
     "all_passed": true,
-    "confidence": "high relative to prior failures: exact AppSpec.echo mechanism, direct same-sequence duplicate signature, and realistic false-side tests; hidden grader outcome still cannot be guaranteed"
+    "confidence": "high relative to speculative claims: exact AppSpec.ttl_ladder mechanism, named Mapper evidence, normal-practice comparison, and recreated causal near misses; hidden grader outcome still cannot be guaranteed"
   }
 }

@@ -1,0 +1,80 @@
+[
+  {
+    "case": "positive-eight-rungs",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "case": "boundary-six-rungs",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "case": "five-rungs",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "constant-low",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "short-four-rung-ladder",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "normal-ttl",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "wrong-switch",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "wrong-size",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "wrong-protocol",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "split-between-flows",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "empty",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "malformed",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "truncated",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  }
+]

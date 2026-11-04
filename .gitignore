@@ -31,3 +31,8 @@ experiments/vault-echo/audit-worlds/
 experiments/vault-echo/generated/
 experiments/vault-echo/practice-runs/
 experiments/vault-echo/record-tests/
+experiments/mapper-ttl-ladder/audit-results.json
+experiments/mapper-ttl-ladder/audit-worlds/
+experiments/mapper-ttl-ladder/generated/
+experiments/mapper-ttl-ladder/practice-runs/
+experiments/mapper-ttl-ladder/record-tests/

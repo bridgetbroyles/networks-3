@@ -1,0 +1,15 @@
+{
+  "server_claim": 13,
+  "hypothesis": "the 64-byte UDP Mapper source at S4 cycles through a TTL ladder",
+  "minimum_distinct_low_ttl_rungs": 6,
+  "files": {
+    "switch.wasm": {
+      "bytes": 134006,
+      "sha256": "5b6a76b461a3e0de9c4cb589f85639aea6d60dca8f19e8087f0ce66c1096ba99"
+    },
+    "detect.wasm": {
+      "bytes": 55271,
+      "sha256": "b6f0f54e5cc3c80d86490620ae019d74c287cb7091f2bfee7f90ea3cc4a94f49"
+    }
+  }
+}

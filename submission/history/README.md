@@ -1,7 +1,7 @@
 # Submission history
 
-Last reported server result: Claim 11 won no new egg. Confirmed total: 56
-points, with 19 attempts remaining; Eggs 10, 14, 16, 19
+Last reported server result: Claim 12 won Egg 8, The echo. Confirmed total: 64
+points, with 18 attempts remaining; Eggs 8, 10, 14, 16, 19
 and 20 won.
 
 Known failed submissions: old recovered-link-0-1 (Claim 3), old
@@ -29,5 +29,6 @@ Retired speculative queues, failed upload copies and duplicate SDK/build materia
 Completed pair folders preserve artifacts associated with already won eggs.
 Claim 11's S9 Ledger-pause pair is archived here because it won no egg. Its
 mechanics passed local tests, but the pause was not proven to be an independently
-toggleable unwon mechanism. The audited Claim 12 Vault-echo pair is the only
-current item under `submission/next/`.
+toggleable unwon mechanism. Claim 12's direct Echo detector then won Egg 8 and
+is archived under `submission/completed/egg-08-echo/`. The audited Claim 13
+Mapper TTL-ladder pair is the only current item under `submission/next/`.

@@ -1,0 +1,11 @@
+{
+  "network_cases": 528,
+  "record_checks": 13,
+  "practice_truth_load_runs": 9,
+  "repository_tests": 158,
+  "largest_claim_log_bytes": 7435,
+  "claim_log_cap_bytes": 24576,
+  "all_passed": true,
+  "causal_mechanism": "AppSpec.ttl_ladder / App.ttl_ladder",
+  "confidence": "high relative to speculative claims; exact customer mechanism, named Mapper evidence, normal-practice comparison, and recreated near misses"
+}
