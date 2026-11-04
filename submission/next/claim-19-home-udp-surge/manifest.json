@@ -1,0 +1,15 @@
+{
+  "server_claim": 19,
+  "slug": "home-udp-surge-v2",
+  "hypothesis": "one S2 /24 changes from a steady 200-byte baseline to a sustained 64-byte UDP surge from many hosts to one destination and then recovers",
+  "files": {
+    "switch.wasm": {
+      "bytes": 131923,
+      "sha256": "25dca8a1089ea10aec5edc295584d7da879a2ea294fb666dbaaaa81ae871fb72"
+    },
+    "detect.wasm": {
+      "bytes": 71818,
+      "sha256": "782ad587098fc661b63e0a3998dffb9712cd424327fa14f22d6be84f02ca1985"
+    }
+  }
+}

@@ -1,0 +1,967 @@
+{
+  "cases": 120,
+  "passed": 120,
+  "largest_log_bytes": 420,
+  "results": [
+    {
+      "case": "positive",
+      "seed": 8209,
+      "load": 1.0,
+      "expected": true,
+      "answer": true,
+      "bytes": 420
+    },
+    {
+      "case": "off",
+      "seed": 8209,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "seven-sources",
+      "seed": 8209,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 195
+    },
+    {
+      "case": "seven-destinations",
+      "seed": 8209,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 420
+    },
+    {
+      "case": "one-source",
+      "seed": 8209,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 45
+    },
+    {
+      "case": "one-destination",
+      "seed": 8209,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 420
+    },
+    {
+      "case": "wrong-site",
+      "seed": 8209,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "wrong-size",
+      "seed": 8209,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "wrong-protocol",
+      "seed": 8209,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "too-few-samples",
+      "seed": 8209,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 220
+    },
+    {
+      "case": "positive",
+      "seed": 8209,
+      "load": 1.25,
+      "expected": true,
+      "answer": true,
+      "bytes": 420
+    },
+    {
+      "case": "off",
+      "seed": 8209,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "seven-sources",
+      "seed": 8209,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 195
+    },
+    {
+      "case": "seven-destinations",
+      "seed": 8209,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 420
+    },
+    {
+      "case": "one-source",
+      "seed": 8209,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 45
+    },
+    {
+      "case": "one-destination",
+      "seed": 8209,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 420
+    },
+    {
+      "case": "wrong-site",
+      "seed": 8209,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "wrong-size",
+      "seed": 8209,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "wrong-protocol",
+      "seed": 8209,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "too-few-samples",
+      "seed": 8209,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 220
+    },
+    {
+      "case": "positive",
+      "seed": 8209,
+      "load": 1.5,
+      "expected": true,
+      "answer": true,
+      "bytes": 420
+    },
+    {
+      "case": "off",
+      "seed": 8209,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "seven-sources",
+      "seed": 8209,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 195
+    },
+    {
+      "case": "seven-destinations",
+      "seed": 8209,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 420
+    },
+    {
+      "case": "one-source",
+      "seed": 8209,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 45
+    },
+    {
+      "case": "one-destination",
+      "seed": 8209,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 420
+    },
+    {
+      "case": "wrong-site",
+      "seed": 8209,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "wrong-size",
+      "seed": 8209,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "wrong-protocol",
+      "seed": 8209,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "too-few-samples",
+      "seed": 8209,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 220
+    },
+    {
+      "case": "positive",
+      "seed": 8219,
+      "load": 1.0,
+      "expected": true,
+      "answer": true,
+      "bytes": 420
+    },
+    {
+      "case": "off",
+      "seed": 8219,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "seven-sources",
+      "seed": 8219,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 195
+    },
+    {
+      "case": "seven-destinations",
+      "seed": 8219,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 420
+    },
+    {
+      "case": "one-source",
+      "seed": 8219,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 45
+    },
+    {
+      "case": "one-destination",
+      "seed": 8219,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 420
+    },
+    {
+      "case": "wrong-site",
+      "seed": 8219,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "wrong-size",
+      "seed": 8219,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "wrong-protocol",
+      "seed": 8219,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "too-few-samples",
+      "seed": 8219,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 220
+    },
+    {
+      "case": "positive",
+      "seed": 8219,
+      "load": 1.25,
+      "expected": true,
+      "answer": true,
+      "bytes": 420
+    },
+    {
+      "case": "off",
+      "seed": 8219,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "seven-sources",
+      "seed": 8219,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 195
+    },
+    {
+      "case": "seven-destinations",
+      "seed": 8219,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 420
+    },
+    {
+      "case": "one-source",
+      "seed": 8219,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 45
+    },
+    {
+      "case": "one-destination",
+      "seed": 8219,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 420
+    },
+    {
+      "case": "wrong-site",
+      "seed": 8219,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "wrong-size",
+      "seed": 8219,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "wrong-protocol",
+      "seed": 8219,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "too-few-samples",
+      "seed": 8219,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 220
+    },
+    {
+      "case": "positive",
+      "seed": 8219,
+      "load": 1.5,
+      "expected": true,
+      "answer": true,
+      "bytes": 420
+    },
+    {
+      "case": "off",
+      "seed": 8219,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "seven-sources",
+      "seed": 8219,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 195
+    },
+    {
+      "case": "seven-destinations",
+      "seed": 8219,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 420
+    },
+    {
+      "case": "one-source",
+      "seed": 8219,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 45
+    },
+    {
+      "case": "one-destination",
+      "seed": 8219,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 420
+    },
+    {
+      "case": "wrong-site",
+      "seed": 8219,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "wrong-size",
+      "seed": 8219,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "wrong-protocol",
+      "seed": 8219,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "too-few-samples",
+      "seed": 8219,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 220
+    },
+    {
+      "case": "positive",
+      "seed": 8221,
+      "load": 1.0,
+      "expected": true,
+      "answer": true,
+      "bytes": 420
+    },
+    {
+      "case": "off",
+      "seed": 8221,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "seven-sources",
+      "seed": 8221,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 195
+    },
+    {
+      "case": "seven-destinations",
+      "seed": 8221,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 420
+    },
+    {
+      "case": "one-source",
+      "seed": 8221,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 45
+    },
+    {
+      "case": "one-destination",
+      "seed": 8221,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 420
+    },
+    {
+      "case": "wrong-site",
+      "seed": 8221,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "wrong-size",
+      "seed": 8221,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "wrong-protocol",
+      "seed": 8221,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "too-few-samples",
+      "seed": 8221,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 220
+    },
+    {
+      "case": "positive",
+      "seed": 8221,
+      "load": 1.25,
+      "expected": true,
+      "answer": true,
+      "bytes": 420
+    },
+    {
+      "case": "off",
+      "seed": 8221,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "seven-sources",
+      "seed": 8221,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 195
+    },
+    {
+      "case": "seven-destinations",
+      "seed": 8221,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 420
+    },
+    {
+      "case": "one-source",
+      "seed": 8221,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 45
+    },
+    {
+      "case": "one-destination",
+      "seed": 8221,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 420
+    },
+    {
+      "case": "wrong-site",
+      "seed": 8221,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "wrong-size",
+      "seed": 8221,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "wrong-protocol",
+      "seed": 8221,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "too-few-samples",
+      "seed": 8221,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 220
+    },
+    {
+      "case": "positive",
+      "seed": 8221,
+      "load": 1.5,
+      "expected": true,
+      "answer": true,
+      "bytes": 420
+    },
+    {
+      "case": "off",
+      "seed": 8221,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "seven-sources",
+      "seed": 8221,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 195
+    },
+    {
+      "case": "seven-destinations",
+      "seed": 8221,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 420
+    },
+    {
+      "case": "one-source",
+      "seed": 8221,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 45
+    },
+    {
+      "case": "one-destination",
+      "seed": 8221,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 420
+    },
+    {
+      "case": "wrong-site",
+      "seed": 8221,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "wrong-size",
+      "seed": 8221,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "wrong-protocol",
+      "seed": 8221,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "too-few-samples",
+      "seed": 8221,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 220
+    },
+    {
+      "case": "positive",
+      "seed": 8231,
+      "load": 1.0,
+      "expected": true,
+      "answer": true,
+      "bytes": 420
+    },
+    {
+      "case": "off",
+      "seed": 8231,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "seven-sources",
+      "seed": 8231,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 195
+    },
+    {
+      "case": "seven-destinations",
+      "seed": 8231,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 420
+    },
+    {
+      "case": "one-source",
+      "seed": 8231,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 45
+    },
+    {
+      "case": "one-destination",
+      "seed": 8231,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 420
+    },
+    {
+      "case": "wrong-site",
+      "seed": 8231,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "wrong-size",
+      "seed": 8231,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "wrong-protocol",
+      "seed": 8231,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "too-few-samples",
+      "seed": 8231,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 220
+    },
+    {
+      "case": "positive",
+      "seed": 8231,
+      "load": 1.25,
+      "expected": true,
+      "answer": true,
+      "bytes": 420
+    },
+    {
+      "case": "off",
+      "seed": 8231,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "seven-sources",
+      "seed": 8231,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 195
+    },
+    {
+      "case": "seven-destinations",
+      "seed": 8231,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 420
+    },
+    {
+      "case": "one-source",
+      "seed": 8231,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 45
+    },
+    {
+      "case": "one-destination",
+      "seed": 8231,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 420
+    },
+    {
+      "case": "wrong-site",
+      "seed": 8231,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "wrong-size",
+      "seed": 8231,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "wrong-protocol",
+      "seed": 8231,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "too-few-samples",
+      "seed": 8231,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 220
+    },
+    {
+      "case": "positive",
+      "seed": 8231,
+      "load": 1.5,
+      "expected": true,
+      "answer": true,
+      "bytes": 420
+    },
+    {
+      "case": "off",
+      "seed": 8231,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "seven-sources",
+      "seed": 8231,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 195
+    },
+    {
+      "case": "seven-destinations",
+      "seed": 8231,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 420
+    },
+    {
+      "case": "one-source",
+      "seed": 8231,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 45
+    },
+    {
+      "case": "one-destination",
+      "seed": 8231,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 420
+    },
+    {
+      "case": "wrong-site",
+      "seed": 8231,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "wrong-size",
+      "seed": 8231,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "wrong-protocol",
+      "seed": 8231,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 20
+    },
+    {
+      "case": "too-few-samples",
+      "seed": 8231,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 220
+    }
+  ]
+}

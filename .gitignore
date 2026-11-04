@@ -60,3 +60,5 @@ experiments/open-loop-bundle/generated/
 experiments/fastly-destination-fanout/audit-results.json
 experiments/fastly-destination-fanout/record-results.json
 experiments/fastly-destination-fanout/generated/
+experiments/akamai-open-loop-mesh/generated/
+experiments/home-udp-surge-v2/generated/

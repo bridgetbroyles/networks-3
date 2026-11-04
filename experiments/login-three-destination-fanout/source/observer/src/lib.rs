@@ -1018,7 +1018,7 @@ impl SwitchProgram for A3Observer {
             }else if MODE=="login_fanout_v2" {
                 let key=(ev.ip_src,ev.ip_dst,0);let last=self.packet_dedup.entry(key).or_insert(0);
                 if ev.arrived_ns.saturating_sub(*last)>=1_000_000_000 {*last=ev.arrived_ns;true}else{false}
-            }else if MODE=="open_loop_bundle" || MODE=="open_loop_fanout" {
+            }else if MODE=="open_loop_bundle" || MODE=="open_loop_fanout" || MODE=="open_loop_mesh" {
                 let key=(ev.ip_src,ev.ip_dst,if ev.packet_size==1000{1}else{0});
                 if self.packet_dedup.contains_key(&key){false}else{self.packet_dedup.insert(key,ev.arrived_ns);true}
             }else{true};
@@ -1049,7 +1049,7 @@ impl SwitchProgram for A3Observer {
         // spend the claim log budget on the generic link/counter telemetry:
         // those records cannot affect the echo detector and can crowd out the
         // decisive duplicate records in a heavily planted run.
-        if MODE == "echo" || MODE == "mapper_ladder" || MODE == "oddsize_flow" || MODE == "login_fanout_v2" || MODE == "open_loop_bundle" || MODE == "open_loop_fanout" {
+        if MODE == "echo" || MODE == "mapper_ladder" || MODE == "oddsize_flow" || MODE == "login_fanout_v2" || MODE == "open_loop_bundle" || MODE == "open_loop_fanout" || MODE == "open_loop_mesh" {
             self.last_export = ev.now_ns;
             self.flush_pending(&mut out);
             out.push(actions::schedule_timer(TICK_NS));
@@ -1095,7 +1095,7 @@ fn packet_pipeline(me:u32)->String {
             add("load r0, ip_ttl");add(&format!("const r1, {}",PACKET_TTL));
             for s in ["eq r2, r0, r1","bif r2 -> ttl_ok","bif r3 -> end","ttl_ok:"] {add(s);}
         }
-        if MODE=="open_loop_bundle" || MODE=="open_loop_fanout" {
+        if MODE=="open_loop_bundle" || MODE=="open_loop_fanout" || MODE=="open_loop_mesh" {
             for x in ["load r0, seq","const r1, 0","eq r2, r0, r1","bif r2 -> open_loop","bif r3 -> end","open_loop:"] {add(x);}
             add("bif r3 -> sample");
         } else if MODE=="mapper_ladder" {

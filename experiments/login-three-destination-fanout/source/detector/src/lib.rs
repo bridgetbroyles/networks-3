@@ -120,6 +120,20 @@ fn detect(bytes:&[u8])->bool {
    })
  },
 
+ "open_loop_mesh"=>{
+   #[derive(Default)]
+   struct Group { samples:u32, src:BTreeSet<u32>, dst:BTreeSet<u32> }
+   let mut groups:BTreeMap<(u32,u32),Group>=BTreeMap::new();
+   for p in &l.packets {
+     if p.sw!=7 || p.seq!=0 || p.size!=200 || !(p.proto==0||p.proto==6) {continue;}
+     let g=groups.entry((p.src>>8,p.dst>>8)).or_default();
+     g.samples+=1;
+     g.src.insert(p.src);
+     g.dst.insert(p.dst);
+   }
+   groups.values().any(|g|g.samples>=12&&g.src.len()>=8&&g.dst.len()>=8)
+ },
+
  "echo"=>{
    let mut m:BTreeMap<(u32,u32,u32),Vec<u32>>=BTreeMap::new();
    for p in &l.packets {if p.sw==3&&p.size==500&&p.proto==6&&p.seq>0&&p.us>0 {m.entry((p.src,p.dst,p.seq)).or_default().push(p.us);}}
@@ -158,6 +172,45 @@ fn detect(bytes:&[u8])->bool {
      let mut counts:Vec<_>=v.iter().filter(|s|s.p>0).map(|s|s.p).collect();counts.sort_unstable();if counts.len()<8{return false;}let baseline=counts[counts.len()/4].max(1);
      let volume=v.windows(3).any(|w|w.iter().all(|s|s.p>=1000&&s.p as u64>=baseline as u64*10&&s.b as u64<=s.p as u64*100)&&w.windows(2).all(|x|x[1].t-x[0].t<=17));
      volume&&destinations.values().any(|ps|ps.iter().map(|p|p.src).collect::<BTreeSet<_>>().len()>=10&&ps.iter().map(|p|p.t).max().unwrap_or(0).saturating_sub(ps.iter().map(|p|p.t).min().unwrap_or(0))>=50)
+   })
+ },
+ "home_udp_surge_v2"=>{
+   let all=series(&l);
+   all.iter().any(|((sw,c),v)|{
+     if *sw!=2{return false;}
+     let Some((addr,len))=l.prefix.get(c)else{return false;};
+     if *len!=24{return false;}
+     let mask=u32::MAX<<(32-*len);
+     let packets:Vec<_>=l.packets.iter().filter(|p|
+       p.sw==2&&p.size==64&&p.proto==17&&(p.src&mask)==(*addr&mask)
+     ).collect();
+     let sources:BTreeSet<_>=packets.iter().map(|p|p.src).collect();
+     let destinations:BTreeSet<_>=packets.iter().map(|p|p.dst).collect();
+     let Some(first_packet)=packets.iter().map(|p|p.t).min()else{return false;};
+     let Some(last_packet)=packets.iter().map(|p|p.t).max()else{return false;};
+     if sources.len()<5||destinations.len()!=1||last_packet.saturating_sub(first_packet)<80{return false;}
+
+     let normal=|s:&Stat|s.p>0&&(180..=220).contains(&(s.b/s.p.max(1)));
+     let baseline=median(&v.iter().filter(|s|normal(s)).map(|s|s.p).collect::<Vec<_>>());
+     if baseline==0{return false;}
+     let high=|s:&Stat|{
+       let avg=s.b/s.p.max(1);
+       s.p>=500&&s.p as u64>=baseline as u64*10&&(60..=100).contains(&avg)
+     };
+     for start in 0..v.len(){
+       if !high(&v[start]){continue;}
+       if start>0&&high(&v[start-1]){continue;}
+       let mut end=start;
+       while end+1<v.len()&&high(&v[end+1])&&v[end+1].t.saturating_sub(v[end].t)<=17{end+=1;}
+       let span=v[end].t.saturating_sub(v[start].t);
+       if end+1-start<6||!(90..=180).contains(&span){continue;}
+       let before=v[..start].iter().filter(|s|normal(s)).count();
+       let after=v[end+1..].iter().filter(|s|normal(s)).count();
+       // Packet samples are deliberately sparse after the first host/hash
+       // observations, so counter evidence owns the exact end time.
+       if before>=1&&after>=1&&first_packet<=v[start].t+15&&last_packet+50>=v[end].t{return true;}
+     }
+     false
    })
  },
  "mapper_ladder"=>{

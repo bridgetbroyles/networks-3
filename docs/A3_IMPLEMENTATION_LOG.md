@@ -391,3 +391,28 @@ for an unwon egg across all ten cases. Future work must not weaken or retune
 this same detector without independent causal evidence. In particular, another
 threshold over the Fastly, Akamai, Login, Camera, Sync, or other repeated
 customer patterns would repeat the error made by Claims 14-18.
+
+## Claim 19 investigation and revised Home-user surge detector
+
+The first post-Claim-18 lead, an eight-by-eight Akamai address mesh, was built
+and audited but rejected. Simulator source inspection showed that planted
+packets receive synthetic increasing sequence values in the program's view;
+the observed Akamai packets were sequence zero. That pattern did not have a
+clean causal connection to a switchable plant.
+
+The Home-user 64-byte UDP episode does have such a connection. The handout
+states that truth worlds contain only normal traffic plus eggs, and an ordinary
+app row cannot simultaneously emit its normal 200-byte TCP stream and a
+separate 64-byte UDP stream. The explicit `side_flow` plant can.
+
+The failed Claim 8 detector was compared directly against newly generated
+near-miss logs. It accepted every no-recovery, 24-second, wrong-baseline, and
+five-destination case. The `home_udp_surge_v2` detector now requires baseline,
+sustained duration, one destination, and recovery in addition to the rate,
+size, protocol, and multi-host evidence.
+
+The final pair passed a fresh 168-case whole-network audit over four seeds and
+loads 1.0, 1.25, and 1.5. The largest log was 11,664/24,576 bytes. A fresh
+positive returned true, all nine ordinary practice truth/load runs returned
+false, and the exact detector returned true on Truth Run 3. The files were
+packaged under `submission/next/claim-19-home-udp-surge/`.

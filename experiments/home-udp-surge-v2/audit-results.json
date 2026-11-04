@@ -1,0 +1,1351 @@
+{
+  "cases": 168,
+  "passed": 168,
+  "largest_log_bytes": 11664,
+  "results": [
+    {
+      "case": "positive",
+      "seed": 9103,
+      "load": 1.0,
+      "expected": true,
+      "answer": true,
+      "bytes": 5314
+    },
+    {
+      "case": "off",
+      "seed": 9103,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "short",
+      "seed": 9103,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 2139
+    },
+    {
+      "case": "no-recovery",
+      "seed": 9103,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 8514
+    },
+    {
+      "case": "early",
+      "seed": 9103,
+      "load": 1.0,
+      "expected": true,
+      "answer": true,
+      "bytes": 5314
+    },
+    {
+      "case": "late",
+      "seed": 9103,
+      "load": 1.0,
+      "expected": true,
+      "answer": true,
+      "bytes": 5314
+    },
+    {
+      "case": "too-long",
+      "seed": 9103,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 8514
+    },
+    {
+      "case": "low-rate",
+      "seed": 9103,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 2614
+    },
+    {
+      "case": "wrong-size",
+      "seed": 9103,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "wrong-protocol",
+      "seed": 9103,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "four-sources",
+      "seed": 9103,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 5014
+    },
+    {
+      "case": "wrong-site",
+      "seed": 9103,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "wrong-baseline",
+      "seed": 9103,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 5314
+    },
+    {
+      "case": "five-destinations",
+      "seed": 9103,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 5464
+    },
+    {
+      "case": "positive",
+      "seed": 9103,
+      "load": 1.25,
+      "expected": true,
+      "answer": true,
+      "bytes": 6889
+    },
+    {
+      "case": "off",
+      "seed": 9103,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "short",
+      "seed": 9103,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 3714
+    },
+    {
+      "case": "no-recovery",
+      "seed": 9103,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 10089
+    },
+    {
+      "case": "early",
+      "seed": 9103,
+      "load": 1.25,
+      "expected": true,
+      "answer": true,
+      "bytes": 6889
+    },
+    {
+      "case": "late",
+      "seed": 9103,
+      "load": 1.25,
+      "expected": true,
+      "answer": true,
+      "bytes": 6889
+    },
+    {
+      "case": "too-long",
+      "seed": 9103,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 10089
+    },
+    {
+      "case": "low-rate",
+      "seed": 9103,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 2489
+    },
+    {
+      "case": "wrong-size",
+      "seed": 9103,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "wrong-protocol",
+      "seed": 9103,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "four-sources",
+      "seed": 9103,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 6114
+    },
+    {
+      "case": "wrong-site",
+      "seed": 9103,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "wrong-baseline",
+      "seed": 9103,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 6889
+    },
+    {
+      "case": "five-destinations",
+      "seed": 9103,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 7014
+    },
+    {
+      "case": "positive",
+      "seed": 9103,
+      "load": 1.5,
+      "expected": true,
+      "answer": true,
+      "bytes": 8489
+    },
+    {
+      "case": "off",
+      "seed": 9103,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "short",
+      "seed": 9103,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 3714
+    },
+    {
+      "case": "no-recovery",
+      "seed": 9103,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 11664
+    },
+    {
+      "case": "early",
+      "seed": 9103,
+      "load": 1.5,
+      "expected": true,
+      "answer": true,
+      "bytes": 8489
+    },
+    {
+      "case": "late",
+      "seed": 9103,
+      "load": 1.5,
+      "expected": true,
+      "answer": true,
+      "bytes": 8489
+    },
+    {
+      "case": "too-long",
+      "seed": 9103,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 11664
+    },
+    {
+      "case": "low-rate",
+      "seed": 9103,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 2364
+    },
+    {
+      "case": "wrong-size",
+      "seed": 9103,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "wrong-protocol",
+      "seed": 9103,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "four-sources",
+      "seed": 9103,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 7214
+    },
+    {
+      "case": "wrong-site",
+      "seed": 9103,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "wrong-baseline",
+      "seed": 9103,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 8489
+    },
+    {
+      "case": "five-destinations",
+      "seed": 9103,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 8589
+    },
+    {
+      "case": "positive",
+      "seed": 9109,
+      "load": 1.0,
+      "expected": true,
+      "answer": true,
+      "bytes": 5314
+    },
+    {
+      "case": "off",
+      "seed": 9109,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "short",
+      "seed": 9109,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 2139
+    },
+    {
+      "case": "no-recovery",
+      "seed": 9109,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 8514
+    },
+    {
+      "case": "early",
+      "seed": 9109,
+      "load": 1.0,
+      "expected": true,
+      "answer": true,
+      "bytes": 5314
+    },
+    {
+      "case": "late",
+      "seed": 9109,
+      "load": 1.0,
+      "expected": true,
+      "answer": true,
+      "bytes": 5314
+    },
+    {
+      "case": "too-long",
+      "seed": 9109,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 8514
+    },
+    {
+      "case": "low-rate",
+      "seed": 9109,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 2614
+    },
+    {
+      "case": "wrong-size",
+      "seed": 9109,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "wrong-protocol",
+      "seed": 9109,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "four-sources",
+      "seed": 9109,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 5014
+    },
+    {
+      "case": "wrong-site",
+      "seed": 9109,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "wrong-baseline",
+      "seed": 9109,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 5314
+    },
+    {
+      "case": "five-destinations",
+      "seed": 9109,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 5464
+    },
+    {
+      "case": "positive",
+      "seed": 9109,
+      "load": 1.25,
+      "expected": true,
+      "answer": true,
+      "bytes": 6889
+    },
+    {
+      "case": "off",
+      "seed": 9109,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "short",
+      "seed": 9109,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 3714
+    },
+    {
+      "case": "no-recovery",
+      "seed": 9109,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 10089
+    },
+    {
+      "case": "early",
+      "seed": 9109,
+      "load": 1.25,
+      "expected": true,
+      "answer": true,
+      "bytes": 6889
+    },
+    {
+      "case": "late",
+      "seed": 9109,
+      "load": 1.25,
+      "expected": true,
+      "answer": true,
+      "bytes": 6889
+    },
+    {
+      "case": "too-long",
+      "seed": 9109,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 10089
+    },
+    {
+      "case": "low-rate",
+      "seed": 9109,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 2489
+    },
+    {
+      "case": "wrong-size",
+      "seed": 9109,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "wrong-protocol",
+      "seed": 9109,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "four-sources",
+      "seed": 9109,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 6114
+    },
+    {
+      "case": "wrong-site",
+      "seed": 9109,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "wrong-baseline",
+      "seed": 9109,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 6889
+    },
+    {
+      "case": "five-destinations",
+      "seed": 9109,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 7014
+    },
+    {
+      "case": "positive",
+      "seed": 9109,
+      "load": 1.5,
+      "expected": true,
+      "answer": true,
+      "bytes": 8489
+    },
+    {
+      "case": "off",
+      "seed": 9109,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "short",
+      "seed": 9109,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 3714
+    },
+    {
+      "case": "no-recovery",
+      "seed": 9109,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 11664
+    },
+    {
+      "case": "early",
+      "seed": 9109,
+      "load": 1.5,
+      "expected": true,
+      "answer": true,
+      "bytes": 8489
+    },
+    {
+      "case": "late",
+      "seed": 9109,
+      "load": 1.5,
+      "expected": true,
+      "answer": true,
+      "bytes": 8489
+    },
+    {
+      "case": "too-long",
+      "seed": 9109,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 11664
+    },
+    {
+      "case": "low-rate",
+      "seed": 9109,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 2364
+    },
+    {
+      "case": "wrong-size",
+      "seed": 9109,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "wrong-protocol",
+      "seed": 9109,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "four-sources",
+      "seed": 9109,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 7214
+    },
+    {
+      "case": "wrong-site",
+      "seed": 9109,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "wrong-baseline",
+      "seed": 9109,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 8489
+    },
+    {
+      "case": "five-destinations",
+      "seed": 9109,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 8589
+    },
+    {
+      "case": "positive",
+      "seed": 9127,
+      "load": 1.0,
+      "expected": true,
+      "answer": true,
+      "bytes": 5314
+    },
+    {
+      "case": "off",
+      "seed": 9127,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "short",
+      "seed": 9127,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 2139
+    },
+    {
+      "case": "no-recovery",
+      "seed": 9127,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 8514
+    },
+    {
+      "case": "early",
+      "seed": 9127,
+      "load": 1.0,
+      "expected": true,
+      "answer": true,
+      "bytes": 5314
+    },
+    {
+      "case": "late",
+      "seed": 9127,
+      "load": 1.0,
+      "expected": true,
+      "answer": true,
+      "bytes": 5314
+    },
+    {
+      "case": "too-long",
+      "seed": 9127,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 8514
+    },
+    {
+      "case": "low-rate",
+      "seed": 9127,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 2614
+    },
+    {
+      "case": "wrong-size",
+      "seed": 9127,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "wrong-protocol",
+      "seed": 9127,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "four-sources",
+      "seed": 9127,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 5014
+    },
+    {
+      "case": "wrong-site",
+      "seed": 9127,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "wrong-baseline",
+      "seed": 9127,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 5314
+    },
+    {
+      "case": "five-destinations",
+      "seed": 9127,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 5464
+    },
+    {
+      "case": "positive",
+      "seed": 9127,
+      "load": 1.25,
+      "expected": true,
+      "answer": true,
+      "bytes": 6889
+    },
+    {
+      "case": "off",
+      "seed": 9127,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "short",
+      "seed": 9127,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 3714
+    },
+    {
+      "case": "no-recovery",
+      "seed": 9127,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 10089
+    },
+    {
+      "case": "early",
+      "seed": 9127,
+      "load": 1.25,
+      "expected": true,
+      "answer": true,
+      "bytes": 6889
+    },
+    {
+      "case": "late",
+      "seed": 9127,
+      "load": 1.25,
+      "expected": true,
+      "answer": true,
+      "bytes": 6889
+    },
+    {
+      "case": "too-long",
+      "seed": 9127,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 10089
+    },
+    {
+      "case": "low-rate",
+      "seed": 9127,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 2489
+    },
+    {
+      "case": "wrong-size",
+      "seed": 9127,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "wrong-protocol",
+      "seed": 9127,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "four-sources",
+      "seed": 9127,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 6114
+    },
+    {
+      "case": "wrong-site",
+      "seed": 9127,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "wrong-baseline",
+      "seed": 9127,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 6889
+    },
+    {
+      "case": "five-destinations",
+      "seed": 9127,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 7014
+    },
+    {
+      "case": "positive",
+      "seed": 9127,
+      "load": 1.5,
+      "expected": true,
+      "answer": true,
+      "bytes": 8489
+    },
+    {
+      "case": "off",
+      "seed": 9127,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "short",
+      "seed": 9127,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 3714
+    },
+    {
+      "case": "no-recovery",
+      "seed": 9127,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 11664
+    },
+    {
+      "case": "early",
+      "seed": 9127,
+      "load": 1.5,
+      "expected": true,
+      "answer": true,
+      "bytes": 8489
+    },
+    {
+      "case": "late",
+      "seed": 9127,
+      "load": 1.5,
+      "expected": true,
+      "answer": true,
+      "bytes": 8489
+    },
+    {
+      "case": "too-long",
+      "seed": 9127,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 11664
+    },
+    {
+      "case": "low-rate",
+      "seed": 9127,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 2364
+    },
+    {
+      "case": "wrong-size",
+      "seed": 9127,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "wrong-protocol",
+      "seed": 9127,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "four-sources",
+      "seed": 9127,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 7214
+    },
+    {
+      "case": "wrong-site",
+      "seed": 9127,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "wrong-baseline",
+      "seed": 9127,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 8489
+    },
+    {
+      "case": "five-destinations",
+      "seed": 9127,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 8589
+    },
+    {
+      "case": "positive",
+      "seed": 9133,
+      "load": 1.0,
+      "expected": true,
+      "answer": true,
+      "bytes": 5314
+    },
+    {
+      "case": "off",
+      "seed": 9133,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "short",
+      "seed": 9133,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 2139
+    },
+    {
+      "case": "no-recovery",
+      "seed": 9133,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 8514
+    },
+    {
+      "case": "early",
+      "seed": 9133,
+      "load": 1.0,
+      "expected": true,
+      "answer": true,
+      "bytes": 5314
+    },
+    {
+      "case": "late",
+      "seed": 9133,
+      "load": 1.0,
+      "expected": true,
+      "answer": true,
+      "bytes": 5314
+    },
+    {
+      "case": "too-long",
+      "seed": 9133,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 8514
+    },
+    {
+      "case": "low-rate",
+      "seed": 9133,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 2614
+    },
+    {
+      "case": "wrong-size",
+      "seed": 9133,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "wrong-protocol",
+      "seed": 9133,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "four-sources",
+      "seed": 9133,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 5014
+    },
+    {
+      "case": "wrong-site",
+      "seed": 9133,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "wrong-baseline",
+      "seed": 9133,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 5314
+    },
+    {
+      "case": "five-destinations",
+      "seed": 9133,
+      "load": 1.0,
+      "expected": false,
+      "answer": false,
+      "bytes": 5464
+    },
+    {
+      "case": "positive",
+      "seed": 9133,
+      "load": 1.25,
+      "expected": true,
+      "answer": true,
+      "bytes": 6889
+    },
+    {
+      "case": "off",
+      "seed": 9133,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "short",
+      "seed": 9133,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 3714
+    },
+    {
+      "case": "no-recovery",
+      "seed": 9133,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 10089
+    },
+    {
+      "case": "early",
+      "seed": 9133,
+      "load": 1.25,
+      "expected": true,
+      "answer": true,
+      "bytes": 6889
+    },
+    {
+      "case": "late",
+      "seed": 9133,
+      "load": 1.25,
+      "expected": true,
+      "answer": true,
+      "bytes": 6889
+    },
+    {
+      "case": "too-long",
+      "seed": 9133,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 10089
+    },
+    {
+      "case": "low-rate",
+      "seed": 9133,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 2489
+    },
+    {
+      "case": "wrong-size",
+      "seed": 9133,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "wrong-protocol",
+      "seed": 9133,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "four-sources",
+      "seed": 9133,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 6114
+    },
+    {
+      "case": "wrong-site",
+      "seed": 9133,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "wrong-baseline",
+      "seed": 9133,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 6889
+    },
+    {
+      "case": "five-destinations",
+      "seed": 9133,
+      "load": 1.25,
+      "expected": false,
+      "answer": false,
+      "bytes": 7014
+    },
+    {
+      "case": "positive",
+      "seed": 9133,
+      "load": 1.5,
+      "expected": true,
+      "answer": true,
+      "bytes": 8489
+    },
+    {
+      "case": "off",
+      "seed": 9133,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "short",
+      "seed": 9133,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 3714
+    },
+    {
+      "case": "no-recovery",
+      "seed": 9133,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 11664
+    },
+    {
+      "case": "early",
+      "seed": 9133,
+      "load": 1.5,
+      "expected": true,
+      "answer": true,
+      "bytes": 8489
+    },
+    {
+      "case": "late",
+      "seed": 9133,
+      "load": 1.5,
+      "expected": true,
+      "answer": true,
+      "bytes": 8489
+    },
+    {
+      "case": "too-long",
+      "seed": 9133,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 11664
+    },
+    {
+      "case": "low-rate",
+      "seed": 9133,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 2364
+    },
+    {
+      "case": "wrong-size",
+      "seed": 9133,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "wrong-protocol",
+      "seed": 9133,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "four-sources",
+      "seed": 9133,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 7214
+    },
+    {
+      "case": "wrong-site",
+      "seed": 9133,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 514
+    },
+    {
+      "case": "wrong-baseline",
+      "seed": 9133,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 8489
+    },
+    {
+      "case": "five-destinations",
+      "seed": 9133,
+      "load": 1.5,
+      "expected": false,
+      "answer": false,
+      "bytes": 8589
+    }
+  ]
+}
