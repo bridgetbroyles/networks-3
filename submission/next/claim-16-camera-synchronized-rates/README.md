@@ -1,8 +1,8 @@
-# Queued Claim 16: synchronized S6 camera rates
+# Current Claim 16: synchronized S6 camera rates
 
-Do not submit this pair while Claim 15 is pending. When Claim 15's complete
-server result has been recorded, upload `switch.wasm` and `detect.wasm`
-together to **A3 - Claim**.
+Claim 15 has returned with no new egg. Upload this folder's `switch.wasm` and
+`detect.wasm` together to **A3 - Claim**. Do not mix either file with a file
+from another claim package.
 
 The observer makes S6 the logging switch and records source counters every 1.5
 seconds. The detector requires two 1,000-byte sources to match within one

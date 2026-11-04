@@ -1,7 +1,8 @@
-# Submitted Claim 15: Login repeated three-destination fanout
+# Failed Claim 15: Login repeated three-destination fanout
 
-This exact pair has been submitted and is awaiting the server result. Do not
-upload Claim 16 until the complete response for this pair arrives.
+Server result: **no new egg won**. Do not submit this pair again. The observed
+fanout was real, but the result proves that this rule did not isolate an unwon
+egg under the grader's ON/OFF comparison.
 
 This claim observes one 100-byte TCP Login source at S8 repeatedly reaching
 three destinations. Truth Run 1 captured 11 packets from the same source to

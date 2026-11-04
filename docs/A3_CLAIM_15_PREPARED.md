@@ -1,8 +1,10 @@
-# A3 Claim 15 prepared
+# A3 Claim 15 result: no new egg
 
-Claim 15 was submitted after Claim 14 returned and is awaiting its server result.
-It is independent of Claim 14: Claim 14 targets a 299-byte reverse side flow,
-while Claim 15 targets repeated destination cycling by the Login customer.
+Claim 15 was submitted after Claim 14 returned. The server reported **no new
+egg won**. It was independent of Claim 14 mechanically: Claim 14 targeted a
+299-byte reverse side flow, while Claim 15 targeted repeated destination
+cycling by the Login customer. However, a mechanically distinct rule was not
+enough to establish a distinct hidden cause.
 
 ## Truth evidence
 
@@ -44,6 +46,8 @@ The exact package passed 528 adversarial 15-switch runs, 12 record tests, all
 nine disclosed practice runs returned false, as expected, but their six-switch
 topology has no S8 and therefore cannot exercise the positive logger.
 
-The exact submitted pair is preserved under
-`submission/next/claim-15-login-three-destination-fanout/`. Do not replace the
-pending upload with Claim 16 before the server reports Claim 15.
+The exact failed pair is preserved under
+`submission/history/failed-claim-15-login-three-destination-fanout/`. Do not
+resubmit it. Its failure means the real Login fanout did not distinguish an
+unwon egg from the grader's comparison run; it may be ordinary customer
+behavior or behavior unaffected by the hidden egg toggle.

@@ -35,7 +35,9 @@ Validation performed on the exact package:
 - all 158 repository tests passed; and
 - the largest adversarial claim log was 883 of 24,576 bytes.
 
-This candidate is queued behind the already-submitted Claim 15. It uses much
-stronger evidence than failed Claim 14, but local validation still cannot prove
-that the hidden grader associates the observed synchronization with an unwon
-egg.
+Claim 15 returned with no new egg, so this is now the current Claim 16
+candidate. It uses stronger evidence than failed Claims 14 and 15: its decisive
+condition is repeated equality between two independent positive local counters,
+not merely the existence of a side flow or destination set. Local validation
+still cannot prove that the hidden grader associates the synchronization with
+an unwon egg.

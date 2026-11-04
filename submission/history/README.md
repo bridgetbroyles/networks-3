@@ -1,8 +1,7 @@
 # Submission history
 
-Last reported server result: Claim 14 won no new egg. Confirmed total: 68
-points, with 16 attempts remaining before pending Claim 15 is graded; Eggs 7,
-8, 10, 14, 16, 19 and 20 are won.
+Last reported server result: Claim 15 won no new egg. Confirmed total: 68
+points, with 15 attempts remaining; Eggs 7, 8, 10, 14, 16, 19 and 20 are won.
 
 Known failed submissions: old recovered-link-0-1 (Claim 3), old
 recovered-link-10-11, and revised capacity-12-13 (Claim 6). The server gives
@@ -33,6 +32,7 @@ toggleable unwon mechanism. Claim 12's direct Echo detector then won Egg 8 and
 is archived under `submission/completed/egg-08-echo/`. Claim 13's Mapper ladder
 won Egg 7 and is archived under `submission/completed/egg-07-traceroute/`.
 Claim 14's 299-byte Akamai reverse-flow detector won no egg and is archived
-under `submission/history/failed-claim-14-akamai-299-side-flow/`. Claim 15 is
-pending, and the synchronized S6 camera-rate candidate is queued behind it as
-Claim 16.
+under `submission/history/failed-claim-14-akamai-299-side-flow/`. Claim 15's
+Login three-destination fanout detector also won no egg and is archived under
+`submission/history/failed-claim-15-login-three-destination-fanout/`. The
+synchronized S6 camera-rate candidate is now the current Claim 16 candidate.
