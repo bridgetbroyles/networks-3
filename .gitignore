@@ -36,3 +36,8 @@ experiments/mapper-ttl-ladder/audit-worlds/
 experiments/mapper-ttl-ladder/generated/
 experiments/mapper-ttl-ladder/practice-runs/
 experiments/mapper-ttl-ladder/record-tests/
+experiments/akamai-299-side-flow/audit-results.json
+experiments/akamai-299-side-flow/audit-worlds/
+experiments/akamai-299-side-flow/generated/
+experiments/akamai-299-side-flow/practice-runs/
+experiments/akamai-299-side-flow/record-tests/

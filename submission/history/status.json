@@ -1,8 +1,9 @@
 {
-  "claims_used": 12,
-  "claims_remaining": 18,
-  "confirmed_points": 64,
+  "claims_used": 13,
+  "claims_remaining": 17,
+  "confirmed_points": 68,
   "won_eggs": [
+    7,
     8,
     10,
     14,
@@ -27,36 +28,36 @@
   },
   "target_points": 150,
   "minimum_reachable_target_points": 152,
-  "additional_points_needed": 86,
-  "additional_points_in_multiples_of_four": 88,
+  "additional_points_needed": 82,
+  "additional_points_in_multiples_of_four": 84,
   "minimum_additional_wins_under_best_difficulty_mix": 6,
   "unsubmitted_claims_with_confirmed_hidden_wins": 0,
   "recent_user_report": {
-    "server_claim": 12,
+    "server_claim": 13,
     "reported_at": "2026-11-03 America/Chicago",
-    "result": "won Egg 8 - Traffic - The echo",
-    "folder": "submission/completed/egg-08-echo",
-    "points_after": 64
+    "result": "won Egg 7 - Traffic - The traceroute",
+    "folder": "submission/completed/egg-07-traceroute",
+    "points_after": 68
   },
   "successful_submission": {
-    "number": 12,
-    "folder": "submission/completed/egg-08-echo",
-    "egg": 8,
+    "number": 13,
+    "folder": "submission/completed/egg-07-traceroute",
+    "egg": 7,
     "category": "Traffic",
-    "name": "The echo",
+    "name": "The traceroute",
     "files": {
       "switch.wasm": {
-        "bytes": 129954,
-        "sha256": "98ffd2dfbd1adb5eb516b2558d0b1f92b132acaf318ea986e2520cf82b0a5793"
+        "bytes": 134006,
+        "sha256": "5b6a76b461a3e0de9c4cb589f85639aea6d60dca8f19e8087f0ce66c1096ba99"
       },
       "detect.wasm": {
-        "bytes": 60259,
-        "sha256": "4d66d05f9102e008765d89755e413141ec679430f379b60502e5ee139525a972"
+        "bytes": 55271,
+        "sha256": "b6f0f54e5cc3c80d86490620ae019d74c287cb7091f2bfee7f90ea3cc4a94f49"
       }
     },
-    "result": "won Egg 8 - Traffic - The echo"
+    "result": "won Egg 7 - Traffic - The traceroute"
   },
-  "next_server_submission": 13,
+  "next_server_submission": 14,
   "hold_related_outage_variants": true,
   "confirmed_failed_revised_submissions": [
     {
@@ -117,24 +118,24 @@
     },
     "result": "no new egg won"
   },
-  "next_option": "submission/next/claim-13-mapper-ttl-ladder",
+  "next_option": "submission/next/claim-14-akamai-299-side-flow",
   "next_pair_files": {
     "switch.wasm": {
-      "bytes": 134006,
-      "sha256": "5b6a76b461a3e0de9c4cb589f85639aea6d60dca8f19e8087f0ce66c1096ba99"
+      "bytes": 133856,
+      "sha256": "049831c981290ea48916f7d117492fd6e38466ea07c7dd67e9a1f764cadc1a5c"
     },
     "detect.wasm": {
-      "bytes": 55271,
-      "sha256": "b6f0f54e5cc3c80d86490620ae019d74c287cb7091f2bfee7f90ea3cc4a94f49"
+      "bytes": 67191,
+      "sha256": "c8dd4d29acc51d72201f21c077ac101d72125dccb84a5f3e1096e84aa64a53ca"
     }
   },
   "next_pair_validation": {
-    "network_cases": 528,
-    "record_checks": 13,
+    "network_cases": 480,
+    "record_checks": 14,
     "practice_truth_runs": 9,
     "repository_tests": 158,
-    "largest_claim_log_bytes": 7435,
+    "largest_claim_log_bytes": 1980,
     "all_passed": true,
-    "confidence": "high relative to speculative claims: exact AppSpec.ttl_ladder mechanism, named Mapper evidence, normal-practice comparison, and recreated causal near misses; hidden grader outcome still cannot be guaranteed"
+    "confidence": "moderate-high: exact unusual 299-byte reverse-flow evidence and direct Plant::SideFlow recreation with near misses; packet provenance is not explicitly labeled in the returned truth log"
   }
 }

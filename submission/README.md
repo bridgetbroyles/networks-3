@@ -1,11 +1,11 @@
 # Submissions
 
-Last confirmed result: **64 points**, twelve attempts used, **18 remaining**.
-Eggs 8, 10, 14, 16, 19 and 20 are already won.
+Last confirmed result: **68 points**, thirteen attempts used, **17 remaining**.
+Eggs 7, 8, 10, 14, 16, 19 and 20 are already won.
 
 | Folder | Purpose |
 | --- | --- |
-| [next/claim-13-mapper-ttl-ladder](next/claim-13-mapper-ttl-ladder/README.md) | Current audited Claim 13 pair. Upload its two Wasm files together only. |
+| [next/claim-14-akamai-299-side-flow](next/claim-14-akamai-299-side-flow/README.md) | Current audited Claim 14 pair. Upload its two Wasm files together only. |
 | completed/ | Already submitted pairs associated with won eggs; do not resubmit. |
 | truth/ | Current truth-run observer. |
 | evidence/ | Exact earlier truth-run observers for reproducibility. |
@@ -27,5 +27,6 @@ It is archived under `history/`.
 
 Claim 11's source-specific Ledger silence rule won no egg and is archived under
 `history/`. Claim 12's explicit packet-echo detector won Egg 8 and is archived
-under `completed/`. Claim 13 targets the explicit TTL-ladder mechanism at the
-S4 Mapper source and passed causal ON/OFF and near-miss testing.
+under `completed/`. Claim 13's Mapper TTL ladder won Egg 7 and is also archived
+under `completed/`. Claim 14 targets the exact 299-byte TCP reverse side flow
+from Akamai users at S2.

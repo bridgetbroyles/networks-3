@@ -1,0 +1,11 @@
+{
+  "network_cases": 480,
+  "record_checks": 14,
+  "practice_truth_load_runs": 9,
+  "repository_tests": 158,
+  "largest_claim_log_bytes": 1980,
+  "claim_log_cap_bytes": 24576,
+  "all_passed": true,
+  "causal_mechanism": "Plant::SideFlow",
+  "confidence": "moderate-high; exact unusual reverse-flow signature and direct side-flow recreation, but the returned log does not explicitly label plant provenance"
+}

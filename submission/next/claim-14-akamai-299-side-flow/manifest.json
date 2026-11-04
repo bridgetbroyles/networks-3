@@ -1,0 +1,15 @@
+{
+  "server_claim": 14,
+  "hypothesis": "Akamai users at S2 send a planted reverse stream of 299-byte TCP packets",
+  "minimum_distinct_samples": 3,
+  "files": {
+    "switch.wasm": {
+      "bytes": 133856,
+      "sha256": "049831c981290ea48916f7d117492fd6e38466ea07c7dd67e9a1f764cadc1a5c"
+    },
+    "detect.wasm": {
+      "bytes": 67191,
+      "sha256": "c8dd4d29acc51d72201f21c077ac101d72125dccb84a5f3e1096e84aa64a53ca"
+    }
+  }
+}

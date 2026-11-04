@@ -1,5 +1,8 @@
 # A3 Claim 13 submission
 
+> Result: won Egg 7 - Traffic - The traceroute. This pair is historical; do
+> not resubmit it.
+
 Claim 13 targets the simulator's explicit customer `ttl_ladder` behavior. The
 named Mapper customer is a 64-byte UDP source at S4. It appears in the retained
 truth runs; the TTL-capable truth log sampled its packets at low TTL, and an

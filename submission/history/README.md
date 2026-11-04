@@ -1,8 +1,7 @@
 # Submission history
 
-Last reported server result: Claim 12 won Egg 8, The echo. Confirmed total: 64
-points, with 18 attempts remaining; Eggs 8, 10, 14, 16, 19
-and 20 won.
+Last reported server result: Claim 13 won Egg 7, The traceroute. Confirmed total:
+68 points, with 17 attempts remaining; Eggs 7, 8, 10, 14, 16, 19 and 20 won.
 
 Known failed submissions: old recovered-link-0-1 (Claim 3), old
 recovered-link-10-11, and revised capacity-12-13 (Claim 6). The server gives
@@ -30,5 +29,7 @@ Completed pair folders preserve artifacts associated with already won eggs.
 Claim 11's S9 Ledger-pause pair is archived here because it won no egg. Its
 mechanics passed local tests, but the pause was not proven to be an independently
 toggleable unwon mechanism. Claim 12's direct Echo detector then won Egg 8 and
-is archived under `submission/completed/egg-08-echo/`. The audited Claim 13
-Mapper TTL-ladder pair is the only current item under `submission/next/`.
+is archived under `submission/completed/egg-08-echo/`. Claim 13's Mapper ladder
+won Egg 7 and is archived under `submission/completed/egg-07-traceroute/`. The
+audited Claim 14 Akamai-users reverse-side-flow pair is the only current item
+under `submission/next/`.

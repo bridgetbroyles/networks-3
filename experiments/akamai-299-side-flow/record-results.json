@@ -1,0 +1,86 @@
+[
+  {
+    "case": "positive",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "case": "boundary-one-second",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "case": "span-under-one-second",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "only-two-samples",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "same-sequence",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "same-time-window",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "wrong-switch",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "size-298",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "size-300",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "wrong-protocol",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "split-between-flows",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "empty",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "malformed",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "truncated",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  }
+]
