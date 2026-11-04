@@ -38,4 +38,9 @@ Login three-destination fanout detector also won no egg and is archived under
 synchronized S6 camera-rate pair also failed and is archived under
 `failed-claim-16-camera-synchronized-rates/`. Claim 17's distinct S1 Sync
 late-start pair failed as well and is archived under
-`failed-claim-17-sync-late-start/`. There is no current candidate.
+`failed-claim-17-sync-late-start/`.
+
+The next candidate is Claim 18, the focused S7 sequence-zero destination
+fanout detector. It is kept outside history under
+`submission/next/claim-18-fastly-destination-fanout/`; it has not yet received
+a server result.

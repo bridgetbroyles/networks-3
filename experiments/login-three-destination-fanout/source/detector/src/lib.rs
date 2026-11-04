@@ -25,6 +25,7 @@ fn parse(bytes:&[u8])->Option<Log> {
     for i in 0..count {if b[off+i*5+4]>32{return None;}log.prefix.insert(start.checked_add(i as u8)?,(u32b(b,off+i*5),b[off+i*5+4]));}
    }
    (2,10)|(2,12)=>log.stats.push(Stat{sw:b[0],c:b[1],t:u16b(b,2),b:u32b(b,4),p:if len==12 {u32b(b,8)} else {u16b(b,8) as u32}}),
+   (7,17)=>log.packets.push(Packet{sw:b[0],t:u16b(b,1),src:u32b(b,3),dst:u32b(b,7),size:u16b(b,11),proto:0,ttl:0,seq:u32b(b,13),us:0}),
    (3,19)|(7,19)|(3,23)|(7,23)=>log.packets.push(Packet{sw:b[0],t:u16b(b,1),src:u32b(b,3),dst:u32b(b,7),size:u16b(b,11),proto:b[17],ttl:b[18],seq:u32b(b,13),us:if len==23 {u32b(b,19)}else{0}}),
    (4,6)|(5,6)=>log.events.push((b[0],b[1],u16b(b,4),tag)),
    (6,18)=>log.links.push(Summary{sw:b[0],n:b[1],port:u16b(b,2),t:u16b(b,4),received:u16b(b,6),gaps:u16b(b,8),avg:u32b(b,10),peak:u32b(b,14)}),
@@ -85,6 +86,39 @@ fn probe_intervals(l:&Log,a:u8,b:u8,min:u16)->Vec<(u16,u16)> {
 fn detect(bytes:&[u8])->bool {
  let Some(l)=parse(bytes) else{return false;};
  match MODE {
+
+ "open_loop_bundle"=>{
+   #[derive(Default)] struct Group{samples:u32,src:BTreeSet<u32>,dst:BTreeSet<u32>}
+   let mut groups:BTreeMap<(u32,u32,u16),Group>=BTreeMap::new();
+   for p in &l.packets {
+     if p.sw!=7 || p.seq!=0 || !matches!(p.size,200|1000) || !(p.proto==0||p.proto==6) {continue;}
+     let g=groups.entry((p.src>>8,p.dst>>8,p.size)).or_default();
+     g.samples+=1;g.src.insert(p.src);g.dst.insert(p.dst);
+   }
+   let qualifies=|g:&Group|g.samples>=5&&g.src.len().max(g.dst.len())>=5;
+   let large=groups.iter().filter(|((_,_,size),g)|*size==1000&&qualifies(g)).count();
+   let medium=groups.iter().filter(|((_,_,size),g)|*size==200&&qualifies(g)).count();
+   large>=1&&medium>=2
+ },
+
+ "open_loop_fanout"=>{
+   let mut groups:BTreeMap<(u32,u32),Vec<&Packet>>=BTreeMap::new();
+   for p in &l.packets {
+     if p.sw==7 && p.seq==0 && p.size==200 && (p.proto==0||p.proto==6) {
+       groups.entry((p.src,p.dst>>8)).or_default().push(p);
+     }
+   }
+   groups.values_mut().any(|packets| {
+     packets.sort_by_key(|p|p.t);
+     packets.iter().any(|start| {
+       packets.iter()
+         .filter(|p|p.t>=start.t&&p.t<=start.t.saturating_add(50))
+         .map(|p|p.dst)
+         .collect::<BTreeSet<_>>()
+         .len()>=THRESHOLD as usize
+     })
+   })
+ },
 
  "echo"=>{
    let mut m:BTreeMap<(u32,u32,u32),Vec<u32>>=BTreeMap::new();

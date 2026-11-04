@@ -340,3 +340,41 @@ SHA-256: deed7bef8ddb8b772620a11fbfea6c979510135acd415cc8edb789f2d60d506d
 This section supersedes the older resource counts, sampling description, log
 maximum, and candidate hash recorded above; the older entries are retained as
 history of the tested iterations.
+
+## Claim 18 evidence audit and focused fanout detector
+
+After Claim 17 failed, packet records from all three truth runs were regrouped
+by named source/destination range, packet size, sequence, protocol, switch, and
+time. This found three repeated sequence-zero families at S7. A first attempt
+combined all three. That design passed its synthetic mechanics but was
+rejected before promotion: disclosed claim runs isolate one egg and its near
+misses, so unrelated truth-run signatures cannot safely be required together.
+
+The replacement isolates the clearest unwon-looking family. One exact
+200-byte TCP source reached 121 and 128 distinct destinations in Truth Runs 1
+and 2. The corrected Truth Run 3 format retained 69 distinct destinations from
+that source between 1.2 and 3.8 seconds; the next-largest comparable source
+reached only five destinations inside five seconds.
+
+`open_loop_fanout` filters at S7 for customer-ingress data with size 200,
+protocol TCP, and sequence zero. The controller deduplicates exact pairs. The
+detector requires at least 50 distinct addresses from one source to one
+destination `/24` inside five seconds. Synthetic audit worlds reproduce
+sequence-zero packets with separate open-loop plants; a scanner was rejected
+as the model because harness scans acquire increasing sequence values.
+
+Verification completed:
+
+- 96/96 whole-network positive, negative, and near-miss cases;
+- 12/12 direct record-format and threshold cases;
+- loads 1.0, 1.25, and 1.5 across four seeds;
+- exact Truth Run 3 detector result `true`;
+- largest generated claim log 1,280/24,576 bytes;
+- all root workspace tests passed, including 114 simulator tests.
+
+Packaged hashes:
+
+```text
+cf09a35036abe004e8e7c71a9152090b14d34fb4ba022e0b1f78587e157812aa  switch.wasm
+fbce6d0e67bf97e848988473e3bce6dc93996d58feb81a4b34ea1ce0e400a3b7  detect.wasm
+```

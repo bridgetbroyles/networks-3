@@ -1018,6 +1018,9 @@ impl SwitchProgram for A3Observer {
             }else if MODE=="login_fanout_v2" {
                 let key=(ev.ip_src,ev.ip_dst,0);let last=self.packet_dedup.entry(key).or_insert(0);
                 if ev.arrived_ns.saturating_sub(*last)>=1_000_000_000 {*last=ev.arrived_ns;true}else{false}
+            }else if MODE=="open_loop_bundle" || MODE=="open_loop_fanout" {
+                let key=(ev.ip_src,ev.ip_dst,if ev.packet_size==1000{1}else{0});
+                if self.packet_dedup.contains_key(&key){false}else{self.packet_dedup.insert(key,ev.arrived_ns);true}
             }else{true};
             if keep {self.append(self.packet_record(TAG_PACKET_SAMPLE,&ev));}
         }
@@ -1046,7 +1049,7 @@ impl SwitchProgram for A3Observer {
         // spend the claim log budget on the generic link/counter telemetry:
         // those records cannot affect the echo detector and can crowd out the
         // decisive duplicate records in a heavily planted run.
-        if MODE == "echo" || MODE == "mapper_ladder" || MODE == "oddsize_flow" || MODE == "login_fanout_v2" {
+        if MODE == "echo" || MODE == "mapper_ladder" || MODE == "oddsize_flow" || MODE == "login_fanout_v2" || MODE == "open_loop_bundle" || MODE == "open_loop_fanout" {
             self.last_export = ev.now_ns;
             self.flush_pending(&mut out);
             out.push(actions::schedule_timer(TICK_NS));
@@ -1079,15 +1082,23 @@ fn packet_pipeline(me:u32)->String {
     for s in ["load r0, ip_proto","const r1, 251","eq r2, r0, r1","bif r2 -> probe","load r0, ip_proto","const r1, 252","eq r2, r0, r1","bif r2 -> report", "load r0, kind","const r1, 5","eq r2, r0, r1","bif r2 -> keepalive","const r3, 1"] {add(s);}
     if PACKET_SIZE>0 && observed_site(me) {
         for s in ["loadm r0, m20","const r1, 0","eq r2, r0, r1","bif r2 -> ingress","bif r3 -> end","ingress:","load r0, kind","const r1, 0","eq r2, r0, r1","bif r2 -> data","bif r3 -> end","data:","load r0, size"] {add(s);}
-        add(&format!("const r1, {}",PACKET_SIZE));
-        for s in ["eq r2, r0, r1","bif r2 -> size_ok","bif r3 -> end","size_ok:","load r0, ip_proto"] {add(s);}
+        if MODE=="open_loop_bundle" {
+            for s in ["const r1, 200","eq r2, r0, r1","bif r2 -> size_ok","const r1, 1000","eq r2, r0, r1","bif r2 -> size_ok","bif r3 -> end","size_ok:"] {add(s);}
+        } else {
+            add(&format!("const r1, {}",PACKET_SIZE));
+            for s in ["eq r2, r0, r1","bif r2 -> size_ok","bif r3 -> end","size_ok:"] {add(s);}
+        }
+        add("load r0, ip_proto");
         add(&format!("const r1, {}",PACKET_PROTO));
         for s in ["eq r2, r0, r1","bif r2 -> proto_ok","bif r3 -> end","proto_ok:"] {add(s);}
         if PACKET_TTL<255 {
             add("load r0, ip_ttl");add(&format!("const r1, {}",PACKET_TTL));
             for s in ["eq r2, r0, r1","bif r2 -> ttl_ok","bif r3 -> end","ttl_ok:"] {add(s);}
         }
-        if MODE=="mapper_ladder" {
+        if MODE=="open_loop_bundle" || MODE=="open_loop_fanout" {
+            for x in ["load r0, seq","const r1, 0","eq r2, r0, r1","bif r2 -> open_loop","bif r3 -> end","open_loop:"] {add(x);}
+            add("bif r3 -> sample");
+        } else if MODE=="mapper_ladder" {
             for x in ["load r0, ip_ttl","const r1, 16","lt r2, r0, r1","bif r2 -> sample"] {add(x);}
         } else if MODE=="oddsize_flow" || MODE=="login_fanout_v2" {add("bif r3 -> sample");}
         else if MODE=="echo" {

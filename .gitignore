@@ -55,3 +55,8 @@ experiments/sync-late-start/audit-worlds/
 experiments/sync-late-start/generated/
 experiments/sync-late-start/practice-runs/
 experiments/sync-late-start/record-tests/
+experiments/open-loop-bundle/audit-results.json
+experiments/open-loop-bundle/generated/
+experiments/fastly-destination-fanout/audit-results.json
+experiments/fastly-destination-fanout/record-results.json
+experiments/fastly-destination-fanout/generated/

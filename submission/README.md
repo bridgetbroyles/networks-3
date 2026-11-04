@@ -5,7 +5,7 @@ Eggs 7, 8, 10, 14, 16, 19 and 20 are already won.
 
 | Folder | Purpose |
 | --- | --- |
-| next/ | No Claim 18 pair is ready. Do not submit from this directory. |
+| next/ | Focused, tested Claim 18 pair; submit only the two Wasm files in its folder. |
 | completed/ | Already submitted pairs associated with won eggs; do not resubmit. |
 | truth/ | Current truth-run observer. |
 | evidence/ | Exact earlier truth-run observers for reproducibility. |
@@ -37,4 +37,11 @@ Claim 16's synchronized-camera rule also won no egg and is archived under
 `history/failed-claim-16-camera-synchronized-rates/`. Claim 17's simultaneous
 late activation of the two returned Sync sources also failed and is archived
 under `history/failed-claim-17-sync-late-start/`. These results rule out the
-current family of source-correlation guesses; no Claim 18 pair is ready.
+current family of source-correlation guesses.
+
+Claim 18 is prepared under
+`next/claim-18-fastly-destination-fanout/`. It targets the independently
+retained packet-level signature at S7: one sequence-zero 200-byte TCP source
+reaches at least 50 destinations in one `/24` within five seconds. This is not
+the rejected three-pattern bundle and does not depend on another anomaly being
+present. See `docs/A3_CLAIM_18_PREPARED.md` for evidence and limits.
