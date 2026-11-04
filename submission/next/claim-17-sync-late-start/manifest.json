@@ -1,0 +1,18 @@
+{
+  "server_claim": 17,
+  "hypothesis": "two low-rate 1000-byte sources at S1 begin together after startup",
+  "required_same_1500ms_observation_window": true,
+  "maximum_first_window_packets": 120,
+  "maximum_rate_ratio": 1.35,
+  "source_site": 1,
+  "files": {
+    "switch.wasm": {
+      "bytes": 129230,
+      "sha256": "2f5af58f867d8c86d15de851a0fe05062a7ef46c0ad5658b8a7e678e5cb4d766"
+    },
+    "detect.wasm": {
+      "bytes": 63683,
+      "sha256": "1f53f7c3465cecf474957b31d419a1c542420e97d68e5c28e3b0d23a7ff1c5e2"
+    }
+  }
+}

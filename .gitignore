@@ -51,3 +51,7 @@ experiments/camera-synchronized-rates/audit-worlds/
 experiments/camera-synchronized-rates/generated/
 experiments/camera-synchronized-rates/practice-runs/
 experiments/camera-synchronized-rates/record-tests/
+experiments/sync-late-start/audit-worlds/
+experiments/sync-late-start/generated/
+experiments/sync-late-start/practice-runs/
+experiments/sync-late-start/record-tests/

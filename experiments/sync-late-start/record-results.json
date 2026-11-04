@@ -1,0 +1,80 @@
+[
+  {
+    "case": "truth-shaped-positive",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "case": "positive-extra-later-records",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "case": "one-source",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "staggered",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "unequal-rates",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "two-high-rate-sources",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "startup-twins",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "wrong-switch",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "wrong-size",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "zero-count",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "truncated",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "malformed",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "empty",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  }
+]

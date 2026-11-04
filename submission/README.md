@@ -1,11 +1,11 @@
 # Submissions
 
-Last confirmed result: **68 points**, fifteen completed attempts, **15 remaining**.
+Last confirmed result: **68 points**, sixteen completed attempts, **14 remaining**.
 Eggs 7, 8, 10, 14, 16, 19 and 20 are already won.
 
 | Folder | Purpose |
 | --- | --- |
-| [next/claim-16-camera-synchronized-rates](next/claim-16-camera-synchronized-rates/README.md) | Current fully audited Claim 16 candidate. |
+| [next/claim-17-sync-late-start](next/claim-17-sync-late-start/README.md) | Current audited Claim 17 candidate. |
 | completed/ | Already submitted pairs associated with won eggs; do not resubmit. |
 | truth/ | Current truth-run observer. |
 | evidence/ | Exact earlier truth-run observers for reproducibility. |
@@ -33,5 +33,6 @@ egg and is archived under `history/failed-claim-14-akamai-299-side-flow/`.
 
 Claim 15's Login one-source/three-destination pair won no new egg and is
 archived under `history/failed-claim-15-login-three-destination-fanout/`.
-Claim 16 is now the current candidate; it tests exact synchronized rate changes
-between two 1,000-byte sources at S6.
+Claim 16's synchronized-camera rule also won no egg and is archived under
+`history/failed-claim-16-camera-synchronized-rates/`. Claim 17 instead tests
+the simultaneous late activation of the two returned Sync sources at S1.

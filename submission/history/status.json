@@ -1,6 +1,6 @@
 {
-  "claims_used": 15,
-  "claims_remaining": 15,
+  "claims_used": 16,
+  "claims_remaining": 14,
   "confirmed_points": 68,
   "won_eggs": [
     7,
@@ -33,10 +33,10 @@
   "minimum_additional_wins_under_best_difficulty_mix": 6,
   "unsubmitted_claims_with_confirmed_hidden_wins": 0,
   "recent_user_report": {
-    "server_claim": 15,
+    "server_claim": 16,
     "reported_at": "2026-11-03 America/Chicago",
     "result": "no new egg won",
-    "folder": "submission/history/failed-claim-15-login-three-destination-fanout",
+    "folder": "submission/history/failed-claim-16-camera-synchronized-rates",
     "points_after": 68
   },
   "successful_submission": {
@@ -57,7 +57,7 @@
     },
     "result": "won Egg 7 - Traffic - The traceroute"
   },
-  "next_server_submission": 16,
+  "next_server_submission": 17,
   "hold_related_outage_variants": true,
   "confirmed_failed_revised_submissions": [
     {
@@ -146,24 +146,38 @@
     },
     "result": "no new egg won"
   },
-  "next_option": "submission/next/claim-16-camera-synchronized-rates",
+  "failed_claim_16": {
+    "folder": "submission/history/failed-claim-16-camera-synchronized-rates",
+    "files": {
+      "switch.wasm": {
+        "bytes": 129242,
+        "sha256": "c340506a81708461b8d5a41963297b8dbb645edbee4a31d832e6d373d586ffd5"
+      },
+      "detect.wasm": {
+        "bytes": 71863,
+        "sha256": "46fdc0faa66eb072bd0e0f88fef9850e4c3251084c4ab6f1090b6420fbee9ece"
+      }
+    },
+    "result": "no new egg won"
+  },
+  "next_option": "submission/next/claim-17-sync-late-start",
   "next_pair_files": {
     "switch.wasm": {
-      "bytes": 129242,
-      "sha256": "c340506a81708461b8d5a41963297b8dbb645edbee4a31d832e6d373d586ffd5"
+      "bytes": 129230,
+      "sha256": "2f5af58f867d8c86d15de851a0fe05062a7ef46c0ad5658b8a7e678e5cb4d766"
     },
     "detect.wasm": {
-      "bytes": 71863,
-      "sha256": "46fdc0faa66eb072bd0e0f88fef9850e4c3251084c4ab6f1090b6420fbee9ece"
+      "bytes": 63683,
+      "sha256": "1f53f7c3465cecf474957b31d419a1c542420e97d68e5c28e3b0d23a7ff1c5e2"
     }
   },
   "next_pair_validation": {
-    "network_cases": 576,
-    "record_checks": 14,
+    "network_cases": 360,
+    "record_checks": 13,
     "practice_truth_runs": 9,
     "repository_tests": 158,
-    "largest_claim_log_bytes": 883,
+    "largest_claim_log_bytes": 1252,
     "all_passed": true,
-    "confidence": "highly tested local synchronization candidate that is true on Truth Run 3; hidden egg causality remains unverified"
+    "confidence": "audited hypothesis tied to the two returned Sync customers; hidden egg causality remains unverified"
   }
 }

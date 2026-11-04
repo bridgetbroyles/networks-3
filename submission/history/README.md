@@ -1,7 +1,7 @@
 # Submission history
 
-Last reported server result: Claim 15 won no new egg. Confirmed total: 68
-points, with 15 attempts remaining; Eggs 7, 8, 10, 14, 16, 19 and 20 are won.
+Last reported server result: Claim 16 won no new egg. Confirmed total: 68
+points, with 14 attempts remaining; Eggs 7, 8, 10, 14, 16, 19 and 20 are won.
 
 Known failed submissions: old recovered-link-0-1 (Claim 3), old
 recovered-link-10-11, and revised capacity-12-13 (Claim 6). The server gives
@@ -35,4 +35,6 @@ Claim 14's 299-byte Akamai reverse-flow detector won no egg and is archived
 under `submission/history/failed-claim-14-akamai-299-side-flow/`. Claim 15's
 Login three-destination fanout detector also won no egg and is archived under
 `submission/history/failed-claim-15-login-three-destination-fanout/`. The
-synchronized S6 camera-rate candidate is now the current Claim 16 candidate.
+synchronized S6 camera-rate pair also failed and is archived under
+`failed-claim-16-camera-synchronized-rates/`. The current candidate is Claim
+17's distinct S1 Sync late-start hypothesis.

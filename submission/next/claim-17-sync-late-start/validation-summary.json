@@ -1,0 +1,16 @@
+{
+  "network_cases": 360,
+  "network_seeds": 12,
+  "network_loads": [1.0, 1.25, 1.5],
+  "record_checks": 13,
+  "practice_truth_load_runs": 9,
+  "practice_expected_false": 9,
+  "repository_tests": 158,
+  "largest_claim_log_bytes": 1252,
+  "claim_log_cap_bytes": 24576,
+  "truth_run_1_detected": false,
+  "truth_run_2_detected": false,
+  "truth_run_3_detected": true,
+  "all_local_checks_passed": true,
+  "causal_status": "unverified until graded"
+}

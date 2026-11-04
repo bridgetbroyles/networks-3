@@ -1,8 +1,7 @@
-# Current Claim 16: synchronized S6 camera rates
+# Failed Claim 16: synchronized S6 camera rates
 
-Claim 15 has returned with no new egg. Upload this folder's `switch.wasm` and
-`detect.wasm` together to **A3 - Claim**. Do not mix either file with a file
-from another claim package.
+Claim 16 returned with no new egg. Do not submit either file again. The pair is
+preserved only to record the exact failed hypothesis and artifacts.
 
 The observer makes S6 the logging switch and records source counters every 1.5
 seconds. The detector requires two 1,000-byte sources to match within one

@@ -1,0 +1,3256 @@
+{
+  "cases": 360,
+  "all_passed": true,
+  "max_log_bytes": 1252,
+  "claim_log_cap_bytes": 24576,
+  "switch.wasm": {
+    "bytes": 129230,
+    "sha256": "2f5af58f867d8c86d15de851a0fe05062a7ef46c0ad5658b8a7e678e5cb4d766"
+  },
+  "detect.wasm": {
+    "bytes": 63683,
+    "sha256": "1f53f7c3465cecf474957b31d419a1c542420e97d68e5c28e3b0d23a7ff1c5e2"
+  },
+  "results": [
+    {
+      "case": "positive",
+      "seed": 7201,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7201,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7201,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7201,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7201,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7201,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7201,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7201,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7201,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7201,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7201,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7201,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7201,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7201,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7201,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7201,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7201,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7201,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7201,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7201,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7201,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7201,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7201,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7201,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7201,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7201,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7201,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7201,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7201,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7201,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7202,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7202,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7202,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7202,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7202,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7202,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7202,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7202,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7202,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7202,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7202,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7202,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7202,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7202,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7202,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7202,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7202,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7202,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7202,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7202,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7202,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7202,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7202,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7202,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7202,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7202,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7202,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7202,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7202,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7202,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7203,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7203,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7203,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7203,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7203,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7203,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7203,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7203,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7203,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7203,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7203,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7203,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7203,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7203,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7203,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7203,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7203,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7203,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7203,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7203,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7203,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7203,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7203,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7203,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7203,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7203,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7203,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7203,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7203,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7203,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7204,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7204,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7204,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7204,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7204,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7204,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7204,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7204,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7204,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7204,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7204,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7204,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7204,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7204,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7204,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7204,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7204,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7204,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7204,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7204,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7204,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7204,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7204,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7204,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7204,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7204,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7204,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7204,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7204,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7204,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7205,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7205,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7205,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7205,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7205,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7205,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7205,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7205,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7205,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7205,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7205,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7205,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7205,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7205,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7205,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7205,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7205,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7205,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7205,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7205,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7205,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7205,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7205,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7205,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7205,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7205,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7205,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7205,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7205,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7205,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7206,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7206,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7206,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7206,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7206,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7206,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7206,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7206,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7206,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7206,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7206,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7206,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7206,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7206,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7206,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7206,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7206,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7206,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7206,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7206,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7206,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7206,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7206,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7206,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7206,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7206,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7206,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7206,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7206,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7206,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7207,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7207,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7207,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7207,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7207,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7207,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7207,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7207,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7207,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7207,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7207,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7207,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7207,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7207,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7207,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7207,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7207,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7207,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7207,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7207,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7207,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7207,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7207,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7207,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7207,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7207,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7207,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7207,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7207,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7207,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7208,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7208,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7208,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7208,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7208,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7208,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7208,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7208,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7208,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7208,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7208,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7208,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7208,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7208,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7208,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7208,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7208,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7208,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7208,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7208,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7208,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7208,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7208,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7208,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7208,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7208,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7208,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7208,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7208,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7208,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7209,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7209,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7209,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7209,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7209,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7209,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7209,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7209,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7209,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7209,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7209,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7209,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7209,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7209,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7209,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7209,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7209,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7209,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7209,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7209,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7209,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7209,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7209,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7209,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7209,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7209,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7209,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7209,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7209,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7209,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7210,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7210,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7210,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7210,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7210,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7210,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7210,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7210,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7210,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7210,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7210,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7210,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7210,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7210,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7210,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7210,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7210,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7210,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7210,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7210,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7210,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7210,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7210,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7210,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7210,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7210,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7210,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7210,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7210,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7210,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7211,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7211,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7211,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7211,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7211,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7211,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7211,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7211,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7211,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7211,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7211,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7211,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7211,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7211,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7211,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7211,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7211,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7211,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7211,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7211,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7211,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7211,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7211,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7211,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7211,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7211,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7211,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7211,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7211,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7211,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7212,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7212,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7212,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7212,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7212,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7212,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7212,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7212,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7212,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7212,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7212,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7212,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7212,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7212,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7212,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7212,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7212,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7212,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7212,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7212,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive",
+      "seed": 7212,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "positive-late",
+      "seed": 7212,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "one-source",
+      "seed": 7212,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 883,
+      "pass": true
+    },
+    {
+      "case": "staggered",
+      "seed": 7212,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "adjacent-window",
+      "seed": 7212,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "unequal-rates",
+      "seed": 7212,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "high-rate-twins",
+      "seed": 7212,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "startup-twins",
+      "seed": 7212,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    },
+    {
+      "case": "wrong-switch",
+      "seed": 7212,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 524,
+      "pass": true
+    },
+    {
+      "case": "wrong-size",
+      "seed": 7212,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 1252,
+      "pass": true
+    }
+  ]
+}

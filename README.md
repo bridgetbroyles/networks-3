@@ -13,9 +13,9 @@ from a packet to a true or false.
 ## Current submission status
 
 Start at [submission/README.md](submission/README.md): 68 confirmed points,
-Claim 15 failed, and Claim 16 is the current fully audited candidate. Claim
-16's source and validation live in
-[experiments/camera-synchronized-rates](experiments/camera-synchronized-rates/README.md).
+Claim 16 failed, and Claim 17 is the current audited candidate. Claim 17's
+source and validation live in
+[experiments/sync-late-start](experiments/sync-late-start/README.md).
 Failed and completed pairs are preserved under `submission/history/` and
 `submission/completed/`. Earlier analysis documents remain historical evidence,
 not current submission instructions.
