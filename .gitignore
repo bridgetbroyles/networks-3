@@ -46,3 +46,8 @@ experiments/login-three-destination-fanout/audit-worlds/
 experiments/login-three-destination-fanout/generated/
 experiments/login-three-destination-fanout/practice-runs/
 experiments/login-three-destination-fanout/record-tests/
+experiments/camera-synchronized-rates/audit-results.json
+experiments/camera-synchronized-rates/audit-worlds/
+experiments/camera-synchronized-rates/generated/
+experiments/camera-synchronized-rates/practice-runs/
+experiments/camera-synchronized-rates/record-tests/

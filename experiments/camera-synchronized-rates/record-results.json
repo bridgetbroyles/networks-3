@@ -1,0 +1,86 @@
+[
+  {
+    "case": "positive",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "case": "positive-out-of-order",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "case": "within-one-packet",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "case": "only-one-source",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "constant-twins",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "two-level-twins",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "insufficient-variation",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "one-mismatched-window",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "only-five-windows",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "wrong-switch",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "wrong-size",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "truncated",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "malformed",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "empty",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  }
+]

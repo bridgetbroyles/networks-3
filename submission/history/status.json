@@ -1,6 +1,6 @@
 {
-  "claims_used": 13,
-  "claims_remaining": 17,
+  "claims_used": 14,
+  "claims_remaining": 16,
   "confirmed_points": 68,
   "won_eggs": [
     7,
@@ -33,10 +33,10 @@
   "minimum_additional_wins_under_best_difficulty_mix": 6,
   "unsubmitted_claims_with_confirmed_hidden_wins": 0,
   "recent_user_report": {
-    "server_claim": 13,
+    "server_claim": 14,
     "reported_at": "2026-11-03 America/Chicago",
-    "result": "won Egg 7 - Traffic - The traceroute",
-    "folder": "submission/completed/egg-07-traceroute",
+    "result": "no new egg won",
+    "folder": "submission/history/failed-claim-14-akamai-299-side-flow",
     "points_after": 68
   },
   "successful_submission": {
@@ -57,7 +57,7 @@
     },
     "result": "won Egg 7 - Traffic - The traceroute"
   },
-  "next_server_submission": 14,
+  "next_server_submission": 16,
   "hold_related_outage_variants": true,
   "confirmed_failed_revised_submissions": [
     {
@@ -118,47 +118,43 @@
     },
     "result": "no new egg won"
   },
-  "next_option": "submission/next/claim-14-akamai-299-side-flow",
+  "failed_claim_14": {
+    "folder": "submission/history/failed-claim-14-akamai-299-side-flow",
+    "files": {
+      "switch.wasm": {
+        "bytes": 133856,
+        "sha256": "049831c981290ea48916f7d117492fd6e38466ea07c7dd67e9a1f764cadc1a5c"
+      },
+      "detect.wasm": {
+        "bytes": 67191,
+        "sha256": "c8dd4d29acc51d72201f21c077ac101d72125dccb84a5f3e1096e84aa64a53ca"
+      }
+    },
+    "result": "no new egg won"
+  },
+  "pending_submission": {
+    "server_submission": 15,
+    "folder": "submission/next/claim-15-login-three-destination-fanout",
+    "status": "submitted; awaiting server result"
+  },
+  "next_option": "submission/queued/claim-16-camera-synchronized-rates",
   "next_pair_files": {
     "switch.wasm": {
-      "bytes": 133856,
-      "sha256": "049831c981290ea48916f7d117492fd6e38466ea07c7dd67e9a1f764cadc1a5c"
+      "bytes": 129242,
+      "sha256": "c340506a81708461b8d5a41963297b8dbb645edbee4a31d832e6d373d586ffd5"
     },
     "detect.wasm": {
-      "bytes": 67191,
-      "sha256": "c8dd4d29acc51d72201f21c077ac101d72125dccb84a5f3e1096e84aa64a53ca"
+      "bytes": 71863,
+      "sha256": "46fdc0faa66eb072bd0e0f88fef9850e4c3251084c4ab6f1090b6420fbee9ece"
     }
   },
   "next_pair_validation": {
-    "network_cases": 480,
+    "network_cases": 576,
     "record_checks": 14,
     "practice_truth_runs": 9,
     "repository_tests": 158,
-    "largest_claim_log_bytes": 1980,
+    "largest_claim_log_bytes": 883,
     "all_passed": true,
-    "confidence": "moderate-high: exact unusual 299-byte reverse-flow evidence and direct Plant::SideFlow recreation with near misses; packet provenance is not explicitly labeled in the returned truth log"
-  },
-  "queued_after_next_result": {
-    "server_submission": 15,
-    "folder": "submission/queued/claim-15-login-three-destination-fanout",
-    "hypothesis": "one S8 Login source repeatedly cycles over three destinations",
-    "files": {
-      "switch.wasm": {
-        "bytes": 133868,
-        "sha256": "c8111e5eb16df02e6ba286a2748481bb0026972e21eea849008fad151baba0ad"
-      },
-      "detect.wasm": {
-        "bytes": 55183,
-        "sha256": "da1dbaeb3bd1708f5a5b1e05e1c058f38a306af93dc2120b462f9f681bcf882d"
-      }
-    },
-    "validation": {
-      "network_cases": 528,
-      "record_checks": 12,
-      "practice_truth_runs": 9,
-      "repository_tests": 158,
-      "largest_claim_log_bytes": 2870,
-      "all_passed": true
-    }
+    "confidence": "highly tested local synchronization candidate that is true on Truth Run 3; hidden egg causality remains unverified"
   }
 }

@@ -1,5 +1,9 @@
 # A3 Claim 14 submission
 
+> Result: no new egg won. This pair is archived under
+> `submission/history/failed-claim-14-akamai-299-side-flow/` and must not be
+> resubmitted.
+
 Claim 14 targets a reverse stream from the normally receiving Akamai-users
 range at S2. Truth Run 3 contains 26 source windows for this customer, all
 averaging exactly 299 bytes per packet, plus four exact 299-byte TCP samples
@@ -31,5 +35,5 @@ This is a strong causal candidate, but unlike Echo and Traceroute the returned
 log does not expose a flag proving that the packets came from a `side_flow` row.
 The confidence is therefore moderate-high rather than absolute.
 
-Upload only the two Wasm files under
-`submission/next/claim-14-akamai-299-side-flow/`, together in one claim.
+The exact submitted pair is retained only for reproducibility under
+`submission/history/failed-claim-14-akamai-299-side-flow/`.

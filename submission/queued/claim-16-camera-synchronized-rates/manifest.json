@@ -1,0 +1,17 @@
+{
+  "server_claim": 16,
+  "hypothesis": "two 1000-byte sources at S6 change rate in exact synchrony",
+  "minimum_aligned_windows": 6,
+  "minimum_distinct_positive_levels": 3,
+  "source_site": 6,
+  "files": {
+    "switch.wasm": {
+      "bytes": 129242,
+      "sha256": "c340506a81708461b8d5a41963297b8dbb645edbee4a31d832e6d373d586ffd5"
+    },
+    "detect.wasm": {
+      "bytes": 71863,
+      "sha256": "46fdc0faa66eb072bd0e0f88fef9850e4c3251084c4ab6f1090b6420fbee9ece"
+    }
+  }
+}

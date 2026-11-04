@@ -1,7 +1,7 @@
-# Queued Claim 15: Login repeated three-destination fanout
+# Submitted Claim 15: Login repeated three-destination fanout
 
-Do not submit this before the complete Claim 14 result is recorded. When it is
-promoted to `submission/next/`, upload `switch.wasm` and `detect.wasm` together.
+This exact pair has been submitted and is awaiting the server result. Do not
+upload Claim 16 until the complete response for this pair arrives.
 
 This claim observes one 100-byte TCP Login source at S8 repeatedly reaching
 three destinations. Truth Run 1 captured 11 packets from the same source to

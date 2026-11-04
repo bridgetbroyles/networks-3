@@ -1,0 +1,17 @@
+{
+  "network_cases": 576,
+  "record_checks": 14,
+  "practice_truth_load_runs": 9,
+  "practice_expected_false": 9,
+  "practice_note": "all false as expected; the disclosed six-switch topology has no S6, so positive coverage comes from the 15-switch audit",
+  "repository_tests": 158,
+  "largest_claim_log_bytes": 883,
+  "claim_log_cap_bytes": 24576,
+  "all_passed": true,
+  "truth_run_3_detected": true,
+  "hypothesis": "two 1000-byte sources at S6 change rate in exact synchrony",
+  "minimum_aligned_windows": 6,
+  "minimum_distinct_positive_levels": 3,
+  "minimum_variation_ratio": 1.7,
+  "confidence": "highly tested candidate using repeated positive local evidence; hidden egg causality remains unverified"
+}
