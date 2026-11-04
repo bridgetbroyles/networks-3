@@ -1,6 +1,6 @@
 {
-  "claims_used": 17,
-  "claims_remaining": 13,
+  "claims_used": 18,
+  "claims_remaining": 12,
   "confirmed_points": 68,
   "won_eggs": [
     7,
@@ -33,10 +33,10 @@
   "minimum_additional_wins_under_best_difficulty_mix": 6,
   "unsubmitted_claims_with_confirmed_hidden_wins": 0,
   "recent_user_report": {
-    "server_claim": 17,
+    "server_claim": 18,
     "reported_at": "2026-11-04 America/Chicago",
     "result": "no new egg won",
-    "folder": "submission/history/failed-claim-17-sync-late-start",
+    "folder": "submission/history/failed-claim-18-fastly-destination-fanout",
     "points_after": 68
   },
   "successful_submission": {
@@ -57,7 +57,7 @@
     },
     "result": "won Egg 7 - Traffic - The traceroute"
   },
-  "next_server_submission": 18,
+  "next_server_submission": 19,
   "hold_related_outage_variants": true,
   "confirmed_failed_revised_submissions": [
     {
@@ -177,6 +177,6 @@
   "next_option": null,
   "next_pair_validation": {
     "all_passed": false,
-    "confidence": "no candidate is currently strong enough to spend Claim 18"
+    "confidence": "research in progress; no Claim 19 pair has passed the causal-evidence gate"
   }
 }
