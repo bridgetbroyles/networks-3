@@ -1,7 +1,7 @@
-# Claim 17: synchronized late starts at S1
+# Failed Claim 17: synchronized late starts at S1
 
-Upload `switch.wasm` and `detect.wasm` from this directory together to
-**A3 - Claim**. Do not upload the directory, manifest, README, or a ZIP.
+Do **not** submit this pair again. It was submitted as server Claim 17 and won
+no new egg.
 
 The detector asks whether two low-rate 1,000-byte sources at S1 first become
 active in the same 1.5-second observation window with similar initial packet
@@ -23,6 +23,8 @@ observation windows, unequal initial rates, two high-rate sources, startup
 sources, the wrong switch, and the wrong packet size. Other known delay, loss,
 failure, and scanner mechanisms remain active throughout the audit.
 
-Local testing proves the submitted programs implement this rule reliably. The
-server still provides the only causal test of whether this exact Sync behavior
-is an unwon egg.
+Local testing proved that the submitted programs implemented this rule
+reliably. The server result proved that the synchronized Sync activation was
+not controlled by an unwon egg. It was normal configuration, an incidental
+workload relationship, or an effect that remained unchanged when the grader
+toggled the target egg.

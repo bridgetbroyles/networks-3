@@ -1,6 +1,6 @@
 {
-  "claims_used": 16,
-  "claims_remaining": 14,
+  "claims_used": 17,
+  "claims_remaining": 13,
   "confirmed_points": 68,
   "won_eggs": [
     7,
@@ -33,10 +33,10 @@
   "minimum_additional_wins_under_best_difficulty_mix": 6,
   "unsubmitted_claims_with_confirmed_hidden_wins": 0,
   "recent_user_report": {
-    "server_claim": 16,
-    "reported_at": "2026-11-03 America/Chicago",
+    "server_claim": 17,
+    "reported_at": "2026-11-04 America/Chicago",
     "result": "no new egg won",
-    "folder": "submission/history/failed-claim-16-camera-synchronized-rates",
+    "folder": "submission/history/failed-claim-17-sync-late-start",
     "points_after": 68
   },
   "successful_submission": {
@@ -57,7 +57,7 @@
     },
     "result": "won Egg 7 - Traffic - The traceroute"
   },
-  "next_server_submission": 17,
+  "next_server_submission": 18,
   "hold_related_outage_variants": true,
   "confirmed_failed_revised_submissions": [
     {
@@ -160,24 +160,23 @@
     },
     "result": "no new egg won"
   },
-  "next_option": "submission/next/claim-17-sync-late-start",
-  "next_pair_files": {
-    "switch.wasm": {
-      "bytes": 129230,
-      "sha256": "2f5af58f867d8c86d15de851a0fe05062a7ef46c0ad5658b8a7e678e5cb4d766"
+  "failed_claim_17": {
+    "folder": "submission/history/failed-claim-17-sync-late-start",
+    "files": {
+      "switch.wasm": {
+        "bytes": 129230,
+        "sha256": "2f5af58f867d8c86d15de851a0fe05062a7ef46c0ad5658b8a7e678e5cb4d766"
+      },
+      "detect.wasm": {
+        "bytes": 63683,
+        "sha256": "1f53f7c3465cecf474957b31d419a1c542420e97d68e5c28e3b0d23a7ff1c5e2"
+      }
     },
-    "detect.wasm": {
-      "bytes": 63683,
-      "sha256": "1f53f7c3465cecf474957b31d419a1c542420e97d68e5c28e3b0d23a7ff1c5e2"
-    }
+    "result": "no new egg won"
   },
+  "next_option": null,
   "next_pair_validation": {
-    "network_cases": 360,
-    "record_checks": 13,
-    "practice_truth_runs": 9,
-    "repository_tests": 158,
-    "largest_claim_log_bytes": 1252,
-    "all_passed": true,
-    "confidence": "audited hypothesis tied to the two returned Sync customers; hidden egg causality remains unverified"
+    "all_passed": false,
+    "confidence": "no candidate is currently strong enough to spend Claim 18"
   }
 }
