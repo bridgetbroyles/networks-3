@@ -1,0 +1,16 @@
+{
+  "server_claim": 24,
+  "hypothesis": "link 1-2 repeatedly loses physical connectivity and recovers",
+  "minimum_recovered_outages": 2,
+  "minimum_common_missing_probe_interval_ms": 500,
+  "files": {
+    "switch.wasm": {
+      "bytes": 142288,
+      "sha256": "e9573583fe4768cb694da32a155997747e4cb0a77b29fb841a1d720bc72fae3e"
+    },
+    "detect.wasm": {
+      "bytes": 73339,
+      "sha256": "864caa911c9e40bd3264f56153c0161254f2ac1f9a3b62b05b94231060741fc3"
+    }
+  }
+}

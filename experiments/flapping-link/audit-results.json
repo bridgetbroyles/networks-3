@@ -1,0 +1,3580 @@
+{
+  "cases": 396,
+  "all_passed": true,
+  "max_log_bytes": 4486,
+  "claim_log_cap_bytes": 24576,
+  "switch.wasm": {
+    "bytes": 142288,
+    "sha256": "e9573583fe4768cb694da32a155997747e4cb0a77b29fb841a1d720bc72fae3e"
+  },
+  "detect.wasm": {
+    "bytes": 73339,
+    "sha256": "864caa911c9e40bd3264f56153c0161254f2ac1f9a3b62b05b94231060741fc3"
+  },
+  "results": [
+    {
+      "case": "positive-two-flaps",
+      "seed": 5101,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5101,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5101,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5101,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5101,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5101,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5101,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5101,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5101,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5101,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5101,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3835,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5101,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5101,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5101,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5101,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5101,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5101,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5101,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5101,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5101,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5101,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5101,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3388,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5101,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5101,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5101,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5101,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5101,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5101,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5101,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5101,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5101,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5101,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5101,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3388,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5102,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5102,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5102,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5102,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5102,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5102,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5102,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5102,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5102,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5102,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5102,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3835,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5102,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5102,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5102,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5102,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5102,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5102,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5102,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5102,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5102,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5102,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5102,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3388,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5102,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5102,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5102,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5102,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5102,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5102,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5102,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5102,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5102,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5102,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5102,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3388,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5103,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5103,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5103,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5103,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5103,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5103,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5103,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5103,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5103,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5103,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5103,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3835,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5103,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5103,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5103,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5103,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5103,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5103,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5103,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5103,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5103,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5103,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5103,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3388,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5103,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5103,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5103,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5103,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5103,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5103,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5103,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5103,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5103,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5103,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5103,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3388,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5104,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5104,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5104,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5104,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5104,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5104,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5104,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5104,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5104,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5104,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5104,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3835,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5104,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5104,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5104,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5104,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5104,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5104,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5104,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5104,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5104,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5104,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5104,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3388,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5104,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5104,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5104,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5104,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5104,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5104,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5104,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5104,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5104,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5104,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5104,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3388,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5105,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5105,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5105,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5105,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5105,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5105,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5105,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5105,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5105,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5105,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5105,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3835,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5105,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5105,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5105,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5105,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5105,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5105,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5105,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5105,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5105,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5105,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5105,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3388,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5105,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5105,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5105,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5105,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5105,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5105,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5105,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5105,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5105,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5105,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5105,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3388,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5106,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5106,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5106,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5106,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5106,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5106,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5106,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5106,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5106,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5106,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5106,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3835,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5106,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5106,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5106,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5106,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5106,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5106,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5106,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5106,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5106,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5106,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5106,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3388,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5106,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5106,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5106,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5106,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5106,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5106,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5106,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5106,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5106,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5106,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5106,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3388,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5107,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5107,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5107,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5107,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5107,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5107,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5107,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5107,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5107,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5107,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5107,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3835,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5107,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5107,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5107,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5107,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5107,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5107,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5107,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5107,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5107,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5107,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5107,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3388,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5107,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5107,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5107,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5107,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5107,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5107,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5107,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5107,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5107,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5107,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5107,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3388,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5108,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5108,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5108,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5108,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5108,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5108,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5108,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5108,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5108,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5108,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5108,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3835,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5108,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5108,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5108,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5108,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5108,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5108,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5108,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5108,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5108,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5108,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5108,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3388,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5108,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5108,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5108,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5108,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5108,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5108,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5108,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5108,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5108,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5108,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5108,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3388,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5109,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5109,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5109,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5109,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5109,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5109,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5109,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5109,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5109,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5109,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5109,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3835,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5109,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5109,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5109,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5109,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5109,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5109,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5109,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5109,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5109,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5109,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5109,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3388,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5109,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5109,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5109,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5109,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5109,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5109,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5109,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5109,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5109,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5109,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5109,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3388,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5110,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5110,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5110,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5110,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5110,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5110,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5110,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5110,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5110,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5110,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5110,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3835,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5110,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5110,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5110,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5110,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5110,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5110,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5110,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5110,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5110,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5110,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5110,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3388,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5110,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5110,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5110,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5110,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5110,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5110,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5110,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5110,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5110,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5110,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5110,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3388,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5111,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5111,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5111,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5111,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5111,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5111,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5111,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5111,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5111,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5111,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5111,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3835,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5111,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5111,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5111,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5111,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5111,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5111,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5111,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5111,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5111,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5111,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5111,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3388,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5111,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5111,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5111,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5111,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5111,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5111,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5111,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5111,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5111,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5111,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5111,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3388,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5112,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5112,
+      "load": 1.0,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5112,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5112,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5112,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5112,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5112,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5112,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5112,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5112,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5112,
+      "load": 1.0,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3835,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5112,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5112,
+      "load": 1.25,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5112,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5112,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5112,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5112,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5112,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5112,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5112,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5112,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5112,
+      "load": 1.25,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3388,
+      "pass": true
+    },
+    {
+      "case": "positive-two-flaps",
+      "seed": 5112,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "positive-three-flaps",
+      "seed": 5112,
+      "load": 1.5,
+      "expected": true,
+      "actual": true,
+      "log_bytes": 4006,
+      "pass": true
+    },
+    {
+      "case": "off",
+      "seed": 5112,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "single-recovered-outage",
+      "seed": 5112,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3942,
+      "pass": true
+    },
+    {
+      "case": "permanent-outage",
+      "seed": 5112,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4422,
+      "pass": true
+    },
+    {
+      "case": "one-long-outage",
+      "seed": 5112,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 4486,
+      "pass": true
+    },
+    {
+      "case": "too-short-twice",
+      "seed": 5112,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "wrong-link-flaps",
+      "seed": 5112,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3830,
+      "pass": true
+    },
+    {
+      "case": "alternating-links",
+      "seed": 5112,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3894,
+      "pass": true
+    },
+    {
+      "case": "keepalive-gaps-only",
+      "seed": 5112,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3958,
+      "pass": true
+    },
+    {
+      "case": "congestion-only",
+      "seed": 5112,
+      "load": 1.5,
+      "expected": false,
+      "actual": false,
+      "log_bytes": 3388,
+      "pass": true
+    }
+  ]
+}

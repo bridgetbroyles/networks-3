@@ -1,0 +1,15 @@
+{
+  "candidate_claim": 24,
+  "target": "Egg 18 - Failure - The flapping link",
+  "hypothesis": "link 1-2 completes at least two distinct physical outage and recovery cycles",
+  "encoded_record_cases": 10,
+  "encoded_record_cases_passed": 10,
+  "whole_network_cases": 396,
+  "whole_network_cases_passed": 396,
+  "seeds": 12,
+  "load_scales": [1.0, 1.25, 1.5],
+  "maximum_log_bytes": 4486,
+  "claim_log_cap_bytes": 24576,
+  "switch_sha256": "e9573583fe4768cb694da32a155997747e4cb0a77b29fb841a1d720bc72fae3e",
+  "detect_sha256": "864caa911c9e40bd3264f56153c0161254f2ac1f9a3b62b05b94231060741fc3"
+}

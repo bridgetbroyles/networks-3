@@ -1,0 +1,62 @@
+[
+  {
+    "case": "positive-two-flaps",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "case": "positive-three-flaps",
+    "expected": true,
+    "actual": true,
+    "pass": true
+  },
+  {
+    "case": "one-flap",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "one-direction-only",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "second-never-recovers",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "live-port-traffic",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "missing-port-observations",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "empty",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "malformed",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  },
+  {
+    "case": "truncated",
+    "expected": false,
+    "actual": false,
+    "pass": true
+  }
+]
