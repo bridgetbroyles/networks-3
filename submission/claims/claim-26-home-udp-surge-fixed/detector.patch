@@ -1,0 +1,26 @@
+diff --git a/experiments/login-three-destination-fanout/source/detector/src/lib.rs b/detector/src/lib.rs
+index 674bfb4..21d6f2e 100644
+--- a/experiments/login-three-destination-fanout/source/detector/src/lib.rs
++++ b/experiments/login-three-destination-fanout/source/detector/src/lib.rs
+@@ -188,7 +188,11 @@ fn detect(bytes:&[u8])->bool {
+      let destinations:BTreeSet<_>=packets.iter().map(|p|p.dst).collect();
+      let Some(first_packet)=packets.iter().map(|p|p.t).min()else{return false;};
+      let Some(last_packet)=packets.iter().map(|p|p.t).max()else{return false;};
+-     if sources.len()<5||destinations.len()!=1||last_packet.saturating_sub(first_packet)<80{return false;}
++     // Fix: the observer samples each host pair's first two packets, then every
++     // 256th; at load 1.0 (~15 packets/s per host) no later sample lands inside
++     // a 15 s flood, so do not require samples to span the flood.
++     let _ = last_packet;
++     if sources.len()<5||destinations.len()!=1{return false;}
+ 
+      let normal=|s:&Stat|s.p>0&&(180..=220).contains(&(s.b/s.p.max(1)));
+      let baseline=median(&v.iter().filter(|s|normal(s)).map(|s|s.p).collect::<Vec<_>>());
+@@ -208,7 +212,7 @@ fn detect(bytes:&[u8])->bool {
+        let after=v[end+1..].iter().filter(|s|normal(s)).count();
+        // Packet samples are deliberately sparse after the first host/hash
+        // observations, so counter evidence owns the exact end time.
+-       if before>=1&&after>=1&&first_packet<=v[start].t+15&&last_packet+50>=v[end].t{return true;}
++       if before>=1&&after>=1&&first_packet<=v[start].t+15{return true;}
+      }
+      false
+    })
