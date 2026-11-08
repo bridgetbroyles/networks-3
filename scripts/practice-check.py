@@ -30,6 +30,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 WORLDS = ROOT / "worlds/practice"
 SIM = ROOT / "target/release/competitive_net_sim"
+if not SIM.exists(): SIM = SIM.with_suffix(".exe")
 
 
 def read_toml(text: str) -> dict:
